@@ -55,7 +55,8 @@
 \usepackage{hyperref,url}
 \hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=red}
 
-\usepackage[obeyFinal]{todonotes}
+%\usepackage[obeyFinal]{todonotes}
+\usepackage{todonotes}
 
 \newcommand{\jrp}[1]{\todo[color=blue!30, size=\small]{JRP: #1}}
 
@@ -124,7 +125,7 @@
 %% \fntext[label3]{}
 
 \title{The Overlapping Control Volume Finite Element Method for Multiphase Porous Media Flow Modelling \\
-Part I: Formulation}
+Part I: Numerical Formulation}
 
 %% use optional labels to link authors explicitly to addresses:
 \author[UoA]{J.L.M.A. Gomes}\corref{cor1}\ead{jefferson.gomes@abdn.ac.uk} \author[IC]{D. Pavlidis} 
@@ -139,7 +140,7 @@ Part I: Formulation}
 \address[NORMS]{Novel Reservoir Modelling and Simulation Group, Department of Earth Science and Engineering, Imperial College London, UK}
 
 \begin{abstract} 
-This is the first of two papers devoted to a novel finite element method formulation to solve subsurface multi-fluid flows. The overlapping control volume finite element method (OCVFEM) has two major strengths, firstly it uses a dual consistent pressure-velocity representation in control volume and finite element spaces which ensures local mass conservation. Secondly, it uses a family of finite element types that ensures Darcy equations for multiphase flows can be exactly enforced. The underlying mass conservation equations are solved in control volume space and finite elements are used to obtain high-order fluxes on control volume boundaries. The novelty of the method lies in (a) permitting both continuous and discontinuous description of pressures and saturations between elements; (b) the use of arbitarily high-order polynomial representation for pressure and velocity within the mixed formulation; (c) the use of high-order flux-limited methods to avoid introducing non-physical oscillations as well as achieving high-order time accuracy where and when possible.   In this paper, the new model is described and test cases are introduced to show the numerical accuracy in one- and two-dimensional simulations. More extensive applications are introduced in the second part of this two part paper. 
+This is the first of two papers devoted to a novel finite element method formulation to solve subsurface multi-fluid flows. The overlapping control volume finite element method (OCVFEM) has two major strengths, firstly it uses a dual consistent pressure-velocity representation in control volume and finite element spaces which ensures local mass conservation. Secondly, it uses a family of finite element types that ensures multiphase Darcy equations can be exactly enforced. The underlying mass conservation equations are solved in control volume space and finite elements are used to obtain high-order fluxes on control volume boundaries. The novelty of the method lies in (a) permitting both continuous and discontinuous description of pressures and saturations between elements; (b) the use of arbitarily high-order polynomial representation for pressure and velocity within the mixed formulation; (c) the use of high-order flux-limited methods to avoid introducing non-physical oscillations as well as achieving high-order time accuracy where and when possible. In this paper, the new model is described and test cases are introduced to show the numerical accuracy in one- and two-dimensional simulations. More extensive applications are introduced in the second part of this two part paper. 
 \end{abstract}
 
 \begin{keyword} %% keywords here, in the form: keyword \sep keyword
@@ -160,9 +161,10 @@ Multi-fluid flows \sep Darcy equations \sep Porous media \sep Finite element met
 \section{Introduction}
 Numerical modelling of multiphase flow in porous media has applications in a wide range of disciplines from hydrocarbon and groundwater exploration and safety assessment of deep geological disposal of radioactive waste to CO$_{\text{2}}$ migration and trapping mechanisms in carbon capture and storage (CCS) operations~\citep{chen_2006, aiea_1999, pruess_1990c, jiang_2011}. Complex geometries with irregular (and often internal) boundaries and heterogeneous geological formations are some of the main challenges to accurately simulate such flows.
 
-Finite difference methods (FDM) have been extensively used in modelling and simulation of fluid flows in porous media~\citep{aziz_1986, chen_1997, chen_2005} however, they are strongly dependent on mesh quality and orientation and cannot easily represent complex geometries. In addition, FDM produce excessive numerical dispersion in heterogeneous media \citep{chavent_1986}. The geometrical flexibility of finite element methods (FEM) has proven to overcome these deficiencies. Among FEM-based formulations for porous media, the control volume finite element method (CVFEM) has become increasingly popular as it can guarantee local mass conservation and high-order numerical accuracy as well as being able to use tetrahedral geometry-conforming elements~\citep{forsyth_1990, cordazzo_2004, fung_1992, geiger_2004, cumming_2011, hurtado_2007}.  \citet{huber_2000} demonstrated that the vertex-centred finite volume - finite element method (or Box scheme) can achieve similar goals~\citep[see also][]{helmig_1997}.
+Finite difference methods (FDM) have been extensively used in modelling and simulation of fluid flows in porous media~\citep{aziz_1986, chen_1997, chen_2005} however, they are strongly dependent on mesh quality and orientation and cannot easily represent complex geometries. In addition, FDM produce excessive numerical dispersion in heterogeneous porous matrix \citep{chavent_1986}. The geometrical flexibility of finite element methods (FEM) has proven to overcome these deficiencies. Among FEM-based formulations for porous media, the control volume finite element method (CVFEM) has become increasingly popular as it can guarantee local mass conservation and high-order numerical accuracy as well as being able to use tetrahedral geometry-conforming elements~\citep{forsyth_1990, cordazzo_2004, geiger_2004, hurtado_2007}.  \citet{huber_2000} demonstrated that the vertex-centred finite volume - finite element method (or Box scheme) can achieve similar goals~\citep[see also][]{helmig_1997}.
 
-For porous media flows, CVFEM discretisations with Galerkin-FEM formulation for the pressure equation has been used to solve Darcy and Richard equations as described by \citet{fung_1992} and \citet{cumming_2011}. \citet{durlofsky_1993,durlofsky_1994} investigated a mixed FEM formulation (i.e., piecewise constant in pressure and piecewise linear in velocity) and classical CVFEM for single phase Darcy flow. He concluded that the latter is more computationally efficient and numerically accurate than the former for simple problems involving a (relatively) small number of degrees of freedom. Moreover, for complex discontinuous and heterogeneous problems, mixed FEM formulations lead to physically realistic solutions.
+%For porous media flows, CVFEM discretisations with Galerkin-FEM formulation for the pressure equation has been used to solve Darcy and Richard equations as described by \citet{fung_1992} and \citet{cumming_2011}. 
+\citet{durlofsky_1993,durlofsky_1994} compared the performance of a mixed FEM formulation (i.e., piecewise constant in pressure and piecewise linear in velocity) and the classical CVFEM for single phase Darcy flow. He concluded that the latter is more computationally efficient and numerically accurate than the former for simple problems involving a (relatively) small number of degrees of freedom. In addition, for complex discontinuous and heterogeneous problems, mixed FEM formulations often lead to physically realistic solutions.
 
 \medskip
 
