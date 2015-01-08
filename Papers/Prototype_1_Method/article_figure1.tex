@@ -1,46 +1,22 @@
 
-
 %%%
 %%%  FIGURE 
 %%%
 \begin{figure}[h]
-%\vspace{-1.cm}
-%\vbox{
-
-%\begin{center}
-%\includegraphics[width=0.6\textwidth]{1D_Sketch_b.eps}
-%\vspace{-1.cm}
-%\end{center}
-%\hbox{\hspace{6.5cm}(a)}
-%\vspace{.1cm}
-%
-%\begin{center}
-%\includegraphics[width=1.\textwidth]{1D_Sketch.eps}
-%\vspace{-1.cm}
-%\end{center}
-%\hbox{\hspace{6.5cm}(b)}
-%\vspace{-.1cm}
-
-
-
 \vbox{
-\hbox{ \hspace{4.cm}
-\includegraphics[width=.55\textwidth]{diagrams/p0dgp1-cont-sat} \hspace{0.cm} (a)}
-\vspace{-0.2cm}
-\hbox{ \hspace{4.cm}
-\includegraphics[width=.55\textwidth]{diagrams/p1dgp2-cont-sat} \hspace{0.cm} (b)}
-\vspace{-0.2cm}
-\hbox{ \hspace{4.cm}
-\includegraphics[width=.55\textwidth]{diagrams/p2dgp1-dg-sat} \hspace{0.cm} (c)}
-\vspace{-0.2cm}
-
-%\vspace{.1cm}
+\hbox{\hspace{-0.5cm}\includegraphics[width=.6\textwidth]{diagrams/p0dgp1-cont-sat} 
+\hspace{-.9cm}\includegraphics[width=.6\textwidth]{diagrams/p1dgp2-cont-sat} }
+\hbox{\hspace{4cm}(a) \hspace{6.5cm}(b)}
+\vspace{0.cm}
+\hbox{\hspace{2.5cm}\includegraphics[width=.8\textwidth]{diagrams/p2dgp1-dg-sat} }
+\vspace{-0.3cm}
+\hbox{\hspace{6cm}(c) }
 }
-
-  \caption{2D representation of the element pairs (a) P0DGP1, (b) P1DGP2  and (c) P2DGP1DG. Shaded areas denote a control volumes (in which saturation is stored), black points represent the pressure nodes and the white points the velocity.}
+\caption{2D representation of the element-pairs (a) P0DGP1, (b) P1DGP2  and (c) P2DGP1DG. Shaded areas denote a control volumes (in which saturation is stored), black points represent the pressure nodes and the white points the velocity.}
   \label{fem_cv_represent_a}
 \end{figure}
 
+\clearpage
 
 %%%
 %%% Overlapping Figure 1
@@ -284,7 +260,7 @@
     \includegraphics[width=0.62\textwidth]{diagrams/BL_1d_P2DGP3_convergence.eps}}}
    % \includegraphics[width=0.45\textwidth]{BL_2d_P1DGP2_convergence}
     \caption{Buckley--Leverett test-cases: Saturation profiles for a
-      number of element pairs and numerical resolutions in 1D --
+      number of element-pairs and numerical resolutions in 1D --
       P$_{0}$DG-P$_{1}$ (top), P$_{1}$DG-P$_{2}$ and P$_{2}$DG-P$_{3}$
       (bottom).\label{fig:BL_profiles}}
   %\end{center}
