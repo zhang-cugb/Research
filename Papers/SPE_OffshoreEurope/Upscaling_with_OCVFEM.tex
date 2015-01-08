@@ -1,0 +1,42 @@
+% First of two papers based on the SPE Comparative Solution Project
+
+%\documentclass{elsarticle}
+\documentclass{article}
+% package to allow adding affiliation into the title
+\usepackage[affil-it]{authblk}
+% todonotes allow adding notes into the text as comments
+\usepackage{todonotes,amsmath,color}
+\newcommand{\JG}[1]{\todo[color=blue!30, size=\small]{JG: #1}}
+\newcommand{\red}{\textcolor{red}}
+
+
+\begin{document}
+
+\title{Upscaling with the Overlapping Control Volume Finite Element Method Multiphase Porous Media Flow Modelling Technique}
+
+
+\author{B. Lashore\thanks{Electronic address: \texttt{r01bol14@abdn.ac.uk} (Corresponding author)} , J.L.M.A. Gomes}
+\affil{School of Engineering, University of Aberdeen, UK}
+
+\author{P. Salinas, C.C. Pain}\affil{Department of Earth Science and Engineering, Imperial College London, UK}
+%\author[UoA]{B. Lashore}\corref{cor1}\ead{r01bol14@abdn.ac.uk}
+%\author[IC]{P. Salinas} \author[IC]{C.C. Pain} \author[UoA]{J.L.M.A. Gomes}
+
+%\cortext[cor1]{Corresponding author.}
+%\address[UoA]{School of Engineering, University of Aberdeen, UK}
+%\address[IC]{Department of Earth Science and Engineering, Imperial College London, UK}
+
+\date \today
+\maketitle
+%\section*{Abstract}
+\begin{abstract}
+%% Comment:
+\JG{For non-scientific conferences is always better to keep the title shorter and/or more $\lq$direct'/punchy and/or with key terms that are more familiar to the audience. A few key-words that you may consider for the title: upscaling (although we are not doing upscaling at the moment), benchmark, heterogeneity} \JG{As a rule of thumb, always start an {\it Abstract} with the motivation for the work (thus why is this relevant?)}
+The 10$^{\text{th}}$ SPE Comparative Solution Project on upscaling involved two problems. The first problem which involves upscaling and pseudoization methods for an easily computed 2D gas-injection problem\JG{too many $\lq$problem' in  a single sentence ...}, is used in this paper to discuss another approach to upscaling. The approach removes the upscaling computation performed prior to the main flow calculation and instead makes use of an effective flux calculation within the computation \red{(what do you mean?)}.\JG{1. too many $\lq$computation' in the same sentence? 2. and what is the second problem?}
+
+In the overlapping control volume finite element method (OCVFEM) formulation, static properties are represented in unstructured tethrahedral mesh grid in which \red{{\it describe in a few words the approach used ...}} on which the static properties are represented. The underlying mass conservation equations are solved in control volume space while high-order fluxes across control volume boundaries are obtained from FEM interpolation. A P0DG meshing scheme is used in this simulation therefore permeability, porosity, pressure and density are represented as discontinous data points in the centre of the tethrahedral elements while velocity is represented as continuous data points at the edges of the tethrahedral elements \red{(this sentence need to be modified according to your simulation set up)}. \red{(try to summarise these sentences as the main focus of this abstract is to describe the main objective of the paper (work) and how (in a few words/sentences) you are going to tackle the problems ahead)}
+
+The paper begins with an introduction to heterogeneity and the challenges created by heterogenity. It then discusses the benefits of upscaling and the various methods of upscaling. It also discusses the P0DG meshing scheme implementation of the OCVFEM and also briefly introduces higher order meshing schemes. Finally, it presents the OCVFEM simulation results for the first problem of the 10th SPE Comparative Solution Project and compares it to the results obtained from the original participants of the project. In a future paper, the second problem of the 10th SPE Comparative Solution Project would be simulated with the OCVFEM and higher order meshing schemes would be used. The paper would also make use of stochastic methods for data representation.\JG{You do not need the summary of the work/sections in the {\it Abstract}, just in the {\it Introduction} section.} \red{Try to highlight the preliminary results and what you expect to obtain 'till June/July.}
+\end{abstract}
+
+\end{document}
