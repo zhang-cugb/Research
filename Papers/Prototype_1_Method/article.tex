@@ -200,6 +200,9 @@ Figure~\ref{fem_cv_represent_a} displays three element types of the P$_{n}$DG-P$
 %\JGnote{Most of the simulations in this paper (and the next) were performed using P$_{1}$DGP$_{2}$ elements. However it seems that the sketch of this element-pair was deleted/replaced by P$_{0}$DGP$_{1}$ and by the double-discontinuous element (fig.1 left/right) -- was this replacement on purpose or was it a mistake?} 
 %\end{center}
 
+%%%         %%%
+%%% SECTION %%%
+%%%         %%%
 \section{Overlapping-CVFEM Formulation -- An Accurate Representation of Multiphase Darcy Flows}
 \label{overlapping_method_section}
 Darcy's law for immiscible multiphase flow may be written \citep{chen_2006} in the form:%,bear_1972}:
@@ -281,7 +284,7 @@ Here $\delta_{i,j} = \left[\underline{\underline{\sigma}}_{\alpha}\right]_{i,j}$
 \medskip
 
 %This formulation ensures that for uniform \jrp{This tensor needs a good name -- JG: I can't think on a good name for this -- it's too non-linear to hold any physical meaning. Maybe solid-fluid homogeneisation factor/ parameter/ coeff} ${\underline{\underline \sigma}}_{\alpha}$ within each element the balance in the \jrp{is this only true in 1D} 1D extended Darcy flow equations is strictly enforced. 
-The saturations are computed in CV space, whereas the permeability tensor $\left(\mathbf{K}\right)$ is assumed piecewise constant in FE space to allow efficient representation of surface parametrised geometries. Thus the viscous-friction damping tensor \jrp{This tensor needs a good name JG: I can't think on a good name for this -- it's too non-linear to hold any physical meaning. Maybe solid-fluid homogeneisation factor/ parameter/ coeff or viscous-friction damping ...}, %${\underline{\underline \sigma}}_{\alpha}$:
+The saturations are computed in CV space, whereas the permeability tensor $\left(\mathbf{K}\right)$ is assumed piecewise constant in FE space to allow efficient representation of surface parametrised geometries. Thus the viscous-friction damping tensor, \jrp{This tensor needs a good name JG: I can't think on a good name for this -- it's too non-linear to hold any physical meaning. Maybe solid-fluid homogeneisation factor/ parameter/ coeff or viscous-friction damping ...} %${\underline{\underline \sigma}}_{\alpha}$:
 \begin{eqnarray}
   {\underline {\underline \sigma}}_{\alpha} &=& {\underline {\underline \sigma}}_{\alpha} \left[S_{\alpha}\left(\mathbf{r},t\right), \mu_{\alpha}, \mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right), \mathbf{K}\right] \nonumber \\
 &=& \frac{S_{\alpha}\mu_{\alpha}}{\mathcal{K}_{{r}_\alpha}}\mathbf{K}^{-1},
@@ -294,20 +297,23 @@ This approach is computationally demanding in multi-dimension calculations with 
 %%%         %%%
 %%% SECTION %%%
 %%%         %%%
-\section{Transport Methods}\label{transport_methods_section}
-\subsection{CVFEM Formulation}
-\jrp{ I think we need to justify why this section is here, or combine it with the saturation section, at the moment everything is a bit disjointed.}
+\section{Scalar Transport Formulation}\label{transport_methods_section}
+
+%%%            %%%
+%%% SUBSECTION %%%
+%%%            %%%
+\subsection{CVFEM Spatial Discretisation}\label{Section:CVFEMDiscretisation}
 Given a partitioning of a domain $\Omega$ into a set of CV's, we seek a numerical solution of the transport equation,
 \begin{equation}
   \displaystyle\frac{\partial \text{T}(\mathbf{r},t) }{\partial t} +  \nabla\cdot \textbf{a} \text{T}(\mathbf{r},t) - s = 0,
   \label{traneq}
 \end{equation}
-where $\mathbf{a}$ is the advection velocity vector, $\textit{t}$ and $\textit{s}$ are time and a source term, respectively. The problem is discretised by testing the weak form of the equation over each CV $i$ using a set of test functions, $M_{i}$, which are unity over control volume $i$ and zero otherwise. This gives constraints,
+where \text{T} is a scalar field, $\mathbf{a}$ is the advection velocity vector, $\textit{t}$ and $\textit{s}$ are time and a source term, respectively. The problem is discretised by testing the weak form of the equation over each CV $i$ using a set of test functions, $M_{i}$, which are unity over control volume $i$ and zero otherwise. This gives constraints,
 \begin{equation}
   \int_{\Omega} M_{i} \left( \frac{\partial T }{\partial t} + \nabla\cdot \textbf{a} T - s \right)\,d V = 0, \quad \forall i \in \{1,2,..., \mathcal{M}\},
   \label{CV1}
 \end {equation}
-in which $\mathcal{M}$ is the number of CV's \citep[which is not necessarily equal to the $\mathcal{N}$ nodes of the underlying FEM mesh,][]{cordazzo_2004, eymard_1994}. To obtain a unique solution, this is combined with an expansion of the approximate solution {\it T} to $\text{T}$ in terms of the control volume basis functions $M_{j}$ with,
+in which $\mathcal{M}$ is the number of CV's \citep[which is not necessarily equal to the $\mathcal{N}$ nodes of the underlying FEM mesh,][]{cordazzo_2004, eymard_1994}. To obtain a unique solution, this is combined with an expansion of the approximate solution {\it T} to $\text{T}$ in terms of the CV basis functions $M_{i}$ with,
 \begin{equation}  
   T\left(\mathbf{r},t\right)=\sum\limits_{i=1}^{\mathcal{M}} M_{i}\left(\mathbf{r}\right) T_{i}(t) \approx \text{T}.
   \label{transpeqn_approxfield}
@@ -321,20 +327,19 @@ By applying Green's theorem, the discretised form of the advection term becomes:
   \label{transpeqn_green}
 \end{equation}
 \noindent
-where $\mathbf{n}$ is the outward pointing unit normal vector to the surface of the control volume \textit{i} $\left(\text{CV}_{i}\right)$. We use Gaussian quadrature to approximate the surface integral over each face of the control volume \textit{i}. To close the system, the value $\widetilde{T}$ at the quadrature integration points on the surface of the control volume must be calculated from the CV solution, \textit{T}.
+where $\mathbf{n}$ is the outward pointing unit normal vector to the surface of CV$_{i}$. Gaussian quadrature are used to approximate the surface integral over each face of CV$_{i}$. To close the system, the value $\widetilde{T}$ at the quadrature integration points on the surface of the control volume must be calculated from the CV solution, \textit{T}.
 
-\medskip
-The value of $\widetilde{T}$ is calculated based on a high-order FEM interpolation $T_{\mbox{FEM}}$ of the CV solution $T$. These high-order fluxes are subject to limiting in order to obtain the final fluxes used at the Gaussian quadrature points on the control volume faces at element boundaries \citep{voller_2009,gomes_book_2012}.  Suppose that each element {\it i} has control volumes and a solution variable \jrp{is this used anywhere?} $\hat T_{i}$. Then the FEM solution, $T_{\mbox{FEM}}$, is related to the CV solution, {\it T}, by:
+$\widetilde{T}$ is calculated based on a high-order FEM interpolation $T_{\text{FEM}}$ of the CV solution {\it T}. These high-order fluxes are subject to limiting to obtain the final fluxes used at the Gaussian quadrature points on the control volume faces at element boundaries \citep{voller_2009,gomes_book_2012}.  Thus, for each element {\it j} (containing a number of CVs) the FEM solution, $T_{\text{FEM}}$, is related to the CV solution, {\it T}, by: 
 \begin{equation}
-  \int_{\Omega} N_{i} \left({T_{\mbox{FEM}}} - T\right) \,d V = 0, \quad \forall i\in \{1,2,...,{\mathcal N}\},
+  \int_{\Omega} N_{j} \left({T_{\text{FEM}}} - T\right) \,d V = 0, \quad \forall j\in \{1,2,...,{\mathcal N}\},
 \end{equation}
-where $N_{i}$ is the FE basis function associated with the {\it i}-th degree of freedom. The FEM representation of \textit{T} is given by:
+where $N_{j}$ is the FE basis function associated with the {\it j}-th degree of freedom. The FEM representation of {\it T} is given by:
 \begin{equation}
-  T_{\mbox{FEM}} = \sum\limits_{j=1}^{\mathcal{N}} N_{j} {T_{\mbox{FEM}}}_{j}.
+  T_{\text{FEM}} = \sum\limits_{j=1}^{\mathcal{N}} N_{j} {T_{\text{FEM}}}_{j}.
 \end{equation}
 For finite volumes, the basis function $M_{j}$ (top hat function) is used, obtaining that:
 \begin{equation}
-  \mathbf{B} \underline{\mathbf{T}}_{\mbox{FEM}} = \mathbf{Q} \underline{\mathbf{T}},
+  \mathbf{B} \underline{\mathbf{T}}_{\text{FEM}} = \mathbf{Q} \underline{\mathbf{T}},
 \end{equation} 
 with
 \begin{displaymath}
@@ -342,17 +347,16 @@ with
 \end{displaymath} 
 and
 \begin{displaymath}
-\underline{\mathbf{T}}_{\mbox{FEM}} = \left({T_{\mbox{FEM}}}_{1}, \ldots, {T_{\mbox{FEM}}}_{\mathcal{N}} \right)^{T} \text{ and } \underline{\mathbf{T}} =\left(T_{1}, T_{2}, \ldots, T_\mathcal{M} \right)^{T},
+\underline{\mathbf{T}}_{\text{FEM}} = \left({T_{\text{FEM}}}_{1}, \ldots, {T_{\text{FEM}}}_{\mathcal{N}} \right)^{T} \text{ and } \underline{\mathbf{T}} =\left(T_{1}, T_{2}, \ldots, T_\mathcal{M} \right)^{T},
 \end{displaymath}
 contain the FE and CV values of {\it T}, respectively. Since we are using high-order approximations, extrema must be detected in order to determine where to apply first order fluxes instead of high-order. This is achieved using the normal variable diagram approach, NVD as described by~\citet{darwish_1993}~\citep[see also][]{jasak_1999,darwish_2003}.
 
-%%%         %%%
-%%% SECTION %%%
-%%%         %%%
-\subsection{Time-Discretisation Scheme} \label{time_discretisation}
-There are numerous time-discretisation methods to deal with parabolic system of equations, such as backward-Euler, forward-Euler, Crank-Nicolson and Runge-Kutta methods \citep{weng_2012}. An adaptive time-stepping method based on the Crank-Nicolson scheme is chosen, because it is unconditionally stable and second-order accurate.
 
-Using Eqns.~\ref{CV1} and \ref{transpeqn_green}, the time stepping for Eqn.~\ref{traneq} takes the form:
+%%%            %%%
+%%% SUBSECTION %%%
+%%%            %%%
+\subsection{Time-Discretisation Scheme} \label{time_discretisation}
+The $\theta$-method, as described by \citet{gomes_book_2012}, was used to discretise the transport equation in the time-domain. The method is unconditionally stable and second-order accurate. Using Eqns.~\ref{CV1} and \ref{transpeqn_green}, the time stepping for Eqn.~\ref{traneq} takes the form:
 \begin{eqnarray}
   \int_{\Omega} M_{i} \left( \displaystyle\frac{T_{i}^{n+1}
     -T_{i}^{n}}{\Delta t} - s \right) \,dV &=& \int_{\Gamma_{CV_{i}}}
@@ -364,7 +368,7 @@ Using Eqns.~\ref{CV1} and \ref{transpeqn_green}, the time stepping for Eqn.~\ref
     \widetilde{T}^{n} \right) \right]d\Gamma.
   \label{theta}
 \end{eqnarray} 
-For each time step a value of $\theta$ between 0.5 (for Crank-Nicolson) and 1.0 (for backward-Euler) is calculated at each CV face based on the satisfaction of a TVD criterion \citep{szabo_2009,kuzmin_2004}. Assuming $L_{i}$ is the volume of the  $i^{th}$-CV then the following expression for $\theta_f^{n+\frac{1}{2}}$ of face \textit{f} is obtained \citep[see][]{gomes_book_2012},
+For each time step a value of $\theta$ between 0.5 (for Crank-Nicolson) and 1.0 (for backward-Euler) is calculated at each CV face based on the satisfaction of a TVD criterion \citep{szabo_2009,kuzmin_2004}. Assuming $L_{i}$ is the volume of the  $i^{th}$-CV then the following expression for $\theta_f^{n+\frac{1}{2}}$ of face \textit{f} is obtained,
 \begin{equation}
   \theta_f^{n+\frac{1}{2}}=\max \left\{ \frac{1}{2}, 1 - \displaystyle\frac{1}{2}  \min\left\{\left|\frac{1}{p_{f}^{n+\frac{1}{2}}}\right|, \left|\frac{1}{q_{f}^{n+\frac{1}{2}}} \right| \right\} \right\}
   \label{thet1}
@@ -379,40 +383,43 @@ and
   g_f^{n+\frac{1}{2}}= \int_{\Gamma_f}\left(\bm{a} \cdot \mathbf{n} T\right)^{n} \partial\Gamma - \int_{\Gamma_f}\left(\bm{a} \cdot \mathbf{n} T\right)^{n+1}
   \partial\Gamma,
 \end{displaymath}
-where \textit{c} and \textit{d} refer to the two CV's that are adjacent to face \textit{f}. This method can be extended \citep[as demonstrated in][]{gomes_2008,pain_2001b} to deal with composite time-dependent terms such as $\frac{\partial \left(\rho T\right)}{\partial t}$ by replacing $T_j^n$ and $T_j^{n+1}$ by $T_{j}^{n} \rho_{j}^{n}$ and $T_{j}^{n+1} \rho_j^{n+1}$, respectively, for $j = \{c,d\}$.
+where \textit{c} and \textit{d} refer to the two CV's that are adjacent to face \textit{f}. This method can be extended \citep[as demonstrated by][]{gomes_2008,pain_2001b} to deal with composite time-dependent terms such as $\displaystyle\frac{\partial \left(\rho T\right)}{\partial t}$ by replacing $T_j^n$ and $T_j^{n+1}$ by $T_{j}^{n} \rho_{j}^{n}$ and $T_{j}^{n+1} \rho_j^{n+1}$, respectively, for $j = \{c,d\}$.
 
-%%%         %%%
-%%% SECTION %%%
-%%%         %%%
-\section{Saturation and Global Mass Conservative Equations}\label{Section:Saturation_Global}
-This section outlines the discrete saturation equations and derives the global mass balance equations from the saturation equations assuming incompressibility. The saturation equation \citep{chavent_1986} can be written as follows,
+
+%%%            %%%
+%%% SUBSECTION %%%
+%%%            %%%
+\subsection{Saturation and Global Mass Conservative Equations}\label{Section:Saturation_Global}
+Here, the formulation described in Section~\ref{Section:CVFEMDiscretisation} is extended to discretise the saturation conservation equations and to help deriving the global mass balance equations. In this work, the fluids are assumed incompressible. The saturation equation can be written as,
 \begin{equation}
   \phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  s_{cty,\alpha},
   \label{saturation_equation}
 \end{equation}
-where $\phi$ represents the porosity of the rock matrix. It can be discretised in space by testing with CV basis functions $M_{i}$ and with the $\theta$-method in time, \jrp{the cross reference doesn't explicitly used the term theta method.} as described in Section~\ref{time_discretisation}:
+where $\phi$ represents the porosity of the rock matrix. Equation~\ref{saturation_equation} can be discretised in space by testing with CV basis functions $M_{i}$ and with the $\theta$-method in time:
 \begin{eqnarray}
-  \int_{\Omega} M_{i} \displaystyle\frac{\phi \left({S_{\alpha}}_{i}^{n+1}-{S_{\alpha}}_{i}^{n}\right)}{\Delta t} dV + \nonumber \\ 
+  \int_{\Omega} M_{i} \displaystyle\frac{\phi \left({S_{\alpha i}^{n+1}}-{S_{\alpha i}^{n}}\right)}{\Delta t} dV + \nonumber \\ 
   \oint_{\Gamma_{CV_{i}}} \left[\theta^{n+\frac{1}{2}} {\mathbf n} \cdot {\mathbf u}_{\alpha}^{n+1} S_{\alpha}^{n+1} +  \left(1-\theta^{n+\frac{1}{2}}\right) {\mathbf n} \cdot {\mathbf u}_{\alpha}^{n} S_{\alpha}^{n} \right]d\Gamma =  \int_{\Omega} M_{i} {s_{cty,\alpha}^{n+\theta}} dV.
   \label{detail-sat-eqn-k}
 \end{eqnarray}
 Summing over all $\mathcal{N}_\alpha$ phases one obtains the global continuity equation,
 \begin{eqnarray}
-  \sum\limits_{\alpha=1}^{\mathcal{N}_{\alpha}} \left\lbrace \int_{\Omega} M_{i} \displaystyle\frac{\phi\left({S_{\alpha}}_{i}^{n+1}-{S_{\alpha}}_{i}^{n}\right) } {\Delta t} dV + \right. \nonumber \\ 
+  \sum\limits_{\alpha=1}^{\mathcal{N}_{\alpha}} \left\lbrace \int_{\Omega} M_{i} \displaystyle\frac{\phi\left({S_{\alpha i}^{n+1}}-{S_{\alpha i}^{n}}\right) } {\Delta t} dV + \right. \nonumber \\ 
   \left. \displaystyle\oint_{{\Gamma_{CV}}_{i}} \left[\theta^{n+\frac{1}{2}} {\mathbf n} \cdot {\mathbf u}_{\alpha}^{n+1} S_{\alpha}^{n+1} +  \left(1-\theta^{n+\frac{1}{2}}\right) {\mathbf n} \cdot {\mathbf u}_{\alpha}^{n} S_{\alpha}^{n} \right] \,d\Gamma - \right. \nonumber \\
   \left. \displaystyle\int_{\Omega} M_{i} s_{cty,\alpha}^{n+\theta}\, dV \right\rbrace = 0,
            \label{detail-sat-eqn-k-sum}
 \end{eqnarray}
-in which $\theta^{n+\frac{1}{2}}$ is obtained as described in Section~\ref{time_discretisation} with $S_\alpha$ replacing $T$. Assuming the natural incompressible mass conservation constraint,
+in which $\theta^{n+\frac{1}{2}}$ is obtained (as described in Section~\ref{time_discretisation}) with $S_\alpha$ replacing T. Assuming the natural incompressible mass conservation constraint,
 \begin{equation}
-  \sum\limits_{\alpha=1}^{\mathcal{N}_{\alpha}} {S_{\alpha}}_{i}^{n} = 1, \quad \forall n,
+  %\sum\limits_{\alpha=1}^{\mathcal{N}_{\alpha}} {S_{\alpha}}_{i}^{n} = 1, \quad \forall n,
+  \sum\limits_{\alpha=1}^{\mathcal{N}_{\alpha}} {S_{\alpha}^{n}}_{i} = 1, \quad \forall n,
 \end{equation}
 in matrix form Eqn.~\ref{detail-sat-eqn-k-sum} becomes,
 \begin{equation}
-  {\mathbf B}^T \underline{\bf v}^{n+1} = \underline{\bf s}_{p},
+  {\mathbf B}^T \underline{\bf v}^{n+1} = \underline{\bf s}_{p}.
   \label{glob-cty-matrix}
 \end{equation}
-where it remains to relate the phase force density $\bm{v}_\alpha$ to the phase velocity on the control volume facets.
+Relationship between phase force density $\bm{v}_\alpha$ and  phase velocity on the control volume facets are addressed in the next sections.
+
 
 %%%         %%%
 %%% SECTION %%%
