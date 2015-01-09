@@ -57,8 +57,8 @@
 
 %\usepackage[obeyFinal]{todonotes}
 \usepackage{todonotes}
-
 \newcommand{\jrp}[1]{\todo[color=blue!30, size=\small]{JRP: #1}}
+\newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{ \color{blue} JG: #1}}}
 
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb,amsmath,array}
@@ -93,9 +93,9 @@
 
 % \biboptions{}
 
-\newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{ \color{blue} JG: #1}}}
 %\journal{Computer Methods in Applied Mechanics and Engineering}
 \journal{Comput Meth Appl Mech Eng}
+\newcommand{\frc}{\displaystyle\frac}
 
 \begin{document}
 
@@ -418,29 +418,27 @@ in matrix form Eqn.~\ref{detail-sat-eqn-k-sum} becomes,
   {\mathbf B}^T \underline{\bf v}^{n+1} = \underline{\bf s}_{p}.
   \label{glob-cty-matrix}
 \end{equation}
-Relationship between phase force density $\bm{v}_\alpha$ and  phase velocity on the control volume facets are addressed in the next sections.
+%Relationship between phase force density $\bm{v}_\alpha$ and phase velocity on the control volume facets is addressed in the next section.
 
 
-%%%         %%%
-%%% SECTION %%%
-%%%         %%%
-\section{Upwind Velocity and Relative Permeability} \label{opt-up} 
-We still need to determine the velocity to be used at the interface between CV's in the saturation (Eqn.~\ref{detail-sat-eqn-k}) and global continuity (Eqn.~\ref{detail-sat-eqn-k-sum}) equations. On the CV faces, there is no information about the flow direction as the velocity is discontinuous at the CV boundaries. The discontinuities occur between (a) elements for the discontinuous formulation and (b) control volumes within each FE. An average velocity is defined by:
+%%%            %%%
+%%% SUBSECTION %%%
+%%%            %%%
+\subsection{Upwind Velocity and Relative Permeability} \label{opt-up} 
+We still need to determine the velocity to be used at the interface between CV's in the saturation conservation (Eqn.~\ref{detail-sat-eqn-k}) and global continuity (Eqn.~\ref{detail-sat-eqn-k-sum}) equations. On the CV faces, there is no information about the flow direction as the velocity is discontinuous at the CV boundaries. The discontinuities occur between (a) elements in the discontinuous formulation and (b) control volumes within each FE. An average velocity is defined as,
 \begin{equation}
   {\bf v}_\alpha = \frac{1}{2} \left[ {{\bf v}_\alpha}_i + {{\bf v}_\alpha}_j \right].
 \end{equation} 
-Then, the interface velocities at either side of the interface can be obtained from,
+The interface velocities at either side of the interface can be obtained from,
 \begin{equation}
-  {\tilde{\bf u}}_{\alpha i}=   \underline{\underline\sigma_\alpha}_i^{-1}  {{\bf v}}_\alpha  , \;\;\;\;  {\tilde{\bf u}}_{\alpha j} =  \underline{\underline\sigma_\alpha}_j^{-1}  {{\bf v}}_\alpha    . 
+  {\tilde{\bf u}}_{\alpha k} = \underline{\underline{\sigma}}_{\alpha k}^{-1}{{\bf v}}_{\alpha}, \;\;\;\; k=\{i,j\}. 
   \label{two-vels}
 \end{equation} 
-Notice that these velocities point in the same direction and are only different in magnitude \jrp{What constraints on the permeability tensor?}. Thus, using them to define an upwind direction is not ambiguous. The vector:
+Notice that these velocities point to the same direction and are only different in magnitude therefore, using them to define an upwind direction is not ambiguous. The vector ${\bf a}_{\alpha}$,
 \begin{equation}
-  {\bf a}_\alpha= \displaystyle\frac{1}{2} \left[ \frac{  \underline{\underline \sigma_\alpha}_i^{-1} {{\bf v}_\alpha}_i +  \underline{\underline \sigma_\alpha}_j^{-1} {{\bf v}_\alpha}_j }  { {\sigma_\alpha}_i (S_\alpha)+{\sigma_\alpha}_j (S_\alpha)} \right],
+  {\bf a}_{\alpha} = \frc{1}{2} \left[\frc{ \underline{\underline{\sigma}}_{\alpha i}^{-1}{{\bf v}}_{\alpha i} +  \underline{\underline{\sigma}}_{\alpha j}^{-1}{{\bf v}}_{\alpha j} } { \underline{\underline{\sigma}}_{\alpha i} + \underline{\underline{\sigma}}_{\alpha j} }\right],
 \end{equation} 
-\jrp{need to fix for tensor} is used to determine if information is leaving or entering a CV.
-
-The two velocity values in Eqn.~\ref{two-vels} provide the two extremes within which the final interface velocity is obtained. Notice that if the saturation and density are equal in CV's $i$ and $j$ then these velocities will be identical. This is important in order to solve the elliptic nature of the resulting pressure equation.
+is used to determine if information is leaving or entering a CV. The two velocity values in Eqn.~\ref{two-vels} provide the two extremes within which the final interface velocity is obtained. Notice that if the saturation and density are equal in CV's $i$ and $j$ then these velocities will be identical. This is important in order to solve the elliptic nature of the resulting pressure equation.
 
 If we are to apply an upwind method for calculating the interface velocity then the interface velocity becomes, % ${\tilde{\bf u}}_\alpha = {\tilde{\bf u}}_{\alpha i}$ for ${\bf n}\cdot {\bf a}_\alpha>0$ (CV $i$ outgoing information) and ${\tilde{\bf u}}_\alpha = {\tilde{\bf u}}_{\alpha j}$ for ${\bf n}\cdot {\bf a}_\alpha<0$ (CV $i$ incoming information).
 \begin{displaymath}
@@ -450,24 +448,28 @@ If we are to apply an upwind method for calculating the interface velocity then 
 \tilde{\bf u}_{\alpha j}, & \text{for } {\bf n}\cdot{\bf a}_{\alpha}<0 \text{ (CV {\it i} incoming information).} 
 \end{cases}
 \end{displaymath}
-However, this upwind method will result in dissipative solutions. Out of numerous heuristics for obtaining this interface velocity ${\tilde{\bf u}}_\alpha$, we choose a method based on a limited high-order saturation $\tilde S_\alpha$, obtained using a DGFEM upwind approximation. The sign of ${\bf n}\cdot {\bf a}_\alpha$ is used to determine the upwind direction. From this high-order flux limited saturation, we can obtain $\tilde{\sigma}_{\alpha} = \sigma_{\alpha}\left(\tilde{S}_{\alpha}\right)$. Knowing $\tilde S_\alpha$ we can estimate the corresponding interface value of $\sigma_\alpha$, that is $\tilde\sigma_\alpha,$ from the second-order Taylor series. For ${\bf n}\cdot {\bf a}_\alpha>0$ (CV $i$ outgoing information):
+However, this upwind method will result in dissipative solutions. Out of numerous heuristics for obtaining this interface velocity ${\tilde{\bf u}}_\alpha$, a method based on a limited high-order saturation, $\tilde S_\alpha$ (obtained from DGFEM upwind approximation), was chosen. The sign of ${\bf n}\cdot {\bf a}_\alpha$ is used to determine the upwind direction. From this high-order flux limited saturation, $\tilde{\sigma}_{\alpha} = \sigma_{\alpha}\left(\tilde{S}_{\alpha}\right)$ can be obtained. Knowing $\tilde S_\alpha$ the corresponding interface value of $\sigma_\alpha$ can be estimated, $\tilde\sigma_\alpha$, from the second-order Taylor series. For ${\bf n}\cdot {\bf a}_\alpha>0$ (CV $i$ outgoing information):
 \begin{equation}
-  \tilde\sigma_\alpha = {\sigma_\alpha}_i + \left(\tilde S_\alpha - {S_\alpha}_i\right) \left(\frac{\partial\sigma_\alpha}{\partial S_\alpha}\right)_i + \frac{1}{2}  \left(\tilde S_\alpha - {S_\alpha}_i\right)^2 \left[ \frac{\left(\frac{\partial\sigma_\alpha}{\partial S_\alpha}\right)_i - \left(\frac{\partial\sigma_\alpha}{\partial S_\alpha}\right)_j } {{S_\alpha}_i -  {S_\alpha}_j} \right]
+  \underline{\underline{\tilde{\sigma}}}_{\alpha} = \underline{\underline{\sigma}}_{\alpha i} + \left(\tilde{S}_{\alpha}-S_{\alpha i}\right) \left(\frc{\partial \underline{\underline{\sigma}}_{\alpha}}{\partial S_{\alpha}}\right)_{i} + \frc{1}{2}\left(\tilde{S}_{\alpha}-S_{\alpha i}\right)^{2} \left[ \frc{ \left(\frc{\partial \underline{\underline{\sigma}}_{\alpha}}{\partial S_{\alpha}}\right)_{i} - \left(\frc{\partial \underline{\underline{\sigma}}_{\alpha}}{\partial S_{\alpha}}\right)_{j} } { \left(S_{\alpha i}-S_{\alpha j}\right) } \right],
   \label{sigma-out}
-\end{equation} 
+\end{equation}
 and for ${\bf n}\cdot {\bf a}_\alpha<0$ (CV $i$ incoming information):
 \begin{equation}
-  \tilde\sigma_\alpha = {\sigma_\alpha}_j + \left(\tilde S_\alpha - {S_\alpha}_j\right) \left(\frac{\partial\sigma_\alpha}{\partial S_\alpha}\right)_j +\frac{1}{2} \left(\tilde S_\alpha - {S_\alpha}_j\right)^2 \left[ \frac{\left(\frac{\partial\sigma_\alpha}{\partial S_\alpha}\right)_i - \left(\frac{\partial\sigma_\alpha}{\partial S_\alpha}\right)_j } {{S_\alpha}_i - {S_\alpha}_j} \right]
+  \underline{\underline{\tilde{\sigma}}}_{\alpha} = \underline{\underline{\sigma}}_{\alpha j} + \left(\tilde{S}_{\alpha}-S_{\alpha j}\right) \left(\frc{\partial \underline{\underline{\sigma}}_{\alpha}}{\partial S_{\alpha}}\right)_{j} + \frc{1}{2}\left(\tilde{S}_{\alpha}-S_{\alpha j}\right)^{2} \left[ \frc{ \left(\frc{\partial \underline{\underline{\sigma}}_{\alpha}}{\partial S_{\alpha}}\right)_{i} - \left(\frc{\partial \underline{\underline{\sigma}}_{\alpha}}{\partial S_{\alpha}}\right)_{j} } { \left(S_{\alpha i}-S_{\alpha j}\right) } \right].
   \label{sigma-in}
-\end{equation} 
-where $\tilde{\sigma_{\alpha}}$ is also adjusted to ensure that it lies between ${\sigma_\alpha}_i$ and ${\sigma_\alpha}_j$. Since $\tilde{\sigma_{\alpha}}$ is often a tensor on the boundaries of the CV's, we only require its normal component -- ${\bf n}^T\tilde\sigma_\alpha {\bf n}$, to be subject to this boundedness constraint. It should be noted that for high-order elements it may be advantageous to use $\tilde\sigma_\alpha = \sigma_\alpha \left(\tilde S_\alpha\right)$ directly so as to maintain the high-order convergence. In addition, for robustness, one can choose to only add the second-order terms in Eqs.~\ref{sigma-out} and \ref{sigma-in} if the resulting $\tilde{\sigma_{\alpha}}$ is closer to the upwind value of $\sigma_\alpha$.
+\end{equation}
+$\underline{\underline{\tilde{\sigma}}}_{\alpha}$ is adjusted to ensure that it lies between $\underline{\underline{\sigma}}_{\alpha i}$ and $\underline{\underline{\sigma}}_{\alpha j}$. Since $\underline{\underline{\tilde{\sigma}}}_{\alpha}$ is often a tensor on the boundaries of the CV's, we only require its normal component, ${\bf n}^{T}\underline{\underline{\tilde{\sigma}}}_{\alpha}{\bf n}$, to be subject to this boundedness constraint. It should be noted that for high-order elements it may be advantageous to use $\underline{\underline{\tilde{\sigma}}}_{\alpha} = \underline{\underline{\sigma}}_{\alpha}\left(\tilde{S}_{\alpha}\right)$ directly in order to maintain high-order convergence. In addition, for robustness, one can choose to only add the second-order terms in Eqs.~\ref{sigma-out} and \ref{sigma-in} if the resulting $\underline{\underline{\tilde{\sigma}}}_{\alpha}$ is closer to the upwind value of $\underline{\underline{\sigma}}_{\alpha}$.
 
 The final interface velocity is obtained from:
 \begin{equation}
-  {\tilde{\bf u}_{\alpha}} = {\tilde{\sigma}_{\alpha}}^{-1} \left[\displaystyle\frac{1}{2} \left(    {{\bf v}_\alpha}_i +  {{\bf v}_\alpha}_j \right)\right],
+  {\tilde{\bf u}_{\alpha}} = \underline{\underline{\tilde{\sigma}}}_{\alpha}^{-1} \left[\displaystyle\frac{1}{2} \left(    {{\bf v}_\alpha}_i +  {{\bf v}_\alpha}_j \right)\right],
   \label{mean_int_vel}  
 \end{equation} 
-which is, in addition, bounded to ensure that its normal component ${\tilde{\bf u}_\alpha}\cdot {\bf n}$ lies between ${\tilde{\bf u}_{ki}}\cdot {\bf n}$ and ${\tilde{\bf u}_{\alpha j}}\cdot {\bf n}$. The result of this is also bounded between the velocities ${{\bf u}_\alpha}_i\cdot {\bf n}$ and ${{\bf u}_\alpha}_j\cdot {\bf n}$. Notice that inside an element without discontinuous sources (i.e., in Eqn.~\ref{force-bal}) ${\tilde{\bf u}_{\alpha i}}={{\bf u}_{\alpha i}}$, ${\tilde{\bf u}_{kj}}={{\bf u}_{\alpha j}}$ and ${\sigma_\alpha}_i {{\bf u}_\alpha}_i = {\sigma_\alpha}_j {{\bf u}_\alpha}_j$ and Eqn.~\ref{mean_int_vel} simply takes on the upwind value of velocity if we choose the upwind value of $\sigma_\alpha$ for interface value $\tilde\sigma_\alpha$.
+which is bounded to ensure that its normal component ${\tilde{\bf u}_\alpha}\cdot {\bf n}$ lies between ${\tilde{\bf u}_{\alpha i}}\cdot {\bf n}$ and ${\tilde{\bf u}_{\alpha j}}\cdot {\bf n}$. The result of this is also bounded between the velocities ${{\bf u}_\alpha}_i\cdot {\bf n}$ and ${{\bf u}_\alpha}_j\cdot {\bf n}$. Notice that inside an element without discontinuous sources,
+\begin{displaymath}
+\tilde{\bf u}_{\alpha i} = {\bf u}_{\alpha i}, \;\; \tilde{\bf u}_{\alpha j} = {\bf u}_{\alpha j} \;\;\text{and}\;\; \underline{\underline{\sigma}}_{\alpha i} {\bf u}_{\alpha i} = \underline{\underline{\sigma}}_{\alpha j} {\bf u}_{\alpha j},
+\end{displaymath}
+and Eqn.~\ref{mean_int_vel} simply takes on the upwind value of velocity if we choose the upwind value of $\underline{\underline{\sigma}}_{\alpha}$ for interface value $\underline{\underline{\tilde{\sigma}}}_{\alpha}$.
 
 In practice we have found that for CV boundaries inside an element, Eqn.~\ref{mean_int_vel} can be used to obtain the interface velocities. The upwind approach now becomes,
 \begin{equation}
@@ -477,46 +479,51 @@ In practice we have found that for CV boundaries inside an element, Eqn.~\ref{me
 {{\bf u}_{\alpha}}_{j} & \text{for }{\bf n}\cdot {\bf a}_{\alpha} < 0 
 \end{cases}
 \end{equation}
-%${\tilde{\bf u}_\alpha} ={{\bf u}_\alpha}_i $ for ${\bf n}\cdot {\bf a}_\alpha>0$ and ${\tilde{\bf u}_\alpha} ={{\bf u}_\alpha}_j$ for ${\bf n}\cdot {\bf a}_\alpha<0$.
-In regions of the domain where the saturation has no spacial variation an average of the velocity is obtained in a similar approach to the harmonic averaging procedure, commonly used to obtain interface absolute permeabilities.\jrp{add a reference?}
+In regions of the domain where the saturation has no spacial variation an average of the velocity is obtained in a similar approach to the harmonic averaging procedure, commonly used to obtain interface absolute permeabilities \citep{dake_1998,agelas_2009}.
 
-
-%%%         %%%
-%%% SECTION %%%
-%%%         %%%
-\section{Determining Velocities across Discontinuous Element Interfaces}
-In order to advect saturations and other scalar variables across elements with discontinuous velocity and pressure we first need to calculate the velocity between these contiguous elements. It is also necessary to obtain the discretised non-symmetric pressure equation which has elliptic-like properties. These properties mean it is necessary to propagate information in all directions across the domain. Thus, taking the upwind velocity, as commonly done within an element, is not the best strategy.
+%%%            %%%
+%%% SUBSECTION %%%
+%%%            %%%
+\subsection{Determining Velocities across Discontinuous Element Interfaces}
+In order to advect saturation and other scalar variables across elements with discontinuous velocity and pressure, the velocity between these contiguous elements need to be calculated. It is also necessary to obtain the discretised non-symmetric pressure equation which has elliptic-like properties. These properties mean it is necessary to propagate information in all directions across the domain, therefore taking the upwind velocity, as commonly done within an element, is not the best strategy.
  
-For two neighbouring CV's $i$ and $j$ which have a common FE interface, ${\bf u}_{\alpha}$ can be calculated by using a volume weighting. However, the volume {\it V} of the control volume and $\sigma_{\alpha}$ act on the velocity ${\bf u}_{\alpha}$ in a very similar way. Hence, the velocity at the interface can be expressed as,
+For two neighbouring CV's $i$ and $j$ which have a common FE interface, ${\bf u}_{\alpha}$ can be calculated by using a volume weighting. However, the volume $\mathcal{V}$ of the control volume and $\underline{\underline{\sigma}}_{\alpha}$ act on the velocity ${\bf u}_{\alpha}$ in a very similar way. Hence, the velocity at the interface can be expressed as,
 \begin{equation} 
-  {\tilde{\bf u}_\alpha} = \frac{ V_j  {{\bf v}_\alpha}_i + V_i  {{\bf v}_\alpha}_j } { V_i {\sigma_\alpha}_i + V_j {\sigma_\alpha}_j }.
+  {\tilde{\bf u}_\alpha} = \frc{ \mathcal{V}_{j} {\bf v}_{\alpha i} + \mathcal{V}_{i} {\bf v}_{\alpha j}} { \mathcal{V}_{i} \underline{\underline{\sigma}}_{\alpha i} + \mathcal{V}_{j} \underline{\underline{\sigma}}_{\alpha j} }.
 \end{equation} 
-\jrp{This equation needs to be fixed for tensor permeabilities.}
 
 %%%         %%%
 %%% SECTION %%%
 %%%         %%%
 \section{Boundary Conditions for Saturation, Pressure and Relative Permeability}\label{bcs-rel-perm} 
 
-\jrp{ The notation here is rather dense for continuous text, but I'm not really sure how to improve it.}
+Suitable boundary conditions can be guided by the discontinuous formulation above as well as by the upwinding in the continuous formulation. In fact, exactly the same boundary condition implementations, as used in the discontinuous formulation, can be applied across the boundaries of the domain and taking information from just outside the domain rather than from the neighbouring elements.
 
-Suitable boundary conditions can be guided by the discontinuous formulations above as well as the upwinding in the continuous formulations. In fact, exactly the same boundary condition implementations can be applied as used in the discontinuous formulations but across the boundaries of the domain and taking information from just outside the domain rather than in the neighbouring elements.
-
-Saturation boundary conditions are relatively straightforward. One typically takes the saturation from just outside the domain (i.e., the saturation boundary condition, ${S_\alpha}_{bc}$) as part of the incoming flux (i.e., when ${\bf n}\cdot {\bf u}_\alpha<0$) for phase $\alpha$: $\left({\bf n}\cdot {\bf u}_\alpha\right){S_\alpha}_{bc}$.  When in addition the velocity ${\bf n}\cdot {{\bf u}_\alpha}_{bc}$ is specified then this also must be part of the incoming flux $\left(\right.$i.e., when ${\bf n}\cdot {{\bf u}_\alpha}_{bc}<0\left.\right)$: $\left({\bf n}\cdot {{\bf u}_\alpha}_{bc}\right){S_\alpha}_{bc}$.
-
-Similarly, boundary conditions can be applied using Riemann variables to determine if information is travelling into or out of the domain (although most flow simulation models do not follow this more rigorous approach). Specified pressure boundary conditions for outlet flux $\left(\right.$when ${\bf n}\cdot {\bf u}_\alpha>0\left.\right)$ are: ${\bf n}\cdot {\bf u}_\alpha {S_\alpha}$, in which neither ${\bf u}_\alpha$ nor ${S_\alpha}$ are specified. 
-
-Specified pressure boundary conditions for the inlet flux $\left(\right.$when ${\bf n}\cdot {\bf u}_\alpha<0\left.\right)$ are defined as: ${\bf n}\cdot {{\bf u}_\alpha}_{rel} {S_\alpha}_{bc}$, in which the relative permeability is upwinded and thus taken from outside the domain resulting in a value of ${\underline {\underline \sigma}}_\alpha$ from ${{\underline {\underline \sigma}}_\alpha}_{\text{outside}}$. The latter is calculated from the saturation boundary condition value ${S_\alpha}_{bc}$. This means that the solution velocity ${{\bf u}_\alpha}$ needs to be adjusted to apply this upwind permeability, i.e., 
-\begin{equation}
-  {{\bf u}_\alpha}_{rel}= \displaystyle\frac{{{\underline {\underline \sigma}}_\alpha}_\text{inside} } {{{\underline {\underline \sigma}}_\alpha}_\text{outside}}{{\bf u}_\alpha}.
-\end{equation}
-Another approach for upwinding the relative permeability on incoming specified pressure boundaries is to simply adjust the value of ${{\underline {\underline \sigma}}_\alpha}_\text{inside}$ just inside the domain by setting it to the value just outside the domain, 
+Saturation boundary conditions are relatively straightforward. One typically takes the saturation from just outside the domain (i.e., the saturation boundary condition, ${S_{\alpha, \text{bc}}}$),
 \begin{displaymath}
-{{\underline {\underline \sigma}}_\alpha}_\text{inside}={{\underline {\underline \sigma}}_\alpha}_\text{outside},
+\left({\bf n}\cdot {\bf u}_\alpha\right)S_{\alpha,\text{bc}}\;\;\;\;\;\text{ when } {\bf n}\cdot {\bf u}_{\alpha} < 0\;\;\text{(incoming flux)}.
 \end{displaymath}
-and the flux condition then becomes
+If the velocity, ${\bf n}\cdot {{\bf u}_\alpha}_{bc}$, is also specified then this must be part of the incoming flux $\left(\right.$i.e., when ${\bf n}\cdot {\bf u}_{\alpha,\text{bc}} < 0\left.\right)$ and therefore $\left({\bf n}\cdot {{\bf u}_\alpha}_{bc}\right)S_{\alpha,\text{bc}}$.
+
+\medskip
+Similarly, boundary conditions can be applied using Riemann variables to determine if information is travelling into or out of the domain (although most flow simulation models do not follow this more rigorous approach). Specified pressure boundary conditions for outlet flux $\left(\right.$when ${\bf n}\cdot {\bf u}_\alpha>0\left.\right)$ are ${\bf n}\cdot {\bf u}_\alpha {S_\alpha}$, in which neither ${\bf u}_\alpha$ nor ${S_\alpha}$ are specified. 
+
+\medskip
+Specified pressure boundary conditions for the inlet flux $\left(\right.$when ${\bf n}\cdot {\bf u}_\alpha<0\left.\right)$ are defined as,
 \begin{displaymath}
-{\bf n}\cdot{{\bf u}_\alpha} {S_\alpha}_{bc}.
+{\bf n}\cdot {\bf u}_{\alpha,\text{rel}} S_{\alpha,\text{bc}},
+\end{displaymath}
+in which the relative permeability, $\mathcal{K}_{r\alpha}\left(S_{\alpha}\right)$, is upwinded and thus taken from outside the domain resulting in a value of $\underline{\underline{\sigma}}_{\alpha}$ from $\underline{\underline{\sigma}}_{\alpha,\text{outside}}$. The latter is calculated from the saturation boundary condition value, $S_{\alpha,\text{bc}}$. This means that the solution velocity ${{\bf u}_\alpha}$ needs to be adjusted to apply this upwinding permeability, i.e., 
+\begin{equation}
+  {\bf u}_{\alpha,\text{rel}} = \displaystyle\frac{ \underline{\underline{\sigma}}_{\alpha,\text{inside}}} { \underline{\underline{\sigma}}_{\alpha,\text{outside}}} {\bf u}_{\alpha}.
+\end{equation}
+Another approach for upwinding the relative permeability on incoming specified pressure boundaries is to adjust the value of $\underline{\underline{\sigma}}_{\alpha,\text{inside}}$,
+\begin{displaymath}
+\underline{\underline{\sigma}}_{\alpha,\text{inside}} = \underline{\underline{\sigma}}_{\alpha,\text{outside}},
+\end{displaymath}
+and the flux condition becomes
+\begin{displaymath}
+{\bf n}\cdot{\bf u}_{\alpha} S_{\alpha,\text{bc}}.
 \end{displaymath}
 
 It should be noted that these flux conditions must be used in both the discretised saturation and global continuity equations, since the latter is a summation of the former. The specified pressure condition becomes a surface flux condition in the force balance equation (Eqn.~\ref{force-semi-disc}), which effectively relaxes the pressure $p$ to its face value counterpart $p_{bc}$ at the boundaries. 
