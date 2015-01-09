@@ -548,7 +548,7 @@ respectively. Application of a discontinuous FEM for the force density leads to 
   \mathbf{B}_\sigma^{T}\mathbf{M}^{-1} \mathbf{C} \underline{\bf p}^{n+1} = \underline{\bf s}_{p}^{n+1} - \mathbf{B}_\sigma^{T} \mathbf{M}^{-1} \underline{\bf s}_{u}^{n+1}.
   \label{final_projection}
 \end{equation}
-Eqn.~\ref{final_projection} is solved for pressure and then the velocity is obtained via Eqn.~\ref{force-balance-matrix-form}. The computationally demanding effort to solve the pressure matrix equation arising from the fully discontinuous FEM formulation is achieved using a multigrid-like approach. In this case the $\lq$fine' mesh is the one obtained by the discontinuous system, whereas the $\lq$coarse' mesh is obtained by creating from the discontinuous system a continuous one by collapsing the pressure nodes. As in multigrid, the coarse mesh solution is used to accelerate the convergence of the fine mesh solution by calculating the error of the present approximation.
+Eqn.~\ref{final_projection} is solved for pressure and then the velocity is obtained via Eqn.~\ref{force-balance-matrix-form}. The computationally demanding effort to solve the pressure matrix equation arising from the fully discontinuous FEM formulation is achieved using a multigrid-like approach. In this case the $\lq$fine' mesh is the one obtained by the discontinuous system, whereas the $\lq$coarse' mesh is obtained by creating, from the discontinuous system, a continuous system by collapsing the pressure nodes. As in multigrid, the coarse mesh solution is used to accelerate the convergence of the fine mesh solution by calculating the error of the current approximation.
 
 
 %%%         %%%
