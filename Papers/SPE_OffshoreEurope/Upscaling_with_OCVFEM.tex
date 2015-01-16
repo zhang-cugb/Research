@@ -6,13 +6,14 @@
 \usepackage[affil-it]{authblk}
 % todonotes allow adding notes into the text as comments
 \usepackage{todonotes,amsmath,color}
+\usepackage[normalem]{ulem}
 \newcommand{\JG}[1]{\todo[color=blue!30, size=\small]{JG: #1}}
 \newcommand{\red}{\textcolor{red}}
 
 
 \begin{document}
 
-\title{Upscaling with the Overlapping Control Volume Finite Element Method Multiphase Porous Media Flow Modelling Technique}
+\title{Reservoir Simulation using a Deterministic Heterogeneity Permeability Data}
 
 
 \author{B. Lashore\thanks{Electronic address: \texttt{r01bol14@abdn.ac.uk} (Corresponding author)} , J.L.M.A. Gomes}
@@ -30,13 +31,16 @@
 \maketitle
 %\section*{Abstract}
 \begin{abstract}
-%% Comment:
-\JG{For non-scientific conferences is always better to keep the title shorter and/or more $\lq$direct'/punchy and/or with key terms that are more familiar to the audience. A few key-words that you may consider for the title: upscaling (although we are not doing upscaling at the moment), benchmark, heterogeneity} \JG{As a rule of thumb, always start an {\it Abstract} with the motivation for the work (thus why is this relevant?)}
-The 10$^{\text{th}}$ SPE Comparative Solution Project on upscaling involved two problems. The first problem which involves upscaling and pseudoization methods for an easily computed 2D gas-injection problem\JG{too many $\lq$problem' in  a single sentence ...}, is used in this paper to discuss another approach to upscaling. The approach removes the upscaling computation performed prior to the main flow calculation and instead makes use of an effective flux calculation within the computation \red{(what do you mean?)}.\JG{1. too many $\lq$computation' in the same sentence? 2. and what is the second problem?}
+This paper demonstrates that the Overlapping Control Volume Finite Element Method (OCVFEM) for Reservoir Simulation can make full use of the deterministic heterogeneity data provided without resorting to upscaling. The results from this simulation would be benchmarked against the results from the 10$^{\text{th}}$ SPE Comparative Solution Project (SPE 10 project). Although, only the first case from the SPE 10 project, which involves upscaling and pseudoization methods for an easily computed 2D gas-injection, would be simulated for this paper.
 
-In the overlapping control volume finite element method (OCVFEM) formulation, static properties are represented in unstructured tethrahedral mesh grid in which \red{{\it describe in a few words the approach used ...}} on which the static properties are represented. The underlying mass conservation equations are solved in control volume space while high-order fluxes across control volume boundaries are obtained from FEM interpolation. A P0DG meshing scheme is used in this simulation therefore permeability, porosity, pressure and density are represented as discontinous data points in the centre of the tethrahedral elements while velocity is represented as continuous data points at the edges of the tethrahedral elements \red{(this sentence need to be modified according to your simulation set up)}. \red{(try to summarise these sentences as the main focus of this abstract is to describe the main objective of the paper (work) and how (in a few words/sentences) you are going to tackle the problems ahead)}
+The overlapping control volume finite element method (OCVFEM) formulation, makes use of triangular and tetrahedral finite element pairs to represent the model properties. A P0DG meshing scheme is used for permeability in this simulation therefore the nodal data point for permeability are defined as discontinous data points at the centre of each tethrahedral element. The permeability data for the deterministic heterogeneity is spatially assigned within the simulation domain. And using the deterministic data, 3D interpolation is performed to determine the nodal data for the P0DG meshing scheme.
 
-The paper begins with an introduction to heterogeneity and the challenges created by heterogenity. It then discusses the benefits of upscaling and the various methods of upscaling. It also discusses the P0DG meshing scheme implementation of the OCVFEM and also briefly introduces higher order meshing schemes. Finally, it presents the OCVFEM simulation results for the first problem of the 10th SPE Comparative Solution Project and compares it to the results obtained from the original participants of the project. In a future paper, the second problem of the 10th SPE Comparative Solution Project would be simulated with the OCVFEM and higher order meshing schemes would be used. The paper would also make use of stochastic methods for data representation.\JG{You do not need the summary of the work/sections in the {\it Abstract}, just in the {\it Introduction} section.} \red{Try to highlight the preliminary results and what you expect to obtain 'till June/July.}
+\red{Yet to obtain any information on the simulation}\\
+\red{Try to highlight the preliminary results and what you expect to obtain 'till June/July.}
+
+\sout{Currently available reservoir simulators require a homogeneous data input for a property such as permeability. Hence, upscaling is performed to determine a suitable equivalent value to be used in the simulation.} This novel method of reservoir simulation does not require upscaling but instead makes use of the heterogeneous data available within the simulation domain. This has two advantages. First, it removes the need for a computation for upscaling. Second, flow simulation within the domain is similar to that of a real-life heterogeneous reservoir.
+
+In a future paper, the second problem of the 10th SPE Comparative Solution Project would be simulated with the OCVFEM and higher order meshing schemes would be used. The paper would also make use of stochastic methods for data representation. 
 \end{abstract}
 
 \end{document}
