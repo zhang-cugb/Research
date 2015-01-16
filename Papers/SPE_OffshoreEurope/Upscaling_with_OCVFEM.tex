@@ -31,6 +31,7 @@
 \maketitle
 %\section*{Abstract}
 \begin{abstract}
+discrete or deterministic?
 This paper demonstrates that the Overlapping Control Volume Finite Element Method (OCVFEM) for Reservoir Simulation can make full use of the deterministic heterogeneity data provided without resorting to upscaling. The results from this simulation would be benchmarked against the results from the 10$^{\text{th}}$ SPE Comparative Solution Project (SPE 10 project). Although, only the first case from the SPE 10 project, which involves upscaling and pseudoization methods for an easily computed 2D gas-injection, would be simulated for this paper.
 
 The overlapping control volume finite element method (OCVFEM) formulation, makes use of triangular and tetrahedral finite element pairs to represent the model properties. A P0DG meshing scheme is used for permeability in this simulation therefore the nodal data point for permeability are defined as discontinous data points at the centre of each tethrahedral element. The permeability data for the deterministic heterogeneity is spatially assigned within the simulation domain. And using the deterministic data, 3D interpolation is performed to determine the nodal data for the P0DG meshing scheme.
