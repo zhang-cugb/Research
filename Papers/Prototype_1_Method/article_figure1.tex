@@ -161,6 +161,9 @@
   shown. \label{converg-compare-fem}}
 \end{figure}
 
+%%%            %%%
+%%%  COMMENTS  %%%
+%%%            %%%
 \begin{comment}
 %%%
 %%%  FIGURE 
@@ -179,13 +182,17 @@
 \end{center}
 \end{figure}
 \end{comment}
+%%%            %%%
+%%%  COMMENTS  %%%
+%%%            %%%
+
 
 %%%
 %%%  FIGURE 
 %%%
 \begin{figure}[h]
 \begin{center}
-\vbox{\vspace{-1.5cm}\hbox{
+\vbox{\vspace{-2.cm}\hbox{
 \includegraphics[width=15.5cm,height=10.cm]{./diagrams/Step_P1DG-P2Cont}}
 \vspace{-.5cm}
 \hbox{
@@ -213,9 +220,10 @@
 \end{figure}
 
 
+%%%            %%%
+%%%  COMMENTS  %%%
+%%%            %%%
 \begin{comment}
-
-
 %%%
 %%%  FIGURE 
 %%%
@@ -233,145 +241,7 @@
 \end{center}
 \end{figure}
 
-
-%%%
-%%%  FIGURE 
-%%%
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=1.\textwidth]{diagrams/bl-exact-meth-upwind.eps}
-\end{center}
-\caption{Buckley--Leverett test-cases: Saturation solutions for the
-  continuous upwind method for different 1D P$_{1}$DG-P$_{2}$ mesh
-  resolutions and comparison against standard analytical solution.
-\label{bl-exact-meth-upwind}}
-\end{figure}
-
-%%%
-%%%  FIGURE 
-%%%
-\begin{figure}[h]
-  %\begin{center}
-\vbox{\hbox{\hspace{2.5cm}
-    \includegraphics[width=0.62\textwidth]{diagrams/BL_1d_P0DGP1_convergence.eps}}
-\vspace{-.0cm}\hbox{\hspace{2.5cm}
-    \includegraphics[width=0.62\textwidth]{diagrams/BL_1d_P1DGP2_convergence.eps}}
-\vspace{-.0cm}\hbox{\hspace{2.5cm}
-    \includegraphics[width=0.62\textwidth]{diagrams/BL_1d_P2DGP3_convergence.eps}}}
-   % \includegraphics[width=0.45\textwidth]{BL_2d_P1DGP2_convergence}
-    \caption{Buckley--Leverett test-cases: Saturation profiles for a
-      number of element-pairs and numerical resolutions in 1D --
-      P$_{0}$DG-P$_{1}$ (top), P$_{1}$DG-P$_{2}$ and P$_{2}$DG-P$_{3}$
-      (bottom).\label{fig:BL_profiles}}
-  %\end{center}
-\end{figure}
-
-%%%
-%%%  FIGURE 
-%%%
-\begin{figure}[h]
-\vbox{\hbox{\hspace{1.cm}
-    \includegraphics[width=0.8\textwidth]{diagrams/L1_convergence_rate.eps}}
-\vspace{.0cm}\hbox{\hspace{1.cm}
-    \includegraphics[width=0.8\textwidth]{diagrams/L2_convergence_rate.eps}}}
-    \caption{Buckley--Leverett test-cases: L1 (top) and L2 (bottom)
-      error convergence rates for a number of element
-      pairs. \label{fig:BL_converg-rates}}
-\end{figure}
-
-%%%
-%%%  FIGURE 
-%%%
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=1.\textwidth]{diagrams/bl-upwind-v-up-and-down.eps}
-\end{center}
-\caption{Buckley--Leverett test-cases: Comparison of the optimal
-  upwind formulation when using upwinding (OU) and coupled
-  upwind/downwind (OU-D). The finite element interpolation of the
-  saturation field $\left(S_{1}\right)$ is shown at different mesh
-  resolutions. Downwind seems to detract from the accuracy of the
-  solution. \label{bl-upwind-v-up-and-down}}
-\end{figure}
-
-%%%
-%%%  FIGURE 
-%%%
-\begin{figure}[h]
-\vbox{
-\begin{center}
-\includegraphics[width=1.\textwidth]{diagrams/bl-exact-meth-cv-0-8-ele50.eps}
-\end{center}
-\vspace{0.cm}}
-\caption{Buckley--Leverett test-cases: Comparison of control volume
-  solutions using 80$\%$ upwinding and with optimal upwinding and
-  using 50 continuous P$_{1}$DG-P$_{2}$
-  elements. \label{bl-exact-meth-cv-0-8-ele50}}
-\end{figure}
-
-%%%
-%%%  FIGURE 
-%%%
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=1.\textwidth]{diagrams/bl-dg-2eles.eps}
-\end{center}
-\caption{Buckley--Leverett test-cases: Two element solution using the
-  discontinuous formulation. Saturation field from both CV solution
-  and FEM interpolation are shown.  \label{bl-dg-2eles}}
-\end{figure}
-
-%%%
-%%%  FIGURE 
-%%%
-\begin{figure}[h]
-\vbox{
-\hbox{\hspace{.3cm}\includegraphics[width=.9\textwidth]{diagrams/bl-dg-4-10-20.eps}}
-\vspace{-0.cm}
-\hbox{\hspace{.3cm}\includegraphics[width=.9\textwidth]{diagrams/bl-dg-cent-4-10-20.eps}}}
-\caption{Buckley--Leverett test-cases: Saturation field obtained from
-  the discontinuous and continuous formulation with different mesh
-  resolutions. Solutions with (top) and without (bottom) upwinding
-  scheme. Notice that oscillations are suppressed with the upwinding
-  scheme.\label{bl-dg-cent-4-10-20}}
-\end{figure}
-
-
-%%%
-%%%  FIGURE 
-%%%
-\begin{figure}[h]
-\vbox{
-\hbox{\hspace{.3cm}\includegraphics[width=.9\textwidth]{diagrams/bl-dg-4-10-vers-cty.eps}}
-\vspace{-0.cm}
-\hbox{\hspace{.3cm}\includegraphics[width=.9\textwidth]{diagrams/bl-dg-p1-2-4-5-10-20-40.eps}}}
-\caption{Buckley--Leverett test-cases: Saturation field obtained from
-  (top) continuous and discontinuous (between elements) formulations
-  (solution with 50 elements may be considered as a converged
-  result). Solution obtained (bottom) from linear pressure (P1)
-  formulation with different mesh resolution with comparison against
-  P2-pressure formulation (continuous). \label{bl-dg-4-10-vers-cty}}
-\end{figure}
-
-
-\begin{figure}[H]
-\vbox{
-\begin{center}
-\includegraphics[width=17.5cm,height=12.5cm]{diagrams/bl-dg-4-10-vers-cty}
-\end{center}
-\vspace{0.cm}}
-\caption{Gas saturations shown comparing the accuracy of the
-  discontinuous between elements and continuous formulation. The 50
-  element continuous solution may be viewed as a converged result.  }
-\label{bl-dg-4-10-vers-cty}
-\end{figure}
-
 \end{comment}
-
-%%%
-%%%  FIGURE 
-%%%
-
-%%%
-%%%  FIGURE 
-%%%
+%%%            %%%
+%%%  COMMENTS  %%%
+%%%            %%%
