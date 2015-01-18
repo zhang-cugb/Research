@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: article.aux
+The style file: elsarticle-harv.bst
+Database file #1: references.bib
+Warning--empty pages in jackson_2013
+Warning--empty pages in pavlidis_2013c
+You've used 6 entries,
+            2821 wiz_defined-function locations,
+            665 strings with 6073 characters,
+and the built_in function-call counts, 3589 in all, are:
+= -- 326
+> -- 282
+< -- 2
++ -- 108
+- -- 99
+* -- 347
+:= -- 669
+add.period$ -- 20
+call.type$ -- 6
+change.case$ -- 69
+chr.to.int$ -- 5
+cite$ -- 8
+duplicate$ -- 116
+empty$ -- 193
+format.name$ -- 121
+if$ -- 691
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 6
+newline$ -- 25
+num.names$ -- 24
+pop$ -- 69
+preamble$ -- 1
+purify$ -- 57
+quote$ -- 0
+skip$ -- 80
+stack$ -- 0
+substring$ -- 97
+swap$ -- 16
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 54
+warning$ -- 2
+while$ -- 21
+width$ -- 0
+write$ -- 72
+(There were 2 warnings)

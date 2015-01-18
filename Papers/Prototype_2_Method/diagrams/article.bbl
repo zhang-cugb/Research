@@ -1,0 +1,45 @@
+\begin{thebibliography}{6}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Buckley and Leverett(1942)}]{buckley1942}
+Buckley, S., Leverett, M., 1942. Mechanism of fluid displacement in sands.
+  Trans. AIME 146~(107), 1--7.
+
+\bibitem[{Dawe and Grattoni(2008)}]{dawe_2008}
+Dawe, R., Grattoni, C., 2008. Experimental displacement patterns in a
+  2$\times$2 quadrant block with permeability and wetability heterogeneities --
+  problems for numerical modelling. Transp. Porous Med. 71, 5--22.
+
+\bibitem[{Gomes et~al.(2013)Gomes, Pavlidis, Percival, Mostaghimi, Salinas,
+  Xie, Pain, Jackson, and Blunt}]{gomes_2013}
+Gomes, J., Pavlidis, D., Percival, J., Mostaghimi, P., Salinas, P., Xie, Z.,
+  Pain, C., Jackson, M., Blunt, M., 2013. The overlapping control volume finite
+  element method for multi-fluids porous media flow modelling. {P}art {I}:
+  Formulation. Computer Methods in Applied Mechanics and
+  Engineering\;(Submitted).
+
+\bibitem[{Jackson et~al.(2013)Jackson, Gomes, Mostaghimi, Percival, Tollit,
+  Pavlidis, Pain, El-Sheikh, Muggeridge, and Blunt}]{jackson_2013}
+Jackson, M., Gomes, J., Mostaghimi, P., Percival, J., Tollit, B., Pavlidis, D.,
+  Pain, C., El-Sheikh, A., Muggeridge, A., Blunt, M., 2013. Reservoir modeling
+  for flow simulation using surfaces, adaptive unstructured meshes, and
+  control-volume-finite-element methods. In: SPE Reservoir Simulation
+  Symposium. Texas, USA.
+
+\bibitem[{Pavlidis et~al.(2013{\natexlab{a}})Pavlidis, Gomes, Pain, and
+  Matar}]{pavlidis_2013c}
+Pavlidis, D., Gomes, J., Pain, C., Matar, O., 2013{\natexlab{a}}.
+  Interface-tracking using a compressive advection method and a compositional
+  modelling approach. In: Proceedings of the 2013 International Conference on
+  Multiphase Flow -- ICMF 2013. Jeju, South Korea.
+
+\bibitem[{Pavlidis et~al.(2013{\natexlab{b}})Pavlidis, Gomes, Xie, Percival,
+  Pain, and Matar}]{pavlidis_2013b}
+Pavlidis, D., Gomes, J., Xie, Z., Percival, J., Pain, C., Matar, O.,
+  2013{\natexlab{b}}. Compressive-advection and multi-component methods for
+  interface-capturing. Journal of Computational Physics\;(Submitted).
+
+\end{thebibliography}

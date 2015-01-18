@@ -1,0 +1,799 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.26)  29 OCT 2014 10:31
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**article
+(./article.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(./elsarticle.cls
+Document Class: elsarticle 2009/09/17, 1.20b: Elsevier Ltd
+\@bls=\dimen102
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen103
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/usr/share/texmf-texlive/tex/latex/psnfss/pifont.sty
+Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+\c@tnote=\count88
+\c@fnote=\count89
+\c@cnote=\count90
+\c@ead=\count91
+\c@author=\count92
+\@eadauthor=\toks15
+\c@affn=\count93
+\absbox=\box26
+\keybox=\box27
+\Columnwidth=\dimen106
+\space@left=\dimen107
+\els@boxa=\box28
+\els@boxb=\box29
+\leftMargin=\dimen108
+\@enLab=\toks16
+\@sep=\skip43
+\@@sep=\skip44
+ (./article.spl)
+(/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty
+Package: natbib 2009/07/16 8.31 (PWD, AO)
+\bibhang=\skip45
+\bibsep=\skip46
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count94
+)
+\splwrite=\write3
+\openout3 = `article.spl'.
+
+\appnamewidth=\dimen109
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen110
+\epsfysize=\dimen111
+)
+(/usr/share/texmf-texlive/tex/latex/comment/comment.sty
+\CommentStream=\write4
+
+Excluding comment 'comment')
+(/usr/share/texmf-texlive/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2009/10/17 v2.4 Conversion with epstopdf on the fly (HO)
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2009/10/17 v2.4 Base part for package epstopdf
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/grfext.sty
+Package: grfext 2007/09/30 v1.0 Managing graphics extensions (HO)
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2009/08/13 v3.4 Keyval support for LaTeX options (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2009/07/30 v1.5 Key value parser with default handler suppor
+t (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2009/09/23 v0.6 LuaTeX support for pdfTeX utility functions
+ (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2009/04/17 v1.2 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2009/08/05 v1.0 Some LaTeX kernel commands for general use (HO
+)
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 433.
+
+(/usr/share/texmf-texlive/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2009/10/26 v1.1 Configuration of epstopdf for TeX Live
+)))
+(/usr/share/texmf-texlive/tex/latex/tools/bm.sty
+Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup4
+\symboldletters=\mathgroup5
+\symboldsymbols=\mathgroup6
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 138.
+LaTeX Info: Redefining \bm on input line 204.
+)
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
+Package: hycolor 2009/10/02 v1.5 Code for color options of hyperref/bookmark (H
+O)
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
+Package: xcolor-patch 2009/10/02 xcolor patch
+))
+\@linkdim=\dimen112
+\Hy@linkcounter=\count95
+\Hy@pagecounter=\count96
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/share/texmf-texlive/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 2975.
+Package hyperref Info: Link nesting OFF on input line 2980.
+Package hyperref Info: Hyper index ON on input line 2983.
+Package hyperref Info: Plain pages OFF on input line 2990.
+Package hyperref Info: Backreferencing OFF on input line 2995.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 3191.
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 3428.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
+Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
+Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
+))
+\Fld@menulength=\count97
+\Field@Width=\dimen113
+\Fld@charsize=\dimen114
+\Field@toks=\toks17
+Package hyperref Info: Hyper figures OFF on input line 4377.
+Package hyperref Info: Link nesting OFF on input line 4382.
+Package hyperref Info: Hyper index ON on input line 4385.
+Package hyperref Info: backreferencing OFF on input line 4392.
+Package hyperref Info: Link coloring OFF on input line 4397.
+Package hyperref Info: Link coloring with OCG OFF on input line 4402.
+Package hyperref Info: PDF/A mode OFF on input line 4407.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
+)
+\Hy@abspage=\count98
+\c@Item=\count99
+\c@Hfootnote=\count100
+)
+*hyperref using default driver hpdftex*
+(/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
+\Fld@listcount=\count101
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 54.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks18
+\symAMSa=\mathgroup7
+\symAMSb=\mathgroup8
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip47
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks19
+\ex@=\dimen115
+))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+LaTeX Info: Redefining \boldsymbol on input line 54.
+\pmbraise@=\dimen116
+)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count102
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count103
+\leftroot@=\count104
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count105
+\DOTSCASE@=\count106
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box30
+\strutbox@=\box31
+\big@size=\dimen117
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count107
+\c@MaxMatrixCols=\count108
+\dotsspace@=\muskip11
+\c@parentequation=\count109
+\dspbrk@lvl=\count110
+\tag@help=\toks20
+\row@=\count111
+\column@=\count112
+\maxfields@=\count113
+\andhelp@=\toks21
+\eqnshift@=\dimen118
+\alignsep@=\dimen119
+\tagshift@=\dimen120
+\tagwidth@=\dimen121
+\totwidth@=\dimen122
+\lineht@=\dimen123
+\@envbody=\toks22
+\multlinegap=\skip48
+\multlinetaggap=\skip49
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+) (./article.aux)
+\openout1 = `article.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+
+(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count114
+\scratchdimen=\dimen124
+\scratchbox=\box32
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen125
+\MPnumerator=\count118
+\everyMPtoPDFconversion=\toks25
+) (/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+Package hyperref Info: Link coloring ON on input line 93.
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
+Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
+)
+\c@section@level=\count119
+)
+LaTeX Info: Redefining \ref on input line 93.
+LaTeX Info: Redefining \pageref on input line 93.
+ (./article.out)
+(./article.out)
+\@outlinefile=\write5
+\openout5 = `article.out'.
+
+\AtBeginShipoutBox=\box33
+LaTeX Font Info:    Try loading font information for U+msa on input line 148.
+ (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 148.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+Overfull \hbox (24.6739pt too wide) has occurred while \output is active
+\OT1/cmr/m/it/10 Preprint submitted to Computer Methods in Applied Mechanics an
+d Engineering October 29, 2014
+ []
+
+[1
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Overfull \hbox (8.42555pt too wide) in paragraph at lines 308--321
+[]\OT1/cmr/m/n/12 All sim-u-la-tions used the over-lap-ping mixed-DGFEM with P$
+[]$DG-P$[]$, P$[]$DG-
+ []
+
+[4] [5] [6] [7] [8] [9] [10] (./article.bbl [11]) [12] (./article.lof [13
+
+]
+Overfull \hbox (6.22789pt too wide) in paragraph at lines 11--11
+ [][] [][][]\OT1/cmr/m/n/12 Heterogeneous per-me-abil-ity test-cases: phase 1 s
+at-u-ra-tion maps 
+ []
+
+
+Overfull \hbox (0.28767pt too wide) in paragraph at lines 12--12
+ [][] [][][]\OT1/cmr/m/n/12 Heterogeneous per-me-abil-ity test-cases: phase 1 s
+at-u-ra-tion pro- 
+ []
+
+)
+\tf@lof=\write6
+\openout6 = `article.lof'.
+
+ [14] (./article_figure1.tex
+Package epstopdf Info: Source file: <BL_1d_P0DGP1_convergence.eps>
+(epstopdf)                    date: 2013-09-02 10:58:10
+(epstopdf)                    size: 37303 bytes
+(epstopdf)             Output file: <BL_1d_P0DGP1_convergence-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2013-09-11 21:59:08
+(epstopdf)                    size: 15216 bytes
+(epstopdf)             Command: <epstopdf --outfile=BL_1d_P0DGP1_convergence-ep
+s-converted-to.pdf BL_1d_P0DGP1_convergence.eps>
+(epstopdf)             \includegraphics on input line 22.
+Package epstopdf Info: Output file is already uptodate.
+
+<BL_1d_P0DGP1_convergence-eps-converted-to.pdf, id=268, 673.51625pt x 475.7775p
+t>
+File: BL_1d_P0DGP1_convergence-eps-converted-to.pdf Graphic file (type pdf)
+ <use BL_1d_P0DGP1_convergence-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <BL_1d_P1DGP2_convergence.eps>
+(epstopdf)                    date: 2013-09-02 10:42:32
+(epstopdf)                    size: 72803 bytes
+(epstopdf)             Output file: <BL_1d_P1DGP2_convergence-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2013-09-11 21:59:08
+(epstopdf)                    size: 22278 bytes
+(epstopdf)             Command: <epstopdf --outfile=BL_1d_P1DGP2_convergence-ep
+s-converted-to.pdf BL_1d_P1DGP2_convergence.eps>
+(epstopdf)             \includegraphics on input line 24.
+Package epstopdf Info: Output file is already uptodate.
+
+<BL_1d_P1DGP2_convergence-eps-converted-to.pdf, id=269, 673.51625pt x 475.7775p
+t>
+File: BL_1d_P1DGP2_convergence-eps-converted-to.pdf Graphic file (type pdf)
+ <use BL_1d_P1DGP2_convergence-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <BL_1d_P2DGP3_convergence.eps>
+(epstopdf)                    date: 2013-09-02 10:46:45
+(epstopdf)                    size: 70330 bytes
+(epstopdf)             Output file: <BL_1d_P2DGP3_convergence-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2013-09-11 21:59:08
+(epstopdf)                    size: 22584 bytes
+(epstopdf)             Command: <epstopdf --outfile=BL_1d_P2DGP3_convergence-ep
+s-converted-to.pdf BL_1d_P2DGP3_convergence.eps>
+(epstopdf)             \includegraphics on input line 26.
+Package epstopdf Info: Output file is already uptodate.
+
+<BL_1d_P2DGP3_convergence-eps-converted-to.pdf, id=270, 673.51625pt x 475.7775p
+t>
+File: BL_1d_P2DGP3_convergence-eps-converted-to.pdf Graphic file (type pdf)
+ <use BL_1d_P2DGP3_convergence-eps-converted-to.pdf>
+
+LaTeX Warning: Float too large for page by 2.42363pt on input line 28.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<L1_convergence_rate.png, id=271, 794.97pt x 614.295pt>
+File: L1_convergence_rate.png Graphic file (type png)
+
+<use L1_convergence_rate.png>
+<L2_convergence_rate.png, id=272, 794.97pt x 614.295pt>
+File: L2_convergence_rate.png Graphic file (type png)
+
+<use L2_convergence_rate.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package epstopdf Info: Source file: <bl-upwind-v-up-and-down.eps>
+(epstopdf)                    date: 2013-09-02 13:40:46
+(epstopdf)                    size: 20734 bytes
+(epstopdf)             Output file: <bl-upwind-v-up-and-down-eps-converted-to.p
+df>
+(epstopdf)                    date: 2013-09-11 21:59:08
+(epstopdf)                    size: 11012 bytes
+(epstopdf)             Command: <epstopdf --outfile=bl-upwind-v-up-and-down-eps
+-converted-to.pdf bl-upwind-v-up-and-down.eps>
+(epstopdf)             \includegraphics on input line 48.
+Package epstopdf Info: Output file is already uptodate.
+
+<bl-upwind-v-up-and-down-eps-converted-to.pdf, id=273, 673.51625pt x 475.7775pt
+>
+File: bl-upwind-v-up-and-down-eps-converted-to.pdf Graphic file (type pdf)
+ <use bl-upwind-v-up-and-down-eps-converted-to.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package epstopdf Info: Source file: <bl-dg-2eles.eps>
+(epstopdf)                    date: 2013-09-02 13:52:56
+(epstopdf)                    size: 14320 bytes
+(epstopdf)             Output file: <bl-dg-2eles-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-11 21:59:09
+(epstopdf)                    size: 8453 bytes
+(epstopdf)             Command: <epstopdf --outfile=bl-dg-2eles-eps-converted-t
+o.pdf bl-dg-2eles.eps>
+(epstopdf)             \includegraphics on input line 77.
+Package epstopdf Info: Output file is already uptodate.
+<bl-dg-2eles-eps-converted-to.pdf, id=274, 667.49374pt x 469.755pt>
+File: bl-dg-2eles-eps-converted-to.pdf Graphic file (type pdf)
+
+<use bl-dg-2eles-eps-converted-to.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package epstopdf Info: Source file: <L1_convergence_rate_DG.eps>
+(epstopdf)                    date: 2013-09-06 16:54:14
+(epstopdf)                    size: 17239 bytes
+(epstopdf)             Output file: <L1_convergence_rate_DG-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2013-09-11 21:59:09
+(epstopdf)                    size: 9203 bytes
+(epstopdf)             Command: <epstopdf --outfile=L1_convergence_rate_DG-eps-
+converted-to.pdf L1_convergence_rate_DG.eps>
+(epstopdf)             \includegraphics on input line 88.
+Package epstopdf Info: Output file is already uptodate.
+<L1_convergence_rate_DG-eps-converted-to.pdf, id=275, 672.5125pt x 485.815pt>
+File: L1_convergence_rate_DG-eps-converted-to.pdf Graphic file (type pdf)
+
+<use L1_convergence_rate_DG-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <L2_convergence_rate_DG.eps>
+(epstopdf)                    date: 2013-09-06 16:57:26
+(epstopdf)                    size: 17239 bytes
+(epstopdf)             Output file: <L2_convergence_rate_DG-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2013-09-11 21:59:09
+(epstopdf)                    size: 9196 bytes
+(epstopdf)             Command: <epstopdf --outfile=L2_convergence_rate_DG-eps-
+converted-to.pdf L2_convergence_rate_DG.eps>
+(epstopdf)             \includegraphics on input line 90.
+Package epstopdf Info: Output file is already uptodate.
+
+<L2_convergence_rate_DG-eps-converted-to.pdf, id=276, 672.5125pt x 485.815pt>
+File: L2_convergence_rate_DG-eps-converted-to.pdf Graphic file (type pdf)
+
+<use L2_convergence_rate_DG-eps-converted-to.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package epstopdf Info: Source file: <bl-dg-4-10-20.eps>
+(epstopdf)                    date: 2013-09-02 15:57:53
+(epstopdf)                    size: 23906 bytes
+(epstopdf)             Output file: <bl-dg-4-10-20-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-11 21:59:09
+(epstopdf)                    size: 10548 bytes
+(epstopdf)             Command: <epstopdf --outfile=bl-dg-4-10-20-eps-converted
+-to.pdf bl-dg-4-10-20.eps>
+(epstopdf)             \includegraphics on input line 99.
+Package epstopdf Info: Output file is already uptodate.
+<bl-dg-4-10-20-eps-converted-to.pdf, id=277, 673.51625pt x 475.7775pt>
+File: bl-dg-4-10-20-eps-converted-to.pdf Graphic file (type pdf)
+
+<use bl-dg-4-10-20-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <bl-dg-cent-4-10-20.eps>
+(epstopdf)                    date: 2013-09-02 15:52:48
+(epstopdf)                    size: 23883 bytes
+(epstopdf)             Output file: <bl-dg-cent-4-10-20-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-11 21:59:10
+(epstopdf)                    size: 10562 bytes
+(epstopdf)             Command: <epstopdf --outfile=bl-dg-cent-4-10-20-eps-conv
+erted-to.pdf bl-dg-cent-4-10-20.eps>
+(epstopdf)             \includegraphics on input line 101.
+Package epstopdf Info: Output file is already uptodate.
+
+<bl-dg-cent-4-10-20-eps-converted-to.pdf, id=278, 673.51625pt x 475.7775pt>
+File: bl-dg-cent-4-10-20-eps-converted-to.pdf Graphic file (type pdf)
+
+<use bl-dg-cent-4-10-20-eps-converted-to.pdf>
+
+LaTeX Warning: Float too large for page by 8.34483pt on input line 103.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package epstopdf Info: Source file: <bl-dg-4-10-vers-cty.eps>
+(epstopdf)                    date: 2013-09-02 16:35:29
+(epstopdf)                    size: 21344 bytes
+(epstopdf)             Output file: <bl-dg-4-10-vers-cty-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-09-11 21:59:10
+(epstopdf)                    size: 10478 bytes
+(epstopdf)             Command: <epstopdf --outfile=bl-dg-4-10-vers-cty-eps-con
+verted-to.pdf bl-dg-4-10-vers-cty.eps>
+(epstopdf)             \includegraphics on input line 111.
+Package epstopdf Info: Output file is already uptodate.
+<bl-dg-4-10-vers-cty-eps-converted-to.pdf, id=279, 673.51625pt x 475.7775pt>
+File: bl-dg-4-10-vers-cty-eps-converted-to.pdf Graphic file (type pdf)
+
+<use bl-dg-4-10-vers-cty-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <bl-dg-p1-2-4-5-10-20-40.eps>
+(epstopdf)                    date: 2013-09-02 16:33:53
+(epstopdf)                    size: 28463 bytes
+(epstopdf)             Output file: <bl-dg-p1-2-4-5-10-20-40-eps-converted-to.p
+df>
+(epstopdf)                    date: 2013-09-11 21:59:10
+(epstopdf)                    size: 11226 bytes
+(epstopdf)             Command: <epstopdf --outfile=bl-dg-p1-2-4-5-10-20-40-eps
+-converted-to.pdf bl-dg-p1-2-4-5-10-20-40.eps>
+(epstopdf)             \includegraphics on input line 113.
+Package epstopdf Info: Output file is already uptodate.
+
+<bl-dg-p1-2-4-5-10-20-40-eps-converted-to.pdf, id=280, 673.51625pt x 475.7775pt
+>
+File: bl-dg-p1-2-4-5-10-20-40-eps-converted-to.pdf Graphic file (type pdf)
+ <use bl-dg-p1-2-4-5-10-20-40-eps-converted-to.pdf>
+
+LaTeX Warning: Float too large for page by 20.90039pt on input line 115.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<map_2d.png, id=281, 2605.735pt x 643.40375pt>
+File: map_2d.png Graphic file (type png)
+ <use map_2d.png>
+<map_3d.png, id=282, 2554.54375pt x 1019.81pt>
+File: map_3d.png Graphic file (type png)
+ <use map_3d.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package epstopdf Info: Source file: <BL_2d_P1DGP2_convergence.eps>
+(epstopdf)                    date: 2013-09-06 18:03:15
+(epstopdf)                    size: 37275 bytes
+(epstopdf)             Output file: <BL_2d_P1DGP2_convergence-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2013-09-11 21:59:10
+(epstopdf)                    size: 15142 bytes
+(epstopdf)             Command: <epstopdf --outfile=BL_2d_P1DGP2_convergence-ep
+s-converted-to.pdf BL_2d_P1DGP2_convergence.eps>
+(epstopdf)             \includegraphics on input line 136.
+Package epstopdf Info: Output file is already uptodate.
+
+<BL_2d_P1DGP2_convergence-eps-converted-to.pdf, id=283, 673.51625pt x 475.7775p
+t>
+File: BL_2d_P1DGP2_convergence-eps-converted-to.pdf Graphic file (type pdf)
+ <use BL_2d_P1DGP2_convergence-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <simulations_2d_3d.eps>
+(epstopdf)                    date: 2013-09-06 18:17:00
+(epstopdf)                    size: 35464 bytes
+(epstopdf)             Output file: <simulations_2d_3d-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-01-16 18:29:02
+(epstopdf)                    size: 15707 bytes
+(epstopdf)             Command: <epstopdf --outfile=simulations_2d_3d-eps-conve
+rted-to.pdf simulations_2d_3d.eps>
+(epstopdf)             \includegraphics on input line 138.
+Package epstopdf Info: Output file is already uptodate.
+
+<simulations_2d_3d-eps-converted-to.pdf, id=284, 673.51625pt x 475.7775pt>
+File: simulations_2d_3d-eps-converted-to.pdf Graphic file (type pdf)
+
+<use simulations_2d_3d-eps-converted-to.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<4Rregion_BL.pdf, id=285, 502.87875pt x 289.08pt>
+File: 4Rregion_BL.pdf Graphic file (type pdf)
+ <use 4Rregion_BL.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<CG_coarse083.png, id=286, 1604.99625pt x 1041.8925pt>
+File: CG_coarse083.png Graphic file (type png)
+ <use CG_coarse083.png>
+<CG_fine083.png, id=288, 1604.99625pt x 1041.8925pt>
+File: CG_fine083.png Graphic file (type png)
+ <use CG_fine083.png>
+<DG_coarse083.png, id=289, 1604.99625pt x 1041.8925pt>
+File: DG_coarse083.png Graphic file (type png)
+ <use DG_coarse083.png>
+<DG_fine083.png, id=290, 1604.99625pt x 1041.8925pt>
+File: DG_fine083.png Graphic file (type png)
+ <use DG_fine083.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<down_left_top_right083.png, id=291, 822.07124pt x 797.98125pt>
+File: down_left_top_right083.png Graphic file (type png)
+
+<use down_left_top_right083.png>
+<Top_left-Down_right083.png, id=292, 822.07124pt x 797.98125pt>
+File: Top_left-Down_right083.png Graphic file (type png)
+
+<use Top_left-Down_right083.png>
+<X04_083.png, id=293, 822.07124pt x 797.98125pt>
+File: X04_083.png Graphic file (type png)
+ <use X04_083.png>
+<y04_083.png, id=294, 822.07124pt x 797.98125pt>
+File: y04_083.png Graphic file (type png)
+ <use y04_083.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<square_permeability_low.png, id=295, 691.58376pt x 553.06625pt>
+File: square_permeability_low.png Graphic file (type png)
+
+<use square_permeability_low.png>
+<cg_square_015_low.png, id=296, 691.58376pt x 553.06625pt>
+File: cg_square_015_low.png Graphic file (type png)
+
+<use cg_square_015_low.png>
+<cg_square_05_low.png, id=297, 691.58376pt x 553.06625pt>
+File: cg_square_05_low.png Graphic file (type png)
+
+<use cg_square_05_low.png>
+<dg_square_015_low.png, id=298, 691.58376pt x 553.06625pt>
+File: dg_square_015_low.png Graphic file (type png)
+
+<use dg_square_015_low.png>
+<dg_square_05_low.png, id=299, 691.58376pt x 553.06625pt>
+File: dg_square_05_low.png Graphic file (type png)
+
+<use dg_square_05_low.png>
+
+LaTeX Warning: Float too large for page by 10.26582pt on input line 198.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<wedge_permeability.png, id=300, 2666.96375pt x 542.025pt>
+File: wedge_permeability.png Graphic file (type png)
+
+<use wedge_permeability.png> <wedge_0011.png, id=301, 2666.96375pt x 803.0pt>
+File: wedge_0011.png Graphic file (type png)
+
+<use wedge_0011.png> <wedge_0014.png, id=302, 2666.96375pt x 803.0pt>
+File: wedge_0014.png Graphic file (type png)
+
+<use wedge_0014.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<3d_perm.png, id=303, 1179.40625pt x 450.68375pt>
+File: 3d_perm.png Graphic file (type png)
+ <use 3d_perm.png>
+<3d_first.png, id=304, 1179.40625pt x 450.68375pt>
+File: 3d_first.png Graphic file (type png)
+ <use 3d_first.png>
+<3d_second.png, id=305, 1256.695pt x 348.30125pt>
+File: 3d_second.png Graphic file (type png)
+ <use 3d_second.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [15 <./BL_1d_P0DGP1_convergence-eps-converted-to.pdf> <./BL_1d_P1DGP2_converg
+ence-eps-converted-to.pdf> <./BL_1d_P2DGP3_convergence-eps-converted-to.pdf>]
+[16 <./L1_convergence_rate.png (PNG copy)> <./L2_convergence_rate.png (PNG copy
+)>] [17 <./bl-upwind-v-up-and-down-eps-converted-to.pdf>] [18 <./bl-dg-2eles-ep
+s-converted-to.pdf>] [19 <./L1_convergence_rate_DG-eps-converted-to.pdf> <./L2_
+convergence_rate_DG-eps-converted-to.pdf>] [20 <./bl-dg-4-10-20-eps-converted-t
+o.pdf> <./bl-dg-cent-4-10-20-eps-converted-to.pdf>] [21 <./bl-dg-4-10-vers-cty-
+eps-converted-to.pdf> <./bl-dg-p1-2-4-5-10-20-40-eps-converted-to.pdf>]
+[22 <./map_2d.png (PNG copy)> <./map_3d.png (PNG copy)>] [23 <./BL_2d_P1DGP2_co
+nvergence-eps-converted-to.pdf> <./simulations_2d_3d-eps-converted-to.pdf>]
+[24 <./4Rregion_BL.pdf>] [25 <./CG_coarse083.png> <./CG_fine083.png> <./DG_coar
+se083.png> <./DG_fine083.png>] [26 <./down_left_top_right083.png (PNG copy)> <.
+/Top_left-Down_right083.png (PNG copy)> <./X04_083.png (PNG copy)> <./y04_083.p
+ng (PNG copy)>] [27 <./square_permeability_low.png (PNG copy)> <./cg_square_015
+_low.png (PNG copy)> <./cg_square_05_low.png (PNG copy)> <./dg_square_015_low.p
+ng (PNG copy)> <./dg_square_05_low.png (PNG copy)>] [28 <./wedge_permeability.p
+ng (PNG copy)> <./wedge_0011.png (PNG copy)> <./wedge_0014.png (PNG copy)>]
+[29 <./3d_perm.png (PNG copy)> <./3d_first.png (PNG copy)> <./3d_second.png (PN
+G copy)>] (./article.aux) ) 
+Here is how much of TeX's memory you used:
+ 6227 strings out of 495061
+ 87543 string characters out of 1182620
+ 173198 words of memory out of 3000000
+ 9142 multiletter control sequences out of 15000+50000
+ 17709 words of font info for 65 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 41i,10n,36p,521b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfont
+s/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10
+.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf
+-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmmib10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.
+pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
+are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
+msy7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></u
+sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmtt10.pfb>
+Output written on article.pdf (29 pages, 9409653 bytes).
+PDF statistics:
+ 522 PDF objects out of 1000 (max. 8388607)
+ 72 named destinations out of 1000 (max. 500000)
+ 274 words of extra memory for PDF output out of 10000 (max. 10000000)
+
