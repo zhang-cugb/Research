@@ -13,7 +13,7 @@
 
 \begin{document}
 
-\title{Reservoir Simulation using a Deterministic Heterogeneity Permeability Data}
+\title{Reservoir Simulation using a Deterministic Heterogeneity Permeability Data \red{(heterogeneity permeability?)}}
 
 
 \author{B. Lashore\thanks{Electronic address: \texttt{r01bol14@abdn.ac.uk} (Corresponding author)} , J.L.M.A. Gomes}
@@ -31,17 +31,27 @@
 \maketitle
 %\section*{Abstract}
 \begin{abstract}
-discrete or deterministic?
-This paper demonstrates that the Overlapping Control Volume Finite Element Method (OCVFEM) for Reservoir Simulation can make full use of the deterministic heterogeneity data provided without resorting to upscaling. The results from this simulation would be benchmarked against the results from the 10$^{\text{th}}$ SPE Comparative Solution Project (SPE 10 project). Although, only the first case from the SPE 10 project, which involves upscaling and pseudoization methods for an easily computed 2D gas-injection, would be simulated for this paper.
+\JG{discrete or deterministic? I guess some of the entries you may meant discrete instead of deterministic.}
+\red{What is the motivation for the work? What is the novelty you are bringing.}
+This paper demonstrates\JG{Usually, a paper reports or describes not demonstrates.} that the Overlapping Control Volume Finite Element Method (OCVFEM) for Reservoir Simulation can make full use of the deterministic heterogeneity data provided without resorting to upscaling. The results from this simulation would be benchmarked against the results from the 10$^{\text{th}}$ SPE Comparative Solution Project (SPE 10 project). Although, only the first case from the SPE 10 project, which involves upscaling and pseudoization methods for an easily computed 2D gas-injection, would be simulated for this paper. \JG{Think about the objetive(s) of the paper (not of your whole PhD project). First, list it/them out using the keywords that better represent the work you are planning.  Then start writing 1-3 cross-linked sentences using these keywords.}
 
 The overlapping control volume finite element method (OCVFEM) formulation, makes use of triangular and tetrahedral finite element pairs to represent the model properties. A P0DG meshing scheme is used for permeability in this simulation therefore the nodal data point for permeability are defined as discontinous data points at the centre of each tethrahedral element. The permeability data for the deterministic heterogeneity is spatially assigned within the simulation domain. And using the deterministic data, 3D interpolation is performed to determine the nodal data for the P0DG meshing scheme.
+\red{After stating the objectives, you can briefly explain the methods you are using tp achieve these objectives. A few key-words that you should consider having here, CVFEM, element-pairs, heterogeneity/permeability, discontinuous. You do not need to explain all details of methods etc, but just make these 2-4 sentences strong and compelling.} 
 
 \red{Yet to obtain any information on the simulation}\\
 \red{Try to highlight the preliminary results and what you expect to obtain 'till June/July.}
 
-\sout{Currently available reservoir simulators require a homogeneous data input for a property such as permeability. Hence, upscaling is performed to determine a suitable equivalent value to be used in the simulation.} This novel method of reservoir simulation does not require upscaling but instead makes use of the heterogeneous data available within the simulation domain. This has two advantages. First, it removes the need for a computation for upscaling. Second, flow simulation within the domain is similar to that of a real-life heterogeneous reservoir.
+\sout{Currently available reservoir simulators require a homogeneous data input for a property such as permeability. Hence, upscaling is performed to determine a suitable equivalent value to be used in the simulation.} This novel method of reservoir simulation does not require upscaling but instead makes use of the heterogeneous data available within the simulation domain. This has two advantages. First, it removes the need for a computation for upscaling. Second, flow simulation within the domain is similar to that of a real-life heterogeneous reservoir.\red{Results, Conclusions. As we do not have them yet, you could briefly describe the preliminary results and the aim of validating the methods against the SPE10}.
 
 In a future paper, the second problem of the 10th SPE Comparative Solution Project would be simulated with the OCVFEM and higher order meshing schemes would be used. The paper would also make use of stochastic methods for data representation. 
 \end{abstract}
+
+\red{\begin{center}\large{SPE Instructions}\end{center}
+\begin{enumerate}
+  \item Objectives/Scope: Please list the objectives and/or scope of the proposed paper. (25-75 words)
+  \item Methods, Procedures, Process: Briefly explain your overall approach, including your methods, procedures and process. (75-100 words)
+  \item Results, Observations, Conclusions: Please describe the results, observations and conclusions of the proposed paper. (100-200 words)
+  \item Novel/Additive Information: Please explain how this paper will present novel (new) or additive information to the existing body of literature that can be of benefit to and/or add to the state of knowledge in the petroleum industry. (25-75 words) 
+\end{enumerate}}
 
 \end{document}
