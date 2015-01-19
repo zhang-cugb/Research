@@ -1,0 +1,403 @@
+%%
+%% Copyright 2007, 2008, 2009 Elsevier Ltd
+%%
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%%
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later c.
+%%
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%%
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+%% SP 2008/03/01
+%%
+%%
+%%
+%% $Id: elsarticle-template-harv.tex 4 2009-10-24 08:22:58Z rishi $
+%%
+%%
+\documentclass[preprint,authoryear,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,authoryear,1p,times]{elsarticle}
+%% \documentclass[final,authoryear,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,authoryear,3p,times]{elsarticle}
+%% \documentclass[final,authoryear,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,authoryear,5p,times]{elsarticle}
+%% \documentclass[final,authoryear,5p,times,twocolumn]{elsarticle}
+
+%% if you use PostScript figures in your article
+%% use the graphics package for simple commands
+%% \usepackage{graphics}
+%\usepackage{cases}
+%% or use the graphicx package for more complicated commands
+\usepackage{graphicx}
+%% or use the epsfig package if you prefer to use the old commands
+\usepackage{epsfig}
+
+\usepackage{epstopdf}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb,amsmath}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%% \usepackage{lineno}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon (default)
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   authoryear - selects author-year citations (default)
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%   longnamesfirst  -  makes first citation full author list
+%%
+%% \biboptions{longnamesfirst,comma}
+
+% \biboptions{}
+
+\journal{Computer Methods in Applied Mechanics and Engineering}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\title{The Overlapping Control Volume Finite Element Method for Porous Media Multiphase Flow Modelling: Part II 
+Simulation Results}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+\author{J.L.M.A. Gomes}\corref{cor1}\ead{j.gomes@imperial.ac.uk}
+\author{D. Pavlidis} 
+\author{J. Percival} 
+\author{P. Mostaghimi} 
+\author{P. Salinas} 
+\author{Z. Xie} 
+\author{C.C. Pain} \author{M. D. Jackson} 
+\author{M. Blunt} \author{A. Muggaridge} 
+\cortext[cor1]{Corresponding author.}
+
+\address{Applied Modelling and Computation Group, Department of Earth Science and Engineering, Imperial College London}
+
+\begin{abstract} 
+This is the second part of a two part paper on the overlapping finite 
+element method applied to porous media multiphase flows. 
+In the first part we delt with the formulation. 
+I this second part we demonstrate the resuts from 
+the  overlapping control volume finite element method (OCV-FEM).  
+We  first apply the model to situations with known analytical results 
+and show the order of convergence of the various element types, discontinuous 
+in velocity and continuous in pressure elements PnDG-Pn+1 as well as fully 
+discontinuous elements PnDG-PnDG. 
+We then proceed to model a number of test cases to show how the methods 
+compare for a range of test cases. 
+\end{abstract}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+Multiphase Darcy Equations \sep Discontinuous Galerkin method \sep Overlapping mixing formulation 
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+\tableofcontents
+% \linenumbers
+%%%                   %%%
+%%%      SECTION      %%%
+%%%                   %%%
+\section{Introduction}
+%\begin{itemize}
+%\item {\bf Couple of paragraphs on multiphase porous media flow -- applications and current methods used in commercial and academic CFD/simulators (check how OpenFoam deals with this class of problems)} ;
+%\item {\bf A couple of paragraphs on FEM and CV-FEM (describe the original mansucript from early 80's) and their latest developments};
+%\item {\bf A couple of paragraphs on the general methods for multiphase porous media flow -- refers to the developments on GigaPower from Saudi Aramco}
+%\item {\bf A paragraph summarising the new approach and overview of the manuscript}
+%\end{itemize}
+
+The remainder of this paper is organised as follows. A detailed
+description of the model is given in Sec.~\ref{transport_methods}. The
+model evaluation is presented in Sec.~\ref{res1}. The model
+application is presented in Sec.~\ref{res2}. Finally, some concluding
+remarks and future work are given in Sec.~\ref{conc}.
+
+\setlength\parindent{0pt}
+
+
+
+
+
+
+\section{The Buckley-Leverett test case}
+\label{res1}
+The one-dimensional incompressible Buckley-Leverett equations with gas
+injection along a fully saturated ($S_f=1$) bore hole of uniform
+porosity ($\phi=0.5$) are modelled using Porosity. The gas is injected
+at a velocity of $u_g=1$ and a saturation of $S_g=1$. On the outflow
+boundary the pressure level is set to zero. The length of the bore
+hole is 4 non-dimensional units. All boundary conditions are applied
+weakly. The Corey model defined as: $k_g = S_g^{-2}$ is used to
+calculate the relative permeability.
+
+All simulations use the overlapping mixed finite element method and a
+number of element pairs (for velocity and pressure) are
+evaluated. Saturation is collocated at the pressure nodes. Although
+saturation is calculated using a control volume formulation a FEM
+interpolation is used to form the high order fluxes and this is also
+used here for most of the saturation plots.
+Fig.~\ref{bl-exact-meth-upwind} shows the CV saturation of gas (with
+horizontal and vertical lines) and the quadratic finite element
+interpolation (FEM interpolation). The solution converges with
+increased resolution. Note that the right corners of the control
+volumes agree best with the analytical solution. This is because
+upwinding of the velocities is used (or equivalently the relative
+permeabilities) and it is at these points that the equations reach the
+balance necessary to match closely the analytic solution.
+
+Despite the one-dimensional nature of the problem, it is reproduced in
+two and three dimensions using structured and unstructured meshes to
+evaluate the multi-dimensional capabilities of the model. In two- and
+three-dimensional simulations, free-slip boundary conditions are
+applied on the sides of the domain for the two velocity fields.
+
+\subsection{Convergence analysis}
+A convergence analysis is undertaken for one and two dimensions. A
+number of meshes and element pairs are assessed with respect to the
+gas phase saturation field.
+
+All one-dimensional meshes have equi-sized elements. Two-dimensional
+meshes are structured and one-element wide. Their elements are also
+equi-sized and have unity aspect ratio. Thus the width of the
+two-dimensional domains is inversely proportional to the number of
+elements. The time step size is linearly varied between 1.25 10$^{-4}$
+and 3.125 10$^{-3}$ for the one-dimensional simulations, while it is
+10$^{-4}$ for all two-dimensional simulations.
+
+Saturation profiles for the gas phase at time $t=0.5$ are shown in
+Fig.~\ref{fig:BL_profiles}. One dimension P0DG-P1 profiles for meshes
+having between 5 and 100 elements are shown on the top left. One
+dimension P1DG-P2 and P2DG-P3 profiles for meshes having between 5 and
+500 elements are shown on the top right and bottom left, respectively.
+Finally, two dimension P1DG-P2 profiles for meshes having between 5
+and 100 elements are shown on the bottom right. The geometry symmetry
+line is used to extract data for the two-dimensional simulation.
+
+Results are in good agreement with the analytic solution even for the
+coarse meshes and in all four cases the results converge to the
+analytical solution with increasing resolution.
+
+Note that for the coarse meshes (5 and 20 elements) high-order
+elements perform better and are able to capture the front more
+accurately. Consequently, P1DG-P2 performs better than P0DG-P1 and
+P2DG-P3 performs better than P1DG-P2. As far as the two-dimensional
+simulations are concerned, the coarse mesh simulation performs
+slightly worse than its one-dimensional counterpart but for higher
+resolutions results are identical.
+
+These conclusions become clearer in Fig.~\ref{fig:BL_converg-rates},
+where convergence rates are shown. The L1 error defined as $N^{-1}
+\Sigma_{i=1}^N|y_i-E_i| $ is shown on the left, while the L2 error
+defined as $N^{-1} (\Sigma_{i=1}^N(y_i-E_i)^2)^{0.5}$ is shown on the
+right ($y$ represents modelled gas phase saturations and $E$
+represents analytic gas phase saturations). In addition to the
+simulations discussed so far, convergence rates for another set
+simulations that use full upwinding is also shown in
+Fig.~\ref{fig:BL_converg-rates}. *** ADD DISCUSSION HERE ***
+
+
+\subsection{Numerical experiments}
+Following the convergence analysis a number of numerical experiments
+are performed to evaluate the robustness of the method in fully
+unstructured meshes.
+
+Gas phase saturation surface maps for a two- and a three-dimensional
+simulation at time $t=0.5$ are shown in Fig.~\ref{fig:}. The mesh and
+surface mesh for the two- and three-dimensional simulations,
+respectively, are also shown in Fig.~\ref{fig:}. These simulations use
+unstructured meshes and the P1DGP2 element pair.
+
+Saturation profiles for the gas phase at time $t=0.5$ are shown in
+Fig.~\ref{fig:BL_profiles}. Results are not spatially averaged and the
+geometry symmetry line is used to extract data for all simulations.
+The structured coarse mesh uses $1 \times 19$ layers in the lateral
+and flow directions, respectively. The structured medium mesh uses $3
+\times 40$ layers.
+
+
+\section{A 4-region modified Buckley-Levrett test case}
+\label{res2}
+A four-region modified Buckley-Levrett test case is used to
+demonstrate the capabilities of the suggested method.  In this test
+case gas is injected in a fully saturated ($S_f=1$) two-dimensional
+square domain of side length one and uniform porosity
+($\phi=0.5$). However, unlike the original Buckley-Levrett test case,
+the permeability of the domain is not uniform and four `regions'
+exist. A schematic of the geometry along with the four regions and
+boundary conditions is shown in Fig.~\ref{fig:4reg_BL_schematic}.  The
+four regions are square and equi-sized. The permeability in regions R1
+and R4 is 4 times bigger than that of regions R2 and R3.
+
+
+
+The gas is injected at a
+velocity of $u_g=1$ and a saturation of $S_g=1$. On the outflow
+boundary the pressure level is set to zero.
+Free-slip boundary conditions are
+applied on the sides of the domain for the two velocity fields.
+All boundary conditions
+are applied weakly.
+The Corey model defined as:
+$k_g = S_g^{-2}$ is used to calculate the relative permeability.
+
+
+
+All simulations use the overlapping mixed finite element method and the
+P1DG-P2 element pair. The time step sizes are 10$^{-3}$ and 5 10$^{-4}$
+for the coarse and fine meshes, respectively.
+
+
+
+Four simulations are performed in total with the only difference
+between them being the mesh. All meshes are unstructured, however two
+of them resolve the boundaries between the four regions and two of
+them don't. For each of the two cases (resolving and non-resolving), a
+coarse and fine mesh simulation is performed.
+
+Fig.~\ref{fig:4reg_maps} shows the gas phase saturation maps at time
+$t=0.1$ along with the meshes used for all four simulations. Coarse
+meshes are located on the top, while fine meshes are located on the
+bottom. Non-resolving meshes are on the left, while region resolving
+meshes are located on the right. All four simulations are in good
+agreement and gas phase saturations follow similar patterns. Note
+that the differences between the region boundary resolving and
+non-resolving meshes are negligible.
+
+Fig.~\ref{fig:4reg_plots} shows four gas phase saturation profiles at
+time $t=0.1$ for all four simulations.
+
+
+Now, we repeat the experiments using the P2DG-P2DG element pair. Figure~\ref{fig:4reg_maps_dg} shows the gas phase saturation maps at time $t=0.1$ along with the meshes used for all four simulationsCoarse
+meshes are located on the top, while fine meshes are located on the
+bottom. Non-resolving meshes are on the left, while region resolving
+meshes are located on the right. Comparing with the experiments using the overlapping mixed finite element method and the
+P1DG-P2 element pair, a better agreement between the results yielded from the coarse and fine mesh simulations is obtained. 
+
+\section{An embedded-region modified Buckley-Leverett test case}
+\label{res3}
+
+Here a two-region permeability medium is solved.
+The low-permeability region with dimensions 0.5 $\times$ 0.5 is 
+embedded in a high-permeability region with dimensions  1 $\times$ 1. The permeabilities of the low-permeable region and high-permeable 
+region are $10^{-4}$ and 1 respectively. The permeabilities of the porous medium and the unstructured mesh used are depicted in Figure~\ref{fig:square_permeability}. The porosity is uniform and equal to $0.5.$
+
+The initial, boundary conditions and physical properties
+used in Section~\ref{res2} are considered for this problem. 
+
+Two different experiments are performed. One using  the overlapping mixed finite element method and the P1DG-P1 element pair,
+and another using the P1DG-P1DG element pair. The time steps used are 5 10$^{-3}$
+and 10$^{-4}$ respectively.
+
+
+Figure~\ref{Fig:square_015} and Figure~\ref{Fig:square_05} show the saturation profile at $t = 0.15$ and $t = 0.5$ respectively for the experiments using P1DG-P1 elements, left pictures, and P1DG-P1DG elements, right pictures.
+Both simulations yield a similar result. However, the experiments using P1DG-P1 elements show a dispersion of phase 1 into the low-permeability region whereas the saturation profile in the experiments using P1DG-P1DG elements present a defined frontier between the low-permeability region and the high-permeability area.
+
+\section{A wedge-shaped modified Buckley-Leverett test case}
+\label{res4}
+
+In this numerical experiment a wedge-shaped high-permeability ($100$) region embedded in a rectangular low-permeability (1) domain is considered, the permeability regions are depicted along with the unstructured mesh in Figure~\ref{fig:wedge_permeability} . The non-dimensional rectangular domain is 1.0 $\times$ 0.1 and the wedge is defined by a high of 0.025 and a slope of $1/30$. The porosity is uniform and equal to 0.5.
+
+Initially the porous media is filled by phase 2. In the simulation, phase 1 is injected from the left boundary with a constant pressure of 1 
+and a saturation of $S_g=0.5$. On the outflow
+boundary the pressure level is set to zero.
+Free-slip boundary conditions are applied on the sides of the domain for the two velocity fields.
+All boundary conditions are applied weakly. The Corey model defined as: $k_g = S_g^{-2}$ is used to calculate the relative permeability.
+
+Two different experiments are performed. One using  the overlapping mixed finite element method and the P1DG-P1 element pair,
+and another using the P1DG-P1DG element pair. The time steps used are 10$^{-3}$
+and 10$^{-5}$ respectively.
+
+Figure~\ref{Fig:wedge_0080} and Figure~\ref{Fig:wedge_0118} shows phase 1 saturation maps at time
+$t=0.08$ and $t=0.012$ respectively along with the meshes used for both simulations. In the experiments using P1DG-P1 elements we can see a dispersion of phase 1 in the vicinity of the wedge due to the continuous finite elements used for the saturation. On the other hand, the experiments using P1DG-P1DG elements shows a well-defined frontier of phase 1 within the wedge. It can be observed, that for this experiment the result obtained by both type of elements differ substantially.
+
+\section{Conclusions}
+\label{conc}
+
+\ack 
+This work was supported by the...
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%% \appendix
+
+%% \section{}
+%% \label{}
+
+%% References with bibTeX database:
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+
+\pagebreak
+\clearpage
+
+\listoffigures
+\pagebreak
+\clearpage
+
+\input{article_figure1}
+
+
+\end{document}
+
+%%
+%% End of tex file.

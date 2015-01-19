@@ -390,7 +390,7 @@ where \textit{c} and \textit{d} refer to the two CV's that are adjacent to face 
 %%% SUBSECTION %%%
 %%%            %%%
 \subsection{Saturation and Global Mass Conservative Equations}\label{Section:Saturation_Global}
-Here, the formulation described in Section~\ref{Section:CVFEMDiscretisation} is extended to discretise the saturation conservation equations and to help deriving the global mass balance equations. In this work, the fluids are assumed incompressible. The saturation equation can be written as,
+Here, the formulation described in Section~\ref{Section:CVFEMDiscretisation} is extended to discretise the saturation conservation equations and to help deriving the global mass balance equations. In this work, fluids are assumed incompressible, and the saturation equation can be written as,
 \begin{equation}
   \phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  s_{cty,\alpha},
   \label{saturation_equation}
@@ -556,53 +556,54 @@ Eqn.~\ref{final_projection} is solved for pressure and then the velocity is obta
 %%%         %%%
 \section{Model Validation}\label{Section:Results}%
 \subsection{Advection Test-Cases}
-The aim of this section is to demonstrate the performance of the CVFEM approach to solve the advection equation. The control volumes are interpolated using FEM basis functions and the FEM provides the high-order flux which is limited as previously described. The 1D advection equation:
+The aim of this section is to demonstrate the performance of the CVFEM approach to solve the advection equation, %. As described in Section~\ref{transport_methods_section}, control volumes are interpolated using FEM basis functions and the FEM provides the high-order flux which is limited. The 1D advection equation:
 \begin{displaymath}
-  \displaystyle\frac{\partial}{\partial t} T + \frac{\partial}{\partial x} \left( {\bf u}\;T \right) = 0, 
+  \displaystyle\frac{\partial T}{\partial t} + \frac{\partial}{\partial x} \left( {\bf u}\;T \right) = 0, 
 \end{displaymath}
-is solved within a domain $x\in \left[0,1\right]$, with $T=1$ on the left boundary and advection velocity of $u=1$. Initial conditions at time $t=0$,
+within a domain $x\in \left[0,1\right]$, with $T=1$ on the left boundary and advection velocity of $u=1$. Initial conditions are defined as,
 \begin{displaymath}
-  T\left( x,0\right)= \begin{cases} 1, \;\; &  0.2 \le  x \le 0.4 \\
+  T\left( x,0\right)= \begin{cases} 1, \;\; &  0.2 \le  x \le 0.4, \\
     0, & \mbox{ otherwise,}
   \end{cases}
 \end{displaymath}
-are specified. Figure~\ref{compar-dg} (top) shows the spatial accuracy of the schemes introduced in this work with a small (converged) time step size. The solution shown here was obtained at $t=0.2$ and the domain was divided into 5 elements. The accuracy can be gauged by comparing solutions obtained from 5 and 50 elements. CV solutions and the corresponding FE interpolation of these solutions are also shown. The FEM interpolation was used to obtain the high-order fluxes (both between and within each element). 
+are specified. Control volumes are interpolated using FEM basis functions. Figure~\ref{compar-dg} (top) shows the spatial accuracy of the schemes introduced in this work with a small (converged) time step size. The solution was obtained at $t=0.2$ and the domain was divided into 5 elements. The accuracy can be gauged by comparing solutions obtained from 5 and 50 elements. CV solutions and the corresponding FE interpolation of these solutions are also shown. The FEM interpolation was used to obtain the high-order fluxes (both between and within each element). 
 
 The Courant number $\left(=u\Delta t / \Delta x\right)$ was increased based on the element size of $\Delta x = 0.5$. Courant number is equal to 2 based on the smallest control volume (representing a large time step size). Two time steps were performed, and this is a hard test for the non-linear $\theta$ time-stepping method (Section~\ref{time_discretisation}). Note that due to the large time step size the solution is more dissipative, however, the discontinuous element solution is clearly more accurate. 
 
-Figure~\ref{compar-dg-bdt-diff} demonstrates the advection capturing capability of our method. In Fig.~\ref{theta-bdt}, solutions obtained from (a) continuous $\left(\text{P}_{n}\text{DG-P}_{n+1}\text{ element-pair}\right)$ and (b) discontinuous $\left(\text{either P}_{n}\text{DG-P}_{n}\text{DG  or P}_{n+1}\text{DG-P}_{n}\text{DG elements pairs}\right)$ formulations are compared in a problem with large time step size. The value of $\theta$ on the faces of the CV's is shown at the end of two time steps; it is important to notice that $\theta$ is smaller and closer to $0.5$ when using the continuous approach than the discontinuous method. This is due to the larger CV's, i.e. smaller Courant numbers based on the control volume size.
+Figures~\ref{compar-dg-bdt-diff} and~\ref{theta-bdt} demonstrate the advection capturing capability of our method with continuous $\left(\text{P}_{n}\text{DG-P}_{n+1}\text{ element-pairs}\right)$ and discontinuous $\left(\text{either}\right.$ P$\left._{n}\text{DG-P}_{n}\text{DG  or P}_{n+1}\text{DG-P}_{n}\text{DG elements-pairs}\right)$ formulations. In Fig.~\ref{theta-bdt}, these formulations are compared in a problem with large time step size. The value of $\theta$ on the faces of the CV's is shown at the end of two time steps; it is important to notice that $\theta$ is smaller and closer to $0.5$ when using the continuous approach than the discontinuous method. This is due to the larger CV's, i.e. smaller Courant numbers based on the control volume size.
 
+\medskip
 For the advection of an initial Gaussian profile,
 \begin{displaymath}
 T\left( x,0\right)= \exp{\left( \displaystyle\frac{x-0.6}{0.2} \right)^2}
 \end{displaymath} 
 with a left boundary condition of $T=1$ a convergence study was performed using the pressure discontinuous approach. Both CV and interpolated FEM solutions are shown in Fig.~\ref{converg} for several mesh resolutions. The method rapidly converges to the exact solution. However, it tends to round off the top of the Gaussian curve due to the limiting detecting (extrema) scheme which results in a dissipative first-order upwind scheme in this region.  
 
-The FEM interpolations for the three schemes (with 5 and 20 elements) are shown in Fig.~\ref{converg-compare-fem}. \jrp{It's a bit unclear what the difference is between the pressure discontinuous schemes. Is one upwinded and the other central? } The first two schemes are the continuous and discontinuous  approaches. The third scheme uses a central difference method (i.e., mean of the solutions either side of an element boundary) to calculate the flux between the elements and has a discontinuous solution between the elements. This figure provides a gauge of the accuracy between the methods and shows that although all methods perform similarly, the central difference approach with discontinuity between elements is best able to represent the discontinuous analytical solution.
+The FEM interpolations for the three schemes (with 5 and 20 elements) are shown in Fig.~\ref{converg-compare-fem}. The first two schemes are the continuous and discontinuous  approaches. The third scheme uses a central difference method (i.e., mean of the solutions either side of an element boundary) to calculate the flux between the elements and has a discontinuous solution between the elements. This figure provides a gauge of the accuracy between the methods and shows that although all methods perform similarly, the central difference approach with discontinuity between elements is best able to represent the discontinuous analytical solution.
 
 \medskip
 
 Further convergence analysis were performed for a 2D step function,
 \begin{displaymath}
 T\left(x, y,0\right) =\begin{cases}
-1, & \left(x,y\right)\in \left[0.25,0.50\right] \\%  0.25\leq x \leq 0.50 \text{ and } 0.25\leq y \leq 0.50\\
+1, & \left(x,y\right)\in \left[0.25,0.50\right], \\%  0.25\leq x \leq 0.50 \text{ and } 0.25\leq y \leq 0.50\\
 0, & \text{otherwise,}
 \end{cases}
 \end{displaymath}
-and a Gaussian profile,
+and a Gaussian plume profile,
 \begin{displaymath}
 T\left(x, y,0\right) = \exp{\left[-30\left(x-2\right)^{2}-32\left(y-0.5\right)^{2}\right]},
 \end{displaymath}
-using both continuous $\left(\text{P}_{2}\right)$ and discontinuous $\left(\text{between elements, P}_{1}\text{DG}\right)$ element formulations. The domain has dimension of $2.5\times 1$ length-units; time-step and element sizes were chosen to ensure a constant Courant number of 0.1667.  Simulations were performed with 5 mesh resolutions as described in Table~\ref{table:meshplume}. Figure~\ref{2D_Sanpshot_Adv2D} shows the advected scalar field after 350 (step function) 100 (plume function) time-steps (high-resolution  mesh as reference case for time-step size) and the associated analytical solution. $L_{1}$- and $L_{2}$-norms,
+using both continuous $\left(\text{P}_{2}\right)$ and discontinuous $\left(\text{between elements, P}_{1}\text{DG}\right)$ element formulations. The domain has dimension of $2.5\times 1$ length-units; time-step and element sizes were chosen to ensure a constant Courant number of 0.1667.  Simulations were performed with 5 mesh resolutions as described in Table~\ref{table:meshplume}. Figure~\ref{2D_Sanpshot_Adv2D} shows the advected scalar field after 350 (step function) 100 (plume function) time-steps (high-resolution mesh as reference case for time-step size) and the associated analytical solution. $L_{1}$- and $L_{2}$-norms,
 \begin{displaymath}
 L_{1}=\displaystyle\frac{\sum\limits_{i=1}^{N}\left|T_{i}^{\text{(analytic)}}-T_{i}^{\text{(numeric)}}\right|}{N}\;\;\;\text{and}\;\;\;L_{2}=\displaystyle\frac{\sum\limits_{i=1}^{N}\left[T_{i}^{\text{(analytic)}}-T_{i}^{\text{(numeric)}}\right]^{2}}{N}
 \end{displaymath} 
-were calculated for both element type formulations (continuous and discontinuous) and test cases for several mesh grids and plotted on log-log scale, Fig.~\ref{L1_L2norm_Adv2D}. First- and second-order slopes are also shown in this figure. $L_{1}$ norms drop linearly for the discontinuous formulation $\left(\text{P}_{1}\text{DG}\right)$ and in a second-order manner for the continuous formulation $\left(\text{P}_{2}\right)$ as the grid resolution increases. This figure demonstrates that the accuracy of these schemes are very similar, however elements with discontinuity perform slightly better with significantly smaller degrees-of-freedom. 
+were calculated for both formulations (continuous and discontinuous) and test cases for several mesh grids and plotted on log-log scale, Fig.~\ref{L1_L2norm_Adv2D}. First- and second-order slopes are also shown in this figure. $L_{1}$ norms drop linearly for the discontinuous formulation $\left(\text{P}_{1}\text{DG}\right)$ and in a second-order manner for the continuous formulation $\left(\text{P}_{2}\right)$ as the grid resolution increases. This figure demonstrates that the accuracy of these schemes are very similar, however elements with discontinuity perform slightly better with significantly smaller degrees-of-freedom. 
 
-\subsection{Buckley-Leverett Test Case}
-The Buckley-Leverett (B-L) equation is a nonlinear advection equation for the relative saturation of fluid phases representing two-phase immiscible flows in porous media. Here, water $\left(S_{l}=1\right)$ is injected at a velocity $u_{g}\phi=1$. On the outlet boundary condition, the pressure level is set to zero and all remaining boundary conditions are naturally applied. A converged time step of $1\times 10^{-3}$ is used for all simulations and applications with the continuous and discontinuous between element formulations. All simulations used the overlapping mixed FEM with a piecewise linear variation of the velocity within each element and quadratic pressure $\left(\text{P}_{1}\text{DG-P}_{2}\right)$. Saturation is colocated at the pressure nodes and although it is calculated using a CV formulation, a FEM interpolation is used to form the high-order fluxes.
+\subsection{Buckley-Leverett Test Cases}
+The Buckley-Leverett (B-L) equation is a nonlinear advection equation for the relative saturation of fluid phases representing immiscible two-phase flows in porous media. Here, water $\left(S_{l}=1\right)$ is injected at a velocity $u_{g}\phi=1$. On the outlet boundary condition, the pressure level is set to zero and all remaining boundary conditions are naturally applied. A converged time step of $1\times 10^{-3}$ is used for all simulations and applications with the continuous and discontinuous between element formulations. All simulations used the overlapping mixed FEM with a piecewise linear variation of the velocity within each element and quadratic pressure $\left(\text{P}_{1}\text{DG-P}_{2}\right)$. Saturation is colocated at the pressure nodes and although it is calculated using a CV formulation, a FEM interpolation is used to form the high-order fluxes.
 
-In Fig.~\ref{bl-exact-meth-upwind} the CV solution of the water saturation and equivalent quadratic FEM interpolation are presented $\left(\text{P}_{1}\text{DG-P}_{2}\right)$. As it can be seen the solution converges with increased resolution. Notice that the corners of the CV's are very close to the converged solution. This can be explained as the velocities are upwinded (and also the relative permeabilities -- see Section~\ref{opt-up}), and at these corners the equations reach the balance necessary to match the analytical solution. Despite the one-dimensional nature of the problem, 2- and 3-D simulations were performed using structured and unstructured meshes and reported in the second part of this two-part paper.
+Control volume solution of water saturation and equivalent quadratic FEM interpolation are shown in Fig.~\ref{bl-exact-meth-upwind}, where solution converges with increased resolution. Notice that the corners of the CV's are very close to the converged solution. This can be explained as the velocities are upwinded (and also the relative permeabilities -- see Section~\ref{opt-up}), and at these corners the equations reach the balance necessary to match the analytical solution. Despite the one-dimensional nature of the problem, 2- and 3-D simulations were performed using structured and unstructured meshes and reported in the second part of this two-part paper.
 
 
 \section{Final Remarks}\label{conc}
@@ -635,6 +636,7 @@ In order to strongly enforce the discretised Darcy equation in the boundaries be
 \clearpage
 \input{article_table}
 \input{article_figure1}
+\input{article_figure2}
 
 
 \end{document}
