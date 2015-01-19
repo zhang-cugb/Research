@@ -96,6 +96,7 @@
 %\journal{Computer Methods in Applied Mechanics and Engineering}
 \journal{Comput Meth Appl Mech Eng}
 \newcommand{\frc}{\displaystyle\frac}
+\newcommand{\PN}[2][error]{P$_{#1}$DG-P$_{#2}$}
 
 \begin{document}
 
@@ -601,8 +602,15 @@ L_{1}=\displaystyle\frac{\sum\limits_{i=1}^{N}\left|T_{i}^{\text{(analytic)}}-T_
 were calculated for both formulations (continuous and discontinuous) and test cases for several mesh grids and plotted on log-log scale, Fig.~\ref{L1_L2norm_Adv2D}. First- and second-order slopes are also shown in this figure. $L_{1}$ norms drop linearly for the discontinuous formulation $\left(\text{P}_{1}\text{DG}\right)$ and in a second-order manner for the continuous formulation $\left(\text{P}_{2}\right)$ as the grid resolution increases. This figure demonstrates that the accuracy of these schemes are very similar, however elements with discontinuity perform slightly better with significantly smaller degrees-of-freedom. 
 
 \subsection{Buckley-Leverett Test Cases}
-The Buckley-Leverett (B-L) equation is a nonlinear advection equation for the relative saturation of fluid phases representing immiscible two-phase flows in porous media. Here, water $\left(S_{l}=1\right)$ is injected at a velocity $u_{g}\phi=1$. On the outlet boundary condition, the pressure level is set to zero and all remaining boundary conditions are naturally applied. A converged time step of $1\times 10^{-3}$ is used for all simulations and applications with the continuous and discontinuous between element formulations. All simulations used the overlapping mixed FEM with a piecewise linear variation of the velocity within each element and quadratic pressure $\left(\text{P}_{1}\text{DG-P}_{2}\right)$. Saturation is colocated at the pressure nodes and although it is calculated using a CV formulation, a FEM interpolation is used to form the high-order fluxes.
+The Buckley-Leverett (B-L) equation is a nonlinear advection equation for the relative saturation of fluid phases representing immiscible two-phase flows in porous media. Here, a fluid (phase 1) $\left(S_{1}=1\right)$ is injected at constant velocity $u_{1}=1$ into a rock matrix ($\phi=0.5$) fully saturated with a second fluid (phase 2), $S_{2}=1$. Relative permeability $\left(\mathcal{K}_{r\alpha}\right)$ is calculated as a quadratic function of saturation with residual saturation of phases 1 and 2  of $S_{1}=0.1$ and $S_{2}=0.3$, respectively.  The endpoint of the relative permeabilities  of phases 1 and 2 are 0.8 and 0.3, respectively. 
 
+The length of the domain is 4 non-dimensional units. On the outlet boundary condition, the pressure level is set to zero and all remaining boundary conditions are weakly applied. Despite the one-dimensional nature of the problem, 2- and 3-D simulations were performed using structured and unstructured meshes to evaluate the multi-dimensional capabilities of the model.
+
+All simulations used the overlapping mixed-DGFEM with \PN[0]{1}, \PN[1]{2} and/or \PN[2]{3} element-pairs with continuous /  discontinuous (between elements) formulations with saturation collocated at pressure nodes. Although saturation is calculated using  a CV formulation, a FEM interpolation is used to form the high-order fluxes and these are also used for most of the plots. 
+
+In all 1-D simulations, mesh grids were designed with equi-sized elements, whilst 2-D meshes were regular, structured and one-element wide with unity aspect ratio. The width of the 2-D numerical domain is inversely proportional to the number of elements. The time-step size varied linearly within 0.125-3.125$\times$10$^{-3}$ seconds range for 1-D simulations, and a fixed time-step of 1.0$\times$10$^{-4}$ for all 2- and 3-D simulations.
+
+\medskip
 Control volume solution of water saturation and equivalent quadratic FEM interpolation are shown in Fig.~\ref{bl-exact-meth-upwind}, where solution converges with increased resolution. Notice that the corners of the CV's are very close to the converged solution. This can be explained as the velocities are upwinded (and also the relative permeabilities -- see Section~\ref{opt-up}), and at these corners the equations reach the balance necessary to match the analytical solution. Despite the one-dimensional nature of the problem, 2- and 3-D simulations were performed using structured and unstructured meshes and reported in the second part of this two-part paper.
 
 
