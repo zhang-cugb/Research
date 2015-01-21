@@ -142,7 +142,7 @@ Part I: Numerical Formulation}
 \address[NORMS]{Novel Reservoir Modelling and Simulation Group, Department of Earth Science and Engineering, Imperial College London, UK}
 
 \begin{abstract} 
-This is the first of two papers devoted to a novel finite element method formulation to solve subsurface multi-fluid flows. The overlapping control volume finite element method (OCVFEM) has two major strengths, firstly it uses a dual consistent pressure-velocity representation in control volume and finite element spaces which ensures local mass conservation. Secondly, it uses a family of finite element types that ensures multiphase Darcy equations can be exactly enforced. The underlying mass conservation equations are solved in control volume space and finite elements are used to obtain high-order fluxes on control volume boundaries. The novelty of the method lies in (a) permitting both continuous and discontinuous description of pressures and saturations between elements; (b) the use of arbitarily high-order polynomial representation for pressure and velocity within the mixed formulation; (c) the use of high-order flux-limited methods to avoid introducing non-physical oscillations as well as achieving high-order time accuracy where and when possible. In this paper, the new model is described and test cases are introduced to show the numerical accuracy in one- and two-dimensional simulations. More extensive applications are introduced in the second part of this two part paper. 
+This is the first of two papers devoted to a novel finite element method formulation to solve subsurface multi-fluid flows. The overlapping control volume finite element method (OCVFEM) has two major strengths, firstly it uses a dual consistent pressure-velocity representation in control volume and finite element spaces which ensures local mass conservation. Secondly, it uses a family of finite element types that ensures multiphase Darcy equations can be exactly enforced. The underlying mass conservation equations are solved in control volume space whereas finite elements are used to obtain high-order fluxes on control volume boundaries. The novelty of the method lies in (a) permitting both continuous and discontinuous description of pressures and saturations between elements; (b) the use of arbitarily high-order polynomial representation for pressure and velocity within the mixed formulation and; (c) the use of high-order flux-limited methods to avoid introducing non-physical oscillations as well as achieving high-order time accuracy where and when possible. In this paper, the new model is described and test cases are introduced to show the numerical accuracy in one- and two-dimensional simulations. More extensive applications are introduced in the second part of this two-part paper. 
 \end{abstract}
 
 \begin{keyword} %% keywords here, in the form: keyword \sep keyword
@@ -163,7 +163,7 @@ Multi-fluid flows \sep Darcy equations \sep Porous media \sep Finite element met
 \section{Introduction}
 Numerical modelling of multiphase flow in porous media has applications in a wide range of disciplines from hydrocarbon and groundwater exploration and safety assessment of deep geological disposal of radioactive waste to CO$_{\text{2}}$ migration and trapping mechanisms in carbon capture and storage (CCS) operations~\citep{chen_2006, aiea_1999, pruess_1990c, jiang_2011}. Complex geometries with irregular (and often internal) boundaries and heterogeneous geological formations are some of the main challenges to accurately simulate such flows.
 
-Finite difference methods (FDM) have been extensively used in modelling and simulation of fluid flows in porous media~\citep{aziz_1986, chen_1997, chen_2005} however, they are strongly dependent on mesh quality and orientation and cannot easily represent complex geometries. In addition, FDM produce excessive numerical dispersion in heterogeneous porous matrix \citep{chavent_1986}. The geometrical flexibility of finite element methods (FEM) has proven to overcome these deficiencies. Among FEM-based formulations for porous media, the control volume finite element method (CVFEM) has become increasingly popular as it can guarantee local mass conservation and high-order numerical accuracy as well as being able to use tetrahedral geometry-conforming elements~\citep{forsyth_1990, cordazzo_2004, geiger_2004, hurtado_2007}.  \citet{huber_2000} demonstrated that the vertex-centred finite volume - finite element method (or Box scheme) can achieve similar goals~\citep[see also][]{helmig_1997}.
+Finite difference methods (FDM) have been extensively used in modelling and simulation of fluid flows in porous media~\citep{aziz_1986, chen_1997, chen_2005} however, they are strongly dependent on mesh quality and orientation and cannot easily represent complex geometries. In addition, FDM produce excessive numerical dispersion in heterogeneous porous matrix \citep{chavent_1986}. The geometrical flexibility of finite element methods (FEM) has proven to overcome these deficiencies. Among FEM-based formulations for porous media, the control volume finite element method (CVFEM) has become increasingly popular as it can guarantee local mass conservation and high-order numerical accuracy as well as being able to use tetrahedral geometry-conforming elements~\citep{forsyth_1990, cordazzo_2004, geiger_2004, hurtado_2007}.  \citet{huber_2000} demonstrated that the vertex-centred finite volume -- finite element method (or Box scheme) can achieve similar goals~\citep[see also][]{helmig_1997}.
 
 %For porous media flows, CVFEM discretisations with Galerkin-FEM formulation for the pressure equation has been used to solve Darcy and Richard equations as described by \citet{fung_1992} and \citet{cumming_2011}. 
 \citet{durlofsky_1993,durlofsky_1994} compared the performance of a mixed FEM formulation (i.e., piecewise constant in pressure and piecewise linear in velocity) and the classical CVFEM for single phase Darcy flows. He concluded that the latter is more computationally efficient and numerically accurate than the former for problems involving a (relatively) small number of degrees of freedom. For complex discontinuous and heterogeneous problems, mixed FEM formulations often lead to physically realistic solutions.
@@ -180,22 +180,21 @@ Discontinuity-capturing schemes~\citep[e.g., shock waves, contact surface or mat
 
 \medskip 
 
-In this paper, we describe a novel overlapping CVFEM (or OCVFEM) discretisation which is conservative and consistent \citep{jackson_2013}. The continuity equations are embedded into the pressure equation to enforce mass conservation and exact force balance. This is possible by using dual CV and FEM discretisations for the pressure equation, while saturation is discretised in CV space. The overall formulation employs an implicit algorithm with respect to time that is unconditionally stable for pure advection and with no restriction on the time-step size.
+In this paper, we describe a novel overlapping CVFEM (or OCVFEM) formulation which is conservative and consistent. The continuity equations are embedded into the pressure equation to enforce mass conservation and exact force balance. This is possible by using dual CV and FEM discretisations for the pressure equation, while saturation is discretised in CV space. The overall formulation employs an implicit algorithm with respect to time that is unconditionally stable for pure advection and with no restriction on the time-step size.
 
-The formulation has two key developments. Firstly, it uses a dual consistent pressure-velocity representation in CV and FEM spaces embedded in a family of triangular and tetrahedral finite element-pairs, P$_{n}$DG-P$_{m}$[DG] \citep[see][]{cotter_2009b}. In this element type, the dual velocity and pressure fields are represented by $n^{\rm th}$ order (discontinuous) and $m^{\rm th}$ order (continuous/discontinuous) polynomials, respectively. This allows the velocity to exactly represent pressure gradients in the flow solution for homogeneous material properties. The P$_{n+1}$DG-P$_{n}$DG element-pair, which has similar properties to the P$_n$DG-P$_{n+1}$ element-pair, allows a representation in which pressure, %\jrp{Saturation is on the control volume space and thus always discontinuous} 
-saturation and other solution variables are all fully discontinuous across finite element boundaries. The second key development is that this formulation uses an overlapping finite element representation of velocity within each element. This approach can achieve an exact representation of the Darcy force balance equations. 
+The formulation has two key developments. Firstly, it uses a dual consistent pressure-velocity representation in CV and FEM spaces embedded in a family of triangular and tetrahedral finite element-pairs, \PN[n]{m}[DG]~\citep[see][]{cotter_2009b}. In this element type, the dual velocity and pressure fields are represented by $n^{\rm th}$ order (discontinuous) and $m^{\rm th}$ order (continuous/discontinuous) polynomials, respectively. Such flexibility allows the velocity to exactly represent pressure gradients in the flow solution for homogeneous material properties (e.g., \PN[1]{2}). The \PNDG[n+1]{n} element-pair, which has similar properties to the \PN[n]{n+1} element-pair, allows a representation in which pressure, saturation and other solution variables are all fully discontinuous across finite element boundaries. The second key development is that this formulation uses an overlapping finite element representation of velocity within each element. This approach can achieve an exact representation of the Darcy force balance equations. 
 
 \medskip
-This is the first of two papers on the proposed methodology. Here we focus on model description and initial validation, whereas in the second part~\citep{pavlidis_2013} we employ the numerical formulation for a number of multiphase porous media flow simulations to demonstrate numerical accuracy and convergence rates. The remainder of this paper is organised as follows. New element types and the overlapping formulation are introduced in Sections~\ref{element_types_section} and~\ref{overlapping_method_section}.  A detailed description of the new porous media methods is given in Section~\ref{transport_methods_section}. Scalar field equations, upwinding schemes and solution methods are introduced in Sections~\ref{Section:Saturation_Global}-\ref{Section:SolvingLinearEqns}. Initial model validation is presented in Section~\ref{Section:Results} and final remarks are drawn in Section~\ref{conc}.
+This is the first of two papers on the proposed methodology. Here we focus on model description and initial validation, whereas in the second part, \citet{pavlidis_2015} apply the numerical formulation to a number of multiphase porous media flow problems to demonstrate numerical accuracy and convergence rates. The remainder of this paper is organised as follows. New element types and the overlapping formulation are introduced in Sections~\ref{element_types_section} and~\ref{overlapping_method_section}.  Detailed description of the new methods is given in Section~\ref{transport_methods_section}-\ref{Section:SolvingLinearEqns}. Initial model validation is presented in Section~\ref{Section:Results} and final remarks are drawn in Section~\ref{conc}.
 
 
 %%%         %%%
 %%% SECTION %%%
 %%%         %%%
 \section{Continuous and Discontinuous Finite Element Types and Control Volumes} \label{element_types_section}
-The family of P$_{n}$DG-P$_{n+1}$ element-pairs was originally introduced by \citet{cotter_2009a} for geophysical fluid dynamics applications \citep[see also][]{cotter_2012}. In particular, the P$_{1}$DG-P$_{2}$ element-pair was originally developed to represent the balance of geostrophic pressure and velocity without introducing spurious pressure modes. This element-pair uses element-wise linear polynomial FE basis functions, discontinuous across element interfaces for velocity $\left(\text{P}_{1}\text{DG}\right)$, and quadratic polynomial finite element basis functions for pressure which maintain $C_{\text{0}}$ continuity across element boundaries $\left(\text{P}_{2}\right)$. %This is analogous to the exact balance also achieved with this element between the frictional and pressure gradient terms in Darcy's equations.
+The family of P$_{n}$DG-P$_{n+1}$ element-pairs was originally introduced by \citet{cotter_2009a} for geophysical fluid dynamics applications \citep[see also][]{cotter_2012}. In particular, the P$_{1}$DG-P$_{2}$ element-pair was developed to represent the balance of geostrophic pressure and velocity without introducing spurious pressure modes. This element-pair uses element-wise linear polynomial FE basis functions, discontinuous across element interfaces for velocity $\left(\text{P}_{1}\text{DG}\right)$, and quadratic polynomial finite element basis functions for pressure which maintain $C_{\text{0}}$ continuity across element boundaries $\left(\text{P}_{2}\right)$. %This is analogous to the exact balance also achieved with this element between the frictional and pressure gradient terms in Darcy's equations.
 
-Figure~\ref{fem_cv_represent_a} displays three element types of the P$_{n}$DG-P$_{n+1}$ family that are used in this set of papers. P$_{\text{0}}$DGP$_{\text{1}}$ and P$_{1}$DG-P$_{2}$ are shown in Fig.~\ref{fem_cv_represent_a}(a) and (b), respectively, where pressure nodes are stored in the vertices and edges (in P$_{\text{2}}$ elements) of triangular/tetrahedral elements and control volumes are constructed around them based on a Voronoi decomposition.  One can realise that due to the continuous finite element node structure, control volumes span more than one element. Having CV's spanning to multiple elements may create artificial diffusion in cases where there are large variations in physical properties across elements, such as at the boundary between materials with different absolute permeabilities. As an alternative, two families of fully discontinuous element-pairs are also considered: P$_{n}$DG-P$_{n}$DG and P$_{n+1}$DG-P$_{n}$DG~\citep[Fig.~\ref{fem_cv_represent_a}(c), applications using these element-pairs are exploited in][]{pavlidis_2015} along with control volumes from their dual Voronoi decompositions. These families of element-pairs are LBB stable and free from chequerboard pressure modes, as previously demonstrated by~\citet{cotter_2009b}~\citep[see also][]{cotter_2011}.
+Figure~\ref{fem_cv_represent_a} displays three element types of the P$_{n}$DG-P$_{n+1}$ family that are used in this set of papers. P$_{\text{0}}$DGP$_{\text{1}}$ and P$_{1}$DG-P$_{2}$ are shown in Fig.~\ref{fem_cv_represent_a}(a) and (b), respectively, where pressure nodes are stored in the vertices and edges (in P$_{\text{2}}$ elements) of triangular/tetrahedral elements. Control volumes are constructed around them based on a Voronoi decomposition.  One can realise that due to the continuous finite element node structure, control volumes span more than one element. Having CV's spanning to multiple elements may create artificial diffusion in cases where there are large variations in physical properties across elements, such as at the boundary between materials with different absolute permeabilities. As an alternative, two families of fully discontinuous element-pairs are also considered: \PNDG[n]{n} and \PNDG[n+1]{n}~\citep[Fig.~\ref{fem_cv_represent_a}(c), applications using these element-pairs are exploited in][]{pavlidis_2015} along with control volumes from their dual Voronoi decompositions. These families of element-pairs are LBB stable and free from chequerboard pressure modes, as previously demonstrated by~\citet{cotter_2009b}~\citep[see also][]{cotter_2011}.
 
 %\begin{center}
 %\JGnote{Most of the simulations in this paper (and the next) were performed using P$_{1}$DGP$_{2}$ elements. However it seems that the sketch of this element-pair was deleted/replaced by P$_{0}$DGP$_{1}$ and by the double-discontinuous element (fig.1 left/right) -- was this replacement on purpose or was it a mistake?} 
@@ -210,18 +209,18 @@ Darcy's law for immiscible multiphase flow may be written \citep{chen_2006} in t
 \begin{equation}\label{e:darcy_eqn}
   \mathbf{q}_{\alpha} = -\frac{\mathcal{K}_{{r}_\alpha}\mathbf{K}}{\mu_{\alpha}}\left( \nabla p_{\alpha} - {\mathbf{s}_{u}}_{\alpha} \right),
 \end{equation}
-where $\mathbf{q}_{\alpha}=\left(q_\alpha^{(1)},q_\alpha^{(2)},q_\alpha^{(3)}\right)^{\text{T}}$ is the $\alpha$-th phase Darcy flow rate for 3D flows, $\mathbf{K}$ is the absolute permeability tensor of the porous matrix, $\mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right)$ is the phase relative permeability, which is a function of the phase saturation $S_{\alpha}\left(\mathbf{r},t\right)$. $\mu_{\alpha}$, $p_{\alpha}$ and $\mathbf{s}_{{u}_\alpha}$ are the phase dynamic viscosity, pressure and a source term, respectively.
+where $\mathbf{q}_{\alpha}=\left(q_\alpha^{(1)},q_\alpha^{(2)},q_\alpha^{(3)}\right)^{\text{T}}$ is the $\alpha$-th phase Darcy flow rate for 3D flows, $\mathbf{K}$ is the absolute permeability tensor of the porous matrix, $\mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right)$ is the phase relative permeability, which is a function of the phase saturation $S_{\alpha}\left(\mathbf{r},t\right)$. $\mu_{\alpha}$, $p_{\alpha}$ and $\mathbf{s}_{{u}_\alpha}$ are the phase dynamic viscosity, pressure and source term, respectively.
 
 If we define the interstitial or advective phase velocity, averaged over the entire medium, as $\mathbf{u}_\alpha= \mathbf{q}_\alpha/S_\alpha$, then we may rewrite Eqn.~\ref{e:darcy_eqn} as:
 \begin{equation}
-  \bm{v}_\alpha:= {\underline {\underline \sigma}}_{\alpha} \mathbf{u}_{\alpha} = - \nabla p + {\mathbf{s}_{u}}_{\alpha},
+  \mathbf{v}_{\alpha}:= {\underline {\underline \sigma}}_{\alpha} \mathbf{u}_{\alpha} = - \nabla p + {\mathbf{s}_{u}}_{\alpha},
   \label{force-bal}
 \end{equation}
-where ${\underline {\underline \sigma}}_{\alpha}=\mu_\alpha S_\alpha \left(\mathcal{K}_{{r}_\alpha}\mathbf{K}\right)^{-1}$ represents the implicit linearisation of the viscous frictional forces and $\bm{v}_\alpha$ is a saturation averaged vector of the force density of the phase, related to the advective velocity through $\bm{u}_\alpha={\underline {\underline \sigma}}_{\alpha}^{-1}\bm{v}_\alpha$.% arising in the derivation of extended Darcy's law.
+where ${\underline {\underline \sigma}}_{\alpha}=\mu_\alpha S_\alpha \left(\mathcal{K}_{{r}_\alpha}\mathbf{K}\right)^{-1}$ represents the implicit linearisation of the viscous frictional forces and $\mathbf{v}_\alpha$ is a saturation averaged vector of the force density of the phase, related to the advective velocity through $\mathbf{u}_\alpha={\underline {\underline \sigma}}_{\alpha}^{-1}\mathbf{v}_\alpha$.% arising in the derivation of extended Darcy's law.
 
 In order to discretise Eqn.~\ref{force-bal}, we assume a finite element representation for the force and pressure fields and a control volume representation for phase saturation fields. The representations for force density and pressure in terms of their FE basis functions $Q_{j}$ and $P_{j}$  may be expressed, respectively, as:
 \begin{displaymath}
-  \bm{v}_\alpha(\bm{r},t) = \sum\limits_{j=1}^{\mathcal{N}_u} Q_{j}(\bm{r})\bm{v}_{\alpha,j}(t) \;\;\;\;\text{ and } \;\;\;\; p(\bm{r},t)  = \sum\limits_{j=1}^{\mathcal{N}_p} P_{j}(\bm{r})p_{j}(t).
+  \mathbf{v}_\alpha(\bm{r},t) = \sum\limits_{j=1}^{\mathcal{N}_u} Q_{j}(\bm{r})\mathbf{v}_{\alpha,j}(t) \;\;\;\;\text{ and } \;\;\;\; p(\bm{r},t)  = \sum\limits_{j=1}^{\mathcal{N}_p} P_{j}(\bm{r})p_{j}(t).
 \end{displaymath} 
 Here $\mathcal{N}_{u}$ and $\mathcal{N}_{p}$ are the total number of degrees of freedom for the FE force and pressure representations. Each component of the weak form of the force balance (Eqn.~\ref{force-bal}) is tested with the force density basis function space to obtain:
 \begin{eqnarray}
@@ -240,7 +239,7 @@ where $\Omega_E$ and $\Gamma_{E}$ are the volume and boundary of element $E$, re
 \begin{equation}
   {\mathbf M} \underline {\mathbf v} = -{\mathbf C} \underline {\mathbf p} + \underline {\mathbf s}_{u}, \label{force-balance-matrix-form}
 \end{equation}
-where the velocity $\left(\underline{\bf v}\right)$ and pressure $\left(\underline{\bf p}\right)$ solution-vectors are defined as,
+where $\underline{\bf v}$ and $\underline{\bf p}$ solution-vectors are defined as,
 \begin{eqnarray}
   &&\underline{{\bf v}} = \left({v_x}_{1,1},\ldots,{v_x}_{\mathcal{N}_\alpha,
     \mathcal{N}_u}, {v_y}_{1,1},\ldots,{v_y}_{\mathcal{N}_\alpha,
@@ -249,7 +248,7 @@ where the velocity $\left(\underline{\bf v}\right)$ and pressure $\left(\underli
   \underline{{\bf p}} = \left(p_1, p_2, p_3, ...,
   p_{\mathcal{N}_p}\right)^T. \nonumber \nonumber
 \end{eqnarray}
-$\mathcal{N}_{\alpha}$ is the number of phases and $v_x$, $v_y$, $v_z$ are the the velocity components associated with the $x-$ and $y-$ and $z-$ coordinates, respectively. 
+$\mathcal{N}_{\alpha}$ is the number of phases and $v_x$, $v_y$, $v_z$ are the components associated with the $x-$ and $y-$ and $z-$ coordinates, respectively. 
 
 Finally, the mass matrix ${\mathbf M}$, gradient matrix
 ${\mathbf C}$ and discretised source term ${\mathbf s}_{u}$ are:
@@ -276,21 +275,21 @@ ${\mathbf C}$ and discretised source term ${\mathbf s}_{u}$ are:
 with blocks defined by:
 \begin{eqnarray}
   && \left[{\mathbf M}^{(i,j)}\right]_{p,q} = \int_{\Omega}  Q_{p} \delta_{ij}
-{Q}_{q}  dV, \\
-  && {\left[\bm{C}^{(i,i)}\right]_{p,q} = \int_{\Omega} Q_{p} \frac{\partial P_{q}}{\partial r_i} dV - \oint_{\Gamma_{E}} \displaystyle\frac{1}{2} Q_{p} n_i^{(E,q)} P_{q} d\Gamma -  \oint_{\Gamma_{\Omega}} \displaystyle Q_{p} n_i P_{q} d\Gamma} \\
-  && {\left[\bm{s}_{u}^{(i,i)}\right]_{p} = \int_{\Omega} Q_p} \left[{\mathbf s}_{u}\right]_i dV - \oint_{\Gamma_{\Omega}}\displaystyle Q_{p} n_i p_{bc} d\Gamma.
+{Q}_{q}  dV, \nonumber \\
+  && {\left[\bm{C}^{(i,i)}\right]_{p,q} = \int_{\Omega} Q_{p} \frac{\partial P_{q}}{\partial r_i} dV - \oint_{\Gamma_{E}} \displaystyle\frac{1}{2} Q_{p} n_i^{(E,q)} P_{q} d\Gamma -  \oint_{\Gamma_{\Omega}} \displaystyle Q_{p} n_i P_{q} d\Gamma}, \nonumber \\
+  && {\left[\bm{s}_{u}^{(i,i)}\right]_{p} = \int_{\Omega} Q_p} \left[{\mathbf s}_{u}\right]_i dV - \oint_{\Gamma_{\Omega}}\displaystyle Q_{p} n_i p_{bc} d\Gamma. \nonumber
 \end{eqnarray}
 Here $\delta_{i,j} = \left[\underline{\underline{\sigma}}_{\alpha}\right]_{i,j}$,  $\bm{n}=\left(n_{1},n_{2},n_{3}\right)^{T}$ is the outward-pointing normal vector of the domain $\Omega$. $\bm{n}^{(E,q)}$ is the normal to the boundary of element $E$ and is outward-pointing if $P_{q}$ takes support on $E$, and inward-pointing otherwise. 
 
 \medskip
 
 %This formulation ensures that for uniform \jrp{This tensor needs a good name -- JG: I can't think on a good name for this -- it's too non-linear to hold any physical meaning. Maybe solid-fluid homogeneisation factor/ parameter/ coeff} ${\underline{\underline \sigma}}_{\alpha}$ within each element the balance in the \jrp{is this only true in 1D} 1D extended Darcy flow equations is strictly enforced. 
-The saturations are computed in CV space, whereas the permeability tensor $\left(\mathbf{K}\right)$ is assumed piecewise constant in FE space to allow efficient representation of surface parametrised geometries. Thus the viscous-friction damping tensor, \jrp{This tensor needs a good name JG: I can't think on a good name for this -- it's too non-linear to hold any physical meaning. Maybe solid-fluid homogeneisation factor/ parameter/ coeff or viscous-friction damping ...} %${\underline{\underline \sigma}}_{\alpha}$:
+The saturations are computed in CV space, whereas the permeability tensor $\left(\mathbf{K}\right)$ is assumed piecewise constant in FE space to allow efficient representation of surface parametrised geometries. Thus the viscous-friction damping tensor, %\jrp{This tensor needs a good name JG: I can't think on a good name for this -- it's too non-linear to hold any physical meaning. Maybe solid-fluid homogeneisation factor/ parameter/ coeff or viscous-friction damping ...} %${\underline{\underline \sigma}}_{\alpha}$:
 \begin{eqnarray}
   {\underline {\underline \sigma}}_{\alpha} &=& {\underline {\underline \sigma}}_{\alpha} \left[S_{\alpha}\left(\mathbf{r},t\right), \mu_{\alpha}, \mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right), \mathbf{K}\right] \nonumber \\
 &=& \frac{S_{\alpha}\mu_{\alpha}}{\mathcal{K}_{{r}_\alpha}}\mathbf{K}^{-1},
 \end{eqnarray}
-is piecewise constant within the sub-volumes defined through the non-empty intersections between the elements and control volumes; in the pressure discontinuous formulation, these are precisely the control volumes themselves, Fig.~\ref{fem_cv_represent_a}(c). The velocity, formed by the action of ${\underline{\underline \sigma}}_{\alpha}^{-1}$ upon the force density $\bm{v}_\alpha$, has an exact polynomial representation on the sub-volumes of one degree lower that of $p$. For example, for a quadratic pressure variation there will be a piecewise linear velocity field, with discontinuities at element and control volume boundaries (Fig.~\ref{fig:darcys_law}). Thus, in 1D there are $2\times 3$ velocity nodal values per element associated with each phase. 
+is piecewise constant within the sub-volumes defined through the non-empty intersections between the elements and control volumes; in the pressure discontinuous formulation, these are precisely the control volumes themselves, Fig.~\ref{fem_cv_represent_a}(c). The velocity, formed by the action of ${\underline{\underline \sigma}}_{\alpha}^{-1}$ upon the force density $\mathbf{v}_\alpha$, has an exact polynomial representation on the sub-volumes of one degree lower that of $p$. For example, for a quadratic pressure variation there will be a piecewise linear velocity field, with discontinuities at element and control volume boundaries (Fig.~\ref{fig:darcys_law}). Thus, in 1D there are $2\times 3$ velocity nodal values per element associated with each phase. 
 
 This approach is computationally demanding in multi-dimension calculations with complex geometries. In order to overcome this major issue, overlapping (or hybrid) basis functions are introduced (Fig.~\ref{fig:overlapping2d}), in which the local velocity field within a given sub-volume is extrapolated across the entire element, allowing the existing FEM basis functions and nodal data structures to be reused.
 
@@ -309,7 +308,7 @@ Given a partitioning of a domain $\Omega$ into a set of CV's, we seek a numerica
   \displaystyle\frac{\partial \text{T}(\mathbf{r},t) }{\partial t} +  \nabla\cdot \textbf{a} \text{T}(\mathbf{r},t) - s = 0,
   \label{traneq}
 \end{equation}
-where \text{T} is a scalar field, $\mathbf{a}$ is the advection velocity vector, $\textit{t}$ and $\textit{s}$ are time and a source term, respectively. The problem is discretised by testing the weak form of the equation over each CV $i$ using a set of test functions, $M_{i}$, which are unity over control volume $i$ and zero otherwise. This gives constraints,
+where \text{T} is a scalar field, $\mathbf{a}$ is the advection velocity vector, $\textit{t}$ and $\textit{s}$ are time and source term, respectively. The problem is discretised by testing the weak form of the equation over each CV $i$ using a set of test functions, $M_{i}$, which are unity over control volume $i$ and zero otherwise. This gives constraints,
 \begin{equation}
   \int_{\Omega} M_{i} \left( \frac{\partial T }{\partial t} + \nabla\cdot \textbf{a} T - s \right)\,d V = 0, \quad \forall i \in \{1,2,..., \mathcal{M}\},
   \label{CV1}
@@ -328,7 +327,7 @@ By applying Green's theorem, the discretised form of the advection term becomes:
   \label{transpeqn_green}
 \end{equation}
 \noindent
-where $\mathbf{n}$ is the outward pointing unit normal vector to the surface of CV$_{i}$. Gaussian quadrature are used to approximate the surface integral over each face of CV$_{i}$. To close the system, the value $\widetilde{T}$ at the quadrature integration points on the surface of the control volume must be calculated from the CV solution, \textit{T}.
+where $\mathbf{n}$ is the outward pointing unit normal vector to the surface of CV$_{i}$. Gaussian quadratures are used to approximate the surface integral over each face of CV$_{i}$. To close the system, the value $\widetilde{T}$ at the quadrature integration points on the surface of the control volume must be calculated from the CV solution, \textit{T}.
 
 $\widetilde{T}$ is calculated based on a high-order FEM interpolation $T_{\text{FEM}}$ of the CV solution {\it T}. These high-order fluxes are subject to limiting to obtain the final fluxes used at the Gaussian quadrature points on the control volume faces at element boundaries \citep{voller_2009,gomes_book_2012}.  Thus, for each element {\it j} (containing a number of CVs) the FEM solution, $T_{\text{FEM}}$, is related to the CV solution, {\it T}, by: 
 \begin{equation}
@@ -344,13 +343,9 @@ For finite volumes, the basis function $M_{j}$ (top hat function) is used, obtai
 \end{equation} 
 with
 \begin{displaymath}
-  \mathbf{B} = \int_{\Omega} N_{i}N_{j} \,dV \;\;\;\;\text{and}\;\;\;\; \mathbf{Q} = \int_{\Omega} N_{i} M_{j} \,  dV,
+  \mathbf{B} = \int_{\Omega} N_{i}N_{j} \,dV \;\;\;\;\text{and}\;\;\;\; \mathbf{Q} = \int_{\Omega} N_{i} M_{j} \,  dV.
 \end{displaymath} 
-and
-\begin{displaymath}
-\underline{\mathbf{T}}_{\text{FEM}} = \left({T_{\text{FEM}}}_{1}, \ldots, {T_{\text{FEM}}}_{\mathcal{N}} \right)^{T} \text{ and } \underline{\mathbf{T}} =\left(T_{1}, T_{2}, \ldots, T_\mathcal{M} \right)^{T},
-\end{displaymath}
-contain the FE and CV values of {\it T}, respectively. Since we are using high-order approximations, extrema must be detected in order to determine where to apply first order fluxes instead of high-order. This is achieved using the normal variable diagram approach, NVD as described by~\citet{darwish_1993}~\citep[see also][]{jasak_1999,darwish_2003}.
+$\underline{\mathbf{T}}_{\text{FEM}} = \left({T_{\text{FEM}}}_{1}, \ldots, {T_{\text{FEM}}}_{\mathcal{N}} \right)^{T}$ and $ \underline{\mathbf{T}} =\left(T_{1}, T_{2}, \ldots, T_\mathcal{M} \right)^{T}$ contain the FE and CV values of {\it T}, respectively. Since we are using high-order approximations, extrema must be detected in order to determine where to apply first order fluxes instead of high-order. This is achieved using the normal variable diagram approach, NVD as described by~\citet{darwish_1993}~\citep[see also][]{jasak_1999,darwish_2003}.
 
 
 %%%            %%%
@@ -409,7 +404,7 @@ Summing over all $\mathcal{N}_\alpha$ phases one obtains the global continuity e
   \left. \displaystyle\int_{\Omega} M_{i} s_{cty,\alpha}^{n+\theta}\, dV \right\rbrace = 0,
            \label{detail-sat-eqn-k-sum}
 \end{eqnarray}
-in which $\theta^{n+\frac{1}{2}}$ is obtained (as described in Section~\ref{time_discretisation}) with $S_\alpha$ replacing T. Assuming the natural incompressible mass conservation constraint,
+in which $\theta^{n+\frac{1}{2}}$ is obtained with $S_\alpha$ replacing T in Eqn.~\ref{theta}. Assuming the natural incompressible mass conservation constraint,
 \begin{equation}
   %\sum\limits_{\alpha=1}^{\mathcal{N}_{\alpha}} {S_{\alpha}}_{i}^{n} = 1, \quad \forall n,
   \sum\limits_{\alpha=1}^{\mathcal{N}_{\alpha}} {S_{\alpha}^{n}}_{i} = 1, \quad \forall n,
@@ -426,7 +421,7 @@ in matrix form Eqn.~\ref{detail-sat-eqn-k-sum} becomes,
 %%% SUBSECTION %%%
 %%%            %%%
 \subsection{Upwind Velocity and Relative Permeability} \label{opt-up} 
-We still need to determine the velocity to be used at the interface between CV's in the saturation conservation (Eqn.~\ref{detail-sat-eqn-k}) and global continuity (Eqn.~\ref{detail-sat-eqn-k-sum}) equations. On the CV faces, there is no information about the flow direction as the velocity is discontinuous at the CV boundaries. The discontinuities occur between (a) elements in the discontinuous formulation and (b) control volumes within each FE. An average velocity is defined as,
+We still need to determine the velocity to be used at the interface between CV's in the saturation conservation (Eqn.~\ref{detail-sat-eqn-k}) and global continuity (Eqn.~\ref{detail-sat-eqn-k-sum}) equations. On the CV faces, there is no information about the flow direction as the velocity is discontinuous at the CV boundaries. The discontinuities occur between (a) elements in the discontinuous formulation and (b) control volumes within each FE. An average velocity at the interface of control volumes {\it i} and {\it j} is defined as,
 \begin{equation}
   {\bf v}_\alpha = \frac{1}{2} \left[ {{\bf v}_\alpha}_i + {{\bf v}_\alpha}_j \right].
 \end{equation} 
@@ -446,10 +441,13 @@ If we are to apply an upwind method for calculating the interface velocity then 
 {\tilde{\bf u}}_{\alpha} =
 \begin{cases}
 \tilde{\bf u}_{\alpha i}, & \text{for } {\bf n}\cdot{\bf a}_{\alpha}>0 \text{ (CV {\it i} outgoing information);} \\
+                        &                                                                                      \\
 \tilde{\bf u}_{\alpha j}, & \text{for } {\bf n}\cdot{\bf a}_{\alpha}<0 \text{ (CV {\it i} incoming information).} 
 \end{cases}
 \end{displaymath}
-However, this upwind method will result in dissipative solutions. Out of numerous heuristics for obtaining this interface velocity ${\tilde{\bf u}}_\alpha$, a method based on a limited high-order saturation, $\tilde S_\alpha$ (obtained from DGFEM upwind approximation), was chosen. The sign of ${\bf n}\cdot {\bf a}_\alpha$ is used to determine the upwind direction. From this high-order flux limited saturation, $\tilde{\sigma}_{\alpha} = \sigma_{\alpha}\left(\tilde{S}_{\alpha}\right)$ can be obtained. Knowing $\tilde S_\alpha$ the corresponding interface value of $\sigma_\alpha$ can be estimated, $\tilde\sigma_\alpha$, from the second-order Taylor series. For ${\bf n}\cdot {\bf a}_\alpha>0$ (CV $i$ outgoing information):
+However, this upwind method will result in dissipative solutions. Out of numerous heuristics for obtaining this interface velocity ${\tilde{\bf u}}_\alpha$, a method based on a limited high-order saturation, $\tilde S_\alpha$ (obtained from DGFEM upwind approximation), was chosen. The sign of ${\bf n}\cdot {\bf a}_\alpha$ is used to determine the upwind direction. From this high-order flux limited saturation $\tilde{\sigma}_{\alpha} = \sigma_{\alpha}\left(\tilde{S}_{\alpha}\right)$ can be obtained. Knowing $\tilde{S}_{\alpha}$, the corresponding interface value of $\sigma_\alpha$ $\left(\text{i.e., }\tilde{\sigma}_{\alpha}\right)$ can be estimated from second-order Taylor series. 
+
+For ${\bf n}\cdot {\bf a}_\alpha>0$ (CV $i$ outgoing information):
 \begin{equation}
   \underline{\underline{\tilde{\sigma}}}_{\alpha} = \underline{\underline{\sigma}}_{\alpha i} + \left(\tilde{S}_{\alpha}-S_{\alpha i}\right) \left(\frc{\partial \underline{\underline{\sigma}}_{\alpha}}{\partial S_{\alpha}}\right)_{i} + \frc{1}{2}\left(\tilde{S}_{\alpha}-S_{\alpha i}\right)^{2} \left[ \frc{ \left(\frc{\partial \underline{\underline{\sigma}}_{\alpha}}{\partial S_{\alpha}}\right)_{i} - \left(\frc{\partial \underline{\underline{\sigma}}_{\alpha}}{\partial S_{\alpha}}\right)_{j} } { \left(S_{\alpha i}-S_{\alpha j}\right) } \right],
   \label{sigma-out}
@@ -488,7 +486,7 @@ In regions of the domain where the saturation has no spacial variation an averag
 \subsection{Determining Velocities across Discontinuous Element Interfaces}
 In order to advect saturation and other scalar variables across elements with discontinuous velocity and pressure, the velocity between these contiguous elements need to be calculated. It is also necessary to obtain the discretised non-symmetric pressure equation which has elliptic-like properties. These properties mean it is necessary to propagate information in all directions across the domain, therefore taking the upwind velocity, as commonly done within an element, is not the best strategy.
  
-For two neighbouring CV's $i$ and $j$ which have a common FE interface, ${\bf u}_{\alpha}$ can be calculated by using a volume weighting. However, the volume $\mathcal{V}$ of the control volume and $\underline{\underline{\sigma}}_{\alpha}$ act on the velocity ${\bf u}_{\alpha}$ in a very similar way. Hence, the velocity at the interface can be expressed as,
+For two neighbouring CV's $i$ and $j$ with common FE interface, ${\bf u}_{\alpha}$ can be calculated by using a volume weighting. However, the volume $\mathcal{V}$ of the control volume and $\underline{\underline{\sigma}}_{\alpha}$ act on the velocity ${\bf u}_{\alpha}$ in a very similar way. Hence, the velocity at the interface can be expressed as,
 \begin{equation} 
   {\tilde{\bf u}_\alpha} = \frc{ \mathcal{V}_{j} {\bf v}_{\alpha i} + \mathcal{V}_{i} {\bf v}_{\alpha j}} { \mathcal{V}_{i} \underline{\underline{\sigma}}_{\alpha i} + \mathcal{V}_{j} \underline{\underline{\sigma}}_{\alpha j} }.
 \end{equation} 
@@ -506,11 +504,10 @@ Saturation boundary conditions are relatively straightforward. One typically tak
 \end{displaymath}
 If the velocity, ${\bf n}\cdot {{\bf u}_\alpha}_{bc}$, is also specified then this must be part of the incoming flux $\left(\right.$i.e., when ${\bf n}\cdot {\bf u}_{\alpha,\text{bc}} < 0\left.\right)$ and therefore $\left({\bf n}\cdot {{\bf u}_\alpha}_{bc}\right)S_{\alpha,\text{bc}}$.
 
-\medskip
-Similarly, boundary conditions can be applied using Riemann variables to determine if information is travelling into or out of the domain (although most flow simulation models do not follow this more rigorous approach). Specified pressure boundary conditions for outlet flux $\left(\right.$when ${\bf n}\cdot {\bf u}_\alpha>0\left.\right)$ are ${\bf n}\cdot {\bf u}_\alpha {S_\alpha}$, in which neither ${\bf u}_\alpha$ nor ${S_\alpha}$ are specified. 
+Similarly, boundary conditions can be applied using Riemann variables to determine if information is travelling into or out of the domain (although most flow simulation models do not follow this more rigorous approach).  
 
 \medskip
-Specified pressure boundary conditions for the inlet flux $\left(\right.$when ${\bf n}\cdot {\bf u}_\alpha<0\left.\right)$ are defined as,
+Specified pressure boundary conditions for outlet flux $\left(\right.$when ${\bf n}\cdot {\bf u}_\alpha>0\left.\right)$ are ${\bf n}\cdot {\bf u}_\alpha {S_\alpha}$, in which neither ${\bf u}_\alpha$ nor ${S_\alpha}$ are specified. For the inlet flux $\left(\right.$when ${\bf n}\cdot {\bf u}_\alpha<0\left.\right)$ are defined as,
 \begin{displaymath}
 {\bf n}\cdot {\bf u}_{\alpha,\text{rel}} S_{\alpha,\text{bc}},
 \end{displaymath}
@@ -533,7 +530,7 @@ It should be noted that these flux conditions must be used in both the discretis
 %%% SECTION %%%
 %%%         %%%
 \section{Solving the Linear Equations}\label{Section:SolvingLinearEqns}
-The global mass balance equation (Eqn.~\ref{glob-cty-matrix}) and force balance equations (Eqn.~\ref{force-balance-matrix-form}) are solved by substituting out the force density term and solving the system of equations for pressure. At time level $n+1$, Eqns.~\ref{force-balance-matrix-form} and ~\ref{glob-cty-matrix} can be rewritten as:
+The global mass balance equation (Eqn.~\ref{glob-cty-matrix}) and force balance equations (Eqn.~\ref{force-balance-matrix-form}) are solved by substituting the force density term and solving the system of equations for pressure. At time level $n+1$, Eqns.~\ref{force-balance-matrix-form} and ~\ref{glob-cty-matrix} can be rewritten as:
 \begin{displaymath}
 %\label{glob-cty-matrix2},\label{force-balance-matrix-form2}
 %\begin{eqnarray}
@@ -549,7 +546,7 @@ respectively. Application of a discontinuous FEM for the force density leads to 
   \mathbf{B}_\sigma^{T}\mathbf{M}^{-1} \mathbf{C} \underline{\bf p}^{n+1} = \underline{\bf s}_{p}^{n+1} - \mathbf{B}_\sigma^{T} \mathbf{M}^{-1} \underline{\bf s}_{u}^{n+1}.
   \label{final_projection}
 \end{equation}
-Eqn.~\ref{final_projection} is solved for pressure and then the velocity is obtained via Eqn.~\ref{force-balance-matrix-form}. The computationally demanding effort to solve the pressure matrix equation arising from the fully discontinuous FEM formulation is achieved using a multigrid-like approach. In this case the $\lq$fine' mesh is the one obtained by the discontinuous system, whereas the $\lq$coarse' mesh is obtained by creating, from the discontinuous system, a continuous system by collapsing the pressure nodes. As in multigrid, the coarse mesh solution is used to accelerate the convergence of the fine mesh solution by calculating the error of the current approximation.
+Eqn.~\ref{final_projection} is solved for pressure and then the velocity is obtained via Eqn.~\ref{force-balance-matrix-form}. The computationally demanding effort to solve the pressure matrix equation arising from the fully discontinuous FEM formulation is achieved using a multigrid-like approach. In this case the $\lq$fine' mesh is the one obtained by the discontinuous system, whereas the $\lq$coarse' mesh is obtained by creating a continuous system (from the discontinuous system) by collapsing the pressure nodes. As in multigrid, the coarse mesh solution is used to accelerate the convergence of the fine mesh solution by calculating the error of the current approximation.
 
 
 %%%         %%%
@@ -564,14 +561,14 @@ The aim of this section is to demonstrate the performance of the CVFEM approach 
 within a domain $x\in \left[0,1\right]$, with $T=1$ on the left boundary and advection velocity of $u=1$. Initial conditions are defined as,
 \begin{displaymath}
   T\left( x,0\right)= \begin{cases} 1, \;\; &  0.2 \le  x \le 0.4, \\
-    0, & \mbox{ otherwise,}
+    0, & \mbox{ otherwise.}
   \end{cases}
 \end{displaymath}
-are specified. Control volumes are interpolated using FEM basis functions. Figure~\ref{compar-dg} (top) shows the spatial accuracy of the schemes introduced in this work with a small (converged) time step size. The solution was obtained at $t=0.2$ and the domain was divided into 5 elements. The accuracy can be gauged by comparing solutions obtained from 5 and 50 elements. CV solutions and the corresponding FE interpolation of these solutions are also shown. The FEM interpolation was used to obtain the high-order fluxes (both between and within each element). 
+Control volumes are interpolated using FEM basis functions. Figure~\ref{compar-dg} (top) shows the spatial accuracy of the schemes introduced in this work with a small (converged) time step size. The solution was obtained at $t=0.2$ and the domain was divided into 5 elements. The accuracy can be gauged by comparing solutions obtained from 5 and 50 elements. CV solutions and the corresponding FE interpolation of these solutions are also shown. The FEM interpolation was used to obtain the high-order fluxes (both between and within each element). 
 
 The Courant number $\left(=u\Delta t / \Delta x\right)$ was increased based on the element size of $\Delta x = 0.5$. Courant number is equal to 2 based on the smallest control volume (representing a large time step size). Two time steps were performed, and this is a hard test for the non-linear $\theta$ time-stepping method (Section~\ref{time_discretisation}). Note that due to the large time step size the solution is more dissipative, however, the discontinuous element solution is clearly more accurate. 
 
-Figures~\ref{compar-dg-bdt-diff} and~\ref{theta-bdt} demonstrate the advection capturing capability of our method with continuous $\left(\text{P}_{n}\text{DG-P}_{n+1}\text{ element-pairs}\right)$ and discontinuous $\left(\text{either}\right.$ P$\left._{n}\text{DG-P}_{n}\text{DG  or P}_{n+1}\text{DG-P}_{n}\text{DG elements-pairs}\right)$ formulations. In Fig.~\ref{theta-bdt}, these formulations are compared in a problem with large time step size. The value of $\theta$ on the faces of the CV's is shown at the end of two time steps; it is important to notice that $\theta$ is smaller and closer to $0.5$ when using the continuous approach than the discontinuous method. This is due to the larger CV's, i.e. smaller Courant numbers based on the control volume size.
+Figures~\ref{compar-dg-bdt-diff} and~\ref{theta-bdt} demonstrate the advection capturing capability of our method with continuous (\PN[n]{n+1} element-pairs) and discontinuous (either \PNDG[n]{n} or \PNDG[n+1]{n} element-pairs) formulations. In Fig.~\ref{theta-bdt}, these formulations are compared in a problem with large time step size. The value of $\theta$ on the faces of the CV's is shown at the end of two time steps; it is important to notice that $\theta$ is smaller and closer to $0.5$ when using the continuous approach than the discontinuous method. This is due to the larger CV's, i.e. smaller Courant numbers based on the control volume size.
 
 \medskip
 For the advection of an initial Gaussian profile,
@@ -602,7 +599,7 @@ L_{1}=\displaystyle\frac{\sum\limits_{i=1}^{N}\left|T_{i}^{\text{(analytic)}}-T_
 were calculated for both formulations (continuous and discontinuous) and test cases for several mesh grids and plotted on log-log scale, Fig.~\ref{L1_L2norm_Adv2D}. First- and second-order slopes are also shown in this figure. $L_{1}$ norms drop linearly for the discontinuous formulation $\left(\text{P}_{1}\text{DG}\right)$ and in a second-order manner for the continuous formulation $\left(\text{P}_{2}\right)$ as the grid resolution increases. This figure demonstrates that the accuracy of these schemes are very similar, however elements with discontinuity perform slightly better with significantly smaller degrees-of-freedom. 
 
 \subsection{Buckley-Leverett Test Cases}
-The Buckley-Leverett (B-L) equation is a nonlinear advection equation for the relative saturation of fluid phases representing immiscible two-phase flows in porous media. Here, a fluid (phase 1) $\left(S_{1}=1\right)$ is injected at constant velocity $u_{1}=1$ into a rock matrix ($\phi=0.5$) fully saturated with a second fluid (phase 2), $S_{2}=1$. Relative permeability $\left(\mathcal{K}_{r\alpha}\right)$ is calculated as a quadratic function of saturation with residual saturation of phases 1 and 2  of $S_{1}=0.1$ and $S_{2}=0.3$, respectively.  The endpoint of the relative permeabilities  of phases 1 and 2 are 0.8 and 0.3, respectively. 
+The Buckley-Leverett (B-L) equation is a nonlinear advection equation for the relative saturation of fluid phases representing immiscible two-phase flows in porous media. Here, a fluid $\left(\text{phase 1, S}_{1}=1\right)$ is injected at constant velocity $u_{1}=1$ into a rock matrix ($\phi=0.5$) fully saturated with a second fluid (phase 2), $S_{2}=1$. Relative permeability $\left(\mathcal{K}_{r\alpha}\right)$ is calculated as a quadratic function of saturation with residual saturation of phases 1 and 2  of $S_{1}=0.1$ and $S_{2}=0.3$, respectively.  The endpoint of the relative permeabilities  of phases 1 and 2 are 0.8 and 0.3, respectively. 
 
 The length of the domain is 4 non-dimensional units. On the outlet boundary condition, the pressure level is set to zero and all remaining boundary conditions are weakly applied. Despite the one-dimensional nature of the problem, 2- and 3-D simulations were performed using structured and unstructured meshes to evaluate the multi-dimensional capabilities of the model.
 
@@ -611,7 +608,7 @@ All simulations used the overlapping mixed-DGFEM with \PN[0]{1}, \PN[1]{2} and/o
 In all 1-D simulations, mesh grids were designed with equi-sized elements, whilst 2-D meshes were regular, structured and one-element wide with unity aspect ratio. The width of the 2-D numerical domain is inversely proportional to the number of elements. The time-step size varied linearly within 0.125-3.125$\times$10$^{-3}$ seconds range for 1-D simulations, and a fixed time-step of 1.0$\times$10$^{-4}$ for all 2- and 3-D simulations. In the simulations shown here the fluids are considered incompressible.
 
 \medskip
-Control volume saturation profile of phase 1 and equivalent quadratic FEM interpolation are shown in Fig.~\ref{bl-exact-meth-upwind}, where solution converges with increased resolution. Notice that the corners of the CV's are very close to the converged solution. This can be explained as the velocities are upwinded (and also the relative permeabilities -- see Section~\ref{opt-up}), and at these corners the equations reach the balance necessary to match the analytical solution. 
+Control volume saturation profile of phase 1 and equivalent quadratic FEM interpolation are shown in Fig.~\ref{bl-exact-meth-upwind}, where solution converges with increased resolution. Notice that the corners of the CV's are very close to the converged solution. This can be explained as the velocities are upwinded (and also the relative permeabilities -- see Section~\ref{opt-up}) and at these corners the equations reach the balance necessary to match the analytical solution. 
 
 \subsubsection{Convergence Analysis}
 Convergence analyses were performed for the 1- and 2-D problems with a number of (regular) mesh resolution and element pairs. The time-step size was linearly varied from 1.25$\times$10$^{-4}$ to 3.25$\times$10$^{-3}$ seconds. Figure~\ref{fig:BL_profiles} shows phase 1 saturation profiles at time $t=0.5$ for mesh grids varying from 5 to 500 elements, and for different element types -- \PN[0]{1}, \PN[1]{2} and \PN[2]{3} (the geometry symmetry line is used to extract data from the 2-D simulations).  
@@ -626,7 +623,7 @@ Discontinuity of the pressure field between elements allows the use of coarse me
 
 Solutions obtained with upwinding and central difference schemes are shown in Fig.~\ref{bl-dg-cent-4-10-20} for different resolutions, and compared against the continuous (converged) solution with good agreement. In this plot, one can also note the suppression of oscillations resulting from the upwinding scheme.
 
-In Figure~\ref{bl-dg-4-10-vers-cty}, saturation solutions obtained using first (P$_{1}$) and second-order (P$_{2}$) functions in the FE representation of pressure are shown both for continuous and discontinuous representations. At coarse resolution the discontinuous solution is more accurate. By comparing P$_{1}$ and P$_{2}$ solutions in pressure, we demonstrate that near the shock-front there is little benefit in using high-order discontinuous elements, thus linear elements perform well compared to quadratic elements.
+In Figure~\ref{bl-dg-4-10-vers-cty}, saturation solutions obtained using first (P$_{1}$) and second-order (P$_{2}$) functions in the FE representation of pressure are shown both for continuous and discontinuous representations. At coarse resolution, the discontinuous solution is more accurate. By comparing P$_{1}$ and P$_{2}$ solutions in pressure, we demonstrate that near the shock-front there is little benefit in using high-order discontinuous elements, thus linear elements perform well compared to quadratic elements.
 
 \subsubsection{2- and 3-D Simulations}
 Following the convergence analysis, a number of numerical experiments were performed to assess the robustness of the method in fully unstructured meshes. Phase 1 saturation surface maps (and the corresponding meshes) for 2- and 3-D simulations at time $t=0.5$ are shown in Fig.~\ref{fig:maps2d_3d}. The simulations presented in this section were performed using the \PN[1]{2} element-pair in fully unstructured mesh-grid.
@@ -637,11 +634,11 @@ Saturation profiles for the phase 1 at time $t=0.5$ are shown in Fig.~\ref{fig:B
 \section{Final Remarks}\label{conc}
 This article is the first in a two-part papers describing the new overlapping control volume finite element method (OCVFEM) for multi-fluid flows in porous media. The new formulation is based upon a dual consistent pressure-velocity representation in CV and FEM spaces and the novel family of element types, \PN[n]{n+1}, \PN[n]{n} and \PNDG[n]{n}. Saturation and other scalar fields (e.g., density, temperature etc) are discretised in CV space and may be fully discontinuous across finite element boundaries $\left(\text{in \PNDG[n]{n} elements}\right)$. Material absolute permeability tensor is piecewise constant in FE space to ensure the correct representation of the surface. For a quadratic pressure variation there is a piecewise linear velocity field, with discontinuities at element and control volume boundaries.  
 
-The formulation has been extended to hybrid multi-component interface-tracking models~\citep{pavlidis_2013b,pavlidis_2014,xie_2014}, segregation in granular flows~\citep{percival_2014} and to reservoir simulation~\citep{jackson_2013,mostaghimi_2015}. The aim of this paper is to describe the formulation of this approach embodied in the \href{http://www3.imperial.ac.uk/earthscienceandengineering/research/amcg/fluidity}{Fluidity} software framework for multiphase flows in porous media, and the initial model validation.
+The formulation has been extended to hybrid multi-component interface-tracking models~\citep{pavlidis_2013b,pavlidis_2014,xie_2014}, segregation in granular flows~\citep{percival_2014} and to reservoir simulation~\citep{jackson_2013,mostaghimi_2015}. The aim of this paper is to describe the formulation of this approach embodied in the open-source \href{http://www3.imperial.ac.uk/earthscienceandengineering/research/amcg/fluidity}{Fluidity} software framework for multiphase flows in porous media, and the initial model validation.
 
 In order to strongly enforce the discretised Darcy equation in the boundaries between elements and control volumes, a directional-weighted flux-limited was introduced to take into account discontinuities risen from both, the DGFEM formulation and control volumes within finite elements.  The resulting method was initially validated for advection problems showing good accuracy and convergence for the continuous and discontinuous (between elements) formulations. We also demonstrated the accuracy of the upwind formulation. The classical Buckley-Leverett problem was used to assess model convergence, accuracy and performance of the upwind formulation. The solutions obtained from the current formulation are in good agreement with analytical solutions even when a (relatively) coarse mesh resolution and low-order accuracy element-pairs are used. Saturation profiles obtained from the fully discontinuous formulation were successfully compared against the continuous-based solutions with lower grid resolution.
 
-In the second part of this paper~\citep{pavlidis_2015}, the formulation and methods are further validated against experimental solutions in more complex geometries and flows. In particular, the formulation is used to solve problems involving highly heterogeneous regions.
+In the second part of this paper~\citep{pavlidis_2015}, the formulation and methods are further validated against experimental solutions in complex geometries, composite materials (i.e., highly heterogeneous regions) and flow regimes. In particular, the formulation is used to solve problems involving highly heterogeneous regions.
 
 
 \ack Dr D. Pavlidis would like to acknowledge the support from the following research grants: EPSRC ($\lq$Computational Modelling for Advanced Nuclear Power Plants') and EU/FP7 THINS. Funding for Dr P. Salinas from the Qatar Carbonates and Carbon Storage Research Centre (QCCSRC), provided jointly by Qatar Petroleum, Shell and the Qatar Science and Technology Park, is gratefully acknowledged. Dr Z. Xie is supported by EPSRC ($\lq$Multi-Scale Exploration of Multiphase Physics in Flows' -- MEMPHIS). Part funding for Prof Jackson under the TOTAL Chairs programme at Imperial College is also acknowledged.

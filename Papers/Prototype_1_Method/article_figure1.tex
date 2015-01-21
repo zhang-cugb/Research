@@ -12,7 +12,7 @@
 \vspace{-0.3cm}
 \hbox{\hspace{6cm}(c) }
 }
-\caption{2D representation of the element-pairs (a) P0DGP1, (b) P1DGP2  and (c) P2DGP1DG. Shaded areas denote a control volumes (in which saturation is stored), black points represent the pressure nodes and the white points the velocity.}
+\caption{2D representation of the element-pairs (a) \PN[0]{1}, (b) \PN[1]{2} and (c) \PNDG[2]{1}. Shaded areas denote a control volumes (in which saturation is stored), black points represent the pressure nodes and the white points the velocity.}
   \label{fem_cv_represent_a}
 \end{figure}
 
@@ -27,7 +27,7 @@
 \hbox{\hspace{-2.cm}
 \includegraphics[width=1.3\textwidth,height=1.3\textwidth]{diagrams/overlapping_cartoon}}
 \vspace{-1.4cm}
-\caption{Diagram showing the exact representation of Darcy's law in 1D. From top to bottom, the plots show i) a P2 continuous pressure field, $p$, across three elements, ii) the P1DG gradient of that  pressure field, iii) a P0DG absolute permeability field, ${\bf K}$, iv) a CV mobility field, $\lambda_{k}=\frac{\mathcal{K}_{rk}\left(S_{k}\right)}{\mu_{k}}$, and finally v) the resultant CV0DG velocity field arising from Darcy's law. Here dashed lines denote the boundaries of the P2 finite element mesh, dotted lines denote boundaries between the control volumes dual to the P2 mesh and solid dots indicate the natural locations of degrees of freedom in a non-overlapping formulation. }
+\caption{Diagram showing the exact representation of Darcy's law in 1D. From top to bottom, the plots show i) a P$_{2}$ continuous pressure field, $p$, across three elements, ii) the P$_{1}$DG gradient of that  pressure field, iii) a P$_{0}$DG absolute permeability field, ${\bf K}$, iv) a CV mobility field, $\lambda_{k}=\frac{\mathcal{K}_{rk}\left(S_{k}\right)}{\mu_{k}}$, and finally v) the resultant CV$_{0}$DG velocity field arising from Darcy's law. Here dashed lines denote the boundaries of the P$_{2}$ finite element mesh, dotted lines denote boundaries between the control volumes dual to the P$_{2}$ mesh and solid dots indicate the natural locations of degrees of freedom in a non-overlapping formulation. }
 \label{fig:darcys_law}
 \end{center}
 \end{figure}
