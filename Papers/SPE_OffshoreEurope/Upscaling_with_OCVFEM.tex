@@ -8,8 +8,8 @@
 \usepackage{todonotes,amsmath,color}
 \usepackage[normalem]{ulem}
 \newcommand{\JG}[1]{\todo[color=blue!30, size=\small]{JG: #1}}
+\newcommand{\TL}[1]{\todo[color=green!20, size=\small]{TL: #1}}
 \newcommand{\red}{\textcolor{red}}
-
 
 \begin{document}
 
@@ -25,35 +25,21 @@
 
 %\cortext[cor1]{Corresponding author.}
 %\address[UoA]{School of Engineering, University of Aberdeen, UK}
-%\address[IC]{Department of Earth Science and Engineering, Imperial College London, UK}
+%\address[IC]{Department of Earth Science and Engineering, Imperial College Londdefineon, UK}
 
 \date \today
 \maketitle
-%\section*{Abstract}
+
 \begin{abstract}
 
-This paper presents an arguement for using a deterministic heterogeneous data for reservoir simulation, instead of the homogeneous data in use currently, within the Oil and Gas industry. It then goes on to describe a method of creating a deterministic heterogeneity from a set of discrete data for permeability. Finally, the paper discusses the outcome of a benchmark performed against other simulation results from the 10$^{\text{th}}$ SPE Comparative Solution Project (SPE 10 project). Although, only the first case from the SPE 10 project, which involves upscaling and pseudoization methods for an easily computed 2D gas-injection was simulated and benchmarked, for this paper.
+ Deterministic heterogeniety for permeability means that the value of permeability is known exactly everywhere within the reservoir. This paper discusses the benefits of using a deterministic heterogeneous data for reservoir simulation, instead of a single equivalent (upscaled)/ homogeneous value. Then it describes a method of creating deterministic heterogeneity. Finally, the solution for Cumulative Oil Produced is benchmarked against that of other participants of the first case from the 10$^{\text{th}}$ SPE Comparative Solution Project (SPE10 project).
 
-The overlapping control volume finite element method (OCVFEM) formulation is capable of using a deterministic heterogeneous data for reservoir simulation. It employes triangular and tetrahedral finite element pairs in representing the model properties. Permeability is the property used to carry out the analysis discussed in this report. And, a P0DG meshing scheme is used for it in the simulation carried out. This means the nodal data point for permeability are defined as discontinous data points at the centre of each tethrahedral element. The permeability data for the deterministic heterogeneity is spatially assigned within the simulation domain through a two stage process. First, a suitable mesh size is selected which would allow the available discrete data, to be optimized for the second stage of the process. And the second stage is the determination of each nodal data value for the P0DG meshing scheme using 3D interpolation technique.
+The overlapping control volume finite element method (OCVFEM) formulation is capable of using properties with deterministic heterogeneity. It employes a dual consistent pressure-velocity representation in CV and FEM spaces embedded in a novel family of tetrahedral finite element-pairs. The absolute permeability tensor field is represented as discontinuous nodal data points defined at the centre of each tetrahedral element; henceforth denoted as P0DG. The deterministic heterogeneity is spatially assigned within the domain in two stages. First, a suitable mesh size is selected to optimize the use of the discrete data. Then, each nodal data value is determined using 3D interpolation. 
 
-\red{Yet to obtain any information on the simulation}
-
-\red{Try to highlight the preliminary results and what you expect to obtain 'till June/July.}
-
-\red{Results, Conclusions. As we do not have them yet, you could briefly describe the preliminary results and the aim of validating the methods against the SPE10}.
-
+The tetrahedral meshing produced more elements than the given fine hexahedral grid of SPE10 test (100 x 1 x 20), in an effort to optimize the discrete data available. The interpolation scheme used allowed the permeability profile to change gradually between discrete data points. Three different mesh sizes were used to explain the relevance of optimizing the mesh size with respect to the distance between the nearest discrete data points. And, it was shown that a mesh size that is relatively small compared to the distance between the nearest discrete data points produced unnecessarily large computational load for the simulator \red{(?)} \TL{Just to explain that the mesh size selected was not arbitrary}. The simulation was for an easily computed 2D gas-injection. For he preliminary simulation result, as expected, the flow profile shows a high velocity in the high permeability region and a low velocity in the low permeability region. Therefore, the simulation gives a better understanding of the displacement front and helps to give a realistic view of the movement of the fluids in the reservoir.
 
 This novel method of reservoir simulation does not require upscaling but instead makes use of the heterogeneous data available within the simulation domain. This has two advantages. First, it removes the need for a computation for upscaling. Second, flow simulation within the domain is similar to that of a real-life heterogeneous reservoir.
 
-In a future paper, the second problem of the 10th SPE Comparative Solution Project would be simulated with the OCVFEM, and higher order meshing schemes would be used. The paper would also make use of stochastic methods for data representation. 
 \end{abstract}
-
-\red{\begin{center}\large{SPE Instructions}\end{center}
-\begin{enumerate}
-  \item Objectives/Scope: Please list the objectives and/or scope of the proposed paper. (25-75 words)
-  \item Methods, Procedures, Process: Briefly explain your overall approach, including your methods, procedures and process. (75-100 words)
-  \item Results, Observations, Conclusions: Please describe the results, observations and conclusions of the proposed paper. (100-200 words)
-  \item Novel/Additive Information: Please explain how this paper will present novel (new) or additive information to the existing body of literature that can be of benefit to and/or add to the state of knowledge in the petroleum industry. (25-75 words) 
-\end{enumerate}}
 
 \end{document}
