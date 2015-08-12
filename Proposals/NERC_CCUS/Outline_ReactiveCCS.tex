@@ -1,0 +1,600 @@
+%\documentclass[11pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}%{report}%{book}
+\usepackage{graphicx,wrapfig}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+%\usepackage{chemist}
+\usepackage{times,psfrag}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{units}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{gantt}
+\usepackage{pdflscape}
+ 
+\usepackage{enumerate}%,enumitem}% Align table columns on decimal point
+
+%\usepackage{pifont}
+%\usepackage{subfigure}
+%\usepackage{subeqnarray}
+%\usepackage{ifthen}
+ 
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{perpage}
+\MakeSorted{figure}
+%\usepackage{pdflscape}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+
+
+%\usepackage{natbib}
+\usepackage{fancyhdr} %%%%
+\pagestyle{fancy}%%%%
+% with this we ensure that the chapter and section
+% headings are in lowercase
+%%%%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} %delete the current section for header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+% make space for the rule
+\fancypagestyle{plain}{%
+\fancyhead{} %get rid of the headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\usepackage{color}
+
+%\usepackage{makeidx}
+%\makeindex
+
+%\setlength\textwidth      {17.cm}
+%\setlength\textheight     {21.6cm}
+%\setlength\oddsidemargin  {0.0cm}
+%\setlength\evensidemargin {0.0cm}
+
+%\setlength\headheight{14.49998pt} 
+%\setlength\topmargin{0.0cm}
+%\setlength\headsep{1.cm}
+%\setlength\footskip{1.cm}
+%\setlength\parskip{0pt}
+%\setlength\parindent{0pt}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=30mm,
+ bottom=25mm,
+ }
+
+
+
+%%%
+%%% Headers and Footers
+\lhead[] {\text{\small{iCO$_{2}$-EGS}}} 
+%\rhead[]{{\text{\small{CoMaELa}}}}
+\rhead[]{\text{\small{Reducing Uncertainty in the Integrity of Potential CCS Sites}}}
+%\rhead[] {{\text{\small{Reducing Uncertainty in the Integrity of Potential CCS Sites}}}}
+%\chead[] {\text{\small{Session 2012/13}}} 
+\lfoot[]{{\today}}
+%\cfoot[\thepage]{\thepage}
+\rfoot[\text{\small{\thepage}}]{\thepage}
+\renewcommand{\headrulewidth}{0.8pt}
+
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[version=3]{mhchem}
+
+\makeatletter
+\newcounter{reaction}
+%%% >> for article <<
+\renewcommand\thereaction{C\,\arabic{reaction}}
+%%% << for article <<
+%%% >> for report and book >>
+%\renewcommand\thereaction{C\,\thechapter.\arabic{reaction}}
+%\@addtoreset{reaction}{chapter}
+%%% << for report and book <<
+\newcommand\reactiontag{\refstepcounter{reaction}\tag{\thereaction}}
+\newcommand\reaction@[2][]{\begin{equation}\ce{#2}%
+\ifx\@empty#1\@empty\else\label{#1}\fi%
+\reactiontag\end{equation}}
+\newcommand\reaction@nonumber[1]{\begin{equation*}\ce{#1}%
+\end{equation*}}
+\newcommand\reaction{\@ifstar{\reaction@nonumber}{\reaction@}}
+\makeatother
+
+
+%%%
+%%% Notes
+%%%
+\newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{\color{blue} JG: #1}}}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+ 
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+%XS\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+% Commands definining mathematical notation.
+
+% This is for quantities which are physically vectors.
+\renewcommand{\vec}[1]{{\mbox{\boldmath$#1$}}}
+% Physical rank 2 tensors
+\newcommand{\tensor}[1]{\overline{\overline{#1}}}
+% This is for vectors formed of the value of a quantity at each node.
+\newcommand{\dvec}[1]{\underline{#1}}
+% This is for matrices in the discrete system.
+\newcommand{\mat}[1]{\mathrm{#1}}
+
+
+\DeclareMathOperator{\sgn}{sgn}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+
+%\newcommand\qed{\hfill\mbox{$\Box$}}
+\newcommand{\re}{{\mathrm{I}\hspace{-0.2em}\mathrm{R}}}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+\renewcommand\le{\leqslant}
+\renewcommand\ge{\geqslant}
+\renewcommand\epsilon{\varepsilon}
+\newcommand\eps{\varepsilon}
+\renewcommand\phi{\varphi}
+\newcommand{\bmF}{\vec{F}}
+\newcommand{\bmphi}{\vec{\phi}}
+\newcommand{\bmn}{\vec{n}}
+\newcommand{\bmns}{{\textrm{\scriptsize{\boldmath $n$}}}}
+\newcommand{\bmi}{\vec{i}}
+\newcommand{\bmj}{\vec{j}}
+\newcommand{\bmk}{\vec{k}}
+\newcommand{\bmx}{\vec{x}}
+\newcommand{\bmu}{\vec{u}}
+\newcommand{\bmv}{\vec{v}}
+\newcommand{\bmr}{\vec{r}}
+\newcommand{\bma}{\vec{a}}
+\newcommand{\bmg}{\vec{g}}
+\newcommand{\bmU}{\vec{U}}
+\newcommand{\bmI}{\vec{I}}
+\newcommand{\bmq}{\vec{q}}
+\newcommand{\bmT}{\vec{T}}
+\newcommand{\bmM}{\vec{M}}
+\newcommand{\bmtau}{\vec{\tau}}
+\newcommand{\bmOmega}{\vec{\Omega}}
+\newcommand{\pp}{\partial}
+\newcommand{\kaptens}{\tensor{\kappa}}
+\newcommand{\tautens}{\tensor{\tau}}
+\newcommand{\sigtens}{\tensor{\sigma}}
+\newcommand{\etens}{\tensor{\dot\epsilon}}
+\newcommand{\ktens}{\tensor{k}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\tote}{E}
+\newcommand{\inte}{e}
+\newcommand{\strt}{\dot\epsilon}
+\newcommand{\modu}{|\bmu|}
+% Derivatives
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\ddx}[2][x]{\frac{\d#2}{\d#1}}
+\newcommand{\ddxx}[2][x]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ddt}[2][t]{\frac{\d#2}{\d#1}}
+\newcommand{\ddtt}[2][t]{\frac{\d^2#2}{\d#1^2}}
+\newcommand{\ppx}[2][x]{\frac{\partial#2}{\partial#1}}
+\newcommand{\ppxx}[2][x]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\ppt}[2][t]{\frac{\partial#2}{\partial#1}}
+\newcommand{\pptt}[2][t]{\frac{\partial^2#2}{\partial#1^2}}
+\newcommand{\DDx}[2][x]{\frac{\D#2}{\D#1}}
+\newcommand{\DDxx}[2][x]{\frac{\D^2#2}{\D#1^2}}
+\newcommand{\DDt}[2][t]{\frac{\D#2}{\D#1}}
+\newcommand{\DDtt}[2][t]{\frac{\D^2#2}{\D#1^2}}
+% Norms
+\newcommand{\Ltwo}{\ensuremath{L_2} }
+% Basis functions
+\newcommand{\Qone}{\ensuremath{Q_1} }
+\newcommand{\Qtwo}{\ensuremath{Q_2} }
+\newcommand{\Qthree}{\ensuremath{Q_3} }
+\newcommand{\QN}{\ensuremath{Q_N} }
+\newcommand{\Pzero}{\ensuremath{P_0} }
+\newcommand{\Pone}{\ensuremath{P_1} }
+\newcommand{\Ptwo}{\ensuremath{P_2} }
+\newcommand{\Pthree}{\ensuremath{P_3} }
+\newcommand{\PN}{\ensuremath{P_N} }
+\newcommand{\Poo}{\ensuremath{P_1P_1} }
+\newcommand{\PoDGPt}{\ensuremath{P_{-1}P_2} }
+
+\newcommand{\metric}{\tensor{M}}
+\newcommand{\configureflag}[1]{\texttt{#1}}
+
+% Units
+\newcommand{\m}[1][]{\unit[#1]{m}}
+\newcommand{\km}[1][]{\unit[#1]{km}}
+\newcommand{\s}[1][]{\unit[#1]{s}}
+\newcommand{\invs}[1][]{\unit[#1]{s}\ensuremath{^{-1}}}
+\newcommand{\ms}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\mss}[1][]{\unit[#1]{m\ensuremath{\,}s\ensuremath{^{-2}}}}
+\newcommand{\K}[1][]{\unit[#1]{K}}
+\newcommand{\PSU}[1][]{\unit[#1]{PSU}}
+\newcommand{\Pa}[1][]{\unit[#1]{Pa}}
+\newcommand{\kg}[1][]{\unit[#1]{kg}}
+\newcommand{\rads}[1][]{\unit[#1]{rad\ensuremath{\,}s\ensuremath{^{-1}}}}
+\newcommand{\kgmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-2}}}}
+\newcommand{\kgmmm}[1][]{\unit[#1]{kg\ensuremath{\,}m\ensuremath{^{-3}}}}
+\newcommand{\Nmm}[1][]{\unit[#1]{N\ensuremath{\,}m\ensuremath{^{-2}}}}
+
+% Dimensionless numbers
+\newcommand{\dimensionless}[1]{\mathrm{#1}}
+\renewcommand{\Re}{\dimensionless{Re}}
+\newcommand{\Ro}{\dimensionless{Ro}}
+\newcommand{\Fr}{\dimensionless{Fr}}
+\newcommand{\Bu}{\dimensionless{Bu}}
+\newcommand{\Ri}{\dimensionless{Ri}}
+\renewcommand{\Pr}{\dimensionless{Pr}}
+\newcommand{\Pe}{\dimensionless{Pe}}
+\newcommand{\Ek}{\dimensionless{Ek}}
+\newcommand{\Gr}{\dimensionless{Gr}}
+\newcommand{\Ra}{\dimensionless{Ra}}
+\newcommand{\Sh}{\dimensionless{Sh}}
+\newcommand{\Sc}{\dimensionless{Sc}}
+
+
+% Journals
+\newcommand{\IJHMT}{{\it International Journal of Heat and Mass Transfer}}
+\newcommand{\NED}{{\it Nuclear Engineering and Design}}
+\newcommand{\ICHMT}{{\it International Communications in Heat and Mass Transfer}}
+\newcommand{\NET}{{\it Nuclear Engineering and Technology}}
+\newcommand{\HT}{{\it Heat Transfer}}   
+\newcommand{\IJHT}{{\it International Journal for Heat Transfer}}
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\CO}{CO\ensuremath{_{2}}}
+\newenvironment{frcseries}{\fontfamily{frc}\selectfont}{}
+\newcommand{\textfrc}[1]{{\frcseries#1}}
+
+%\usepackage{enumitem}%
+%\newlist{ExList}{enumerate}{1}
+%\setlist[ExList,1]{label={\bf Example 1.} {\bf \arabic*}}
+
+%\newlist{ProbList}{enumerate}{1}
+%\setlist[ProbList,1]{label={\bf Problem 1.} {\bf \arabic*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+
+\begin{document}
+
+
+\begin{center}
+  {\Large {\bf Progress Towards Sustainable Geothermal Energy:}} \\
+  {\Large {\bf Integrated Prediction Tool for Migration and Leakage in CO$_{2}$ Geological Storage using New Generation Modelling}}
+%{\Large{\bf Integrated Model Framework for CO$_{2}$-Brine Fractured Enhanced Geothermal System $\left(\text{iCO}_{2}\text{-EGS}\right)$}}
+\end{center}
+\begin{flushright}
+\end{flushright}
+
+
+%%%
+%%% TRACK RECORD (3 pages) 
+%%%
+\section{Track Record (3 pages)}
+
+\begin{enumerate}[(a)]
+%
+\item {\bf University of Aberdeen (UoA), School of Engineering - Environmental and Industrial Fluid Mechanics Group (EnIFluG)\footnote{\href{http://www.abdn.ac.uk/engineering/research/environmental-industrial-fluid-mechanics-122.php}{http://www.abdn.ac.uk/engineering/research/environmental-industrial-fluid-mechanics-122.php}}:} The Group specialises in combined computational methods, laboratory experimentation, and field work on permeable/porous media flows, sediment transport, coastal monitoring, turbulent buoyant jets and large-scale environmental flows. The Group has outstanding experimental facilities, including a range of large water. The latest addition is the petroleum engineering laboratory which represents a \pounds 200k investment in new equipment. The laboratory comprises four independent core-flood rigs with custom-made Hassler cells, an Anton Paar density meter and glass capillary viscometers with thermal bath. In May, UoA was awarded a further \pounds 950k (under the framework of Oil $\&$ Gas Academy of Scotland) for the purchase of equipment related to O$\&$G training. Among the equipment that will be purchased is an X-ray micro-computed tomography (microCT) system for in-situ imaging of fluids in rock samples. \red{make it more general}. \\
+{\bf Dr Jefferson Gomes (JG)} leads the development of the computational multi-physics models within Fluidity. He published >25 journal papers on CFD, porous media flows, fluid phase equilibria, nuclear criticality and computational optimisation.
+
+%
+\item {\bf Imperial College London (IC), Department of Earth Science and Engineering – Applied Modelling and Computation Group (AMCG)\footnote{\href{http://www.imperial.ac.uk/engineering/departments/earth-science/research/research-groups/amcg}{http://www.imperial.ac.uk/engineering/departments/earth-science/research/research-groups/amcg}}:} The Group is is a multi-disciplinary team of 60 scientists and engineers with backgrounds in engineering, mathematics, physics, earth and computational sciences. It specialises in the development of world-class numerical methods for modelling multi-scale multi-physical processes, with application to fracture and fragmentation, porous media and turbulent flows, nuclear criticality safety, industrial and environmental flows, ocean modelling, impact cratering and air pollution. \\
+{\bf Prof. Christopher C. Pain (CCP)} is head of AMCG. He has a diverse range of modelling/physics interests including: general CFD (which comprises multiphase flow and geophysical fluid dynamics), nuclear safety, optimisation, numerical research (including parallel solution techniques, error measures and mesh adaptivity) and discretisation techniques10-14. He is the original author of the general-purpose parallel CFD model Fluidity, with mesh adaptivity, multiphase and ocean modelling features and has published 125 journal papers and graduated 33 PhD students. 
+%
+\end{enumerate}
+
+
+\clearpage
+
+\abstract{In Carbon Capture, Utilisation, and Storage (CCUS) integrated processes, \CO\; is captured from energy-intensive point sources, mitigated by either chemical conversion or injection into geological formations. Each CCUS process is at very different stages of development and optimisation. In this project, research into developing an integrated dynamic prediction tool model will yield a capability to monitor migration of \CO\; plumes in geological storage sites. The generic mathematical model (High-order accurate Control Volume Finite Element Methods / HPC Computational Multi-Fluid Dynamics) will enable detailed investigation of: (a) \CO\; transport in heterogeneous media, (b) \CO-brine-rock interactions (dissolution, precipitation and exsolution due to thermal gradients and brine dissolution in supercritical \CO) and impact on permeability / porosity spatial- and time-variability.  The integrated model will be validated against 
+
+ We have assembled a team which we believe can successfully carry out the proposed work, combining a wide range of skills encompassing physics, mathematics, earth science and chemical engineering.
+}
+
+%%%
+%%% CASE FOR SUPPORT (16 pages) 
+%%%
+\section{Case for Support (16 pages)}
+\subsection{Introduction}
+
+In Carbon Capture, Utilisation, and Storage (CCUS) integrated processes, \CO\; is captured from energy-intensive point sources, mitigated by either chemical conversion or injection into geological formations for either indefinite storage (CCS) or to improve hydrocarbon productivity as part of enhanced oil recovery (\CO-EOR) technologies. Each CCUS process is at very different stages of development and optimisation. 
+
+Since the publication of the Intergovernmental Panel on Climate Change Report (IPCC, 2005) the injection of \CO\; in geological formations, became a viable option to mitigate GHG emissions. The European Council's directive 2009/31/EC outlines key conditions that must be met to obtain a geological storage site permit including detailed plans to mitigate \CO\; leakage events and continuous monitoring of the site conditions (e.g., amount and quality of injected \CO, temperature and pressure for assessment of phase behaviour, \CO\; migration paths).
+
+Although storage technologies have been heavily utilised in \CO-EOR processes since the 70's, detailed and systematic studies on \CO\; transport and interactions with surrounding rock under reservoir conditions are still incipient. The impact of supercritical \CO\; injection (or any fluid at high- or fracking-pressure conditions) on the geo-environment -- including ground-fluid flow within overburden strata and injection/production wells under dynamic stress conditions, has also received increasing attention from the energy and safety communities.
+
+
+This project aims to study \CO\; plume migration dynamics under reservoir conditions. This and time-dependent supercritical \CO-brine phase change in dedicated geothermal storage sites.
+Groundwater flow within overburden strata under dynamic stress conditions
+
+
+
+Since the publication of the Intergovernmental Panel on Climate Change Report (IPCC, 2005) the injection of \CO in geological formations, became a viable option to mitigate GHG emissions. Depleted oil and gas reservoirs, saline aquifers and unminable coal beds are examples of potential geological formations for injection sites. Such geological repositories could provide storage for at least 2000Gt of \CO. The European Council's directive 2009/31/EC outlines key conditions that must be met to obtain a storage site permit including detailed plans to mitigate \CO leakage events and continuous monitoring of the site conditions (e.g., amount and quality of injected \CO, temperature and pressure for assessment of phase behaviour, \CO migration paths).
+
+
+In Carbon Capture, Utilisation, and Storage (CCUS) integrated processes, \CO is captured from energy-intensive point sources, mitigated by either chemical conversion or injected in geological formations for either indefinite storage (CCS) or to improve hydrocarbon productivity as part of enhanced oil recovery (\CO-EOR) technologies. Each CCUS process is at very different stages of development and optimisation. Although technologies for \CO capture and chemical conversion are well-established technologies, one of the major R$\&$D focus is on retrofitting existing power plants that are in continuous development need to be optimised have benefited of years
+
+%%%
+%%% SCHEDULING CHART (2 pages) 
+%%%
+\section{Scheduling Chart (2 pages)}
+
+
+
+%%%
+%%% JUSTIFICATION OF RESOURCES (4 pages) 
+%%%
+\section{Justification of Resources (4 pages)}
+
+
+%%%
+%%% PATHWAYS TO IMPACT (2 pages)
+%%%
+\section{Pathways to Impact (2 pages)}
+
+
+The high cost of collecting geological and well information means that it is difficult to develop mathematical models to predict key quantities such as maximum rate at which fluids can safely be injected or produced.  Traditional modelling methods are unable to represent complex geological structures and may cost hundreds of millions of pounds on unreliable data.  It is the purpose of this research to develop new tools that will allow for an improved understanding of CO2 geological-based storage. This project will be collaborative primarily with an existing industrially funded project on ”Integrated Simulation for Carbonate Reservoirs“ funded by Shell and Qatar Petroleum through QCCSRC. This programme currently funds two PDRAs dedicated to the development of the new reservoir simulator. In addition the MEMPHIS Program Grant supports development on predictive modelling. Researchers funded by these initiatives represent substantial leveraged funding for this proposal.  It is envisioned that the three projects will have common project meetings, seminars and presentations to industrial sponsors from the energy sector.
+The proposed research will fit into the recently-established ICL-based Grantham Institute for Climate Change that funds research in all aspects of climate science, climate change mitigation and policy.   The Grantham Institute will provide a forum for linking the results of this research into policy, allowing the concepts to be disseminated to a much wider audience beyond the specialist scientific community. Additionally, this proposed project also fits into a number of R$\&$D Programmes under the UoA Energy Theme. Drs Tanino and Gomes were recently hired to further enhance research activities in the field of oil and gas engineering at UoA.  The outcome from this project will be integrated into policy making research and further foster collaboration with the energy sector in UK through academics in the UoA’s Schools of Law whose expertise are in the regulatory aspects of CCS. 
+
+
+%%%
+%%% DISSEMINATION 
+%%%
+\section{Dissemination}
+
+Academic dissemination will be done via publications in international refereed literature and presentations at leading international conferences in the areas of multiphase flows, petroleum engineering, computational fluids dynamics and porous media.
+Dissemination will also be extended via the learned groups of which the academics are involved, including the SPE. We will organize annual themed workshop to disseminate the results to the beneficiaries and to establish new collaborations within Norway and the UK. We will also organize yearly induction courses on reservoir simulator for new researchers and users providing tutorial problems for training. Towards the end of the project, we will organize an international workshop dissemination event to showcase the results of this project and present our new modelling framework. The entire team, including the PDRAs, will be involved with organizing a series of outreach events to inform the wider general public. Activities will include public lectures, an interactive website, and general science/engineering activities. 
+All software functionalities developed under this project will be licensed under open-source LGP licences, so that they are available for use and external code development by anyone wishing to utilise it for non-commercial purposes.  This will allow academics and research labs around the world to use and edit our code for uses in their own reservoir simulators or any other CFD applications.
+
+ 
+
+
+
+
+\begin{comment}
+
+%%%
+%%% ABSTRACT (100 words)
+%%%
+\section{Abstract}
+
+{\it Abstract: A 100 word synopsis of the proposed research project suitable for the lay reader.}
+
+Motivation: 
+
+Objective:
+
+Brief Description:
+
+Expected Outcome:
+
+
+%%%
+%%% Why the Levehulme Trust (250 words)
+%%%
+\section{Why the Levehulme Trust}
+
+Why the Leverhulme Trust?: It is in the Principal Applicant's interests to ensure that a full clear justification for applying to the Trust is provided, based on their understanding of the character of the Trust. Peer reviewers and Trust Board members place considerable weight on your reply, so give very careful thought to what you write and take note of the following six tips:
+• Consult “Our approach to grant making” on the Trust’s website to determine if your project fits the type of research we are seeking to fund.
+• Do not simply cut and paste text from our website – we know what our own website says!
+• Do not just repeat what you have said elsewhere on the application form – duplicating information is not a good use of the space.
+• Do answer the question. Don’t use the space to say something not relevant to the question.
+• Avoid writing purely descriptive text about the research project or about the skills of the research team. You can address these points elsewhere in the application.
+• Consider carefully whether the Trust really is the best recipient for your application – it may be that other funders are more suitable for the type of research you wish to undertake.
+
+%%%
+%%% Other Research Commitments (50 words)
+%%%
+\section{Other Research Commitments}
+
+Other Research Commitments: This information is required to enable assessors to judge whether the Principal Applicant will have sufficient time available to devote to the proposed project.
+
+\clearpage
+
+%%%
+%%% Summary of the Proposal (1000 words)
+%%%
+\section{Summary of the Proposal}
+
+Proposal Summary: The summary should be written in a style suitable for a reader with good knowledge of the subject area. It should include hypotheses to be tested, objectives, significance, methods to be used, and details of how results will be published.
+The upload limit is two pages (ARIAL 11). You can include figures but may need to add these in a table for formatting reasons. The system does not suppport PDFs. The word limit for text entry is 1000.
+
+
+%%%
+%%% References (500 words)
+%%%
+\section{References}
+
+References: If applicable please provide a bibliography for the proposal summary.
+Please note that the maximum file size for an uploaded document is 2MB.
+
+
+%%%
+%%% Co-Applicants
+%%%
+\section{Co-Applicants}
+A maximum of 3 co-applicants can be added.
+Co-applicants can be from a non-UK institution - and will be asked to confirm their participation in the project before it can be submitted to the Trust. It is the Principal Applicant's responsibilty to ensure that any co-applicants are aware of their role in the application process. Should the application proceed to the Detailed Application stage,they should complete their CV details within their own account and approve the application before it can be submitted - applicant's are responsible for making the necessary arrangements with their co-applicants.
+Please note co-applicants may not claim a salary from the Trust, therefore they can not be the named researcher/ student on the proposal. Replacement teaching costs can be added for the Co-Applicants. To be eligible for these, they must be currently employed on a continuing basis by their eligible institution. A maximum of one year’s (33$\%$) staff replacement per grant over the course of a three year grant may be awarded – and pro rata for grants of different lengths or for those with contracts less than full time, e.g up to 8 months for a two year grant, up to 16 months for a four year grant, and so on. The replacement should not be someone currently studying for a research degree. The staff replacement should normally start at the most junior point of the lecturer scale of the institution concerned. Replacement teaching is not allowable for co-applicants outside of the UK.
+
+%%%
+%%% Referees
+%%%
+\section{Referees}
+
+The individuals should be able to provide the Trust with an independent opinion on the proposed project at the detailed application stage. They must not themselves be closely allied with the project, and must be located in institutions other than that of the Principal/ Co Applicant(s).
+Referees are not allowed to come from the same institution as each other. Referees based overseas are acceptable. You will need to enter complete details, including a department. Enter N/A if not applicable.
+It is the responsibility of the Principal Applicant to ensure that these individuals will be in a position to respond promptly to the Trust should the proposal progress to the Full Application stage.
+
+
+%%%
+%%% RESEARCH GRANTS
+%%%
+\section{Previous and Current Research Grants}
+
+RESEARCH PROJECT GRANTS $\&$ INTERNATIONAL NETWORKS
+Previous/current application to the Leverhulme Trust: Please provide details of the Principal Applicant’s applications to the Leverhulme Trust.  If none, please enter None or N/A in the title box.
+Previous/current application to other funding bodies: Please provide details of current or recent applications of Principal Applicant to other bodies for identical or closely related projects with dates and results. Please comment on reasons for rejection if known.  If none, please enter None or N/A in the title box.
+INTERNATIONAL NETWORKS ONLY
+Abstract: Please provide a summary of current or recent applications to other funding bodies in other subject areas. Please comment on reasons for rejection if known.
+Title: character limit of 50
+Ref No: character limit of 10
+
+
+%%%
+%%% FINANCE
+%%%
+\section{Finance}
+Salary budget:  It is recommended that you liaise with your institution regarding the budget to minimise any delays. 
+One Research Assistant, Local Researcher or PhD Student must spend at least 50% of their time on the project - of all of the time.
+When entering the ‘Percentage of time spent on the project’ please ensure that you enter the percentage of time over the entire project duration, not for each year – for research assistants, PhD students and local researchers.
+Personal details such as First name, Surname, Title and Current employment only need to be entered if known at time of application. However, if you do tick Name Known, personal details will become mandatory.
+
+The Trust does not make awards on a full economic costing basis.
+The budget should be entered in £ sterling.
+Every field should be completed using zeros where necessary. Do not include pence.
+
+A local researcher is where the research is taking place outside the UK and it is more appropriate to employ personnel local to the area than a UK based person paid to travel to the region.
+A consultant is for use when someone is required for a limited number of hours across the duration of the project. This is not for the provision of a salary for a consultant.
+Replacement teaching can be added for the Principal/Co-Applicants. To be eligible for these, applicants must be currently employed on a continuing basis by their eligible institution. A maximum of one year’s replacement per grant over the course of a three year grant – and pro rata for grants of different lengths or for those with contracts less than full time – may be awarded. The replacement should not be someone currently studying for a research degree. The staff replacement should normally start at the most junior point of the lecturer scale of the institution concerned.
+Explicit and clear justification should be provided for why replacement teaching costs are sought/required. Do not simply provide a breakdown of how this is calculated, but why this is required for the project.
+Associated costs: Please be reminded that the total Associated Costs cannot exceed 25$\%$ of the total amount requested.  Select type from drop down list.  Please choose only ONE of each type, and total specific items within the type, fully detailing and justifying the cost within the justification box.
+Open Access costs are permissible and should be included within the 25$\%$ associated costs allowable However, open access charges should only be incurred during the period of a Leverhulme award (rather than being built into a budget but with anticipated expenditure after the research and award has concluded).  If these costs are not incurred during the life of the grant, the funds cannot be switched to any other budget heading, and must be returned to the Trust.
+
+
+
+
+
+%%%
+%%% SECTION
+%%%
+\section{Track Record}
+
+\clearpage
+
+%%% 
+%%% SECTION
+%%%
+\section{Case for Support}
+
+%%%
+%%% Sub-Section
+%%%
+\subsection{Motivation and Objectives}
+\begin{itemize}
+\item \red{1-2 Paragraphs on general motivation for the proposed project}
+\item \red{1-2 Paragraph on applications or how the project will benefit power generation via geothermal energy developments and  hydrocarbon production in HPHT reservoirs} 
+\end{itemize}
+
+
+Furthermore, because of the high pressures involved, the injection of cold fluids into the geothermal reservoir (at high temperature and pressure conditions) may lead to the formation of further stress- and thermal-induced fractures. \blue{Text linking injection to isenthalpic flash}.
+
+ Within this context, the research proposed here is aimed at developing an integrated model framework to investigate CO$_{2}$-brine-contaminants flows in thermal energy recovery systems in geological formations at high temperature and pressure conditions. The ultimate goal is to be able to improve our understanding of density- and viscous-driven fluid instabilities in liquid-vapour fronts.
+
+ experimentally validating comprehensive predictive models for both dense phase pneumatic conveying and fluidized bed gasifiers, which fully represent the physics of particulate behaviour (in its production, transport and interaction at a surface). The ultimate objective is to be able to design coal gasifiers in which these aspects can be controlled in such a way as to deliver a further increase in thermal efficiency of around 5%, leading to a further decrease in CO2 emissions of 10% per kWh. Modelling is essential as real scale, actual pressure/temperature experiments are inordinately expensive. This will require both experimental and computational elements. The former will provide information at a level of detail and at conditions hitherto not available. The objectives of this 48 month project are:
+
+
+
+%%%
+%%% Sub-Section
+%%%
+\subsection{Technical Background -- Coupled Non-Equilibrium Vapour-Liquid Equilibria and Transport of Volatile Organic Geochemicals }
+
+%%%
+%%% Sub-Section
+%%%
+\subsection{Methodology and Work Programme}
+
+%%%
+%%% Sub-Section
+%%%
+\subsection{Impact Summary}
+
+%%%
+%%% Sub-Section
+%%%
+\subsection{Academic Beneficiaries}
+
+
+\clearpage
+
+%%%
+%%% SECTION
+%%%
+\section{Justification of Resources}
+
+\clearpage
+
+%%%
+%%% SECTION
+%%%
+\section{Pathways for Impact}
+
+\clearpage
+
+%%%
+%%% SECTION
+%%%
+\section{Workplan}
+
+\clearpage
+
+\end{comment}
+
+\end{document}
