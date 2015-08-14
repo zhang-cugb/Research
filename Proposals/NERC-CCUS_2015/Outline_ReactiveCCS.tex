@@ -348,20 +348,26 @@
 %%%
 %%% CASE FOR SUPPORT (16 pages) 
 %%%
-\section{Case for Support (16 pages)}
+\section{Case for Support (max 16 pages)}
 
 %%%
 %%% SUBSECTION
 %%%
 \subsection{Background}
 
-In Carbon Capture, Utilisation, and Storage (CCUS) integrated processes, \CO\; is captured from energy-intensive point sources, mitigated by either chemical conversion or injection into geological formations for either indefinite storage (CCS) or to improve hydrocarbon productivity as part of enhanced oil recovery (\CO-EOR) technologies. Each CCUS process is at very different stages of development and optimisation. 
+In Carbon Capture, Utilisation, and Storage (CCUS) integrated processes, \CO\; is captured from energy-intensive point sources, mitigated by either chemical conversion or injection into geological formations for either indefinite storage (CCS) or to improve hydrocarbon productivity as part of enhanced oil recovery (\CO-EOR) technologies. Each CCUS process is at very different stages of development and optimisation.
 
-Since the publication of the Intergovernmental Panel on Climate Change Report (IPCC, 2005) the injection of \CO\; in geological formations, became a viable option to mitigate GHG emissions. The European Council's directive 2009/31/EC outlines key conditions that must be met to obtain a geological storage site permit including detailed plans to mitigate \CO\; leakage events and continuous monitoring of the site conditions (e.g., amount and quality of injected \CO, temperature and pressure for assessment of phase behaviour, \CO\; migration paths).
+Since the publication of the Intergovernmental Panel on Climate Change Report (IPCC, 2005) the injection of \CO\; in geological formations, became a viable option to mitigate GHG emissions. The European Council's directive 2009/31/EC outlines key conditions that must be met to obtain a geological storage site permit including detailed plans to mitigate \CO\; leakage events and continuous monitoring of the site conditions (e.g., amount and quality of injected \CO, temperature and pressure for assessment of phase behaviour, \CO\; migration paths). Although storage technologies have been heavily utilised in \CO-EOR processes since the 70's, detailed and systematic studies on \CO\; transport and interactions with surrounding rock under reservoir conditions are still incipient. The impact of supercritical \CO\; injection (or any fluid at high- or fracking-pressure conditions) on the geo-environment (including ground-fluid flow within overburden strata and injection/production wells under dynamic stress conditions) has received increasing attention from energy and safety communities.
 
-Although storage technologies have been heavily utilised in \CO-EOR processes since the 70's, detailed and systematic studies on \CO\; transport and interactions with surrounding rock under reservoir conditions are still incipient. The impact of supercritical \CO\; injection (or any fluid at high- or fracking-pressure conditions) on the geo-environment -- including ground-fluid flow within overburden strata and injection/production wells under dynamic stress conditions, has also received increasing attention from the energy and safety communities.
+\CO\; storage requires detailed understanding of the behaviour of fluids in the subsurface.  Plume-scale/long-time fate of the injected \CO\; is determined primarily by large-scale features, most notably spatial heterogeneity in permeability and the presence and distribution of fractures or other high permeability pathways.  Yet the structure of geological formations is highly uncertain even with the most advanced seismic imaging and well logging.  Moreover, exposure to acidic \CO-rich brine is expected to modify the porosity, permeability, and the wettability through dissolution, precipitation and exsolution.  Consequently, the petrophysical properties of a storage site will evolve both during injection and post-operation, possibly over many thousands of years.  
 
-The proposed project is focused on predicting \CO\; plume migration dynamics under reservoir conditions in complex geological heterogeneity. For the simulation of \CO\; migration it is critically important to accurately represent geological structural characteristics (e.g., facies of the same material property, faults and fractures).  Fully unstructured tetrahedral finite elements have unrivalled geometrical flexibility and are by far the best choice to represent these complex geometries and internal boundaries. Such geological-conforming geometry representation is used with the next generation of models based upon a new family of discontinuous finite element methods. This approach promises a step-change in accuracy from conventional corner-point grids methods in industry-standard flow simulators and represents a novel contribution to CCUS technology. The new model is able to optimally adapt the mesh to represent physics of particular interest, e.g., to focus resolution in the pathways of \CO\; migration.  This model will help quantifying time-scales for supercritical \CO\; migration and potential leakage in geological repositories.
+Injected supercritical \CO\; migrates from the injection well to far field regions. With rock and fluid properties changing over the life-cycle of the geological storage, assessing the risk of leakage and quantifying the sensitivity of petrophysical properties of overburden strata (e.g., permeability, porosity, stress etc) to \CO\; time-dependent conditions is crucial for geological site screening and selection. 
+
+A wide array of monitoring technologies originally developed for the oil and gas industry to track fluids movement in the subsurface are now being deployed to monitor underground \CO\; migration and leakage into the cap rock and around the wellbore casing: (a) seismic surveying resulting in reconstructed images of the subsurface allowing \CO\; plumes to be mapped and predicted, (b) grid of smart sensors placed in the borehole (injection, production and monitoring wells) to monitor key parameters (temperature, pressure, salinity, pH), and (c) surface \CO\; sensors.
+ 
+%Flow Simulator: In existing academic- and industry-standard flow simulators, the geological volumetric domain is bounded by prescribed surfaces (top and bottom), and faults are represented by an extra set of surfaces.  The geological volume is then subdivided in geologically-defined zones (bounded by surfaces). Each zone is finally subdivided into grid cells where rock and fluids properties are assigned. In conventional flow simulators, a fixed (and usually coarse) grid resolution is applied to each geological-defined zone due to limited computational resources.  However, in many scenarios, a high-resolution grid is required in specific regions to predict strong flow gradients (e.g., saturation, CO2 concentration), and a lower resolution is acceptable elsewhere.  For example, during water flooding, high-resolution is required close to the migrating waterfront where the saturation gradient is large but, behind the front, the saturation changes gradually and high resolution is not required. A more efficient use of computational effort is to dynamically adapt the computational mesh in space and time (Figure ). This is achieved in our novel reservoir simulator, built on top of the state-of-the-art open-source Fluidity software, under development as part of a collaborative programme between AMCG and the PERM groups at Imperial College (ICL) and the E&IFM group at the University of Aberdeen (UoA). Fluidity is an open-source (LGPL) adaptive finite element model with capabilities in a wide variety of CFD applications1  and has demonstrated impressive parallel scaling2. 
+
+%The proposed project is focused on predicting \CO\; plume migration dynamics under reservoir conditions in complex geological heterogeneity. For the simulation of \CO\; migration it is critically important to accurately represent geological structural characteristics (e.g., facies of the same material property, faults and fractures).  Fully unstructured tetrahedral finite elements have unrivalled geometrical flexibility and are by far the best choice to represent these complex geometries and internal boundaries. Such geological-conforming geometry representation is used with the next generation of models based upon a new family of discontinuous finite element methods. This approach promises a step-change in accuracy from conventional corner-point grids methods in industry-standard flow simulators and represents a novel contribution to CCUS technology. The new model is able to optimally adapt the mesh to represent physics of particular interest, e.g., to focus resolution in the pathways of \CO\; migration.  This model will help quantifying time-scales for supercritical \CO\; migration and potential leakage in geological repositories.
 
 %%%
 %%% SUBSECTION
@@ -371,28 +377,30 @@ The proposed project is focused on predicting \CO\; plume migration dynamics und
 This has helped to prove that geological \CO\; storage is a viable engineering and economic strategy for reducing GHG emissions. However, geological \CO\; storage schemes must comply with UK/EUrequirements (European Council's directive 2009/31/EC) for:
 \begin{enumerate}[(a)]
 %
-   \item Site screening and selection to identify potential geological locations for \CO\; storage;\label{options:a}
+   \item Site screening and selection to identify potential geological locations for \CO\; storage;\label{Motivation:a}
 %
-   \item Site characterisation to assess the engineering and economic feasibility;\label{options:b}
+   \item Site characterisation to assess the engineering and economic feasibility;\label{Motivation:b}
 %
-   \item Simulation of potential injection strategies to assess (i) pressure and stress distribution and their evolution in time, (ii) plume migration, (iii) oil recovery, (iv) storage capacity and (v) flow rate of injection;\label{options:c}
+   \item Simulation of potential injection strategies to assess (i) pressure and stress distribution and their evolution in time, (ii) plume migration, (iii) oil recovery, (iv) storage capacity and (v) flow rate of injection;\label{Motivation:c}
 %
-   \item Risk assessment to identify risks of leakage via pathways identified in (~\ref{options:c}), to design a monitoring scheme for continuous assessment of these risks, and to develop contingency plans in case of  leakage scenarios;\label{options:d}
+   \item Risk assessment to identify risks of leakage via pathways identified in (\ref{Motivation:c}), to design a monitoring scheme for continuous assessment of these risks, and to develop contingency plans in case of  leakage scenarios;\label{Motivation:d}
 %
-   \item Site management and operation to ensure that the site is operated in compliance with regulations and to continuously assess the risks associated with the storage site during operation, closure and post-closure stages.\label{options:e} 
+   \item Site management and operation to ensure that the site is operated in compliance with regulations and to continuously assess the risks associated with the storage site during operation, closure and post-closure stages.\label{Motivation:e} 
 %
 \end{enumerate}
  
-Although the main focus of this proposal is to assess potential \CO\; leakage (\ref{options:d}), the technology developed here can also be applied to assess the storage feasibility of new and existing geological sites (\ref{options:b},~\ref{options:c}).  Risk assessment based on detailed numerical simulations can identify specific risk features and processes (e.g., leaky faults and wellbores, unexpected injection pressure rise, residual saturation trapping) which may help prevent unintended \CO\; migration. Our model framework may also be used during the continuous site monitoring stage (\ref{options:e}) to assess potential risks during injection and storage as the model can use data from field sensors (data assimilation) to help predict the likelihood of \CO\; leakage.
+Although the main focus of this proposal is to assess potential \CO\; leakage (\ref{Motivation:d}), the technology developed here can also be applied to assess the storage feasibility of new and existing geological sites (\ref{Motivation:b},~\ref{Motivation:c}).  Risk assessment based on detailed numerical simulations can identify specific risk features and processes (e.g., leaky faults and wellbores, unexpected injection pressure rise, residual saturation trapping) which may help prevent unintended \CO\; migration. Our model framework may also be used during the continuous site monitoring stage (\ref{Motivation:e}) to assess potential risks during injection and storage as the model can use data from field sensors (data assimilation) to help predict the likelihood of \CO\; leakage.
 
 The main objectives of this proposal are:
 \begin{enumerate}[(i)]
 %
    \item Investigation of \CO\; plume dynamics (migration and leakage);
 %
-   \item Assessment of fluid flow through zones of potential rheological weakness in the overburden (e.g., faults and chimneys);
+   \item \red{Investigation of multi-fluid flows through zones of potential rheological weakness in the overburden (e.g., faults and chimneys): solid-fluid interactions and stress-induced fractures formation;}
 %
-   \item    
+   \item \red{Model uncertainty quantification: sensor network (data assimilation) and ROM};
+%
+   \item Model quality assurance
 %
 \end{enumerate}
 
