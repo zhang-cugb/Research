@@ -92,6 +92,7 @@
 % \biboptions{}
 
 \newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{ \color{blue} JG Note $\Rightarrow$ #1}}}
+\newcommand{\red}{\textcolor{red}}
 \journal{Advances in Water Resources}
 
 \begin{document}
@@ -131,12 +132,14 @@
 
 \begin{abstract} 
 
-\textcolor{blue}{Accurate simulation of multiphase flows in porous media remains a challenge. While the governing equations are the conservation of mass and Darcy's law, there are also the primary variables, such us pressure, velocity, saturation and permeability. This paper introduce a multi-fluid porous media flow model which is the basis of a reservoir simulator, as implemented in Fluidity, a general purpose flow simulator that is equipped with anisotropic mesh adaptivity techniques to control the local solution errors and  increase the computational accuracy in the research on the development of numerical methods in geophysical fluid mechanics. The governing multiphase porous media flow equations are solved using the adaptive and unstructured mesh.
+Accurate simulation of multiphase flows in porous media remains a challenge \red{(Why? Sentencing is hanging ... word `accurate' is vague here! The second sentence is not gramatically correct and too simplistic -- see notes below.)}. While the governing equations are the conservation of mass and Darcy's law, there are also the primary variables, such us pressure, velocity, saturation and permeability. This paper introduces a multi-fluid porous media flow model which is the basis of a reservoir simulator, as implemented in Fluidity, a general purpose flow simulator that is equipped with anisotropic mesh adaptivity techniques to control the local solution errors and  increase the computational accuracy in the research on the development of numerical methods in geophysical fluid mechanics. The governing multiphase porous media flow equations are solved using the adaptive and unstructured mesh.
 The model is based upon two key numerical characteristics: (a) the family of $P_{n}DG-P_{n+1}$ finite element pairs and (b) a consistent overlapping control volume finite element method (CVFEM) formulation.
 %The element type described above has a discontinuous $n^{th}$ order polynomial representation of velocity and a continuous $(n+1)^{th}$ representation for pressure. This method includes the Darcy force balance equation, pressure, velocity and saturation fields throughout the domain while there is automatic mesh adaptivity in space and time and the computational cost is reduced.} 
 Numerical modelling of multiphase flows in porous media has application in a wide range of disciplines, from hydrocarbons exploration and extraction to groundwater operations.Viscous fingering, member of the flow instabilities family, is a major concern for the oil \& gas industry, but not only to this. The impact of fingers formation in our simulations is also investigated.  
 %This paper describes a  In particular, the \PNDG[1]{1} element (i.e., discontinuous and piecewise linear shape functions to discretise velocity and pressure fields) is introduced as the basis of the discretisation and also as the CVFEM counterpart. In addition to the unstructured grid used for the simulations, uniform and random permeability distribution are introduced. The formulation is applied to saturated porous media systems.
-We conclude that understanding the multiphase flow properties will allow us to efficiently facilitate more efficient oil \& gas recovery, efficient contaminant removal and better planning of carbon capture and storage projects. }
+We conclude that understanding the multiphase flow properties will allow us to efficiently facilitate more efficient oil \& gas recovery, efficient contaminant removal and better planning of carbon capture and storage projects. 
+
+\JGnote{ Abstracts for journal papers have very `squared-structure': (a) Motivation (why would anyone bother to read the paper? Why is it (the paper and/or the subject) relevant? This needs to be covered in 1-3 punchy sentences.); (b) (Main) Objective(s) of the manuscript with particular focus on the \underline{novelty(ies)} the paper may bring (this should be covered in 2-6 (very dry) sentences); (c) Summary of the main technologies that you are using or introducing (and, in some cases, how this/these link(s) with (a), 2-6 sentences); (d) Summary of the main findings (linkage with (b), 2-3 sentences).}
 
 \end{abstract} 
 
@@ -156,18 +159,20 @@ Viscous Instabilities \sep Mobility Ratio \sep Multi-fluid flows \sep Porous med
 %%% SECTION %%%
 %%%         %%%
 \section{Introduction}\label{section:Intro}
-Numerical investigation and modelling of multiphase flows in porous media have attracted the attention of the scientific community over the past 40 years. This is mainly due to applications on oil and gas recovery, groundwater exploration, underground coal gasification, and more recently on CO$_{\text{2}}$ migration and trapping mechanisms in carbon capture and storage (CCS) operations~\citep{spycher_2003, chen_2006, self_2012, pruess_1990c, white_1981,jiang_2011} as well as in groundwater operations. 
+Numerical investigation and modelling of multiphase flows in porous media have attracted the attention of the scientific community over the past 40 years. This is mainly due to applications on oil and gas recovery, groundwater exploration, underground coal gasification, and more recently on CO$_{\text{2}}$ migration and trapping mechanisms in carbon capture and storage (CCS) operations~\citep{spycher_2003, chen_2006, self_2012, pruess_1990c, white_1981,jiang_2011}. 
 
-For reservoir engineers and hydrogeologists, mapping the behaviour of multiphase flows and predict the response of the system is a major challenge followed by complex geometries with irregular boundaries and heterogeneous geological formations. These are some of the main challenges for accurately forecasting the behaviour of flows into porous media. Both Permeability and porosity are important parameters in the equations used for numerical simulation of multiphase flow in porous media. %Heterogeniety of permeability and porosity is a product of the medium's formation process %-- deposition and diagenesis -- and exists at different scales. 
-At the microscopic level, the continuum approach can be applied to a representative elementary Volume (REV) to define these parameters~\citep{bastian_phd1999}. This is well suited for analysis of small scales such as core samples. 
+For reservoir engineers and hydrogeologists, mapping \red{(you don't map a behaviour)} the behaviour of multiphase flows and predict the response of the system are major challenges followed by complex geometries with irregular boundaries and heterogeneous geological formations \red{(sentence needs to be improved)}. These are some of the main challenges \red{(too many challenges in the same paragraph ...)} for accurately forecasting the behaviour of flows into porous media. Both permeability and porosity are important parameters in the equations used for numerical simulation of multiphase flow in porous media.\red{(what was the objective of this sentence?)}  %Heterogeniety of permeability and porosity is a product of the medium's formation process %-- deposition and diagenesis -- and exists at different scales. 
+At the microscopic level, the continuum approach can be applied to a representative elementary Volume (REV) to define these parameters~\citep{bastian_phd1999}. This is well suited for analysis of small scales such as core samples \red{(These sentences are not linked with the previous sentences, also what is the objective of them? )}. 
 
-Although parallel processing is available nowadays, a fine-scale geological model is far too detailed to be accumulated by common reservoir simulators, mainly because of the processing time.
+Although parallel processing is available nowadays, a fine-scale geological model is far too detailed to be accumulated by common reservoir simulators, mainly because of the processing time. \red{(Same comment as above!)}
 
 Therefore larger scales can be approached by upscaling techniques. This technique which is usually employed to solve the problem fails for certain types of heterogeneity. These cases are normally resolved by stochastic representation of permeability and porosity fields. 
 %Various upscaling techniques, including analytical and numerical, have been introduced in the literature to calculate upscaled flow properties.
 There are several approaches to upscale the solutions, while three common types are herein discussed. The $1^{st}$ assumes capillary equilibrium and calculates effective relative permeability using a suitable technique, such as numerical methods, percolation methods and space renormalization methods. The $2^{nd}$ approach is called pseudoization. It generates a psuedo relative permeability by matching immiscible displacement simulation of a coarse-grid to the output of fine-grid simulations. The $3^{rd}$ approach involves direct calculation of relative permeability from displacement experiments.~\citep{johnson_1959, jones_1978}.
  
-The first approach is limited to low flow rates and very small heterogeneity. The second approach overcomes these limitation but also posses drawbacks which include; availability of fine-grid simulation with suitable level of accuracy, dependence of the psuedo functions on rate, direction and grid specification. The experimental data from the third approach is only suitable for a small class of scenarios.~\citep{Chang_1994}. While  non-uniform permeability and porosity may be easy to deal with at a microscopic scale for porous media flow equations, it presents a lot of challenges at a meso/field scale, which is required for reservoir simulations. 
+The first approach is limited to low flow rates and very small heterogeneity. The second approach overcomes these limitation but also posses drawbacks which include; availability of fine-grid simulation with suitable level of accuracy, dependence of the psuedo functions on rate, direction and grid specification. The experimental data from the third approach is only suitable for a small class of scenarios.~\citep{Chang_1994}. While  non-uniform permeability and porosity may be easy to deal with at a microscopic scale for porous media flow equations, it presents a lot of challenges at a meso/field scale, which is required for reservoir simulations. \red{From `At the microscopic level ...' to `...reservoir simulations' --try to rewrite these sentences/paragraphs ... they are very confusing and not really connected'}
+
+\JGnote{As a rule of thumb, when you are introducing a paragraph, the very first sentence needs to give the reader a clue of either linkage w previous paragraphs or linkage w the main subject(s).}  
 
 %\medskip
 Under certain conditions the displacement of fluids in porous media is unstable and results in the formation of strange patterns in the form of \textit{fingers}. This phenomenon is referred to as \textit{viscous fingering}. The flow of an injected fluid into a geological formation (porous medium) generates many instabilities due to the heterogeneities of the porous medium. Even though the mechanism of the instabilities may vary (in \textcolor{blue}{immiscible fluids} the most important factor is the surface tension while in the \textcolor{blue}{miscible fluids} it is the diffusion) however it is still a function of many variables such as, relative mobility, gravity, dispersion, permeability differences. Moreover,in most of the cases interfacial tension is directly linked with the mobility ratio -or viscosity ratio- between the displaced and the displacing fluid.
@@ -473,12 +478,12 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 
 \begin{figure}[h]
 \makebox[\textwidth]{%
-\includegraphics[width=0.49\textwidth]{2b2_P1DGP2_perm}%
+\includegraphics[width=0.49\textwidth]{./Pics/2b2_P1DGP2_perm}%
 \hfill    
-\includegraphics[width=0.49\textwidth]{2b2_P1DGP2_mesh}%
+\includegraphics[width=0.49\textwidth]{./Pics/2b2_P1DGP2_mesh}%
 }\\[0.5cm]% If you want some vertical space
 \makebox[\textwidth]{%
-\includegraphics[width=0.75\textwidth]{2b2_P1DGP2_plot}%
+\includegraphics[width=0.75\textwidth]{./Pics/2b2_P1DGP2_plot}%
 }%
 \caption{ Caption 1}
 \label{fig:1}
@@ -515,21 +520,21 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
  
 \begin{center}
 \centering
-\includegraphics[width=0.75\linewidth, height=5cm]{P1DG-P2_element_type} 
+\includegraphics[width=0.75\linewidth, height=5cm]{./Pics/P1DG-P2_element_type} 
 \caption{Caption 2}
 \label{fig:2}
 \end{center}
 
 \begin{center}
 \centering
-\includegraphics[width=0.8\linewidth, height=7cm]{4r_po_adapt_fine_125_mesh} 
+\includegraphics[width=0.8\linewidth, height=7cm]{./Pics/4r_po_adapt_fine_125_mesh} 
 \caption{Caption 3}
 \label{fig:3}
 \end{center}
 
 \begin{center}
 \centering
-\includegraphics[width=0.8\linewidth, height=7cm]{4r_po_adapt_fine_100_mesh}
+\includegraphics[width=0.8\linewidth, height=7cm]{./Pics/4r_po_adapt_fine_100_mesh}
 \caption{Caption 4}
 \label{fig:4}
 \end{center}
@@ -545,19 +550,19 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 \begin{center}
 \subfigure[MR100, at the beginning of the simulations]{%
 \label{fig:1st}
-\includegraphics[width=0.75\textwidth]{4r_po_adapt_fine_100}
+\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_100}
 }%
 \subfigure[MR100, at the middle of the simulation]{%
 \label{fig:2nd}
-\includegraphics[width=0.75\textwidth]{4r_po_adapt_fine_125_phase1_vol_fraction_mesh}
+\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_phase1_vol_fraction_mesh}
 }\\
 \subfigure[MR100, Phase 1 Volume fraction]{%
 \label{fig:3rd}
-\includegraphics[width=0.75\textwidth]{4r_po_adapt_fine_125_phase1_vol_frac}
+\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_phase1_vol_frac}
 }%
 \subfigure[MR100, Phase 2 Volume fraction]{%
 \label{fig:4th}
-\includegraphics[width=0.75\textwidth]{4r_po_adapt_fine_125_phase2_vol_fraction}
+\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_phase2_vol_fraction}
 }\\
 \caption{Comparison of different MR's and their recovery rates}
 \label{fig:5}
@@ -574,27 +579,27 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 \begin{center}
 \subfigure[MR1]{%
 \label{fig:first}
-\includegraphics[width=0.7\textwidth]{MR1.png}
+\includegraphics[width=0.7\textwidth]{./Pics/MR1.png}
 }%
 \subfigure[Recovery for MR1]{%
 \label{fig:second}
-\includegraphics[width=0.52\textwidth]{Recovery_MR1_1.png}
+\includegraphics[width=0.52\textwidth]{./Pics/Recovery_MR1_1.png}
 }\\
 \subfigure[MR10]{%
 \label{fig:first}
-\includegraphics[width=0.7\textwidth]{MR10.png}
+\includegraphics[width=0.7\textwidth]{./Pics/MR10.png}
 }%
 \subfigure[Recovery for MR10]{%
 \label{fig:second}
-\includegraphics[width=0.52\textwidth]{Recovery_MR10_10.png}
+\includegraphics[width=0.52\textwidth]{./Pics/Recovery_MR10_10.png}
 }\\
 \subfigure[MR100]{%
 \label{fig:first}
-\includegraphics[width=0.7\textwidth]{MR100_100_start.png}
+\includegraphics[width=0.7\textwidth]{./Pics/MR100_100_start.png}
 }%
 \subfigure[Recovery for MR100]{%
 \label{fig:second}
-\includegraphics[width=0.52\textwidth]{Recovery_MR100_100.png}
+\includegraphics[width=0.52\textwidth]{./Pics/Recovery_MR100_100.png}
 }\\ 
 \end{center}
 \caption{Comparison of different MR's and their recovery rates}
