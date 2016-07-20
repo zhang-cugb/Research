@@ -90,7 +90,7 @@
 
 % \biboptions{}
 
-\newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{ \color{blue} JG Note $\Rightarrow$ #1}}}
+\newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{ \color{red} JG Note $\Rightarrow$ #1}}}
 \newcommand{\red}{\textcolor{red}}
 \journal{Advances in Water Resources}
 \newcommand{\frc}{\displaystyle\frac}
@@ -125,20 +125,21 @@
 \title{Numerical Investigation of Multi-Fluid Flows through Dual Saturated-Unsaturated Porous Media}
 
 %% use optional labels to link authors explicitly to addresses:
-\author[UoA]{K. Christou} \author[UoA,UFRGS]{W.C. Rad\"unz}  \author[UoA]{B. Lashore} 
+\author[UoA]{K. Christou} \author[UoA,UFRGS]{W.C. Rad\"unz}  \author[UoA]{B. Lashore} \author[UESC]{F.B.S. de Oliveira}
 \author[UoA]{J.L.M.A. Gomes\corref{cor1}}\ead{jefferson.gomes@abdn.ac.uk}
 
 \cortext[cor1]{Corresponding author.}
 \address[UoA]{Environmental and Industrial Fluid Mechanics Group, School of Engineering, University of Aberdeen, UK}
 \address[UFRGS]{Engineering School, Federal University of Rio Grande do Sul, Brazil}
+\address[UESC]{Department of Exact and Technological Sciences, State University of Santa Cruz, Bahia, Brazil}
 
 \begin{abstract} 
-Numerical modelling of multiphase flow in porous media has applications in a wide range of disciplines Accurate prediction of multiphase flows in porous media remains one of the problems. While the governing equations are the conservation of mass and Darcy's law, there are also the primary variables, such us pressure, velocity, saturation and permeability. This paper introduces a multi-fluid porous media flow model which is the basis of a general purpose flow simulator that is equipped with anisotropic mesh adaptivity techniques to control the local solution errors and  increase the computational accuracy in the research on the development of numerical methods in geophysical fluid mechanics. The governing multiphase porous media flow equations are solved using the adaptive and unstructured mesh.
-The model is based upon two key numerical characteristics: (a) the family of $P_{n}DG-P_{n+1}$ finite element pairs and (b) a consistent overlapping control volume finite element method (CVFEM) formulation.
+%Numerical modelling of multiphase flow in porous media has applications in a wide range of disciplines Accurate prediction of multiphase flows in porous media remains one of the problems. While the governing equations are the conservation of mass and Darcy's law, there are also the primary variables, such us pressure, velocity, saturation and permeability. This paper introduces a multi-fluid porous media flow model which is the basis of a general purpose flow simulator that is equipped with anisotropic mesh adaptivity techniques to control the local solution errors and  increase the computational accuracy in the research on the development of numerical methods in geophysical fluid mechanics. The governing multiphase porous media flow equations are solved using the adaptive and unstructured mesh.
+%The model is based upon two key numerical characteristics: (a) the family of $P_{n}DG-P_{n+1}$ finite element pairs and (b) a consistent overlapping control volume finite element method (CVFEM) formulation.
 %The element type described above has a discontinuous $n^{th}$ order polynomial representation of velocity and a continuous $(n+1)^{th}$ representation for pressure. This method includes the Darcy force balance equation, pressure, velocity and saturation fields throughout the domain while there is automatic mesh adaptivity in space and time and the computational cost is reduced.} 
-Numerical modelling of multiphase flows in porous media has application in a wide range of disciplines, from hydrocarbons exploration and extraction to groundwater operations.Viscous fingering, member of the flow instabilities family, is a major concern for the oil \& gas industry, but not only to this. The impact of fingers formation in our simulations is also investigated.  
+%Numerical modelling of multiphase flows in porous media has application in a wide range of disciplines, from hydrocarbons exploration and extraction to groundwater operations.Viscous fingering, member of the flow instabilities family, is a major concern for the oil \& gas industry, but not only to this. The impact of fingers formation in our simulations is also investigated.  
 %This paper describes a  In particular, the \PNDG[1]{1} element (i.e., discontinuous and piecewise linear shape functions to discretise velocity and pressure fields) is introduced as the basis of the discretisation and also as the CVFEM counterpart. In addition to the unstructured grid used for the simulations, uniform and random permeability distribution are introduced. The formulation is applied to saturated porous media systems.
-We conclude that understanding the multiphase flow properties will allow us to efficiently facilitate more efficient oil \& gas recovery, efficient contaminant removal and better planning of carbon capture and storage projects. 
+%We conclude that understanding the multiphase flow properties will allow us to efficiently facilitate more efficient oil \& gas recovery, efficient contaminant removal and better planning of carbon capture and storage projects. 
 
 \JGnote{ Abstracts for journal papers have very `squared-structure': (a) Motivation (why would anyone bother to read the paper? Why is it (the paper and/or the subject) relevant? This needs to be covered in 1-3 punchy sentences.); (b) (Main) Objective(s) of the manuscript with particular focus on the \underline{novelty(ies)} the paper may bring (this should be covered in 2-6 (very dry) sentences); (c) Summary of the main technologies that you are using or introducing (and, in some cases, how this/these link(s) with (a), 2-6 sentences); (d) Summary of the main findings (linkage with (b), 2-3 sentences).}
 
@@ -160,11 +161,13 @@ Viscous Instabilities \sep Mobility Ratio \sep Multi-fluid flows \sep Porous med
 %%% SECTION %%%
 %%%         %%%
 \section{Introduction}\label{section:Intro}
-Numerical investigation and modelling of multiphase flows in porous media have attracted the attention of the scientific community over the past 40 years. This is mainly due to applications on oil and gas recovery, groundwater exploration, underground coal gasification, and more recently on CO$_{\text{2}}$ migration and trapping mechanisms in carbon capture and storage (CCS) operations~\citep{spycher_2003, chen_2006, self_2012, pruess_1990c, white_1981,jiang_2011}. 
+Detailed numerical investigation of multiphase flows in porous media has attracted the attention of the scientific community for the past 50 years. This is mainly due to applications in oil and gas exploration and recovery, groundwater resources, underground coal gasification, geothermal power systems and, more recently, in carbon capture and storage (CCS) processes~\citep{spycher_2003, chen_2006,self_2012,pruess_1990c, white_1981,jiang_2011}. Complex geometries with irregular boundaries and strong heterogeneity in geological formations are the main issues addressed by developers of industry- and academic-standard flow simulators. 
 
-Reservoir engineers and hydrogeologists are dealing with complex geometries, irregular boundaries and heterogeneous geological formations. Forecasting the behaviour of multiphase flows or the future response of the system are major challenges that need to be taken into account. 
+Accurate prediction of multiphase flow behaviour through realistic porous media domains is one of the the main research challenges as \red{write about the main issues related to heterogeneity and link it with flow behaviour (2-4 sentences)}. 
+
+%Forecasting the behaviour of multiphase flows or the future response of the system are major challenges that need to be taken into account. 
 %Both permeability and porosity are important parameters in the equations used for numerical simulation of multiphase flow in porous media.\red{(what was the objective of this sentence?)}  %Heterogeniety of permeability and porosity is a product of the medium's formation process %-- deposition and diagenesis -- and exists at different scales. 
-To tackle these problems the continuum approach, in a microscopic level, can be applied to a representative elementary Volume (REV) to describe the spatial variation in parameters such as the porosity and permeability~\citep{bastian_phd1999}. %This is well suited for analysis of small scales such as core samples. \red{(These sentences are not linked with the previous sentences, also what is the objective of them? )}. 
+%To tackle these problems the continuum approach, in a microscopic level, can be applied to a representative elementary Volume (REV) to describe the spatial variation in parameters such as the porosity and permeability~\citep{bastian_phd1999}. %This is well suited for analysis of small scales such as core samples. \red{(These sentences are not linked with the previous sentences, also what is the objective of them? )}. 
 
 Larger scale problems can be approached by upscaling techniques. This technique which is usually employed to solve the problem fails for certain types of heterogeneity. These cases are normally resolved by stochastic representation of permeability and porosity fields. 
 %Various upscaling techniques, including analytical and numerical, have been introduced in the literature to calculate upscaled flow properties.
