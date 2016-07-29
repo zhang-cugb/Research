@@ -92,6 +92,8 @@
 
 \newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{ \color{red} JG Note $\Rightarrow$ #1}}}
 \newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
 \journal{Advances in Water Resources}
 \newcommand{\frc}{\displaystyle\frac}
 \newcommand{\PN}[2][error]{P$_{#1}$DG-P$_{#2}$}
@@ -122,7 +124,7 @@
 %% \address{Address\fnref{label3}}
 %% \fntext[label3]{}
 
-\title{Numerical Investigation of Multi-Fluid Flows through Dual Saturated-Unsaturated Porous Media}
+\title{Numerical Investigation of Multi-Fluid Flows through Dual Saturated-Unsaturated Porous Media \blue{(You may want to change the title to something close to the main topic of the manuscript ... something with viscous flow instability or viscous fingering)}}
 
 %% use optional labels to link authors explicitly to addresses:
 \author[UoA]{K. Christou} \author[UoA,UFRGS]{W.C. Rad\"unz}  \author[UoA]{B. Lashore} \author[UESC]{F.B.S. de Oliveira}
@@ -141,12 +143,12 @@
 %This paper describes a  In particular, the \PNDG[1]{1} element (i.e., discontinuous and piecewise linear shape functions to discretise velocity and pressure fields) is introduced as the basis of the discretisation and also as the CVFEM counterpart. In addition to the unstructured grid used for the simulations, uniform and random permeability distribution are introduced. The formulation is applied to saturated porous media systems.
 %We conclude that understanding the multiphase flow properties will allow us to efficiently facilitate more efficient oil \& gas recovery, efficient contaminant removal and better planning of carbon capture and storage projects. 
 
-\JGnote{ Abstracts for journal papers have very `squared-structure': (a) Motivation (why would anyone bother to read the paper? Why is it (the paper and/or the subject) relevant? This needs to be covered in 1-3 punchy sentences.); (b) (Main) Objective(s) of the manuscript with particular focus on the \underline{novelty(ies)} the paper may bring (this should be covered in 2-6 (very dry) sentences); (c) Summary of the main technologies that you are using or introducing (and, in some cases, how this/these link(s) with (a), 2-6 sentences); (d) Summary of the main findings (linkage with (b), 2-3 sentences).}
+\blue{Abstracts for journal papers have very `squared-structure', and should contain: (a) Motivation (why would anyone bother to read the paper? Why is the paper and/or the subject relevant? This needs to be covered in 1-3 punchy sentences); (b) Main objective(s) of the manuscript with particular focus on the \underline{novelty(ies)} (this should be covered in 2-6 (very dry) sentences); (c) Summary of the main technologies that you are using or introducing (and, in some cases, how this/these link(s) with (a), 2-6 sentences); (d) Summary of the main findings (linkage with (b), 2-3 sentences).}
 
 \end{abstract} 
 
 \begin{keyword} %% keywords here, in the form: keyword \sep keyword
-Viscous Instabilities \sep Mobility Ratio \sep Multi-fluid flows \sep Porous media \sep Finite Element Methods.
+  Viscous Instabilities \sep Mobility Ratio \sep Multi-fluid flows \sep Porous media \sep Finite Element Methods. \blue{(choose key-words that do represent the contents of the paper. State-of-the-art development -re key-words should be represented as literature review in the Introduction section.)}
 
 
 \end{keyword}
@@ -161,32 +163,42 @@ Viscous Instabilities \sep Mobility Ratio \sep Multi-fluid flows \sep Porous med
 %%% SECTION %%%
 %%%         %%%
 \section{Introduction}\label{section:Intro}
-Detailed numerical investigation of multiphase flows in porous media has attracted the attention of the scientific community for the past 50 years. This is mainly due to applications in oil and gas exploration and recovery, groundwater resources, underground coal gasification, geothermal power systems and, more recently, in carbon capture and storage (CCS) processes~\citep{spycher_2003, chen_2006,self_2012,pruess_1990c, white_1981,jiang_2011}. Complex geometries with irregular boundaries and strong heterogeneity in geological formations are the main issues addressed by developers of industry- and academic-standard flow simulators. 
 
-Accurate prediction of multiphase flow behaviour through realistic porous media domains is one of the the main research challenges as \red{write about the main issues related to heterogeneity and link it with flow behaviour (2-4 sentences)}. 
+\blue{The Introduction Section of a manuscript is often divided into 4 parts:
+   \begin{enumerate}[(a)]
+       \item Motivation for the work undertaken. What are the environmental, industrial and/or lab problems that this work will help tackling and/or solving (first and \underline{only one} paragraph)? 
+       \item Literature review: this should focus on the main topics directly related to the manuscript (as a rule-of-thumb, you should choose up to 5 key-words that can better represent the work and write \underline{concisely} about recent development on them, i.e., state-of-the-art). Length of literature review should be 3-10 paragraphs and focus on `recent' developments in the topics including strengths and weakness. This `list' of topics (with associated references and range of strengths and weakness) may lead to {\it an explicit statement of the current gap of knowledge on the field that the manuscript will address}. This last key sentence will naturally lead to the;
+       \item Main aim and (list of) objective(s) of the work and how you intend to tackle the science problem (1 paragraph);
+       \item Summary of the work (last paragraph). 
+   \end{enumerate}
+}
+
+Detailed numerical investigation of multiphase flows in porous media has attracted the attention of the scientific community for the past 50 years. This is mainly due to applications in oil and gas exploration, groundwater resources, underground coal gasification, geothermal power systems and, more recently, in carbon capture and storage (CCS) processes~\citep{spycher_2003, chen_2006, self_2012, pruess_1990c, white_1981, jiang_2011}. However, current porous media multiphase flow models are plagued with uncertainties associated with subsurface topology, lithostratigraphic heterogeneity and chemical and physical properties of subsurface fluids. Viscous fingering, a flow instability phenomenon that occurs at the interface of fluids with distinct viscosities, has a strong impact on the efficiency of both oil recovery and CO$_{2}$ trapping under reservoir conditions.
+
+Accurate prediction of multiphase flow behaviour through realistic porous media domains is one of the main research challenges as \red{write about the main issues related to heterogeneity and link it with flow behaviour (2-5 sentences with references)}. 
+
+\red{\bf Write here \underline{3-6 literature review paragraphs based on} the chosen \underline{key-words} with the associated references. \underline{Be concise}!}
 
 %Forecasting the behaviour of multiphase flows or the future response of the system are major challenges that need to be taken into account. 
 %Both permeability and porosity are important parameters in the equations used for numerical simulation of multiphase flow in porous media.\red{(what was the objective of this sentence?)}  %Heterogeniety of permeability and porosity is a product of the medium's formation process %-- deposition and diagenesis -- and exists at different scales. 
 %To tackle these problems the continuum approach, in a microscopic level, can be applied to a representative elementary Volume (REV) to describe the spatial variation in parameters such as the porosity and permeability~\citep{bastian_phd1999}. %This is well suited for analysis of small scales such as core samples. \red{(These sentences are not linked with the previous sentences, also what is the objective of them? )}. 
 
-Larger scale problems can be approached by upscaling techniques. This technique which is usually employed to solve the problem fails for certain types of heterogeneity. These cases are normally resolved by stochastic representation of permeability and porosity fields. 
-%Various upscaling techniques, including analytical and numerical, have been introduced in the literature to calculate upscaled flow properties.
-There are several approaches to upscale the solutions, while three common types are herein discussed. The $1^{st}$ assumes capillary equilibrium and calculates effective relative permeability using a suitable technique, such as numerical methods, percolation methods and space renormalization methods. The $2^{nd}$ approach is called pseudoization. It generates a psuedo relative permeability by matching immiscible displacement simulation of a coarse-grid to the output of fine-grid simulations. The $3^{rd}$ approach involves direct calculation of relative permeability from displacement experiments.~\citep{johnson_1959, jones_1978}.
- 
-The first approach is limited to low flow rates and very small heterogeneity. The second approach overcomes these limitation but also posses drawbacks which include; availability of fine-grid simulation with suitable level of accuracy, dependence of the psuedo functions on rate, direction and grid specification. The experimental data from the third approach is only suitable for a small class of scenarios.~\citep{Chang_1994}. While  non-uniform permeability and porosity may be easy to deal with at a microscopic scale for porous media flow equations, it presents a lot of challenges at a meso/field scale, which is required for reservoir simulations. 
-
-\JGnote{As a rule of thumb, when you are introducing a paragraph, the very first sentence needs to give the reader a clue of either linkage w previous paragraphs or linkage w the main subject(s).}  
+%Larger scale problems can be approached by upscaling techniques. This technique which is usually employed to solve the problem fails for certain types of heterogeneity. These cases are normally resolved by stochastic representation of permeability and porosity fields. 
+%Various upscaling techniques, including analytical and numerical, have been introduced in the literature to calculate upscaled flow properties. There are several approaches to upscale the solutions, while three common types are herein discussed. The $1^{st}$ assumes capillary equilibrium and calculates effective relative permeability using a suitable technique, such as numerical methods, percolation methods and space renormalization methods. The $2^{nd}$ approach is called pseudoization. It generates a psuedo relative permeability by matching immiscible displacement simulation of a coarse-grid to the output of fine-grid simulations. The $3^{rd}$ approach involves direct calculation of relative permeability from displacement experiments.~\citep{johnson_1959, jones_1978}. \red{Try to rewrite this paragraph bearing in mind: (a) Is upscaling relevant for this manuscript? (b) If positive how are they related ? As we haven't introduced the main aim (and objectives) of the manuscript, such relationship must be added clearly and smoothly here.}
+ %The first approach is limited to low flow rates and very small heterogeneity. The second approach overcomes these limitation but also posses drawbacks which include; availability of fine-grid simulation with suitable level of accuracy, dependence of the psuedo functions on rate, direction and grid specification. The experimental data from the third approach is only suitable for a small class of scenarios.~\citep{Chang_1994}. While  non-uniform permeability and porosity may be easy to deal with at a microscopic scale for porous media flow equations, it presents a lot of challenges at a meso/field scale, which is required for reservoir simulations. 
 
 %\medskip
-Under specfic spatial conditions the displacement of fluids in porous media is unstable {\bf(why?)} and results in the formation of irregular flow patterns in the form of fingers. This phenomenon, viscous fingering, describes flow instabilities {\bf (and ...??)}. Even though the mechanism of instabilities may vary (in immiscible fluids the most important factor is the surface tension while in miscible fluids, it is the diffusion \red{(thermal or mass diffusion ...be specific)}), however it is still a function of several variables such as, relative mobility, gravity, dispersion, permeability differences. Moreover, in most cases interfacial tension is directly linked with the mobility ratio (or viscosity ratio) between the displaced and the displacing fluid.
-\medskip
-%Both the evolution of visualisation techniques through the extensive use of parallel computing as well as the advances in modelling and simulation of flows in porous media may help to represent and address the importance of this phenomenon which can be found in petroleum, chemical and environmental related applications. {\bf (does the paper address any aspect of parallel computation or computational/data visualization?)}
-
-In this paper, the overlapping control volume finite element method (CVFEM) formulation, recently introduced by~\citet{jackson_2015}~\citep[see also][]{radunz_2014}, is used to investigate the development of multiphase flows through heterogeneous porous media. In this formulation, the dual pressure-velocity representation in CV and FEM spaces are embedded into a family of triangular/tetrahedral element-pairs, \PN[n]{m} and \PNDG[n]{m} \citep[][]{cotter_2009b,xie_2014} -- basis function with $n^{\rm th}$- (discontinuous) and $m^{\rm th}$-order (continuous/discontinuous) polynomials for velocity and pressure fileds, respectively.  Scalar fields (e.g., saturation, concentration, density, etc) are represented in the CV space. High-order accurate downwind schemes on element boundaries on discontinuous scalar fields are flux-limited (based on NVD approach) to obtain bounded and compressive (capturing the interfaces) solutions. This formulation can achieve an exact representation of the Darcy force balance equations.
-
+Under specfic spatial conditions the displacement of fluids in porous media is unstable \red{{\bf(why?)}} and results in the formation of irregular flow patterns in the form of fingers \red{\bf why?}. This phenomenon, viscous fingering, describes flow instabilities {\bf (and ...?? you are repeating the previous sentence ...)}. Even though the mechanism of instabilities may vary (in immiscible fluids the most important factor is the surface tension while in miscible fluids, it is the diffusion \red{(thermal or mass diffusion ?? be specific)}), however it is still a function of several variables such as, relative mobility, gravity, dispersion, permeability differences\red{(Is this true ?? if so give references. why is gravity or relperm relevant? dispersion... why? perm grad??)}. Moreover, in most cases \red{(refs?)} interfacial tension is directly linked with the mobility ratio (or viscosity ratio) between the displaced and the displacing fluid \red{(How and why?)}.
 \medskip
 
-Here, the main objective is to investigate the impact of heterogeneous porous media in fingers formation using a FEM-based unstructured fixed mesh multi-fluid model with uniform permeability distribution under both saturated and unsaturated porous media. {\bf (try to develop it further; be more specific. Write this objective sentence/paragraph based on the paper's conclusions!)}. This study focuses on flow instabilities determined {\bf(determined or controlled?)} by the viscosity ratio.  Section $2$ summarises the numerical formulation used in this work, followed by description of the flow instabilities  and a description of model validation. Finally, conclusions are drawn in the final section. {\bf (Needs better description of the remaining of teh paper.)}
+\blue{This last paragraph before aims and objectives (next paragraph) should be gentle transition from current state-of-the-art and this work. As a suggestion, the last paragraph should focus on a particular aspect of viscous fingering that may not be well-understood by the scientific community and that is addressed in the paper. For example, (a) impact of heterogeneity in the onset of fingering, (b) qualitative sensitivity study of viscosity ratio impact in the finger formation (based on analytical assessment studies), etc.} 
+
+The main aim of this work is to numerically investigate the impact of heterogeneous porous media in fingers formation using a FEM-based unstructured fixed mesh multi-fluid model with uniform permeability distribution under both saturated and unsaturated porous media. \red{\bf (try to develop it further; be more specific. Write this objective sentence/paragraph based on the paper's conclusions!)}. This study focuses on flow instabilities due to relatively large viscosity ratios.  
+
+In this paper, a control volume finite element method (CVFEM) formulation, recently introduced by~\citet{jackson_2015}~\citep[see also][]{radunz_2014}, is used to investigate the development of multiphase flows through heterogeneous porous media. In this formulation, the dual pressure-velocity representation in CV and FEM spaces are embedded into a family of triangular/tetrahedral element-pairs, \PN[n]{m} and \PNDG[n]{m} \citep[][]{cotter_2009b,xie_2014} -- basis function with $n^{\rm th}$- (discontinuous) and $m^{\rm th}$-order (continuous/discontinuous) polynomials for velocity and pressure fileds, respectively.  Scalar fields (e.g., saturation, concentration, density, etc) are represented in the CV space. High-order accurate downwind schemes on element boundaries on discontinuous scalar fields are flux-limited (based on NVD approach) to obtain bounded and compressive (capturing the interfaces) solutions. This formulation can achieve an exact representation of the Darcy force balance equations.
+
+
+Section~\ref{section:NumericalFormulation} summarises the numerical formulation used in this work. The model is validated against Bucklet-Leverett (incompressible fluid displacement in homogeneous domain) and traditional four-regions (cross-flow assessment due to permeability gradient) test-cases (Section~\ref{section:ModelValidation}). Viscous flow instabilities in heterogeneous porous media is numerically investigated in Section~\ref{section:ViscousInstabilities} following by final remarks.
 
 %%%         %%%
 %%% SECTION %%%
