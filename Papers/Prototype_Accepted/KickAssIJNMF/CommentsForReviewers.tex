@@ -1,0 +1,233 @@
+
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}
+\usepackage{graphicx,pdfpages}% Include figure files
+\usepackage{enumerate}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+\usepackage{times,psfrag,comment}
+\usepackage{color}
+\usepackage{float}
+
+
+%%%
+%%% Page Format
+%%%
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {22.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+
+%%%
+%%% Space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\PN}[2][error]{P$_{#1}$DG-P$_{#2}$}
+\newcommand{\PNDG}[2][error]{P$_{#1}$DG-P$_{#2}$DG}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%% Numbering the equation in this file
+%%%
+\newcounter{defcounter}
+\setcounter{defcounter}{10}
+\usepackage{amsthm}
+\newenvironment{myequation}{%
+\addtocounter{equation}{-1}
+\refstepcounter{defcounter}
+\renewcommand\theequation{\thedefcounter}
+\begin{equation}}
+{\end{equation}}
+
+\begin{document}
+We thanks the reviewers for blablabla
+
+As such, the required modifications were performed as described below
+
+\begin{description}
+%%%
+\item[\blue{Comment 1:}] ``In Section 2.5 I found the interchange of the symbol {\bf v} (force per unit volume) with {\bf u} (saturation-weighted Darcy velocity) to be confusing: in the notation of eqn. 12, I would have expected to find $\mathbf{\tilde{v}_{\alpha}}$ instead of $\mathbf{\tilde{u}_{\alpha}}$. The same goes for eqn. 15. Moreover, it is not clear how eqn. 12 is derived and whether eqn. 15 replaces eqn. 13 or not. The two final paragraphs in the section are rather obscure and should be expanded more.''\\
+ {\it We thank the reviewers for the comment and modified Section 2.5 to improve its readibility, clarify a few arguments and correct a few typos. This section should read as:}\\
+
+`{\it 2.5. Velocity at control volume interfaces}
+
+The velocity to be used at the interface between CV's in the saturation conservation (Eqn. 7) and global continuity (Eqn. 8) equations needs to be determined. On the CV faces, there is no information about the flow direction as the velocity is discontinuous at the CV boundaries. The discontinuities occur between (a) control volumes within each FE and (b) between elements when using the \PNDG[n+1]{n} element pair.
+
+In order to calculate the velocity across CV's within a FE, an average velocity at the interface of control volumes {\it i} and {\it j} is defined as:
+\begin{myequation}
+  {\tilde{\bf u}}_\alpha = \frac{1}{2} \left[ {{\bf u}_\alpha}_i + {{\bf u}_\alpha}_j \right].
+\end{myequation} 
+From this, the interface velocities at either side of the interface can be obtained from:
+%\begin{equation}
+%  {\tilde{\bf u}}_{\alpha k} = \underline{\underline{\sigma}}_{\alpha
+%    k}^{-1}{\tilde{{\bf u}}}_{\alpha}, \;\;\;\; k=\{i,j\}.
+%  \label{two-vels}
+%\end{equation} 
+\begin{myequation}
+  {\tilde{\bf u}}_{\alpha k} = \underline{\underline{\sigma}}_{\alpha k}^{-1}{{\bf \tilde{v}}}_{\alpha}, \;\;\;\; k=\{i,j\}. 
+  \label{two-vels}
+\end{myequation} 
+
+These velocities have the same direction and differ only in magnitude, so using them to define an upwind direction is not ambiguous. If an upwind method for calculating the interface velocity is applied then,
+\begin{myequation}
+  {\tilde{\bf u}}_{\alpha} = \tilde{\bf u}_{\alpha k},\label{interface_velocity_upwind}
+\end{myequation}
+where $k=i$ if ${\bf n}\cdot{\bf u}_{\alpha}>0$ (CV {\it i} outgoing information), and $k=j$ if ${\bf n}\cdot{\bf u}_{\alpha}<0$ (CV {\it i} incoming information). 
+
+However, upwind methods yield dissipative solutions therefore, in order to obtain a high-order approximation of the velocity at the interface, the saturation at the interface $\tilde{S}_{\alpha}$ is calculated using a finite element representation of the saturation following the upwind direction. $\tilde \sigma_{\alpha}$ can then be calculated using second-order Taylor series:
+%\begin{small}
+\begin{myequation}
+  \underline{\underline{\tilde{\sigma}}}_{\alpha} =
+  \underline{\underline{\sigma}}_{\alpha k} +
+  \left(\tilde{S}_{\alpha}-S_{\alpha k}\right) \left(\frc{\partial
+    \underline{\underline{\sigma}}_{\alpha}}{\partial
+    S_{\alpha}}\right)_{k} +
+  \frc{1}{2}\left(\tilde{S}_{\alpha}-S_{\alpha k}\right)^{2} \left[
+    \frc{ \left(\frc{\partial
+        \underline{\underline{\sigma}}_{\alpha}}{\partial
+        S_{\alpha}}\right)_{k} - \left(\frc{\partial
+        \underline{\underline{\sigma}}_{\alpha}}{\partial
+        S_{\alpha}}\right)_{l} } { \left(S_{\alpha k}-S_{\alpha
+        l}\right) } \right],
+  \label{sigma-out}
+\end{myequation}
+%\end{small}
+where $k=i$ and $l=j$ if ${\bf n}\cdot{\bf u}_{\alpha}>0$ and, $k=j$ and $l=i$ if ${\bf n}\cdot{\bf u}_{\alpha}<0$. Therefore, the final interface velocity (Eqn. 13) can be obtained from:
+%\begin{equation}
+%  {\tilde{\bf u}_{\alpha}} = \underline{\underline{\tilde{\sigma}}}_{\alpha}^{-1} \left[\displaystyle\frac{1}{2} \left( {{\bf u}_\alpha}_i + {{\bf u}_\alpha}_j \right)\right], \label{mean_int_vel}  
+%\end{equation} 
+\begin{myequation}
+  {\tilde{\bf u}_{\alpha}} = \underline{\underline{\tilde{\sigma}}}_{\alpha}^{-1} \left[\displaystyle\frac{1}{2} \left( {{\bf v}_\alpha}_i + {{\bf v}_\alpha}_j \right)\right], \label{mean_int_vel}  
+\end{myequation} 
+%The interface velocity obtained from Eqn.~\ref{mean_int_vel} is bounded to ensure that its normal component ${\tilde{\bf u}_\alpha}\cdot {\bf n}$ lies between ${\tilde{\bf u}_{\alpha i}}\cdot {\bf n}$ and ${\tilde{\bf u}_{\alpha j}}\cdot {\bf n}$. The result of this is also bounded between the velocities ${{\bf u}_\alpha}_i\cdot {\bf n}$ and ${{\bf u}_\alpha}_j\cdot {\bf n}$.
+The interface velocity obtained from Eqn. 15 is bounded to ensure that its normal component ${\tilde{\bf u}_\alpha}\cdot {\bf n}$ lies between ${\tilde{\bf u}_{\alpha i}}\cdot {\bf n}$ and ${\tilde{\bf u}_{\alpha j}}\cdot {\bf n}$. The result of this is also bounded between the velocities ${{\bf v}_\alpha}_i\cdot {\bf n}$ and ${{\bf v}_\alpha}_j\cdot {\bf n}$.
+
+\medskip
+
+In a fully discontinuous formulation with \PNDG[n+1]{n} element pairs, the interface velocity (now between neighbour elements) can not be calculated using Eqn. 15 due the elliptic nature of the discretised non-symmetric pressure equation, Eqn. 5. This means that information is propagated in all directions across the (discontinuous) domain and hence, taking the upwind velocity as commonly done within an element is not an adequate strategy.
+ 
+For two neighbouring CV's $i$ and $j$ with common FE interface ({\it e.g.}, see Fig. 1b for \PNDG[2]{1} element pair), $\tilde{\bf u}_\alpha$ can be calculated by using a volume-weighted harmonic mean. However, the volume $\mathcal{V}$ of the control volume and $\underline{\underline{\sigma}}_{\alpha}$ act on the velocity in a very similar way. Hence, the velocity at the interface is expressed as,
+\begin{myequation} 
+  {\tilde{\bf u}_\alpha} =  \left(\mathcal{V}_{j}  
+    \underline{\underline{\sigma}}_{\alpha j} \, {\bf
+      u}_{\alpha i} + \mathcal{V}_{i} \underline{\underline{\sigma}}_{\alpha i}\, {\bf
+      u}_{\alpha j} \right) \left(  \mathcal{V}_{i} 
+    \underline{\underline{\sigma}}_{\alpha i} +
+    \mathcal{V}_{j} 
+    \underline{\underline{\sigma}}_{\alpha j} \right)^{-1}.
+\end{myequation} 
+
+%%%
+\item[\blue{Comment 2:}] \blue{``The matrix $\mathbf{B}$ and the source term $s_{p}$ in eqn. 10 are not explicitly defined as the terms of eqn. 5 are.''}\\
+%%%
+\item[\blue{Comment 3:}] ``(...) a statement in the {\it Conclusions} that 'control volumes do not span elements' apparently contradicts the sentence that 'Control volume (CV) boundaries span finite elements where material properties	are defined' (...) ''\\
+{\it The first paragraph of the Conclusion was modify to take into account the suggestion of the reviewer, and not it reads as,} `A novel CVFEM formulation based on \PN[n]{m}(DG) element pairs with $n^{\rm th}$-order representation for velocity and $m^{\rm th}$-order for pressure has been presented. The main advantages of this formulation over existing ones is that arbitrarily high-order polynomial representation for pressure and velocity can be used and it is high-order accurate in space and time. In \PN[n]{n+1} element pairs, velocity is discontinuously defined by polynomials of order $n$ whereas pressure is continuously represented by polynomials of order $n+1$ with CVs spanning various neighbours elements, as exemplified by Fig. 1a. However, in the novel \PNDG[n+1]{n} element pair, introduced in this paper, both pressure and velocity have discontinuous representation with polynomials of order $n$ and $n+1$, respectively. In this family of element pairs, CVs do not span elements (see Fig. 1b), which resolves a long-standing problem associated with the use of traditional CVFEM formulations in heterogeneous porous media flows.'
+
+%%%
+\item[\blue{Comment 4:}] \blue{``(...) the demonstration case `3d fluvial channel' is not sufficiently developed. It is not clear what are the specific challenges that a similar problem poses, compared to similar efforts found in the literature; and it is not specified what is the representative computational time for its solution (...) ''}\\
+%%%
+\item[\blue{Comment 5:}] ``Finally, I think it would be useful to recap in the {\it Conclusions} what are the main differences in the use of \PN[1]{2} elements compared to \PNDG[2]{1} or other combinations. In my opinion, a systematic evaluation of the trade-off between higher order polynomials, grid refinement and computational cost is crucial to appreciate the results provided in the manuscript; however, the choice of elements pairs in the test cases appears to be made almost without rationale. Moreover, it would appear that the choice of the discontinuous formulation is always preferable for discontinuous materials: is there a counter-example that the authors can provide where the discontinuous formulation should not be used?''\\
+{\it Summary of the difference between the element-pairs are now included in the `Conclusion' section as described in {\bf Comment 3} above. In this paper, the family of \PNDG[n+1]{n} element-pair was introduced and we demonstrated that its use along with the novel numerical formulation -- Sections 2.3-6, can lead to advances on the study of numerical accuracy and stability of multiphase flows in heterogeneous porous matrices. The aim of this paper was not to either numerically explore this family of element-pairs in different conditions or, to assess the computational capability of the overall method. These were already performed by the authors elsewhere -- see refs. [27-29, 37-41]. The overall aim of this paper is to describe the numerical formulation, and to demonstrate some of its functionality in multiphase porous media flow problems. However, we took the reviewer's comment on board and summarised, in a more structured manner, the formulation's functionalities. The following was included in the end of Section 3:} 
+
+`For the test-cases considered here, porosity $\phi$ is assumed uniform and, for 4.1 $\mathbf{K}$ is also uniform. However, for test-cases~4.2-4.4, $\mathbf{K}$ is non-uniform and regions of constant $\mathbf{K}$ are used (subscript denotes region identities -- Figs. 5 and 8). For all cases $\mathbf{K}$ is assumed isotropic.
+
+In Section 4, four sets of numerical simulations are performed using the formulation introduced in Section 2. The main aims of these simulations (Table II) are: a) to assess numerical convergence and accuracy; b) to validate the model against analytical (quantitative) and lab-experiments (qualitative) solutions; c) to numerically investigate the performance of \PN[1]{2} and \PNDG[2]{1} element-pairs in multiphase flows behaviour in highly heterogeneous media ({\it i.e.}, large permeability gradient) and; d) \red{any comment on test 4?} 
+
+\begin{center}
+%\begin{table}[h]
+\centering{Table II. Summary of the test-cases performed in Section 4}
+\begin{tabular}{c|l c l}
+{\bf Test-Case} & {\bf Element-pairs}     & {\bf Dimensionality}   &   {\bf Main Features} \\
+                &                         & {\bf and mesh}         &                  \\ 
+\hline
+4.1 (Buckley-   & \PN[1]{1},              &  2D and 3D             & Assessment of model  \\
+Leverett)       & \PN[1]{2} and           &(structured/            & accuracy against analytical \\ 
+                & \PNDG[2]{1}             & unstructured)          & solutions \\
+\hline
+4.2 (Immiscible &\PN[1]{2} and            &  2D                    &  Qualitative analysis of the \\
+displacement)   &\PNDG[2]{1}              &(coarse and fine)       & model against lab-experiments\\
+\hline
+4.3 (Permeability &\PN[1]{2} and          & 2D                    & Numerical dispersion in \\
+constrast and aspect ratio) &\PNDG[2]{1}  &(coarse and fine)      & high-permeability contrast. \\
+\hline 
+4.4 (Channelisation)& \PNDG[1]{1}          & 3D                    &  \red{?}            \\
+                    & and \PNDG[2]{1}      &                       &                     \\
+\hline 
+\end{tabular}
+%\end{table}
+\end{center}
+
+
+%%%
+\item[\blue{Comment 6:}] ``(...) I have some grammatical preferences that are not significant. e.g., [Page 13, line 9: 'simulating' should be 'simulate'.], [Page 13, line 17: 'is' should be 'are'.], [Page 13, line 26: 'resolve successfully' should be 'successfully resolve'.] ''\\
+   {\it These changes were performed.}
+%%%
+\item[\blue{Comment 7:}] ``Page 3, line 16 (and Page 4, line 54): Why does this warrant a separate (sub)section.''\\
+   {\it We believe that the reviewer refers to the contents of Sections 2, and in particular the `rationale' behind  Sections 2.1-3. These subsections describe: a) explicit format of the extended Darcy equation used throughout this work; b) novel CVFEM formulation; c) new set of element-pairs; d) dual representation of the velocity field. The authors believe that by splitting these topics into 3 separated sections we have easied the reading and improved the understanding of the more complex parts of the introduced formulation described in Sections 2.5-7.} 
+%%%
+\item[\blue{Comment 8:}] ``Page 4, line 27: This paragraph is not very clear; use of commas is a bit confusing. [e.g., linear and continuous]''\\
+{\it The authors agree with the reviewer and have modified the whole paragraph, which now reads as:} `In the formulation presented here, pressure, velocity, permeability and porosity are represented FE-wise, however saturation, relative permeability and fluid properties such as viscosity and density are represented CV-wise. Figure 1 displays the two families of element types presented in this paper: Fig. 1(a) shows the P$_{n}$DG-P$_{n+1}$ element type, with $n = 1$, in two dimensions (2D). Here, the velocity field is linear and discontinuous (between elements) whilst pressure has a quadratic and continuous (between elements) representation with the CV's span various elements. Figure 1(b) shows the P$_{n+1}$DG-P$_{n}$DG element type, with $n = 1$ (also in 2D). Here, the velocity field is quadratic and discontinuous (between elements) whereas pressure has a linear and discontinuous (between elements) representation and the CV's do not span elements.'
+
+
+%%%
+\item[\blue{Comment 9:}] ``Page 4, Figure 1: The two symbols overlaid (on the right panel) look somewhat like a third symbol, but this is probably OK.''\\
+{\it The authors agree with the reviewer that the overlaping of symbols may be confusing for readers as it does represent pressure and velocity nodes in the vertices of the triagles, therefore the caption of the figure now reads as:} `2D representation of the element pairs presented in this work. Shaded areas denote control volumes (in which saturation is   stored), black points represent the pressure nodes and white points the velocity nodes. Note that in (b) velocity and pressure nodes overlap in the triangles' vertices.'
+
+%%%
+\item[\blue{Comment 10:}]``Page 7, line 30: I believe the Brooks Corey model contains errors.''\\
+{\it The authors corrected the equations and associated text:} `The numerical model is evaluated using four two-phase flow test cases (Sections 4.1-4.4). The modified Brooks-Corey model [31,32]: 
+%\begin{eqnarray}
+%k_{rw}\left ( S_{w} \right ) &=& \left ( \frac{S_w-S_{wirr}}{1-S_{wirr}-S_{nwr}} \right )^{n_w}, \\
+%k_{rw}\left ( S_{w} \right ) &=& \left ( \frac{S_{nw}-S_{nwr}}{1-S_{wirr}-S_{nwr}} \right)^{n_{nw}}, 
+%\end{eqnarray}
+\begin{eqnarray}
+   k_{rw}\left ( S_{w} \right ) &=& k_{rw}^{\circ} \left ( \frac{S_w-S_{wirr}}{1-S_{wirr}-S_{nwr}} \right )^{n_w}, \\
+   k_{rnw}\left ( S_{w} \right ) &=& k_{rnw}^{\circ} \left ( \frac{S_{nw}-S_{nwr}}{1-S_{wirr}-S_{nwr}} \right)^{n_{nw}}, 
+\end{eqnarray}
+where subscripts {\it w} and {\it nw} indicate wetting and non-wetting phase. $k_{rw}^{\circ}$ and $k_{rnw}^{\circ}$ are end-point relative permeability to wetting and non-weting phases, $S_w$ and $S_{nw}$ are the wetting and non-wetting phase volume fractions, respectively. The exponents $n_w$ and $n_{nw}$ are both set to 2 for all test cases.'
+
+%%%
+\item[\blue{Comment 11:}] ``Page 7, line 40: The exponents are not in the table. Double-check this.''\\
+{\it Exponents for the modified Brooks-Corey, $n_w$ and $n_{nw}$, are set to 2 as described in the end of the paragraph that follows the equation:} `(...) $S_w$ and $S_{nw}$ are the wetting and non-wetting phase volume fractions, respectively. The exponents $n_w$ and $n_{nw}$ are both set to 2 for all test cases.'
+%%%
+\item[\blue{Comment 12:}] ``Page 8, line 40: Redundant description of the centre-line sentence (not necessary).''\\
+{\it The authors agree with the reviewer and have the second reference to center-line plot,} `(...) The geometry centre-line is used to plot these profiles (...)'{\it, removed.}
+%%%
+\item[\blue{Comment 13:}] ``Page 10, Figures 6 and 7: Is it possible to use similar color scale and/or do a quantitative comparison?''\\
+{\it Unfortunately the authors are not able to match the colour scale of the numerical simuations (Fig. 6) with the one used by the physical experiments by Dawe and Grattoni. However, we improve the caption of Fig. 7 to make it clearer, now it reads as,} `Figure 7. Wetting phase volume fraction map obtained from the experiment performed by Dawe and Grattoni (extracted from [34]). Red contour indicates the injected fluid breakthrough. Permeability distribution used in this experiment is the same as shown in Fig. 5.'
+%%%
+\item[\blue{Comment 14:}] \blue{``Page 12, Figure 9: Is it possible to use a colorbar/colorscale to clarify the top panel?''}\\
+\red{DP, can you add a legend for Fig. 9?} 
+%%%
+
+%%%
+\end{description}
+
+\end{document}
