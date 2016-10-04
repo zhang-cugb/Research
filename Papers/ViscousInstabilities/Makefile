@@ -1,17 +1,34 @@
-default: 	Manuscript_ViscousInstabilities_KC.tex
-		pdflatex -shell-escape Manuscript_ViscousInstabilities_KC
-		bibtex Manuscript_ViscousInstabilities_KC
-		pdflatex -shell-escape Manuscript_ViscousInstabilities_KC
-		pdflatex -shell-escape Manuscript_ViscousInstabilities_KC
-		pdflatex -shell-escape Manuscript_ViscousInstabilities_KC
+default:	Manuscript_ViscousInstabilities_KC.pdf
 
-template: article.tex
-	pdflatex -shell-escape article
-	bibtex article
-	pdflatex -shell-escape article
-	pdflatex -shell-escape article
-	pdflatex -shell-escape article
+Manuscript_ViscousInstabilities_KC.pdf:	Manuscript_ViscousInstabilities_KC.tex
 
-clean:
-	rm -rf *.aux *.log *.blg *.bbl *.spl *.log *.out *-eps-converted-to.pdf article.pdf \
-	Manuscript_ViscousInstabilities_KC.pdf *lof *toc
+%.pdf:	%.tex
+	rm -f $*.pdf
+	pdflatex $<
+	pdflatex $<
+	if fgrep "Rerun to" $*.log; then $(MAKE) --assume-new $< $@;fi
+ifndef NOBIBTEX
+	if fgrep "There were undefined"  $*.log;\
+	then bibtex $*; \
+	$(MAKE) NOBIBTEX=true --assume-new $< $@;fi
+endif
+
+%.idx:	%.idx
+	makeindex $<
+
+.PHONY: clean clean-pdf
+
+# We don't rm *.ps because that might clobber image files. Instead, put any
+# ps files which should go in $(PSFILES)
+clean:	*.pdf
+	rm $(TARGETS)*.aux *.log *.bbl *.blg *.toc *.lof *ind *idx *ilg *nav *snm \
+*.out *pdf *.pdftex *_tex.pdf *.pdftex_t *.pstex *.pstex_t \
+$(addsuffix .png, $(XFIG_IMAGES)) 2>/dev/null||true
+
+htclean_%:
+	rm $*.4ct $*.4tc $*.css $*.idv $*.lg $*.tmp $*.xref *.html 2>/dev/null||true
+clean-aux:
+		rm $(TARGETS)*.aux *.log *.bbl *.blg *.toc *.lof *ind *idx *ilg *nav *snm \
+*.out 
+clean-pdf: 
+		rm *.pdf
