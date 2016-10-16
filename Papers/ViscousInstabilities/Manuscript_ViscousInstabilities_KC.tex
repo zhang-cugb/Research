@@ -183,7 +183,7 @@ however it is still a function of relative mobility, gravity, viscous forces and
 Fingering will occur in miscible displacments when the viscocity ratio is greater than unity. As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. As a result of \textit{shielding}, one of these lobes will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching. Important parameter is the mobility (or viscosity) ratio. This is given by Eqn.~\ref{eq:mobility-of-fluid} where $K$ is absolute permeability and $k_{r}$ is relative permeability :
 
 \begin{equation}
-\lambda = \frac{K\;k_{r}}{\mu}
+\lambda = \frac{K\;k_{\alpha}}{\mu}
 \label{eq:mobility-of-fluid}
 \end{equation}
 
@@ -194,13 +194,63 @@ Even though some commercial simulators provide the user with option of an unstru
 
 The remainder of the paper is orgranised as follows.
  
-\KCnote{ this needs to be rephrased later -- Next section \citet{Model} illustrates the model and the governing equations of immiscible and incompressible flow in porous media. The method and numerical formulations that describes the CVFEM follows, along with cases that demonstrate how the mesh adaptivity for simulation of viscous fingering is implemented. In the end, conclusions and final remarks of the work are discussed.--}          
+\KCnote{ this needs to be rephrased later -- Next section \citet{math-model} illustrates the model and the governing equations of immiscible and incompressible flow in porous media. The method and numerical formulations that describes the CVFEM follows, along with cases that demonstrate how the mesh adaptivity for simulation of viscous fingering is implemented. In the end, conclusions and final remarks of the work are discussed.--}          
  
 
-\section{The Model}\label{section:Model}
+\section{Mathematical Formulation}\label{section:math-model}
 %\medskip
 %\begin{comment}
-Finite difference methods (FDM) have been extensively used in most industry-standard flow simulators~\citep{aziz_1986, chen_2005, chang_1990} with relative success in multi-physics single phase applications (e.g., black oil model, passive tracer advection etc). Analytic models characterizing single-phase flow of fluid can be used to analyze reservoir performance as long as the reservoir is not highly heterogeneous. However, FDM are often limited to relatively simple geometries (with low grid quality and orientation) representing idealised geological formations~\citep{mlacnik_2004, king_1999}. Additionally, FDM produce excessive numerical dispersion when heterogeneity (represented by permeability and porosity fields) is present~\citep{chavent_1986}. The geometrical flexibility associated with high-order numerical accuracy of finite element methods (FEM) has proven to overcome these deficiencies. 
+The displacing and displaced fluids are considered to be incompressible and immiscible under isothermal and no source or sink conditions. In addition, we neglect the effects of capillarity and gravity in our simulations. Therefore the governing equations of conservation of mass and Darcy's law can be described below as, 
+
+\begin{equation}\label{e:darcy_eqn}
+  \mathbf{q}_{\alpha} = -\frac{\mathcal{K}_{{r}_\alpha}\mathbf{K}}{\mu_{\alpha}}\left(\nabla p_{\alpha} - {\mathbf{s}_{u}}_{\alpha} \right),
+\end{equation}
+where $\mathbf{q}_{\alpha}$ is the $\alpha$-th phase Darcy velocity, $\mathbf{K}$ is the absolute permeability tensor of the porous medium, $\mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right)$ is the phase relative permeability, which is a function of the phase saturation $S_{\alpha}\left(\mathbf{r},t\right)$. $\mu_{\alpha}$, $p_{\alpha}$, $\rho_{\alpha}$, and $\mathbf{s}_{{u}_\alpha}$ are the phase dynamic viscosity, pressure, density and source term, which may include gravity and/or capillarity, respectively. 
+
+Introducing a saturation-weighted Darcy velocity defined as $\mathbf{u}_\alpha= \mathbf{q}_\alpha/S_\alpha$, then Eqn.~\ref{e:darcy_eqn} may be rewritten as:
+\begin{equation}
+  \mathbf{v}_\alpha={\underline {\underline \sigma}}_{\alpha} \mathbf{u}_{\alpha} = - \nabla p_{\alpha} + {\mathbf{s}_{u}}_{\alpha},
+  \label{force-bal}
+\end{equation}
+
+where ${\underline {\underline \sigma}}_{\alpha}=\mu_\alpha S_\alpha \left(\mathcal{K}_{{r}_\alpha}\mathbf{K}\right)^{-1}$ represents the implicit linearisation of the viscous frictional forces. Assuming a porous media domain $\Omega\subset\mathcal{R}^{n}$ ($n$ is the number of dimensions). Darcy's law for single phase flow can be extended (from Eq.\ref{e:darcy_eqn}) for immiscible multiphase flow to Eq.\ref{E:darcy_eqn} below,
+
+\begin{equation}
+  \mathbf{q}_{\alpha} = -\frac{\mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right)\mathbf{K}}{\mu_{\alpha}}\left( \nabla p_{\alpha} - {\mathbf{s}_{u}}_{\alpha} \right),
+%S_{k}\left(\lambda_{k}\mathcal{K}\right)^{-1}\phi v_{\alpha} = \underline{\underline{\sigma}}_{\alpha} {\bf u}_{\alpha} = -\nabla p + \mathcal{S}_{u},
+\label{E:darcy_eqn}
+\end{equation}
+where $\mathbf{q}_{\alpha}$ is the $k\left(\in\left\{1,N_{p}\right\}\right)$-phase Darcy flow rate. $S$, $\mathbf{K}$, $\mathcal{K}_{r\alpha}\left(S_{\alpha}\right)$ and $\mu$ are saturation, absolute permeability tensor, phase relative permeability and viscosity, respectively. $s_{u}$ is a source term (e.g., gravity force) associated with the force balance and $p$ is the pressure.
+
+ Defining the advective velocity averaged over the entire domain -- $\mathbf{u}_{\alpha}= \mathbf{q}_{\alpha}/S_{\alpha}$, then we may rewrite Eq.(\ref{E:darcy_ext}),
+\begin{equation}
+  {\underline {\underline \sigma}}_{\alpha} \mathbf{u}_{\alpha} = - \nabla p + {\mathbf{s}_{u}}_{\alpha},
+  \label{E:darcy_ext}
+\end{equation}
+$\underline{\underline{\sigma}}_{\alpha}=\mu_{\alpha}S_{\alpha}\left(\mathcal{K}_{r\alpha}\mathbf{K}\right)^{-1}$ represents the implicit linearisation of the viscous frictional forces, and is piecewise constant within each FE and is obtained via basis functions local to each CV within each element \citep{Jackson13,Radunz14}.
+
+The two-phase flow through the porous media $\Omega$ may be described by the coupled extended Darcy and global mass conservation equations,
+
+\begin{eqnarray}
+\left(\displaystyle\frac{\mu_{\alpha}S_{\alpha}}{{\mathbf K}\mathcal{K}_{r\alpha}}\right) {\mathbf u}_{\alpha} = \underline{\underline{\sigma}}_{\alpha} {\mathbf u}_{\alpha} = -\nabla p + \mathcal{S}_{u,\alpha},\;\;\; x_{i}\in\Omega, t>0 \label{eqn:darcy_eqn} \\
+\phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  \mathcal{S}_{cty,\alpha},\;\;\; x_{i}\in\Omega, t>0\label{eqn:saturation_eqn}
+\end{eqnarray}
+
+where $S$, $\mu$, ${\bf K}$, $p$ and $\phi$ are the saturation, viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{k}$ is the saturation-weighted Darcy velocity of the $k$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ is saturation of the $\alpha$-phase with the constraint of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases.
+
+\medskip
+Finite element basis functions for velocity and pressure fields are introduced in the discretisation of force-balance equation -- Eqn.~\ref{eqn:darcy_eqn}. Hybrid (i.e., overlapping) basis functions are also developed to allow CV-based velocity to be extrapolated across the entire element. $\underline{\underline{\sigma}}_{k}=\underline{\underline{\sigma}}_{k}\left({\mathbf K}, \mathcal{K}_{rk}, S_{K}, \mu_{k}\right)$ is an absorption-like term that lies in both CV and FEM spaces. Though, whilst the saturation field is calculated in CV space, permeability $\left({\mathbf K}\right)$ is piecewise constant in FE space to allow efficient representation of surface parametrised geometries. The global saturation equation (Eqn.~\ref{eqn:saturation_eqn}) is discretised in space with CV basis function and with the $\theta$-method in time as described by \citet{gomes_book_2012}. Velocities across CV interfaces (within and between elements, see fig.\ref{fig:fem_cv} below) are calculated through a directional-weighted flux-limited scheme based on upwind value of $\sigma$ at individual CV as described by \citet{gomes_2013}~\citep[see also][]{jackson_2013}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.5\textwidth]{./Pics/P1DGP2.PNG}
+\caption{2D representation of the element pairs presented in this work. Shaded areas denote control volumes (in which saturation is stored), black points represent the pressure nodes and white points the velocity nodes. Note that in (b) velocity and pressure nodes overlap in the triangles' vertices.}
+\label{fig:fem_cv}
+\end{figure}
+
+Finite difference methods (FDM) have been extensively used in most industry-standard flow simulators~\citep{aziz_1986, chen_2005, chang_1990} with relative success in multi-physics single phase applications (e.g., black oil model, passive tracer advection etc). Analytic models can be used to analyze reservoir performance as long as the reservoir is not highly heterogeneous. However, FDM are often limited to relatively simple geometries 
+%(with low grid quality and orientation) 
+representing idealised geological formations~\citep{mlacnik_2004, king_1999}. Additionally, FDM produce excessive numerical dispersion when heterogeneity (represented by permeability and porosity fields) is present~\citep{chavent_1986}. The geometrical flexibility associated with high-order numerical accuracy of finite element methods (FEM) has proven to overcome these deficiencies. 
 
 Among FEM-based formulations for porous media, the control volume finite element methods (CVFEM) ~\citep[CVFEM,][]{fung_1992,cordazzo_2004} has been largely used as it can guarantee local mass conservation and high-order numerical accuracy as well as being able to use tetrahedral geometry-conforming elements~\citep{forsyth_1990, geiger_2004, hurtado_2007}. In this formulation, standard Galerkin-FEM method is used to discretise the pressure equation (FEM representation of pressure and velocity fields) whereas a control volume-based formulation is used to discretise all remaining scalar fields~\citep[e.g., saturation, density, species concentration etc, see][]{gomes_book_2012}. 
 
@@ -235,9 +285,7 @@ There are several approaches to upscale solutions, while three common types are 
  
 The first approach is limited to low flow rates and very small heterogeneities. The second approach overcomes these limitations but also posses drawbacks such us, unavailability of fine-grid simulation with suitable level of accuracy, dependence of the pseudo functions on rate, direction and grid specification. The experimental data from the third approach is only suitable for a small class of scenarios.~\citep{Chang_1994}. While  non-uniform permeability and porosity may be easy to deal with at a microscopic scale for porous media flow equations, it presents a lot of challenges at a meso/field scale, which is required for reservoir simulations. 
 
-%\JGnote{As a rule of thumb, when you are introducing a paragraph, the very first sentence needs to give the reader a clue of either linkage with previous paragraphs or linkage with the main subject(s).}  
-
-%\medskip
+\medskip
 Under certain geological conditions the displacement of fluids in porous media is unstable and results in the formation of irregular flow patterns in the form of fingers %\textit{fingers}. 
 The flow instabilities mentioned above are described as \textit{viscous fingering}. Even though the mechanism of the instabilities may vary, 
 %(in immiscible fluids the most important factor is the surface tension while in miscible fluids, it is the diffusion \red{(thermal or mass diffusion ...be specific)})
@@ -307,31 +355,7 @@ Section~\ref{section:NumericalFormulation} summarises the numerical formulation 
 In the OCVFEM formulation, a consistent dual pressure-velocity representation in control volume (CV) and finite element (FE) spaces is used with a recently developed family of $P_{m}DG-P_{n}$ tetrahedral element pairs.The new family of $PN_{n}{m}$ element pair was originally introduced. These element-pairs have a discontinuous $m^{th}$-order polynomial representation for velocity and a continuous representation for pressure of order {\it n}.  The mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin finite element (FE) method is used to obtain the high-order fluxes on CV boundaries, which are limited to yield bounded fields. 
 This family of element pairs was originally introduced for geophysical fluid dynamics applications. In particular, the $P_{1}DG-P_{2}$ element pair was developed to represent the balance of geostrophic pressure and velocity without introducing spurious pressure modes. This element pair (Fig.~\ref{fig:2}) has a linear discontinuous basis function for velocity $\left(\text{P}_{1}\text{DG}\right)$ and a quadratic polynomial basis function for pressure $\left(\text{P}_{2}\right)$ which maintains $C_{\text{0}}$ continuity across element boundaries. Pressure nodes are located at the element corners and mid-points of the element-edges and control volumes are built around them. Scalar fields, such as saturation, density, temperature, species concentration are stored in control volume space. This family of finite element pairs, when used with the OCVFEM method presented here, is mass conservative and also exactly enforces the force balance represented by the multiphase Darcy equation.
 
-Let's assume a porous media domain $\Omega\subset\mathcal{R}^{n}$ ($n$ is the number of dimensions). Darcy's law for single phase flow can be extended for immiscible multiphase flow as,
-\begin{equation}
-  \mathbf{q}_{k} = -\frac{\mathcal{K}_{{r}_k}\left(S_{k}\right)\mathbf{K}}{\mu_{k}}\left( \nabla p_{k} - {\mathbf{s}_{u}}_{k} \right),
-%S_{k}\left(\lambda_{k}\mathcal{K}\right)^{-1}\phi v_{k} = \underline{\underline{\sigma}}_{k} {\bf u}_{k} = -\nabla p + \mathcal{S}_{u},
-\label{Eqn:DarcyEq}
-\end{equation}
-where $\mathbf{q}_{k}$ is the $k\left(\in\left\{1,N_{p}\right\}\right)$-phase Darcy flow rate. $S$, $\mathbf{K}$, $\mathcal{K}_{rk}\left(S_{k}\right)$ and $\mu$ are saturation, absolute permeability tensor, phase relative permeability and viscosity, respectively. $s_{u}$ is a source term (e.g., gravity force) associated with the force balance and $p$ is the pressure.
 
- Defining the advective velocity averaged over the entire domain -- $\mathbf{u}_{k}= \mathbf{q}_{k}/S_{k}$, then we may rewrite Eq.(\ref{Eqn:DarcyExt0}),
-\begin{equation}
-  {\underline {\underline \sigma}}_{k} \mathbf{u}_{k} = - \nabla p + {\mathbf{s}_{u}}_{k},
-  \label{Eqn:DarcyExt}
-\end{equation}
-$\underline{\underline{\sigma}}_{k}=\mu_{k}S_{k}\left(\mathcal{K}_{rk}\mathbf{K}\right)^{-1}$ represents the implicit linearisation of the viscous frictional forces, and is piecewise constant within each FE and is obtained via basis functions local to each CV within each element \citep{Jackson13,Radunz14}.
-
-The two-phase flow through the porous media $\Omega$ may be described by the coupled extended Darcy and global mass conservation equations,
-
-\begin{eqnarray}
-\left(\displaystyle\frac{\mu_{k}S_{k}}{{\mathbf K}\mathcal{K}_{rk}}\right) {\mathbf u}_{k} = \underline{\underline{\sigma}}_{k} {\mathbf u}_{k} = -\nabla p + \mathcal{S}_{u,k},\;\;\; x_{i}\in\Omega, t>0 \label{eqn:darcy_eqn} \\
-\phi\displaystyle\frac{\partial S_{k} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{k}  S_{k}\right) =  \mathcal{S}_{cty,k},\;\;\; x_{i}\in\Omega, t>0\label{eqn:saturation_eqn}
-\end{eqnarray}
-
-where $S$, $\mu$, ${\bf K}$, $p$ and $\phi$ are the saturation, viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{k}$ is the saturation-weighted Darcy velocity of the $k$-phase and $\mathcal{K}_{r,k}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{k}$ is saturation of the $k$-phase with the constraint of $\sum\limits_{k=1}^{\mathcal{N}_{p}} S_{k} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases.
-
-Finite element basis functions for velocity and pressure fields are introduced in the discretisation of force-balance equation -- Eqn.~\ref{eqn:darcy_eqn}. Hybrid (i.e., overlapping) basis functions are also developed to allow CV-based velocity to be extrapolated across the entire element. $\underline{\underline{\sigma}}_{k}=\underline{\underline{\sigma}}_{k}\left({\mathbf K}, \mathcal{K}_{rk}, S_{K}, \mu_{k}\right)$ is an absorption-like term that lies in both CV and FEM spaces. Though, whilst the saturation field is calculated in CV space, permeability $\left({\mathbf K}\right)$ is piecewise constant in FE space to allow efficient representation of surface parametrised geometries. The global saturation equation (Eqn.~\ref{eqn:saturation_eqn}) is discretised in space with CV basis function and with the $\theta$-method in time as described by \citet{gomes_book_2012}. Velocities across CV interfaces (within and between elements) are calculated through a directional-weighted flux-limited scheme based on upwind value of $\sigma$ at individual CV as described by \citet{gomes_2013}~\citep[see also][]{jackson_2013}.
 
 
 %%%         %%%
