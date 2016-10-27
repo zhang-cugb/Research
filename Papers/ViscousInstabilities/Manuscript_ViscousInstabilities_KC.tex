@@ -248,7 +248,7 @@ Finite element basis functions for velocity and pressure fields are introduced i
 \label{fig:fem_cv}
 \end{figure}
 
-\section{CVFE Method}
+\section{The Overlapping CVFEM formulation}
 
 Finite difference methods (FDM) have been extensively used in most industry-standard flow simulators~\citep{aziz_1986, chen_2005, chang_1990} with relative success in multi-physics single phase applications (e.g., black oil model, passive tracer advection etc). Analytic models can be used to analyze reservoir performance as long as the reservoir is not highly heterogeneous. However, FDM are often limited to relatively simple geometries 
 %(with low grid quality and orientation) 
@@ -377,8 +377,23 @@ The method presented here builds on that reported by \citet{jackson_2015} is kno
 \label{fig:fem_elem}
 \end{figure}
 
-%This family of element pairs was originally introduced for geophysical fluid dynamics applications. In particular, the $P_{1}DG-P_{2}$ element pair was developed to represent the balance of geostrophic pressure and velocity without introducing spurious pressure modes. This element pair (Fig.~\ref{fig:2}) has a linear discontinuous basis function for velocity $\left(\text{P}_{1}\text{DG}\right)$ and a quadratic polynomial basis function for pressure $\left(\text{P}_{2}\right)$ which maintains $C_{\text{0}}$ continuity across element boundaries. Pressure nodes are located at the element corners and mid-points of the element-edges and control volumes are built around them. Scalar fields, such as saturation, density, temperature, species concentration are stored in control volume space. This family of finite element pairs, when used with the OCVFEM method presented here, is mass conservative and also exactly enforces the force balance represented by the multiphase Darcy equation.
+Saturation, and all saturation-dependent material properties such as relative permeability and capillary pressure, are represented CV-wise. The pressure, a key difference to other CVFE methods reported previously, allows the use of CVs that do not span multiple FEs. Hence each CV (and FE) is associated with a unique set of petrophysical properties, in contrast to most previous methods in which CVs span multiple values of petrophysical properties described FE-wise.
 
+As we have to be consistent with \citet{jackson_2015} we assume that rick and fluids are incopressible thus the mass ballance for phase $\alpha$ can be written as (Eq \ref{mass_balance})
+
+\begin{equation}
+\phi \; \frac{\partial S_{\alpha}}{\partial t} + \nabla (v_{\alpha}S_{\alpha})= q_{\alpha}
+\label{mass_balance}
+\end{equation}
+ 
+where $\phi$ represents the porosity, S represents the saturation and v is the saturation weighted Darcy velocity (such that $v_{\alpha}S_{\alpha}$ is the traditional Darcy velocity of phase p), and q is a volume source term, subject to the contrains on the saturation
+
+\begin{equation}
+\sum  S_{p}-1
+\label{saturation_constrain}
+\end{equation}
+
+The Eq.\ref{saturation_constrain}, is discretized in time and space following the approach of \citet{Jackson_2013} in which the time discretization is obtained using the $\theta$-method as implemented by \citet{gomes_2013}. 
 
 %%%         %%%
 %%% SECTION %%%
