@@ -393,7 +393,16 @@ where $\phi$ represents the porosity, S represents the saturation and v is the s
 \label{saturation_constrain}
 \end{equation}
 
-The Eq.\ref{saturation_constrain}, is discretized in time and space following the approach of \citet{Jackson_2013} in which the time discretization is obtained using the $\theta$-method as implemented by \citet{gomes_2013}. 
+The Eq.\ref{saturation_constrain}, is discretized in time and space following the approach of \citet{Jackson_2013} in which the time discretization is obtained using the $\theta$-method as implemented by \citet{gomes_2013}. Summing over all phases and discretizing in time using the $\theta$-method yields the global mass balance equation (Eq.\ref{global_mass_balance})
+
+\begin{equation}
+\begin{aligned}
+\sum_{\alpha=1}^{N_{p}} { \int_{\Omega_{CVi}} \! M_{i} \, \frac{\phi(S_{\alpha i}^{n+1})-(S_{\alpha i}^{n})}{\Delta t} dv + \\
+& \cap \oint_{\Gamma_{CVi}} [\theta^{n+1/2}\; n\dot\;v_{p}^{n+1}S_{p}^{n+1}\;+\;(1-)\theta^{n+1/2}\;v_{p}^{n}S_{p}^{n}] d\Gamma \;- \\
+& \cap \;\int_{\Omega_{CVi}} M_{i}q_{\alpha}^{n+\theta}dV\; }=0
+\end{aligned}
+\label{global_mass_balance}
+\end{equation}
 
 %%%         %%%
 %%% SECTION %%%
