@@ -404,6 +404,12 @@ The Eq.\ref{saturation_constrain}, is discretized in time and space following th
 \label{global_mass_balance}
 \end{equation}
 
+where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i respectively, n is normal vector of the CV and $\theta$ varies smoothly between $0.5$ (corresponding to CN) and $1$ (corresponding to BE) to avoid the introduction of spurious oscillations for large grid Courant numbers. The Eq.\ref{global_mass_balance} can be expressed in amtrix form at time level $n+1$ as
+
+
+
+   
+
 %%%         %%%
 %%% SECTION %%%
 %%%         %%%
@@ -474,6 +480,147 @@ important for many industrial applications, such as oil recovery and carbon sequ
 represents a mixture of oil and water through the porous medium.
 In conservative form the flux function for this
 problem is given by:
+
+\begin{equation}
+f(u) = \frac{u^2}{u^2 + \nu(1-u)^2}. \label{buckley}
+\end{equation}
+Here $\nu$ is viscosity ratio and $u$ represents the saturation of water and
+lies between $0$ and $1$.
+
+\subsection{Four Regions}\label{section:4Regions}
+\textcolor{blue}{KC \textcolor{red}{WR}: text and simulations -- qualitative analysis}\\
+
+Starting from the simplest case of simulations as describe in fig. \ref{fig:1}, there is a simple square shape formation consisted of 2 values of different (K) permeabilities. We inject fluid 1 across the left hand side of the formation and we are trying to displace the existing fluid 2. The front start to collapse and one main finger starts to appear.
+
+The behaviour as well as the prediction of the two different phase volume fractions can be qualitatively compared with bibliographic results. The two phase volume volume fractions have the same but opposite behaviour across the length of the formation. As we inject fluid 1, at the first half of the formation the velocity magnitude is increasing while pressure drops gradually. This behaviour changes at the middle of the formation where there is the transition from one permeability zone to the other and the front has already collapsed forming the finger. 
+
+From that point till the end of the formation, the velocity magnitute of the injected fluid remains the same having the minimum value since there is no more fluid 2 to be displaced. There is a sharp pressure drop which is also an indication that the fluid 2 cannot be pushed any further since at the same time, as can been seen from the graph plot at fig. \ref{fig:1} the phase volume fraction is constant. (\textcolor{blue}{KC: i think we can rephrase it better here.}) 
+
+Later, we introduce two versions of a second set of simulations consisted of the same number of regions (4) but with different formations and phase ratios as can be described in fig. \ref{fig:2} to fig. \ref{fig:subim7}. 
+
+The initial and boundary condition regarding the inlet and outlet are the same. The purpose is to expand this technique and introduce it into more complex formations so as to test it and develop a more stable and solid approach in real time and scale problems. 
+
+The main body of the formation (blue area) is where fluid 2 exists fig. \ref{fig:3}. Above the blue area there are two layers - formations of different absolute permeabilities while in the main body there is a also a square shaped red coloured area where the two fluids exist in 50-50 phase ratio. All those ratios as well as the values of the permeabilities can be changes any time according to the data that are provided.
+
+Fluid 1 is again injected across the left hand side of the formation. In this case the value of mobility or \textit{viscosity ratio} is 10. Later on mobility ratios of different values will be introduced and compared. As the flow is developed the initial uniform front collapses start forming fingers, areas where the flow is developed faster than the rest of the main body of the flow. The new unstructured and adaptive mesh with the $P_{n}DG-P_{n+1}$ element type is used in order to capture the flow development. In fig.\ref{fig:2} and fig.\ref{fig:3}) the mesh deforms on time and on space and that allows the user to have an initial good qualitative approach regarding the development of the multiphase flow. In fig. \ref{fig:subim6} and fig. \ref{fig:subim7} the patterns of the multiphase flows for the phase 1 and phase 2 are described respectively.
+
+Based on the graph/plots for the second set of simulations we can get a initial approach and relation between the quantitative and qualitative outcome of our simulations. It is experimentally validated and is happening in this case that fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid 1. Starting from the middle of the formation there is an increase in the velocity of the injected fluid but then it 'crashes' on the red square shape region where it slows down from the existence of both the fluid 1 \& fluid 2 that coexists. After flowing through this area there is a balance (plateau) among the two faces on time fig.\ref{fig:subim8 middle}. Going higher in the formation, fig.\ref{fig:subim9 up} in the next zone just above the main body (blue area), there is an initial fluctuating decrease  of the velocity of the injected fluid which is driven by the different permeability value. At the top layer ref.\ref{fig:subim10 upper} of the formation there is a smooth increase of the injected fluid velocity magnitude which basically describes an overall and study development of the flow while just before the end collapses. 
+
+Comparing the three plots we can see three different velocities to be developed which means that numerically the initial uniform front collapses. This behaviour can be described on the following chapter, where the explanation of viscous instabilities is given.         
+  
+
+%%%         %%%
+%%% SECTION %%%
+%%%         %%%
+\section{Viscous Instabilities}\label{section:ViscousInstabilities}
+
+An accurate finite-element simulator with an adaptive and unstructured 2D grid was used in this study of viscous 
+instabilities. An unfavourable - mobility-ratio displacement coupled with the heterogeneity of the porous medium results in viscous instability (fingering),which in turn affects the displacement efficiency of im/miscible processes as well as sweep efficiency and breakthrough time. Although numerical investigations 
+in the last few years have remarkably improved the physical 
+understanding of viscous fingering, some questions still remain 
+unanswered.\\
+ 
+First, how satisfactory are the effects of modelled-observed viscous fingering on displacement performance? Second, how 
+is a viscous instability affected by parameters including mobility 
+ratio and/or permeability variance. \textcolor{red}{ KC: something came to me right now, And third, can the viscous fingering be scaled?}  
+
+\subsection{Designing the Numerical Experiment}\label{section:NumericalExperiment}
+\textcolor{red}{WR: could add here a paragraph describing the original geometry and simulation set up (initial and boundary conditions)and maybe a table with the differences between the diff numerical experiments.}
+
+The global mass balance equation and force balance equation are solving by vanishing the velocity term and solving the system of equations for pressure. At the $n+1$ step those two equations mentioned above can be rewritten as, 
+
+\begin{equation}
+M_{\sigma} {{\underline{u}}^{n+1}} = C {\underline{p}^{n+1}} + {\underline{s}_u ^{n+1}}
+\label{mass balance eq}
+\end{equation}
+
+-------------------------------------------------------------------------------------------
+
+\begin{equation}
+B^T {{\underline{u}}^{n+1}} = {\underline{s}_p ^{n+1}}
+\label{force balance eq}
+\end{equation}
+
+\noindent Application of a discontinuous FEM for velocity leads to a block-diagonal $M_{\sigma}$ matrix that can be readily inverted, each block being local to an element. This system of equations can be rewritten to produce the pressure equation, 
+
+\begin{equation}
+B^T M_{\sigma} ^{-1} C{{\underline{p}}^{n+1}} = {\underline{s}_p ^{n+1}} - B^T M_{\sigma} ^{-1} {{\underline{s}}^{n+1}} 
+\label{pressure eq}
+\end{equation}
+
+   
+
+%%%         %%%
+%%% SECTION %%%
+%%%         %%%
+\section{Brief Overview of Viscous Instabilities}\label{section:ViscousInstabilities}
+%\textcolor{red}{KC: could you add 1-2 short paragraphs on viscous instabilities ... focus on the phenomena rather than a literature review, that may take place in the Intro Section}
+As in many areas of fluid mechanics, the behaviour of the flow for conditions that exceed critical limits, are those that occur under highly critical conditions. Under this assumption, viscous fingering is no exception. It is a viscous driven hydrodynamic instability that results the collapse of the uniform interface between the fluids of different viscosity. This type of instability can be found across many research areas, disciplines and scales. Starting from small scale flow instabilities in Hele-Shaw cells that can provide the basic mathematical model, to coupled chromatographic separation systems for chemical and medical applications and reaching up to large scale reservoir systems.
+
+However, one feature is common in the examples mentioned above and this is related with the mechanisms that govern these flows. Those three mechanisms are shielding, spreading and tip-splitting. Tip-splitting, Fig.~\ref{fig:shielding}(a), happens when a finger becomes unstable and splits into two branches. It is a function of Peclet number \textit{Pe}, which depends on the mobility ratio (MR). Spreading can be found mainly in porous medium when the flow velocity is not large and finally shielding, Fig.~\ref{fig:shielding}(b), occurs when one finger grows much faster than other fingers.
+
+
+Viscous fingering has been found to influence industrial processes such as the removal of oil from reservoirs, the potential use of CO$_2$ sequestration and the re-mediation of spills, or the transport of pollutants in aquifers. The primary removal of oil from reservoirs leaves the porous reservoirs with remaining oil that can only be removed by the use of enhanced oil-recovery (EOR). This secondary and tertiary removal of oil from porous beds is required to be as efficient and economically viable as possible.
+ 
+
+%(Oil \& Gas fields and pollutant dispersion in aquifers) the main %principle as well as mechanism has the same pattern.The difference in %large systems or Oil \& Gas fields, in particular for the Oil Industry %lies in the fact that the extraction and production of Hydrocarbons is %initially energy and financially crucial as well as computationally %expensive regarding the numerical modelling and simulation methods.
+
+Regarding the mechanics, lets assume a porous medium, characterized by a constant permeability $K$. The flow will typically involve the displacement of a fluid of viscosity $\mu_1$  and density $\rho_1$ by a second of viscosity $\mu_2$ and density $\rho_2$. Under suitable continuum assumptions, Darcy's law, is used to describe the flow through a porous medium.
+
+\begin{equation}
+ U = \frac{b^2}{12 \mu} \nabla p
+\end{equation}
+
+and the above equation can be re-arranged for 1D steady flow as,
+
+\begin{equation}
+ \frac{dp}{dx}= - \frac{\mu U}{K} + \rho g 
+\end{equation}
+
+
+where, \textit{U}, is the velocity of the more viscous fluid, \textit{b}, is the cell gap (referring to Hele-Shaw cell) and \textit{$\nabla p$} is the pressure gradient.
+
+
+
+Now consider a sharp interface or zone where density, viscosity, and solute concentration all change rapidly. Then the pressure force $(\rho_2-\rho_1)$ on the displaced fluid as a result of a virtual displacement $\delta_x$ of the interface from its simple convected location is 
+
+\begin{equation}
+\delta\rho=(\rho_2-\rho_1)=[[\frac{(\mu_1-\mu_2)U}{\kappa}]+(\rho_2-\rho_1)g] \delta\chi
+\end{equation}
+
+If the net pressure force is positive, then any small displacement will amplify, leading to an instability.In this case gravity is a stabilizing force while viscosity is destabilizing leading to critical velocity $U_c$ above which there is an instability.\\
+
+\begin{equation}
+U_c = \frac{(\rho_1-\rho_2) \cdot g \cdot K}{(\mu_1-\mu_2)}
+\end{equation}
+
+ 
+%%%         %%%
+%%% SECTION %%%
+%%%         %%%
+\section{Model Validation}\label{section:ModelValidation}
+ 
+%%%         %%%
+%%% SECTION %%%
+%%%         %%%
+\subsection{Bucklet-Leverett Equation}\label{section:BuckletLeverettEquation}
+\textcolor{red}{JG: text and simulation of P1DGP2, P1DGP1DG fixed and adaptive mesh -- quantitative analysis}\\
+\textcolor{blue}{KC: do i have to mention something here?\\}
+
+Models of water and another fluid, such as air, flowing through a
+porous material, are used throughout science and
+engineering.  Furthermore, individual chemical and biological
+substances being transported in the fluids are often fundamentally
+important. The mathematical models for these processes take several forms: scalar nonlinear parabolic equations (Richards' equation), scalar hyperbolic equations (Buckley-Leverett equation), systems of degenerate nonlinear parabolic systems (two-phase and compositional flow), and free boundary problems (Muskat's model). These are macroscopic continuum models that govern the distribution and evolution of quantities that are {\em averages} of the densities, pressures, and velocities arising in classical fluid mechanics. The basis of porous media models in microscopic physics is, however, incomplete: many observed phenomena such as history-dependent behavior and various other scale effects have not been satisfactorily modeled, particularly for multiphase,
+multicomponent systems at the scale required for environmental
+studies.
+
+Modeling of two-phase immiscible flows in porous media is
+important for many industrial applications, such as oil recovery and carbon sequestration. Mathematical conceptualizations for such flows include the Buckley–Leverett model, which, in its simplest form, is represented by a nonlinear advection equation for the relative saturation of fluid phases.This equation models the two phase flows that arise oil-recovery problems and physically
+represents a mixture of oil and water through the porous medium.
+In conservative form the flux function for this
+problem is given by:
+
 \begin{equation}
 f(u) = \frac{u^2}{u^2 + \nu(1-u)^2}. \label{buckley}
 \end{equation}
