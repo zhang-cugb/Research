@@ -926,16 +926,16 @@ The first example is a simple comparison between two cases using fixed mesh and 
 This example serves as a base case for comparison between mobility ratios that differ by an order of magnitude. In general for mobility ratios below $5$ no fingers are expexted as the injection fron will uniformly develop as time progress. Instabilities will start to occur for mobility ratios higher than $5$. Triggered from permeability differences the front will start to collapse initially at the upper layers of the domain. Capilary pressure and therefore surface tension at the interface between two immiscible fluids is a factor that may affect negative the productivity of an oil field.
 
 
-
 \begin{figure}[h]
-\begin{center}
+%\begin{center}
 \includegraphics[width=0.75\textwidth]{./Pics1/mr1_fixed/permeability.png}
+\centering
 \caption{2D domain that consist of five regions with 5 different absolute permeabilities.}
 \label{fig:5regions_domain}
 \end{figure}
 
 
-\begin{figure}[ht!]
+\begin{figure}[h]
 \begin{center}
 \subfigure[MR1 fixed mesh start]{%
 \label{fig:}
@@ -945,11 +945,11 @@ This example serves as a base case for comparison between mobility ratios that d
 \label{fig:}
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100.png}
 }\\
-\subfigure[MR1 fixed mesh 500]{%
+\subfigure[MR1 fixed mesh middle]{%
 \label{fig:}
 \includegraphics[width=0.35\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle.png}
 }%
-\subfigure[MR10 fixed mesh 500]{%
+\subfigure[MR10 fixed mesh middle]{%
 \label{fig:}
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_middle.png}
 }\\
@@ -965,6 +965,9 @@ This example serves as a base case for comparison between mobility ratios that d
 \caption{Comparing MR1 and MR10 cases using fixed mesh.}
 \label{fig:}
 \end{figure}
+
+The next set of simulations is a comparison between a fixed and adapt mesh for the MR=$10$.
+
 
 
 \begin{figure}[ht!]
