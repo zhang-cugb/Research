@@ -919,6 +919,20 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 
 
 
+\section{Results}\label{section:results}
+
+The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. Simulation is using a $2D$ domain while gravity effects are negligible.Fluid $1$ is initially injected from the left hand side with velocity $u_{inj}=1$. At the outlet -right hand side- boundary pressure levels are set to zero while no slip boundary conditions are implied at the upper and lower part of the formation. Fixed time step sizes of $1e-3$ for both the fixed meshes, but also fot future comparison between adaptive and fixed meshes is used. The $p_{1}DGP_{2}$ element type with piecewise linear description of veleocity within each element and quadratic pressure representation as part of the OCVFEM method is composing the mesh. Saturation is located at the pressure nodes. Five different regions of 5 distinct absolute permeabilities (K) are introduced (fig.\ref{fig:5regions_domain}). The square in the initially contains a $50%$-$50%$ mixture of both phase $1$ and $2$.  
+
+
+
+\begin{figure}[ht!]
+\begin{center}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr1_fixed/permeability.png}
+\caption{2D domain that consist of five regions with 5 different absolute permeabilities.}
+\label{fig:5regions_domain}
+\end{figure}
+
+
 \begin{figure}[ht!]
 \begin{center}
 \subfigure[MR1 fixed mesh start]{%
@@ -931,30 +945,22 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 }\\
 \subfigure[MR1 fixed mesh 500]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_fixed/mr1_fixed_500.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle.png}
 }%
 \subfigure[MR10 fixed mesh 500]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_500.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_middle.png}
 }\\
-\subfigure[MR1 fixed mesh half]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_fixed/mr1_fixed_1500.png}
-}%
-\subfigure[MR10 fixed mesh half]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_5000.png}
-}\\ 
 \subfigure[MR1 fixed mesh end]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_fixed/mr1_fixed_end.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr1_fixed/mr1_fixed_end_1.png}
 }\\
 \subfigure[MR10 fixed mesh end]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_10000.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_1.png}
 }\\
 \end{center}
-\caption{Comparing MR1 and MR10 cases -fixed mesh- for the same time steps}
+\caption{Comparing MR1 and MR10 cases using fixed mesh.}
 \label{fig:}
 \end{figure}
 
