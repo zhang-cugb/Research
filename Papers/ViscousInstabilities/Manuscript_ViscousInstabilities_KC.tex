@@ -329,7 +329,6 @@ Finite difference methods (FDM) have been extensively used in most industry-stan
 %\medskip
 Under specfic spatial conditions the displacement of fluids in porous media is unstable and results in the formation of irregular flow patterns in the form of fingers. This phenomenon, viscous fingering, describes flow instabilities {\bf (and ...?? you are repeating the previous sentence ...)}. Even though the mechanism of instabilities may vary (in immiscible fluids the most important factor is the surface tension while in miscible fluids, it is the diffusion \red{(thermal or mass diffusion ?? be specific)}), however it is still a function of several variables such as, relative mobility, gravity, dispersion, permeability differences\red{(Is this true ?? if so give references. why is gravity or relperm relevant? dispersion... why? perm grad??)}. Moreover, in most cases \red{(refs?)} interfacial tension is directly linked with the mobility ratio (or viscosity ratio) between the displaced and the displacing fluid \red{(How and why?)}.
 \medskip
->>>>>>> 69c8a1148d87b0ee00c020be649404dad73689f8
 
 \blue{This last paragraph before aims and objectives (next paragraph) should be gentle transition from current state-of-the-art and this work. As a suggestion, the last paragraph should focus on a particular aspect of viscous fingering that may not be well-understood by the scientific community and that is addressed in the paper. For example, (a) impact of heterogeneity in the onset of fingering, (b) qualitative sensitivity study of viscosity ratio impact in the finger formation (based on analytical assessment studies), etc.} 
 
@@ -394,7 +393,7 @@ The Eq.\ref{saturation_constrain}, is discretized in time and space following th
 
 \begin{equation}
 \begin{aligned}
-\sum_{\alpha=1}^{N_{p}} { \int_{\Omega_{CVi}} \! M_{i} \, \frac{\phi(S_{\alpha i}^{n+1})-(S_{\alpha i}^{n})}{\Delta t} dv + \\
+\sum_{\alpha=1}^{N_{p}} {\int_{\Omega_{CVi}}} \! M_{i} \, \frac{\phi(S_{\alpha i}^{n+1})-(S_{\alpha i}^{n})}{\Delta t} dv + \\
 & \cap \oint_{\Gamma_{CVi}} [\theta^{n+1/2}\; n\dot\;v_{p}^{n+1}S_{p}^{n+1}\;+\;(1-)\theta^{n+1/2}\;v_{p}^{n}S_{p}^{n}] d\Gamma \;- \\
 & \cap \;\int_{\Omega_{CVi}} M_{i}q_{\alpha}^{n+\theta}dV\; }=0
 \end{aligned}
@@ -925,7 +924,7 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 }%
 \subfigure[MR10 fixed mesh start]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100.png/}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100.png}
 }\\
 \subfigure[MR1 fixed mesh 500]{%
 \label{fig:}
@@ -961,35 +960,35 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 \begin{center}
 \subfigure[MR1 fixed mesh start]{%
 \label{fig:first}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_fixed_100.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_adapt_100.png}
 }%
 \subfigure[MR10 fixed mesh start]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_fixed_100.png/}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_adapt_10.png}
 }\\
 \subfigure[MR1 fixed mesh 500]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_fixed_500.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_adapt_500.png}
 }%
 \subfigure[MR10 fixed mesh 500]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_fixed_500.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_adapt_50.png}
 }\\
 \subfigure[MR1 fixed mesh half]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_fixed_1500.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_adapt_1500.png}
 }%
 \subfigure[MR10 fixed mesh half]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_fixed_5000.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_adapt_150.png}
 }\\ 
 \subfigure[MR1 fixed mesh end]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_fixed_end.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_adapt_end.png}
 }\\
 \subfigure[MR10 fixed mesh end]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_10000.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_adapt_end.png}
 }\\
 \end{center}
 \caption{Comparing MR1 and MR10 cases -adapt mesh- for the same time steps, need to update the pics!}
@@ -1002,7 +1001,7 @@ Having already listed and compared the cases of $MR1$ and $MR10$ now we are focu
 \begin{center}
 \subfigure[MR1 fixed mesh start]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_start.png/}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_start.png}
 }%
 \subfigure[MR10 fixed mesh start]{%
 \label{fig:}
@@ -1137,7 +1136,7 @@ Having already listed and compared the cases of $MR1$ and $MR10$ now we are focu
 }%
 \subfigure[]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adaptFour_regions_python_only_adapt_2000.png/}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adaptFour_regions_python_only_adapt_2000.png}
 }\\
 \subfigure[]{%
 \label{fig:}
@@ -1178,7 +1177,7 @@ Having already listed and compared the cases of $MR1$ and $MR10$ now we are focu
 }%
 \subfigure[]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adaptFour_regions_python_only_adapt_2000.png/}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adaptFour_regions_python_only_adapt_2000.png}
 }\\
 \subfigure[]{%
 \label{fig:}
