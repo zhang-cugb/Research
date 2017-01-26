@@ -923,7 +923,9 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 
 The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. The aspect ratio of the $2D$ domain is 2 and it favors viscous fingering effects while temperature is not taken into account (or isothermal) and gravity effects are negligible. Fluid $1$ is initially injected from the left hand side with velocity $u_{inj}=1$. At the outlet -right hand side- boundary pressure levels are set to zero while no slip boundary conditions are implied at the upper and lower part of the formation. Fixed time step sizes of $1e-3$ for both the fixed meshes and the CFL number for this set of simulations is 5. The $p_{1}DGP_{2}$ element type with piecewise linear description of veleocity within each element and quadratic pressure representation as part of the OCVFEM method and the discontinuous Galerkin method which composing the mesh. Saturation is located at the pressure nodes. Five different regions of 5 distinct absolute permeabilities (K) are introduced (fig.\ref{fig:5regions_domain}). The square in the initially contains a $50\%-50\%$ mixture of both phase $1$ and $2$. 
 
-This example serves as a base case for comparison between mobility ratios that differ by an order of magnitude. In general for mobility ratios below $5$ no fingers are expexted as the injection fron will uniformly develop as time progress. Instabilities will start to occur for mobility ratios higher than $5$. Fingers or accelrated flows will be triggered from permeability differences on the top layers of the domain and the front will start to collapse. The interface between the two fluid will become unstable, an uneven or fingered profile will be formed due to capilary pressure and therefore due to the surface tension difference between the two immiscible fluids. Concequantly the productivity of an oil field will be affected and will decrease.
+Two general behaviors for the interface may occur: (i) If a more viscous fluid displaces a less viscous one or a less viscous displaces a more viscous with a low average velocity, the interface is flat; (ii) if a less viscous fluid displaces a more viscous one with intermediate values of the average velocity, a single stable finger is observed.
+
+This example serves as a base case for comparison between mobility (or viscocity) ratios that differ by an order of magnitude. Viscocity is a measure of resistance, therefore a frictional property. In general for mobility ratios below $5$ no fingers are expexted as the injection fron will uniformly develop as time progress. Instabilities will start to occur for mobility ratios higher than $5$. Fingers or accelerated flows will be triggered from permeability differences on the top layers of the domain and the front will start to collapse. The interface between the two fluid will become unstable, an uneven or fingered profile will be controlled by capilary pressure -acting in the scale of the pores- and therefore due to the surface tension difference between the two immiscible fluids. Concequantly the productivity of an oil field will be affected and will decrease.
 
 
 \begin{figure}[h]
@@ -962,7 +964,7 @@ This example serves as a base case for comparison between mobility ratios that d
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_1.png}
 }\\
 \end{center}
-\caption{Comparing MR1 and MR10 cases using fixed mesh.}
+\caption{Comparing MR1 and MR10 cases using fixed mesh. Simulation time step increases from top to bottom and from t=100(start) to t=1500(middle) to t=3000(end).}
 \label{fig:}
 \end{figure}
 
