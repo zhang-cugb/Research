@@ -927,7 +927,7 @@ Two general behaviors for the interface may occur: (i) If a more viscous fluid d
 
 This test-case serves as a base case for comparison between mobility (or viscocity) ratios that differ by an order of magnitude. Viscocity is a measure of resistance, therefore a frictional property. In these test-cases the $\sigma$ term as this is described above contains the individual parameters related with wettability and contact angle while the porous surface is a fluid $2$ wetted surface. For mobility ratios below $5$ the injection front will uniformly develop as time progress (piston shape front) and no fingers are expexted. Instabilities will start to occur and will be more obvious for mobility ratios higher than $5$. Between two layers or two regions with different permeabilities, but both saturated with fluid $2$, fingers will be triggered because of the permeability differences on the interface of these layers. In between the porous cappilary pressure difference with curve the interface and will lead to the formation of fingers. In macroscopic scale the interface between the two fluid will become unstable, an uneven or fingered profile will be controlled by capilary pressure -acting in the scale of the pores- and therefore due to the overall surface tension difference between the two immiscible fluids the front will collapse. This is of major practical importance in the petroleum industry, environmental waste remediation, and subsurface hydrology and it is key to understanding the movement of large volumes of injection fluids into subsurface reservoirs. The relationships between the capillarity of a geologic system, and the saturation and permeability of the fluids has a direct bearing on the migration speed and reservoir sweep of hydrocarbons affected the productivity of an oil field.
 
-\begin{figure}[t]
+\begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.5\textwidth]{./Pics1/mr1_fixed/permeability.png}
 \caption{2D domain that consist of five regions with 5 different absolute permeabilities as these are represented with different colors.}
@@ -971,37 +971,37 @@ Having already observed the significant growth of fingers for mobility ratios la
 
 \begin{figure}[ht!]
 \begin{center}
-\subfigure[MR1 fixed mesh start]{%
-\label{fig:first}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_adapt_100.png}
-}%
 \subfigure[MR10 fixed mesh start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_adapt_10.png}
-}\\
-\subfigure[MR1 fixed mesh 500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_adapt_500.png}
+\label{fig:first}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/mr10_5regions_fixed_250.png}
 }%
-\subfigure[MR10 fixed mesh 500]{%
+\subfigure[MR10 adapt mesh start]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_adapt_50.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/mr10_5regions_adapt_250.png}
 }\\
-\subfigure[MR1 fixed mesh half]{%
+\subfigure[MR10 fixed mesh]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_adapt_1500.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/mr10_5regions_fixed_500.png}
 }%
-\subfigure[MR10 fixed mesh half]{%
+\subfigure[MR10 adapt mesh]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_adapt_150.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/mr10_5regions_adapt_500.png}
+}\\
+\subfigure[MR10 fixed mesh]{%
+\label{fig:}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/mr10_5regions_fixed_1500.png}
+}%
+\subfigure[MR10 adapt mesh]{%
+\label{fig:}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/mr10_5regions_adapt_1500.png}
 }\\ 
-\subfigure[MR1 fixed mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_adapt/mr1_adapt_end.png}
-}\\
 \subfigure[MR10 fixed mesh end]{%
 \label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_adapt/mr10_adapt_end.png}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/mr10_5regions_fixed_end.png}
+}\\
+\subfigure[MR10 adapt mesh end]{%
+\label{fig:}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/mr10_5regions_adapt_3000.png}
 }\\
 \end{center}
 \caption{Comparing MR1 and MR10 cases -adapt mesh- for the same time steps, need to update the pics!}
