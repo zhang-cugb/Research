@@ -1004,94 +1004,11 @@ Having already observed the significant growth of fingers comparing mobility rat
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_3000.png}
 }\\
 \end{center}
-\caption{Comparing test-cases of fixed and adaptive mesh, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, t=250(a,b), t=500(c,d), t=1500(e,f), t=3000(g,h) }
+\caption{Comparing test-cases of fixed and adaptive mesh, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, t=250(a,b), t=500(c,d), t=1500(e,f), t=3000(g,h). When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time. }
 \label{fig:2testcase}
 \end{figure}
 
-
-
-
-\begin{figure}[ht!]
-\begin{center}
-\subfigure[MR1 fixed mesh start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_start.png}
-}%
-\subfigure[MR10 fixed mesh start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_start.png}
-}\\
-\subfigure[MR1 fixed mesh 500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_500.png}
-}%
-\subfigure[MR10 fixed mesh 500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_500.png}
-}\\
-\subfigure[MR1 fixed mesh half]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_1500.png}
-}%
-\subfigure[MR10 fixed mesh half]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_1500_1.png}
-}\\ 
-\subfigure[MR1 fixed mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_end.png}
-}\\
-\subfigure[MR10 fixed mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_end.png}
-}\\
-\end{center}
-\caption{Comparing the  MR=$10$ cases for both fixed and adaptive mesh for the same time steps, t=100(a,b), t=1500(c,d), t=7500(e,f), t=10000(g,h)}
-\label{fig:3testcase}
-\end{figure}
-
-
-
-\begin{figure}[ht!]
-\begin{center}
-\subfigure[MR1 fixed mesh start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_start.png}
-}%
-\subfigure[MR10 fixed mesh start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/}
-}\\
-\subfigure[MR1 fixed mesh 500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_500.png}
-}%
-\subfigure[MR10 fixed mesh 500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/}
-}\\
-\subfigure[MR1 fixed mesh half]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_1500_1.png}
-}%
-\subfigure[MR10 fixed mesh half]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/}
-}\\ 
-\subfigure[MR1 fixed mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_end.png}
-}\\
-\subfigure[MR10 fixed mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1}
-}\\
-\end{center}
-\caption{Comparing the  MR10 cases with double inlet -fixed and adaptive mesh- for the same time steps}
-\label{fig:}
-\end{figure}
-
-
+In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This test case is a comparison between the previous case and a new one with double inlet. This time Fluid $1$ is injected from both the left hand side and the upper left corner of the domain while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied.
 
 \begin{figure}[ht!]
 \begin{center}
@@ -1128,94 +1045,9 @@ Having already observed the significant growth of fingers comparing mobility rat
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_end.png}
 }\\
 \end{center}
-\caption{Comparing the  MR10 cases with double inlet -fixed and adaptive mesh- for the same time steps}
-\label{fig:}
+\caption{Comparing the MR=$10$, between single and double injection of fluid $1$ under the adaptive and unstructured mesh for the same time steps, t=100(a,b), t=1500(c,d), t=7500(e,f), t=10000(g,h) }
+\label{fig:3testcase}
 \end{figure}
-
-The thirs test case is a comparison between the previous case and a new one with double inlet. This time Fluid &1& is injected from both th elrfta hand side and the upper left corner of the domainwhile the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. 
-
-\begin{figure}[ht!]
-\begin{center}
-\subfigure[start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only/Four_regions_python_only_start.png}
-}%
-\subfigure[start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adapt/Four_regions_python_only_adapt_start.png}
-}\\
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only/Four_regions_python_only_2000.png}
-}%
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adapt/Four_regions_python_only_adapt_2000.png}
-}\\
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only/Four_regions_python_only_4000.png}
-}%
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adapt/Four_regions_python_only_adapt_4000.png}
-}\\ 
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only/Four_regions_python_only_end.png}
-}\\
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adapt/Four_regions_python_only_adapt_end.png}
-}\\
-\end{center}
-\caption{Comparing the  MR10 cases for $4$ regions using python to define the domain characteristics for -fixed and adaptive mesh- for the same time steps}
-\label{fig:}
-\end{figure}
-
-
-
-\begin{figure}[ht!]
-\begin{center}
-\subfigure[start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only/Four_regions_python_only_start.png}
-}%
-\subfigure[start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adapt/Four_regions_python_only_adapt_start.png}
-}\\
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only/Four_regions_python_only_2000.png}
-}%
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adapt/Four_regions_python_only_adapt_2000.png}
-}\\
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only/Four_regions_python_only_4000.png}
-}%
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adapt/Four_regions_python_only_adapt_4000.png}
-}\\ 
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only/Four_regions_python_only_end.png}
-}\\
-\subfigure[]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_4regions_python_only_adapt/Four_regions_python_only_adapt_end.png}
-}\\
-\end{center}
-\caption{Comparing the  MR10 cases for $4$ regions using python to define the domain characteristics for -fixed and adaptive mesh- for the same time steps}
-\label{fig:}
-\end{figure}
-
-
-
 
 \end{document}
 %% End of tex file.
