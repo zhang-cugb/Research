@@ -1008,7 +1008,7 @@ Having already observed the significant growth of fingers comparing mobility rat
 \label{fig:2testcase}
 \end{figure}
 
-In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This test case is a comparison between the previous case and a new one with double inlet. This time Fluid $1$ is injected from both the left hand side and the upper left corner of the domain while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied.
+In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This test case is a comparison between the previous case and a new one with double inlet. This time Fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$.
 
 \begin{figure}[ht!]
 \begin{center}
@@ -1046,6 +1046,31 @@ In fig.\ref{fig:3testcase} there is a comparison between a single and double inj
 }\\
 \end{center}
 \caption{Comparing the MR=$10$, between single and double injection of fluid $1$ under the adaptive and unstructured mesh for the same time steps, t=100(a,b), t=1500(c,d), t=7500(e,f), t=10000(g,h) }
+\label{fig:3testcase}
+\end{figure}
+
+At this point is proper to mentioned the extreme case when mobility ratio is even an order of magnitude higher. 
+
+\begin{figure}[ht!]
+\begin{center}
+\subfigure[MR100 fixed mesh t=500]{%
+\label{fig:}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.png}
+}%
+\subfigure[MR100 fixed mesh t=1500]{%
+\label{fig:}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.png}
+}%
+\subfigure[MR100 fixed mesh t=3000]{%
+\label{fig:}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.png}
+}\\ 
+\subfigure[MR100 fixed mesh end]{%
+\label{fig:}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.png}
+}\\
+\end{center}
+\caption{snapshots when the MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d) }
 \label{fig:3testcase}
 \end{figure}
 
