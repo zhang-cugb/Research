@@ -754,11 +754,6 @@ In conclusion the method that has been described in this paper as well as the si
 
 \noindent Even thought this model is promising there is still work to be done since it is not yet a complete product. Further work is required to develop the surface-based modelling algorithms.
 
-%------------------------KC------------------------------------------
-
-\section{Achknowledgements}
-Mr William Rad\"unz would like to acknowledge the support from the Brazilian Research Council (CNPq) under the \textit{Science without Borders scholarship programme}. Mr Konstantinos Christou would like to acknowledge the support of the University of Aberdeen - College of Physical Science as well as the Aberdeen Formation Evaluation Society (\textit{AFES}). Last but not least credit should be given to both Dr Jefferson Gomes \& Dr Marcus Campell Bannerman, both lecturers at the University of Aberdeen, at the School of Engineering.
-
 %\textcolor{blue}{KC - Is it valid to include that part of this work has been published in international conferences and being awarded.}
 
    
@@ -886,7 +881,7 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 %\input{article_figure1}
 %\input{Manuscript_Figure1}
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 \begin{center}
 \subfigure[MR1]{%
 \label{fig:first}
@@ -1010,37 +1005,37 @@ Having already observed the significant growth of fingers comparing mobility rat
 
 In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This test case is a comparison between the previous case and a new one with double inlet. This time Fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 \begin{center}
-\subfigure[MR1 fixed mesh start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_start.png}
-}%
 \subfigure[MR10 fixed mesh start]{%
+\label{fig:}
+\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_100.png}
+}%
+\subfigure[MR10 fixed adapt start]{%
 \label{fig:}
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_start.png}
 }\\
-\subfigure[MR1 fixed mesh 500]{%
+\subfigure[MR10 fixed mesh t=1500]{%
 \label{fig:}
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_500.png}
 }%
-\subfigure[MR10 fixed mesh 500]{%
+\subfigure[MR10 fixed adapt t=1500]{%
 \label{fig:}
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_500.png}
 }\\
-\subfigure[MR1 fixed mesh half]{%
+\subfigure[MR10 fixed mesh t=7500]{%
 \label{fig:}
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_2000.png}
 }%
-\subfigure[MR10 fixed mesh half]{%
+\subfigure[MR10 fixed adapt t=7500]{%
 \label{fig:}
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_2000.png}
 }\\ 
-\subfigure[MR1 fixed mesh end]{%
+\subfigure[MR10 fixed mesh end]{%
 \label{fig:}
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_end.png}
 }\\
-\subfigure[MR10 fixed mesh end]{%
+\subfigure[MR10 fixed adapt end]{%
 \label{fig:}
 \includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_end.png}
 }\\
@@ -1049,9 +1044,9 @@ In fig.\ref{fig:3testcase} there is a comparison between a single and double inj
 \label{fig:3testcase}
 \end{figure}
 
-At this point is proper to mentioned the extreme case when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though this case is unlikely to happen as the mobility ration of the existing fluids in the industry   
+At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities.  
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 \begin{center}
 \subfigure[MR100 fixed mesh t=500]{%
 \label{fig:}
@@ -1071,8 +1066,16 @@ At this point is proper to mentioned the extreme case when mobility ratio is eve
 }\\
 \end{center}
 \caption{snapshots when the MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d) }
-\label{fig:3testcase}
+\label{fig:4testcase}
 \end{figure}
+
+As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. The most sharp and intense fluctuations in saturation due to greater number of fingers, which is reasonable as adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface.
+
+\KCnote{need to include some figures and analysis of the velocities, magnitude etc.}
+
+
+\section{Achknowledgements}
+Mr William Rad\"unz would like to acknowledge the support from the Brazilian Research Council (CNPq) under the \textit{Science without Borders scholarship programme}. Mr Konstantinos Christou would like to acknowledge the support of the University of Aberdeen - College of Physical Science as well as the Aberdeen Formation Evaluation Society (\textit{AFES}). Last but not least credit should be given to both Dr Jefferson Gomes \& Dr Marcus Campell Bannerman, both lecturers at the University of Aberdeen, at the School of Engineering.
 
 \end{document}
 %% End of tex file.
