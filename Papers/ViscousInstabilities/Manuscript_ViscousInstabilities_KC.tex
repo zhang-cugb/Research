@@ -377,7 +377,7 @@ The method presented here builds on that reported by \citet{jackson_2015} is kno
 
 Saturation, and all saturation-dependent material properties such as relative permeability and capillary pressure, are represented CV-wise. The pressure, a key difference to other CVFE methods reported previously, allows the use of CVs that do not span multiple FEs. Hence each CV (and FE) is associated with a unique set of petrophysical properties, in contrast to most previous methods in which CVs span multiple values of petrophysical properties described FE-wise.
 
-As we have to be consistent with \citet{jackson_2015} we assume that rick and fluids are incopressible thus the mass ballance for phase $\alpha$ can be written as (Eq \ref{mass_balance})
+As we have to be consistent with \citet{jackson_2015} we assume that rick and fluids are incopressible thus the mass ballance for phase $\alpha$ can be written as (Eq.\ref{mass_balance})
 
 \begin{equation}
 \phi \; \frac{\partial S_{\alpha}}{\partial t} + \nabla (v_{\alpha}S_{\alpha})= q_{\alpha}
@@ -391,7 +391,8 @@ where $\phi$ represents the porosity, S represents the saturation and v is the s
 \label{saturation_constrain}
 \end{equation}
 
-The Eq.\ref{saturation_constrain}, is discretized in time and space following the approach of \citet{Jackson_2013} in which the time discretization is obtained using the $\theta$-method as implemented by \citet{gomes_2013}. Summing over all phases and discretizing in time using the $\theta$-method yields the global mass balance equation (Eq.\ref{global_mass_balance})
+The Eq.\ref{saturation_constrain}, is discretized in time and space following the approach of \citet{Jackson_2013} in which the time discretization is obtained using the $\theta$-method as implemented by %\citet{gomes_2013}. 
+Summing over all phases and discretizing in time using the $\theta$-method yields the global mass balance equation, Eq.\ref{global_mass_balance},
 
 \begin{equation}
 \begin{aligned}
@@ -922,7 +923,7 @@ Two general behaviors for the interface may occur: (i) If a more viscous fluid d
 
 This test-case serves as a base case for comparison between mobility (or viscocity) ratios that differ by an order of magnitude. Viscocity is a measure of resistance, therefore a frictional property. In these test-cases the $\sigma$ term as this is described above contains the individual parameters related with wettability and contact angle while the porous surface is a fluid $2$ wetted surface. For mobility ratios below $5$ the injection front will uniformly develop as time progress (piston shape front) and no fingers are expexted. Instabilities will start to occur and will be more obvious for mobility ratios higher than $5$. Between two layers or two regions with different permeabilities, but both saturated with fluid $2$, fingers will be triggered because of the permeability differences on the interface of these layers. In between the porous cappilary pressure difference with curve the interface and will lead to the formation of fingers. In macroscopic scale the interface between the two fluid will become unstable, an uneven or fingered profile will be controlled by capilary pressure -acting in the scale of the pores- and therefore due to the overall surface tension difference between the two immiscible fluids the front will collapse. This is of major practical importance in the petroleum industry, environmental waste remediation, and subsurface hydrology and it is key to understanding the movement of large volumes of injection fluids into subsurface reservoirs. The relationships between the capillarity of a geologic system, and the saturation and permeability of the fluids has a direct bearing on the migration speed and reservoir sweep of hydrocarbons affected the productivity of an oil field.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \begin{center}
 \includegraphics[width=0.5\textwidth]{./Pics1/mr1_fixed/permeability.png}
 \caption{2D domain that consist of five regions with 5 different absolute permeabilities as these are represented with different colors.}
@@ -931,7 +932,7 @@ This test-case serves as a base case for comparison between mobility (or viscoci
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \begin{center}
 \subfigure[MR1 fixed mesh start]{%
 \label{fig:}
@@ -964,7 +965,7 @@ This test-case serves as a base case for comparison between mobility (or viscoci
 
 Having already observed the significant growth of fingers comparing mobility ratios that differ an order of magnitude (Fig.\ref{fig:1testcase}), the next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh test case (Fig.\ref{fig:2testcase}).    
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 \begin{center}
 \subfigure[MR10 fixed mesh start]{%
 \label{fig:first}
@@ -1003,7 +1004,7 @@ Having already observed the significant growth of fingers comparing mobility rat
 \label{fig:2testcase}
 \end{figure}
 
-In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This test case is a comparison between the previous case and a new one with double inlet. This time Fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$.
+In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields as the presence of this extra inlet increases the flow at the top layers.
 
 \begin{figure}[H]
 \begin{center}
@@ -1069,7 +1070,7 @@ At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testca
 \label{fig:4testcase}
 \end{figure}
 
-As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. The most sharp and intense fluctuations in saturation due to greater number of fingers, which is reasonable as adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface.
+As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. The most sharp and intense fluctuations in saturation due to greater number of fingers, which is reasonable as adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface. Inside the high permeability square region there is an acceleration of the flow with the maximum value of it at the interface as this starts to develops at the back of this region and onwards.
 
 \KCnote{need to include some figures and analysis of the velocities, magnitude etc.}
 
