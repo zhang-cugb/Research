@@ -882,39 +882,6 @@ In conclusion the method that has been described in this paper as well as the si
 %\input{article_figure1}
 %\input{Manuscript_Figure1}
 
-\begin{figure}[H]
-\begin{center}
-\subfigure[MR1]{%
-\label{fig:first}
-\includegraphics[width=0.7\textwidth]{./Pics/MR1.png}
-}%
-\subfigure[Recovery for MR1]{%
-\label{fig:second}
-\includegraphics[width=0.52\textwidth]{./Pics/Recovery_MR1_1.png}
-}\\
-\subfigure[MR10]{%
-\label{fig:first}
-\includegraphics[width=0.7\textwidth]{./Pics/MR10.png}
-}%
-\subfigure[Recovery for MR10]{%
-\label{fig:second}
-\includegraphics[width=0.52\textwidth]{./Pics/Recovery_MR10_10.png}
-}\\
-\subfigure[MR100]{%
-\label{fig:first}
-\includegraphics[width=0.7\textwidth]{./Pics/MR100_100_start.png}
-}%
-\subfigure[Recovery for MR100]{%
-\label{fig:second}
-\includegraphics[width=0.52\textwidth]{./Pics/Recovery_MR100_100.png}
-}\\ 
-\end{center}
-\caption{Comparison of different MR's and their recovery rates}
-\label{fig:6}
-\end{figure}
-
-
-
 \section{Results}\label{section:results}
 
 The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. The aspect ratio of the $2D$ domain is 2 and it favors viscous fingering effects while temperature is not taken into account (assume isothermal environment) and gravity effects are negligible. Fluid $1$ is initially injected from the left hand side with velocity $u_{inj}=1$. The domain is fully saturated with fluid $2$. At the outlet (right hand side) boundary pressure levels are set to zero while no slip boundary conditions are implied at the upper and lower part of the formation. Fixed time step sizes of $1 \times 10^{-3}$ for both the fixed meshes and the CFL number for this set of simulations is 5. The $P_{1}DGP_{2}$ element type with piecewise linear description of veleocity within each element and quadratic pressure representation as part of the OCVFEM method along with the discontinuous Galerkin method are implied and composing the mesh. Saturation is located at the pressure nodes. Five different regions of 5 distinct absolute permeabilities (K) are introduced (fig.\ref{fig:5regions_domain}). The red square region is saturated with a $50\%-50\%$ mixture of both phase $1$ and $2$. 
@@ -1070,7 +1037,40 @@ At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testca
 \label{fig:4testcase}
 \end{figure}
 
-As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. The most sharp and intense fluctuations in saturation due to greater number of fingers, which is reasonable as adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface. Inside the high permeability square region there is an acceleration of the flow with the maximum value of it at the interface as this starts to develops at the back of this region and onwards.
+
+
+\begin{figure}[H]
+\begin{center}
+\subfigure[MR1]{%
+\label{fig:}
+\includegraphics[width=0.7\textwidth]{./Pics/MR1.png}
+}%
+\subfigure[Recovery for MR1]{%
+\label{fig:}
+\includegraphics[width=0.52\textwidth]{./Pics/Recovery_MR1_1.png}
+}\\
+\subfigure[MR10]{%
+\label{fig:}
+\includegraphics[width=0.7\textwidth]{./Pics/MR10.png}
+}%
+\subfigure[Recovery for MR10]{%
+\label{fig:}
+\includegraphics[width=0.52\textwidth]{./Pics/Recovery_MR10_10.png}
+}\\
+\subfigure[MR100]{%
+\label{fig:}
+\includegraphics[width=0.7\textwidth]{./Pics/MR100_100_start.png}
+}%
+\subfigure[Recovery for MR100]{%
+\label{fig:}
+\includegraphics[width=0.52\textwidth]{./Pics/Recovery_MR100_100.png}
+}\\ 
+\end{center}
+\caption{Comparison of different MR's and their recovery rates}
+\label{fig:recoveryrates}
+\end{figure}
+
+As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. The most sharp and intense fluctuations in saturation due to greater number of fingers, which is reasonable as adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface. Inside the high permeability square region there is an acceleration of the flow with the maximum value of it at the interface as this starts to develops at the back of this region and onwards. At this point attention should be given to the recovery rates as they can be illustrated from fg.\ref{fig:regoveryrates}. The breaking point, also known as the point the two curves meet where beyond that water production will occur is shifted towards the right as MR is increased.
 
 \KCnote{need to include some figures and analysis of the velocities, magnitude etc.}
 
