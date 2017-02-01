@@ -183,6 +183,26 @@ The sections that follow include a summary of the main governing equations for m
 %(in immiscible fluids the most important factor is the surface tension while in miscible fluids, it is the diffusion \red{(thermal or mass diffusion ...be specific)})
 %however it is still a function of relative mobility, gravity, viscous forces and permeability differences. In conventional reservoirs the principal forces that affect fluid flow include, viscous forces, effects of gravity and permeability diffrences while in unconventional gas reservoirs flow simulation models take into account the phenomena of adsorption and diffusion \citep{abdus_2015}.
 
+
+%\blue{The Introduction Section of a manuscript is often divided into 4 parts:
+%   \begin{enumerate}[(a)]
+%       \item Motivation for the work undertaken. What are the environmental, industrial and/or lab problems that this work will help tackling and/or solving (first and \underline{only one} paragraph)? 
+%       \item Literature review: this should focus on the main topics directly related to the manuscript (as a rule-of-thumb, you should choose up to 5 key-words that can better represent the work and write \underline{concisely} about recent development on them, i.e., state-of-the-art). Length of literature review should be 3-10 paragraphs and focus on `recent' developments in the topics including strengths and weakness. This `list' of topics (with associated references and range of strengths and weakness) may lead to {\it an explicit statement of the current gap of knowledge on the field that the manuscript will address}. This last key sentence will naturally lead to the;
+%       \item Main aim and (list of) objective(s) of the work and how you intend to tackle the science problem (1 paragraph);
+%       \item Summary of the work (last paragraph). 
+%   \end{enumerate}
+%}
+
+
+
+
+\section{Problem set-up}\label{problem_set_up}      
+ 
+Multiphase flow in porous media is described by mass conversation (or transport) equation and Darcy velovities for each of the phase $\alpha$ (with \alpha = g, o, w, fro gas, oil, and water phases).
+
+\subsection{Mathematical Formulation}\label{section:math-model}
+%\medskip
+
 \KCnote{ - - to be putted in the mathematical formulation as intro - - 
 Fingering will occur in miscible displacments when the viscocity ratio is greater than unity. As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. As a result of \textit{shielding}, one of these lobes will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching. Important parameter is the mobility (or viscosity) ratio. This is given by Eqn.~\ref{eq:mobility-of-fluid} where $K$ is absolute permeability and $k_{r}$ is relative permeability :
 
@@ -193,13 +213,6 @@ Fingering will occur in miscible displacments when the viscocity ratio is greate
 
 }
 
-
-       
- 
-
-\section{Mathematical Formulation}\label{section:math-model}
-%\medskip
-%\begin{comment}
 The displacing and displaced fluids are considered to be incompressible and immiscible under isothermal and no source or sink conditions. In addition, we neglect the effects of capillarity and gravity in our simulations. Therefore the governing equations of conservation of mass and Darcy's law can be described below as, 
 
 \begin{equation}\label{e:darcy_eqn}
@@ -273,7 +286,7 @@ where $N_{\alpha}$ is first order finite element basis function and $M_{b}$ is t
 Control volume finite element methods require high resolution meshes in regions where material properties vary abruptly, such as permeability and/or porosity contrasts at fracture-matrix interfaces. Since geometries are captured by finite elements (FE), constructed control volumes (CV) typically extend over the interfaces which may have different properties. Therefore, some average value of the permeability (defined in the FE space but projected into the CV space) is applied across the CVs at these interface. This often leads to excessive numerical dispersion especially in highly heterogeneous media. In order to overcome such artificial numerical dispersion, discontinuous hybrid finite element finite volume method (DFEFVM) was developed by \citet{nick_2011b, nick_2011a}. This novel discretisation scheme was designed to simulate flows through discrete fractured rocks in which CVs are divided along the interfaces of different materials.  
 
 \citet{cumming_2011} demonstrated that CVFEM discretisation could also be used to solve Richards' equations (coupled mass conservation and Darcy equation) in heterogeneous media with relatively small computational overhead~\citep[compared with traditional coupled velocity-pressure based formulations, see also][]{cumming_phd2012}. Fluxes over CVs were calculated based upon material properties, whereas the saturation fields were volume-averaged at the interface of the materials, enforcing mass balance as described by \citet{kirkland_1992}.
-%\end{comment}
+
 
 %\medskip 
 %\begin{center}
@@ -302,15 +315,7 @@ The conservation of mass along with Darcy's law are the governing equations whil
 %\medskip
 \begin{comment}
 Finite difference methods (FDM) have been extensively used in most industry-standard flow simulators~\citep{aziz_1986, chen_2005, chang_1990} with relative success in multi-physics single phase applications (e.g., black oil model, passive tracer advection etc). However, FDM are often limited to relatively simple geometries (with low grid quality and orientation) representing idealised geological formations~\citep{mlacnik_2004, king_1999}. Additionally, FDM produce excessive numerical dispersion when heterogeneity (represented by permeability and porosity fields) is present~\citep{chavent_1986}. The geometrical flexibility associated with high-order numerical accuracy of finite element methods (FEM) has proven to overcome these deficiencies. 
-%=======
-%\blue{The Introduction Section of a manuscript is often divided into 4 parts:
-%   \begin{enumerate}[(a)]
-%       \item Motivation for the work undertaken. What are the environmental, industrial and/or lab problems that this work will help tackling and/or solving (first and \underline{only one} paragraph)? 
-%       \item Literature review: this should focus on the main topics directly related to the manuscript (as a rule-of-thumb, you should choose up to 5 key-words that can better represent the work and write \underline{concisely} about recent development on them, i.e., state-of-the-art). Length of literature review should be 3-10 paragraphs and focus on `recent' developments in the topics including strengths and weakness. This `list' of topics (with associated references and range of strengths and weakness) may lead to {\it an explicit statement of the current gap of knowledge on the field that the manuscript will address}. This last key sentence will naturally lead to the;
-%       \item Main aim and (list of) objective(s) of the work and how you intend to tackle the science problem (1 paragraph);
-%       \item Summary of the work (last paragraph). 
-%   \end{enumerate}
-%}
+
 
 %Detailed numerical investigation of multiphase flows in porous media has attracted the attention of the scientific community for the past 50 years. This is mainly due to applications in oil and gas exploration, groundwater resources, underground coal gasification, geothermal power systems and, more recently, in carbon capture and storage (CCS) processes~\citep{spycher_2003, chen_2006, self_2012, pruess_1990c, white_1981, jiang_2011}. However, current porous media multiphase flow models are plagued with uncertainties associated with subsurface topology, lithostratigraphic heterogeneity and chemical and physical properties of subsurface fluids. Viscous fingering, a flow instability phenomenon that occurs at the interface of fluids with distinct viscosities, has a strong impact on the efficiency of both oil recovery and CO$_{2}$ trapping under reservoir conditions.
 
