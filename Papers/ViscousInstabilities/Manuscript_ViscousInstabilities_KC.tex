@@ -199,33 +199,48 @@ The sections that follow include a summary of the main governing equations for m
 Multiphase flow in porous media is described by mass conversation (or transport) equation and Darcy velovities for each of the phase $\alpha$ ($\alpha$ = g, o, w, for gas, oil, and water phases).
 Fingering behaviour is expected to be different from single-phase (piston shape front) due to the effect of different peremeabilities. This will change the mobility contrast between two phases for a given \textit{viscosity} ratio. Because of the  different saturation levels among different layers, eventually this will enhance the flow instabilities. In this paper, the test-cases are also based on the discontinuous Galerkin (DG) method to simulate viscous fingering. Roughly speaking, DG-method combines advantages of classical finite volume and finite element methods.  
 
-\subsection{Mathematical Formulation}\label{section:math-model}
-%\medskip
+\subsection{Numerical Formulation}
 
-\KCnote{ - - to be putted in the mathematical formulation as intro - - 
-Fingering will occur in miscible displacments when the viscocity ratio is greater than unity. As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. As a result of \textit{shielding}, one of these lobes will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching. Important parameter is the mobility (or viscosity) ratio. This is given by Eqn.~\ref{eq:mobility-of-fluid} where $K$ is absolute permeability and $k_{r}$ is relative permeability :
-
-\begin{equation}
-\lambda = \frac{K\;k_{\alpha}}{\mu}
-\label{eq:mobility-of-fluid}
-\end{equation}
-
-}
-
-The displacing and displaced fluids are considered to be incompressible and immiscible under isothermal and no source or sink conditions. In addition, we neglect the effects of capillarity and gravity in our simulations. Therefore the governing equations of conservation of mass and Darcy's law can be described below as, 
-
-\begin{equation}\label{e:darcy_eqn}
+Flows in porous media are expressed by the Darcy's law and the saturation equation. At this stage the control volume finite element method is used (CVFEM). Darcy's law for immiscible multi-phase flow may be written in the form:
+\begin{equation}\label{e:darcy_eq}
   \mathbf{q}_{\alpha} = -\frac{\mathcal{K}_{{r}_\alpha}\mathbf{K}}{\mu_{\alpha}}\left(\nabla p_{\alpha} - {\mathbf{s}_{u}}_{\alpha} \right),
 \end{equation}
 where $\mathbf{q}_{\alpha}$ is the $\alpha$-th phase Darcy velocity, $\mathbf{K}$ is the absolute permeability tensor of the porous medium, $\mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right)$ is the phase relative permeability, which is a function of the phase saturation $S_{\alpha}\left(\mathbf{r},t\right)$. $\mu_{\alpha}$, $p_{\alpha}$, $\rho_{\alpha}$, and $\mathbf{s}_{{u}_\alpha}$ are the phase dynamic viscosity, pressure, density and source term, which may include gravity and/or capillarity, respectively. 
 
-Introducing a saturation-weighted Darcy velocity defined as $\mathbf{u}_\alpha= \mathbf{q}_\alpha/S_\alpha$, then Eqn.~\ref{e:darcy_eqn} may be rewritten as:
+Substituting the saturation-weighted Darcy velocity by $\mathbf{u}_\alpha= \mathbf{q}_\alpha/S_\alpha$, then Eqn.~\ref{e:darcy_eq} may be rewritten as:
 \begin{equation}
   \mathbf{v}_\alpha={\underline {\underline \sigma}}_{\alpha} \mathbf{u}_{\alpha} = - \nabla p_{\alpha} + {\mathbf{s}_{u}}_{\alpha},
   \label{force-bal}
 \end{equation}
+where ${\underline {\underline \sigma}}_{\alpha}=\mu_\alpha S_\alpha \left(\mathcal{K}_{{r}_\alpha}\mathbf{K}\right)^{-1}$ represents the implicit linearisation of the viscous frictional forces. The force per unit volume $\mathbf{v}_\alpha$, defined as ${\underline {\underline \sigma}}_{\alpha} \mathbf{u}_\alpha$, is used as a prognostic variable in this approach \citep{pavlidis_2014}.
+
+In matrix form, Eqn.~\ref{force-bal} is: %~\ref{force-semi-disc} is: 
+\begin{equation}
+  {\mathbf M} \underline {\mathbf v} = -{\mathbf C} \underline{\mathbf p} + \underline {\mathbf s}_{u}, \label{force-balance-matrix-form}
+\end{equation}
+where $\underline{\bf v}$ and $\underline{\bf p}$ solution-vectors are defined as:
+\begin{eqnarray}
+    &&\underline{{\bf v}} = \left( \left( {v_x},{v_y},{v_z} \right)_{1,1}, \left( {v_x},{v_y},{v_z} \right)  _{2,1},\ldots, \left( {v_x},{v_y},{v_z} \right)_{\mathcal{N}_\alpha,\mathcal{N}_u} \right)^{T} \;\text{and} \nonumber \\ 
+    && \underline{{\bf p}} = \left(p_1, p_2, p_3, \cdots, p_{\mathcal{N}_p}\right)^T. \nonumber% \nonumber
+\end{eqnarray}
+
+The saturations are computed in CV space, whereas the permeability tensor $\left(\mathbf{K}\right)$ is assumed piece-wise constant in FE space. Thus the viscous-friction damping tensor $ {\underline {\underline \sigma}}_{\alpha}$ is piece-wise constant within the sub-control volumes defined through intersections between the elements and control volumes.
+
+Introducing a saturation-weighted Darcy velocity defined as $\mathbf{u}_\alpha= \mathbf{q}_\alpha/S_\alpha$, then Eqn.~\ref{e:darcy_eq} may be rewritten as:
+\begin{equation}
+  \mathbf{v}_\alpha={\underline {\underline \sigma}}_{\alpha} \mathbf{u}_{\alpha} = - \nabla p_{\alpha} + {\mathbf{s}_{u}}_{\alpha},
+  \label{e:force_balance}
+\end{equation}
 
 where ${\underline {\underline \sigma}}_{\alpha}=\mu_\alpha S_\alpha \left(\mathcal{K}_{{r}_\alpha}\mathbf{K}\right)^{-1}$ represents the implicit linearisation of the viscous frictional forces. Assuming a porous media domain $\Omega\subset\mathcal{R}^{n}$ ($n$ is the number of dimensions). Darcy's law for single phase flow can be extended (from Eq.\ref{e:darcy_eqn}) for immiscible multiphase flow to Eq.\ref{E:darcy_eqn} below,
+
+The displacing and displaced fluids are considered to be incompressible and immiscible under isothermal and no source or sink conditions. In addition, we neglect the effects of capillarity and gravity in our simulations. Therefore the governing equations of conservation of mass and Darcy's law can be described below as, 
+
+\begin{equation}
+  \mathbf{q}_{\alpha} = -\frac{\mathcal{K}_{{r}_\alpha}\mathbf{K}}{\mu_{\alpha}}\left(\nabla p_{\alpha} - {\mathbf{s}_{u}}_{\alpha} \right),
+\label{e:darcy_eq}
+\end{equation}
+where $\mathbf{q}_{\alpha}$ is the $\alpha$-th phase Darcy velocity, $\mathbf{K}$ is the absolute permeability tensor of the porous medium, $\mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right)$ is the phase relative permeability, which is a function of the phase saturation $S_{\alpha}\left(\mathbf{r},t\right)$. $\mu_{\alpha}$, $p_{\alpha}$, $\rho_{\alpha}$, and $\mathbf{s}_{{u}_\alpha}$ are the phase dynamic viscosity, pressure, density and source term, which may include gravity and/or capillarity, respectively.
 
 \begin{equation}
   \mathbf{q}_{\alpha} = -\frac{\mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right)\mathbf{K}}{\mu_{\alpha}}\left( \nabla p_{\alpha} - {\mathbf{s}_{u}}_{\alpha} \right),
@@ -259,6 +274,26 @@ Finite element basis functions for velocity and pressure fields are introduced i
 \caption{2D representation of the element pairs presented in this work. Shaded areas denote control volumes (in which saturation is stored), black points represent the pressure nodes and white points the velocity nodes. Note that in (b) velocity and pressure nodes overlap in the triangles' vertices.}
 \label{fig:fem_cv}
 \end{figure}
+
+
+
+\subsection{Mathematical Formulation}\label{section:math-model}
+%\medskip
+
+\KCnote{ - - to be putted in the mathematical formulation as intro - - 
+Fingering will occur in miscible displacments when the viscocity ratio is greater than unity. As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. As a result of \textit{shielding}, one of these lobes will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching. Important parameter is the mobility (or viscosity) ratio. This is given by Eqn.~\ref{eq:mobility-of-fluid} where $K$ is absolute permeability and $k_{r}$ is relative permeability :
+
+\begin{equation}
+\lambda = \frac{K\;k_{\alpha}}{\mu}
+\label{eq:mobility-of-fluid}
+\end{equation}
+
+}
+
+ 
+
+
+
 
 \section{The Overlapping CVFEM formulation}
 
