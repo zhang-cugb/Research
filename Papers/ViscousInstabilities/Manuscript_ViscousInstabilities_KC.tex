@@ -153,7 +153,7 @@ To conclude, up-scaling or averaging the geological model can assist in running 
 \begin{keyword} %% keywords here, in the form: keyword \sep keyword
   Viscous Instabilities \sep Mobility Ratio \sep Multi-fluid flows \sep Porous media \sep Finite Element Methods. \blue{(choose key-words that do represent the contents of the paper. State-of-the-art development -re key-words should be represented as literature review in the Introduction section.)}
 \end{keyword}
-
+ 
 \end{frontmatter}
 
 %\tableofcontents
@@ -332,12 +332,12 @@ Control volume finite element methods require high resolution meshes in regions 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\KCnote{\section{Numerical Formulation}\label{section:NumericalFormulation}
+\section{Numerical Formulation}\label{section:NumericalFormulation}
 The method presented here builds on that reported by \citet{jackson_2015} is known as OCVFEM formulation. The method developed is applicable to $N_{p}$ fluid phases and to the general family of $P_{n+1}(DG)-P_{n}(DG)$ element pair consistent dual pressure-velocity representation in control volume (CV) and finite element (FE) spaces. These element-pairs have a discontinuous $n^{th}$-order polynomial representation for velocity and a continuous representation of pressure. The mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin finite element (FE) method is used to obtain the high-order fluxes on CV boundaries (fig.\ref{fig:fem_elem})  , which are limited to yield bounded fields.
 
-\begin{figure}[h]
+\begin{figure}[h] 
 \centering
-\includegraphics[width=.5\textwidth]{./Pics/P1DGP2_ele.png}
+\includegraphics[width=.5\textwidth]{./Pics/P1DGP2.PNG}
 \caption{Porosity $\phi$, and permeability K are associated to the elements. The velocity nodes are associated to the element corners and the mid-points of the element edges as described in fig.\ref{fig:fem_cv}; pressure nodes are associated to the corners of the elements. The three CVs fit into a $2$D element. Saturation and saturation-dependent variables are stored CV-wise.}
 \label{fig:fem_elem}
 \end{figure}
@@ -361,17 +361,19 @@ where $\phi$ represents the porosity, S represents the saturation and v is the s
 The Eq.\ref{saturation_constrain}, is discretized in time and space following the approach of \citet{Jackson_2013} in which the time discretization is obtained using the $\theta$-method as implemented by %\citet{gomes_2013}. 
 Summing over all phases and discretizing in time using the $\theta$-method yields the global mass balance equation, Eq.\ref{global_mass_balance},
 
-\begin{equation}
-\begin{aligned}
-\sum_{\alpha=1}^{N_{p}} {\int_{\Omega_{CVi}}} \! M_{i} \, \frac{\phi(S_{\alpha i}^{n+1})-(S_{\alpha i}^{n})}{\Delta t} dv + \\
-& \cap \oint_{\Gamma_{CVi}} [\theta^{n+1/2}\; n\dot\;v_{p}^{n+1}S_{p}^{n+1}\;+\;(1-)\theta^{n+1/2}\;v_{p}^{n}S_{p}^{n}] d\Gamma \;- \\
-& \cap \;\int_{\Omega_{CVi}} M_{i}q_{\alpha}^{n+\theta}dV\; }=0
-\end{aligned}
+\begin{eqnarray}
+ && \sum_{\alpha=1}^{N_{p}} \int\limits_{\Omega_{CVi}} \; M_{i} \, \frac{\phi\left(S_{\alpha i}^{n+1}\right)-\left(S_{\alpha i}^{n}\right)}{\Delta t} dV  + \nonumber\\
+ &&  \oint_{\Gamma_{CVi}} [\theta^{n+1/2}\; n\dot\;v_{p}^{n+1}S_{p}^{n+1}\;+\;(1-)\theta^{n+1/2}\;v_{p}^{n}S_{p}^{n}] d\Gamma \;- \nonumber\\
+ &&  \int_{\Omega_{CVi}} M_{i}q_{\alpha}^{n+\theta}dV\; =0
 \label{global_mass_balance}
-\end{equation}
+\end{eqnarray}
+
+
 
 where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i respectively, n is normal vector of the CV and $\theta$ varies smoothly between $0.5$ (corresponding to CN) and $1$ (corresponding to BE) to avoid the introduction of spurious oscillations for large grid Courant numbers. The Eq.\ref{global_mass_balance} can be expressed in amtrix form at time level $n+1$ as
-}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Brief Overview of Viscous Instabilities}\label{section:ViscousInstabilities}
 \medskip
@@ -579,12 +581,11 @@ This test-case serves as a base case for comparison between mobility (or viscoci
 
 \end{enumerate} 
 }
-}
-  
+
 \noindent Even thought this model is promising there is still work to be done since it is not yet a complete product. Further work is required to develop the surface-based modelling algorithms.
 
 
-\begin{figure}[H]
+\begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.5\textwidth]{./Pics1/mr1_fixed/permeability.png}
 \caption{2D domain that consist of five regions with 5 different absolute permeabilities as these are represented with different colors.}
@@ -593,7 +594,7 @@ This test-case serves as a base case for comparison between mobility (or viscoci
 \end{figure}
 
 
-\begin{figure}[H]
+\begin{figure}[h]
 \begin{center}
 \subfigure[MR1 fixed mesh start]{%
 \label{fig:}
@@ -626,7 +627,7 @@ This test-case serves as a base case for comparison between mobility (or viscoci
 
 Having already observed the significant growth of fingers comparing mobility ratios that differ an order of magnitude (Fig.\ref{fig:1testcase}), the next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh test case (Fig.\ref{fig:2testcase}).    
 
-\begin{figure}[H]
+\begin{figure}[h]
 \begin{center}
 \subfigure[MR10 fixed mesh start]{%
 \label{fig:first}
@@ -667,7 +668,7 @@ Having already observed the significant growth of fingers comparing mobility rat
 
 In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields as the presence of this extra inlet increases the flow at the top layers.
 
-\begin{figure}[H]
+\begin{figure}[h]
 \begin{center}
 \subfigure[MR10 fixed mesh start]{%
 \label{fig:}
@@ -708,7 +709,7 @@ In fig.\ref{fig:3testcase} there is a comparison between a single and double inj
 
 At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities.   
 
-\begin{figure}[H]
+\begin{figure}[h]
 %\begin{center}
 \centering
 \subfigure[MR100 fixed mesh t=500]{%
@@ -734,7 +735,7 @@ At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testca
 
 
 
-\begin{figure}[H]
+\begin{figure}[h] 
 \begin{center}
 \subfigure[MR1]{%
 \label{fig:}
@@ -772,6 +773,8 @@ As can been seen so far in all the test-case illustrated, main differences can b
 
 \section{Achknowledgements}
 Mr William Rad\"unz would like to acknowledge the support from the Brazilian Research Council (CNPq) under the \textit{Science without Borders scholarship programme}. Mr Konstantinos Christou would like to acknowledge the support of the University of Aberdeen - College of Physical Science as well as the Aberdeen Formation Evaluation Society (\textit{AFES}). Last but not least credit should be given to both Dr Jefferson Gomes \& Dr Marcus Campell Bannerman, both lecturers at the University of Aberdeen, at the School of Engineering.
+
+
 
 \end{document}
 %% End of tex file.
