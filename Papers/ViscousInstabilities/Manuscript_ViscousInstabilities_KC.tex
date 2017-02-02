@@ -242,6 +242,25 @@ $\underline{\underline{\sigma}}_{\alpha}=\mu_{\alpha}S_{\alpha}\left(\mathcal{K}
 \phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  \mathcal{S}_{cty,\alpha},\;\;\; x_{i}\in\Omega, t>0\label{eqn:saturation_eqn}
 \end{eqnarray}
 where $S$, $\mu$, ${\bf K}$, $p$ and $\phi$ are the saturation, viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{k}$ is the saturation-weighted Darcy velocity of the $k$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ is saturation of the $\alpha$-phase with the constraint of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases.
+The main equations that will be used along with the following OCVFEM techique can be summarised below:
+
+\begin{equation}
+M_{\sigma} {{\underline{u}}^{n+1}} = C {\underline{p}^{n+1}} + {\underline{s}_u ^{n+1}}
+\label{e:mas_bal}
+\end{equation}
+
+\begin{equation}
+B^T {{\underline{u}}^{n+1}} = {\underline{s}_p ^{n+1}}
+\label{e:force_bal}
+\end{equation}
+
+\noindent Application of a discontinuous FEM for velocity leads to a block-diagonal $M_{\sigma}$ matrix that can be readily inverted, each block being local to an element. This system of equations can be rewritten to produce the pressure equation, 
+
+\begin{equation}
+B^T M_{\sigma} ^{-1} C{{\underline{p}}^{n+1}} = {\underline{s}_p ^{n+1}} - B^T M_{\sigma} ^{-1} {{\underline{s}}^{n+1}} 
+\label{e:pressure_eq}
+\end{equation}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -408,16 +427,11 @@ U_c = \frac{(\rho_1-\rho_2) \cdot g \cdot K}{(\mu_1-\mu_2)}
 
 An accurate finite-element simulator with an adaptive and unstructured 2D grid was used in this study of viscous instabilities. An unfavourable mobility-ratio displacement coupled with the heterogeneity of the porous medium results in viscous instability (fingering),which in turn affects the displacement efficiency of im/miscible processes as well as sweep efficiency and breakthrough time. Although numerical investigations in the last few years have remarkably improved the physical understanding of viscous fingering, some questions still remain unanswered.
  
-First, how satisfactory are the effects of modelled-observed viscous fingering on displacement performance? Second, how is a viscous instability affected by parameters including mobility ratio and/or permeability variance. \textcolor{red}{ KC: something came to me right now, And third, can the viscous fingering be scaled?}  
-
-\subsection{Designing the Numerical Experiment}\label{section:NumericalExperiment}
-\textcolor{red}{WR: could add here a paragraph describing the original geometry and simulation set up (initial and boundary conditions)and maybe a table with the differences between the diff numerical experiments.}
-
 The global mass balance equation and force balance equation are solving by vanishing the velocity term and solving the system of equations for pressure. At the $n+1$ step those two equations mentioned above can be rewritten as, 
 
 \begin{equation}
 M_{\sigma} {{\underline{u}}^{n+1}} = C {\underline{p}^{n+1}} + {\underline{s}_u ^{n+1}}
-\label{mass balance eq}
+\label{mas_bal}
 \end{equation}
 
 -------------------------------------------------------------------------------------------
