@@ -466,31 +466,6 @@ U_c = \frac{(\rho_1-\rho_2) \cdot g \cdot K}{(\mu_1-\mu_2)}
 \pagebreak
 \clearpage
 
-\begin{landscape}
-\begin{figure}[ht!]
-\begin{center}
-\subfigure[MR100, at the beginning of the simulations]{%
-\label{fig:1st}
-\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_100}
-}%
-\subfigure[MR100, at the middle of the simulation]{%
-\label{fig:2nd}
-\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_phase1_vol_fraction_mesh}
-}\\
-\subfigure[MR100, Phase 1 Volume fraction]{%
-\label{fig:3rd}
-\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_phase1_vol_frac}
-}%
-\subfigure[MR100, Phase 2 Volume fraction]{%
-\label{fig:4th}
-\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_phase2_vol_fraction}
-}\\
-\caption{Comparison of different MR's and their recovery rates}
-\label{fig:5}
-\end{center}
-\end{figure}
-\end{landscape}
-
 \pagebreak
 \clearpage
 %\input{article_figure1}
@@ -553,7 +528,7 @@ The initial and boundary condition regarding the inlet and outlet are the same. 
 \label{fig:elem_type_perm_map}
 \end{figure}
 
-Fluid 1 is again injected across the left hand side of the formation. Mobility ratios of different values will be introduced and compared. As the flow is developed the initial uniform front collapses start forming fingers, areas where the flow is developed faster than the rest of the main body of the flow. The new unstructured and adaptive mesh with the $P_{n}DG-P_{n+1}$ element type is used in order to capture the flow development. In fig. \ref{fig:simple_case} the simple case of a domain with uniform permeability is displayed.
+Fluid $1$ is again injected across the left hand side of the formation. Mobility ratios of different values will be introduced and compared. As the flow is developed the initial uniform front collapses start forming fingers, areas where the flow is developed faster than the rest of the main body of the flow. The new unstructured and adaptive mesh with the $P_{n}DG-P_{n+1}$ element type is used in order to capture the flow development. In fig. \ref{fig:simple_case} the simple case of a domain with uniform permeability is displayed.
 
 \begin{figure}[h]
 \begin{center}
@@ -563,9 +538,10 @@ Fluid 1 is again injected across the left hand side of the formation. Mobility r
 \end{center}
 \end{figure}
 
-Based on the graph/plots for the second set of simulations we can get a initial approach and relation between the quantitative and qualitative outcome of our simulations. It is experimentally validated and is happening in this case that fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid 1. Starting from the middle of the formation there is an increase in the velocity of the injected fluid but then it 'crashes' on the red square shape region where it slows down from the existence of both the fluid 1 \& fluid 2 that coexists. After flowing through this area there is a balance (plateau) among the two faces on time fig.\ref{fig:subim8 middle}. Going higher in the formation, fig.\ref{fig:subim9 up} in the next zone just above the main body (blue area), there is an initial fluctuating decrease  of the velocity of the injected fluid which is driven by the different permeability value. At the top layer ref.\ref{fig:subim10 upper} of the formation there is a smooth increase of the injected fluid velocity magnitude which basically describes an overall and study development of the flow while just before the end collapses. 
+Based on these two case so far an initial relation between the quantitative and qualitative outcome of our simulations can be derived. Fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid $1$. 
 
-Comparing the three plots we can see three different velocities to be developed which means that numerically the initial uniform front collapses. This behaviour can be described on the following chapter, where the explanation of viscous instabilities is given.         
+%Starting from the middle of the formation there is an increase in the velocity of the injected fluid but then it 'crashes' on the red square shape region where it slows down from the existence of both the fluid 1 \& fluid 2 that coexists. After flowing through this area there is a balance (plateau) among the two faces on time fig.\ref{fig:subim8 middle}. Going higher in the formation, fig.\ref{fig:subim9 up} in the next zone just above the main body (blue area), there is an initial fluctuating decrease  of the velocity of the injected fluid which is driven by the different permeability value. At the top layer ref.\ref{fig:subim10 upper} of the formation there is a smooth increase of the injected fluid velocity magnitude which basically describes an overall and study development of the flow while just before the end collapses. 
+         
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. The aspect ratio of the $2D$ domain is 2 and it favors viscous fingering effects while temperature is not taken into account (assume isothermal environment) and gravity effects are negligible. Fluid $1$ is initially injected from the left hand side with velocity $u_{inj}=1$. The domain is fully saturated with fluid $2$. At the outlet (right hand side) boundary pressure levels are set to zero while no slip boundary conditions are implied at the upper and lower part of the formation. Fixed time step sizes of $1 \times 10^{-3}$ for both the fixed meshes and the CFL number for this set of simulations is 5. The $P_{1}DGP_{2}$ element type with piecewise linear description of veleocity within each element and quadratic pressure representation as part of the OCVFEM method along with the discontinuous Galerkin method are implied and composing the mesh. Saturation is located at the pressure nodes. Five different regions of 5 distinct absolute permeabilities (K) are introduced (fig.\ref{fig:5regions_domain}). The red square region is saturated with a $50\%-50\%$ mixture of both phase $1$ and $2$. 
 
@@ -770,12 +746,35 @@ At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testca
 The macroscopic sweep efficiency is principally affected by the heterogeneity in the reservoir which controls the spatial distribution of porosity and permeability. The permeability depends on the number, size and connectivity of the pores. This set of parameters is described by the $\sigma$ in the global mass balance equation (eq.\ref{global_mass_balance}). Including higher permeability zones also know as higher permeability channels or layers in the set up of the model, allows our test-cases to give a good approximation of the so called "thief zones", something that is common in heterogeneous geological formations. 
 As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. Adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface. Inside the high permeability square region there is an acceleration of the flow with the maximum value of it at the interface as this starts to develops at the back of this region and onwards. At this point attention should be given to the recovery rates as they can be illustrated from fig.{\ref{fig:recoveryrates}}. The breaking point, also known as the point the two curves meet where beyond that water production will occur, is shifted towards the right as MR is increased.
 
-
+\begin{comment}
+\begin{landscape}
+\begin{figure}[ht!]
+\begin{center}
+\subfigure[MR100, at the beginning of the simulations]{%
+\label{fig:1st}
+\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_100}
+}%
+\subfigure[MR100, at the middle of the simulation]{%
+\label{fig:2nd}
+\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_phase1_vol_fraction_mesh}
+}\\
+\subfigure[MR100, Phase 1 Volume fraction]{%
+\label{fig:3rd}
+\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_phase1_vol_frac}
+}%
+\subfigure[MR100, Phase 2 Volume fraction]{%
+\label{fig:4th}
+\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_phase2_vol_fraction}
+}\\
+\caption{Comparison of different MR's and their recovery rates}
+\label{fig:5}
+\end{center}
+\end{figure}
+\end{landscape}
+\end{comment}
 
 \section{Achknowledgements}
 Mr William Rad\"unz would like to acknowledge the support from the Brazilian Research Council (CNPq) under the \textit{Science without Borders scholarship programme}. Mr Konstantinos Christou would like to acknowledge the support of the University of Aberdeen - College of Physical Science as well as the Aberdeen Formation Evaluation Society (\textit{AFES}). Last but not least credit should be given to both Dr Jefferson Gomes \& Dr Marcus Campell Bannerman, both lecturers at the University of Aberdeen, at the School of Engineering.
-
-
 
 \end{document}
 %% End of tex file.
