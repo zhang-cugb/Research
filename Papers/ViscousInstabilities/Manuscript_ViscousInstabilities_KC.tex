@@ -437,20 +437,6 @@ U_c = \frac{(\rho_1-\rho_2) \cdot g \cdot K}{(\mu_1-\mu_2)}
 
 \listoffigures
 
-\begin{figure}[h]
-\makebox[\textwidth]{%
-\includegraphics[width=0.49\textwidth]{./Pics/2b2_P1DGP2_perm}%
-\hfill    
-\includegraphics[width=0.49\textwidth]{./Pics/2b2_P1DGP2_mesh}%
-}\\[0.5cm]% If you want some vertical space
-\makebox[\textwidth]{%
-\includegraphics[width=0.75\textwidth]{./Pics/2b2_P1DGP2_plot}%
-}%
-\caption{ Caption 1}
-\label{fig:1}
-\end{figure}
- 
- 
 %\begin{figure}[h]
 %\begin{center}
 %\includegraphics[width=0.75\linewidth, height=7cm]{2b2_P1DGP2_perm} 
@@ -477,32 +463,6 @@ U_c = \frac{(\rho_1-\rho_2) \cdot g \cdot K}{(\mu_1-\mu_2)}
 %\pagebreak
 %\clearpage
 
-\begin{figure}[h]
- 
-\begin{center}
-\centering
-\includegraphics[width=0.75\linewidth, height=5cm]{./Pics/P1DG-P2_element_type} 
-\caption{Caption 2}
-\label{fig:2}
-\end{center}
-
-\begin{center}
-\centering
-\includegraphics[width=0.8\linewidth, height=7cm]{./Pics/4r_po_adapt_fine_125_mesh} 
-\caption{Caption 3}
-\label{fig:3}
-\end{center}
-
-\begin{center}
-\centering
-\includegraphics[width=0.8\linewidth, height=7cm]{./Pics/4r_po_adapt_fine_100_mesh}
-\caption{Caption 4}
-\label{fig:4}
-\end{center}
- 
-%\caption{Caption for this figure with two images}
-\label{fig:image2}
-\end{figure}
 \pagebreak
 \clearpage
 
@@ -538,24 +498,75 @@ U_c = \frac{(\rho_1-\rho_2) \cdot g \cdot K}{(\mu_1-\mu_2)}
 
 \section{Results}\label{section:results}
 
-Starting from the simplest case of simulations as describe in fig. \ref{fig:1}, there is a simple square shape formation consisted of 2 values of different (K) permeabilities. We inject fluid 1 across the left hand side of the formation and we are trying to displace the existing fluid 2. The front start to collapse and one main finger starts to appear.
+Starting from a simple case as this is described in fig. \ref{fig:1}, there is a simple square shape formation consisted of 2 values of different (K) permeabilities. The domain is fully saturated with fluid $2$. We inject fluid $1$ across the left hand side of the formation and we are trying to displace the existing fluid $2$. The front start to collapse at the first half of the lenght D (D:distance) of the domain ($x= \frac{1}{2} D)$ and a main finger starts to appear.
 
-The behaviour as well as the prediction of the two different phase volume fractions can be qualitatively compared with bibliographic results. The two phase volume volume fractions have the same but opposite behaviour across the length of the formation. As we inject fluid 1, at the first half of the formation the velocity magnitude is increasing while pressure drops gradually. This behaviour changes at the middle of the formation where there is the transition from one permeability zone to the other and the front has already collapsed forming the finger. 
+\begin{figure}[h]
+\makebox[\textwidth]{%
+\includegraphics[width=0.39\textwidth]{./Pics/2b2_P1DGP2_perm}%
+\hfill    
+\includegraphics[width=0.39\textwidth]{./Pics/2b2_P1DGP2_mesh}%
+}\\[0.5cm]% If you want some vertical space
+\makebox[\textwidth]{%
+\includegraphics[width=0.5\textwidth]{./Pics/2b2_P1DGP2_plot}%
+}%
+\caption{A simple test-case of a square region with four subregions. The permeability contrast is constant. The mesh is unstructured but fixed. After the injection of fluid $1$ at a velocity of u = 1, the velocity magnitude drops to zero. The main finger starts to dies out during the transition from one permeability zone to another and as it approaches closer to the right boundary. The mechanism that still drives the phenomenon is the pressure difference and the tip-splitting pattern can be more profound. }
+\label{fig:square}
+\end{figure}
 
-From that point till the end of the formation, the velocity magnitute of the injected fluid remains the same having the minimum value since there is no more fluid 2 to be displaced. There is a sharp pressure drop which is also an indication that the fluid 2 cannot be pushed any further since at the same time, as can been seen from the graph plot at fig. \ref{fig:1} the phase volume fraction is constant. (\textcolor{blue}{KC: i think we can rephrase it better here.}) 
+In this test-case above the two phase volume volume fractions have the same but opposite behaviour across the length of the formation. From that point till the end of the formation, the velocity magnitute of the injected fluid remains the same having the minimum value since there is no more fluid 2 to be displaced. There is a sharp pressure drop which is also an indication that the fluid 2 cannot be pushed any further since at the same time, as can been seen from the graph plot at fig. \ref{fig:square}, the phase volume fraction is constant.  
 
-Later, we introduce two versions of a second set of simulations consisted of the same number of regions (4) but with different formations and phase ratios as can be described in fig. \ref{fig:2} to fig. \ref{fig:subim7}. 
+The initial and boundary condition regarding the inlet and outlet are the same. One more test-case (fig.\ref{fig:testcase}), to verify the finger formation in a simple but same set-up is also illustrated.
 
-The initial and boundary condition regarding the inlet and outlet are the same. The purpose is to expand this technique and introduce it into more complex formations so as to test it and develop a more stable and solid approach in real time and scale problems. 
+\begin{figure}[h]
+\begin{center}
+\subfigure[MR1 fixed mesh start aspect ratio 2]{%
+\label{fig:}
+\includegraphics[width=0.45\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_1.png}
+}%
+\subfigure[MR1 fixed mesh end aspect ratio 2]{%
+\label{fig:}
+\includegraphics[width=0.45\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_1.png}
+}\\
+\end{center}
+\caption{In this tes-case fixed and unstructured mesh is used. The aspect ratio is 2, which allows the finger to develop faster and make the tip-splitting stage more obvious. Simulation time step increases from left (a) to right (b) and from t=250(start) to t=3000(end).}
+\label{fig:testcase}
+\end{figure}
 
-The main body of the formation (blue area) is where fluid 2 exists fig. \ref{fig:3}. Above the blue area there are two layers - formations of different absolute permeabilities while in the main body there is a also a square shaped red coloured area where the two fluids exist in 50-50 phase ratio. All those ratios as well as the values of the permeabilities can be changes any time according to the data that are provided.
+ The purpose is to expand this technique and introduce it into more complex formations so as to test it and develop a more stable and solid approach in real time and scale problems. A more detailed description of the element type and the formation that will be used in the next set of test cases follows.
 
-Fluid 1 is again injected across the left hand side of the formation. In this case the value of mobility or \textit{viscosity ratio} is 10. Later on mobility ratios of different values will be introduced and compared. As the flow is developed the initial uniform front collapses start forming fingers, areas where the flow is developed faster than the rest of the main body of the flow. The new unstructured and adaptive mesh with the $P_{n}DG-P_{n+1}$ element type is used in order to capture the flow development. In fig.\ref{fig:2} and fig.\ref{fig:3}) the mesh deforms on time and on space and that allows the user to have an initial good qualitative approach regarding the development of the multiphase flow. In fig. \ref{fig:subim6} and fig. \ref{fig:subim7} the patterns of the multiphase flows for the phase 1 and phase 2 are described respectively.
+%{./Pics/P1DG-P2_element_type} 
+%{./Pics/4r_po_adapt_fine_125_mesh} 
+%{./Pics/4r_po_adapt_fine_100_mesh}
+
+\begin{figure}[h]
+\begin{center}
+\subfigure[The $P_{1}DGP_{2}$ element type]{%
+\label{fig:}
+\includegraphics[width=0.45\textwidth]{./Pics/P1DG-P2_element_type}
+}%
+\subfigure[The map of permeabilities]{%
+\label{fig:}
+\includegraphics[width=0.45\textwidth]{./Pics/4r_po_adapt_fine_125_mesh}
+}\\
+\end{center}
+\caption{(a) represents the element type of $P_{1}DGP_{2}$ as well as where each of the parameters is located and calculated on the element type. (b) describes the permeability map as this is introduced throught a python script during the set-up of simulations. In general, the main body of the formation is the blue area that is fully saturated with fluid $2$. Above the main (blue colored) area there are two layers - formations of different absolute permeabilities while in the main body there is a also a square shaped red coloured area where the two fluids exist in 50-50 phase ratio. All those ratios as well as the values of the permeabilities can be changes any time according to the data that are provided.   }
+\label{fig:elem_type_perm_map}
+\end{figure}
+
+Fluid 1 is again injected across the left hand side of the formation. Mobility ratios of different values will be introduced and compared. As the flow is developed the initial uniform front collapses start forming fingers, areas where the flow is developed faster than the rest of the main body of the flow. The new unstructured and adaptive mesh with the $P_{n}DG-P_{n+1}$ element type is used in order to capture the flow development. In fig. \ref{fig:simple_case} the simple case of a domain with uniform permeability is displayed.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.6\textwidth]{./Pics1/phase_vol_frac_unif_perm.pdf}
+\caption{This is the simple case where the initially piston shape front is collapsing and starts forming fingers, in a domain with uniform permeability.}
+\label{fig:simple_case}
+\end{center}
+\end{figure}
 
 Based on the graph/plots for the second set of simulations we can get a initial approach and relation between the quantitative and qualitative outcome of our simulations. It is experimentally validated and is happening in this case that fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid 1. Starting from the middle of the formation there is an increase in the velocity of the injected fluid but then it 'crashes' on the red square shape region where it slows down from the existence of both the fluid 1 \& fluid 2 that coexists. After flowing through this area there is a balance (plateau) among the two faces on time fig.\ref{fig:subim8 middle}. Going higher in the formation, fig.\ref{fig:subim9 up} in the next zone just above the main body (blue area), there is an initial fluctuating decrease  of the velocity of the injected fluid which is driven by the different permeability value. At the top layer ref.\ref{fig:subim10 upper} of the formation there is a smooth increase of the injected fluid velocity magnitude which basically describes an overall and study development of the flow while just before the end collapses. 
 
 Comparing the three plots we can see three different velocities to be developed which means that numerically the initial uniform front collapses. This behaviour can be described on the following chapter, where the explanation of viscous instabilities is given.         
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. The aspect ratio of the $2D$ domain is 2 and it favors viscous fingering effects while temperature is not taken into account (assume isothermal environment) and gravity effects are negligible. Fluid $1$ is initially injected from the left hand side with velocity $u_{inj}=1$. The domain is fully saturated with fluid $2$. At the outlet (right hand side) boundary pressure levels are set to zero while no slip boundary conditions are implied at the upper and lower part of the formation. Fixed time step sizes of $1 \times 10^{-3}$ for both the fixed meshes and the CFL number for this set of simulations is 5. The $P_{1}DGP_{2}$ element type with piecewise linear description of veleocity within each element and quadratic pressure representation as part of the OCVFEM method along with the discontinuous Galerkin method are implied and composing the mesh. Saturation is located at the pressure nodes. Five different regions of 5 distinct absolute permeabilities (K) are introduced (fig.\ref{fig:5regions_domain}). The red square region is saturated with a $50\%-50\%$ mixture of both phase $1$ and $2$. 
 
 Two general behaviors for the interface may occur: (i) If a more viscous fluid displaces a less viscous one or a less viscous displaces a more viscous with a low average velocity, the interface is flat; (ii) if a less viscous fluid displaces a more viscous one with intermediate values of the average velocity, single or mutliple fingers will be observed.
@@ -583,16 +594,6 @@ This test-case serves as a base case for comparison between mobility (or viscoci
 }
 
 \noindent Even thought this model is promising there is still work to be done since it is not yet a complete product. Further work is required to develop the surface-based modelling algorithms.
-
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{./Pics1/mr1_fixed/permeability.png}
-\caption{2D domain that consist of five regions with 5 different absolute permeabilities as these are represented with different colors.}
-\label{fig:5regions_domain}
-\end{center}
-\end{figure}
-
 
 \begin{figure}[h]
 \begin{center}
