@@ -198,7 +198,7 @@ Substituting the saturation-weighted Darcy velocity by $\mathbf{u}_\alpha= \math
 \end{equation}
 where ${\underline {\underline \sigma}}_{\alpha}=\mu_\alpha S_\alpha \left(\mathcal{K}_{{r}_\alpha}\mathbf{K}\right)^{-1}$ represents the implicit linearisation of the viscous frictional forces. The force per unit volume $\mathbf{v}_\alpha$, defined as ${\underline {\underline \sigma}}_{\alpha} \mathbf{u}_\alpha$, is used as a prognostic variable in this approach \citep{pavlidis_2014}.
 
-In matrix form, Eq.~\ref{e:force_bal} is: %~\ref{force-semi-disc} is: 
+\noindent In matrix form, Eq.~\ref{e:force_bal} is: %~\ref{force-semi-disc} is: 
 \begin{equation}
   {\mathbf M} \underline {\mathbf v} = -{\mathbf C} \underline{\mathbf p} + \underline {\mathbf s}_{u}, \label{force-balance-matrix-form}
 \end{equation}
@@ -206,9 +206,10 @@ where $\underline{\bf v}$ and $\underline{\bf p}$ solution-vectors (also known a
 \begin{eqnarray}
     &&\underline{{\bf v}} = \left( \left( {v_x},{v_y},{v_z} \right)_{1,1}, \left( {v_x},{v_y},{v_z} \right)  _{2,1},\ldots, \left( {v_x},{v_y},{v_z} \right)_{\mathcal{N}_\alpha,\mathcal{N}_u} \right)^{T} \;\text{and} \nonumber \\ 
     && \underline{{\bf p}} = \left(p_1, p_2, p_3, \cdots, p_{\mathcal{N}_p}\right)^T. \nonumber% \nonumber
+\label{v_and_p}
 \end{eqnarray}
 
-The saturations are computed in CV space, whereas the permeability tensor $\left(\mathbf{K}\right)$ is assumed piece-wise constant in FE space. Thus the viscous-friction damping tensor $ {\underline {\underline \sigma}}_{\alpha}$ is piece-wise constant within the sub-control volumes defined through intersections between the elements and control volumes.
+\noindent The saturations are computed in CV space, whereas the permeability tensor $\left(\mathbf{K}\right)$ is assumed piece-wise constant in FE space. Thus the viscous-friction damping tensor $ {\underline {\underline \sigma}}_{\alpha}$ is piece-wise constant within the sub-control volumes defined through intersections between the elements and control volumes.
 %Introducing a saturation-weighted Darcy velocity defined as $\mathbf{u}_\alpha= \mathbf{q}_\alpha/S_\alpha$, then Eqn.~\ref{e:darcy_eq} may be rewritten as:
 %\begin{equation}
 %  \mathbf{v}_\alpha={\underline {\underline \sigma}}_{\alpha} \mathbf{u}_{\alpha} = - \nabla p_{\alpha} + {\mathbf{s}_{u}}_{\alpha},
@@ -287,8 +288,9 @@ representing idealised geological formations~\citep{mlacnik_2004, king_1999}. Ad
 
 Among FEM-based formulations for porous media, the control volume finite element methods (CVFEM) ~\citep[CVFEM,][]{fung_1992,cordazzo_2004} has been largely used as it can guarantee local mass conservation and high-order numerical accuracy as well as being able to use tetrahedral geometry-conforming elements~\citep{forsyth_1990, geiger_2004, hurtado_2007}. In this formulation, standard Galerkin-FEM method is used to discretise the pressure equation (FEM representation of pressure and velocity fields) whereas a control volume-based formulation is used to discretise all remaining scalar fields~\citep[e.g., saturation, density, species concentration etc, see][]{gomes_book_2012}. 
 
-In the CVFE method pressure is interpollated using piecewise linear finite element basis functions (Eq.\ref{cvfe_pressure}) while saturation is represented in node centered CV basis (Eq.\ref{cvfe_saturation}) control volume basis functions respectevely:
+In the CVFE method pressure is interpollated using piecewise linear finite element basis functions (see Eq.\ref{v_and_p}, also known as shape functions, $\underline{\bf v}$ and $\underline{\bf p}$) while saturation is represented in node centered CV basis functions respectevely, and the saturation equation is solved explicitly after solving for pressure at each time.
 
+\begin{comment}
 \begin{equation}
  p^{n} = \sum_{j} \hat{p_{j}} N_{\alpha} 
 \label{cvfe_pressure}
@@ -298,8 +300,10 @@ In the CVFE method pressure is interpollated using piecewise linear finite eleme
  S^{n} = \sum_{j} \hat{p_{j}} M_{b} 
 \label{cvfe_saturation}
 \end{equation}
+\end{comment}
 
-where $N_{\alpha}$ is first order finite element basis function and $M_{b}$ is the control volume basis function that is equal to unity over the control volume constructed around node j and is equal to zero everywhere else. The saturation equation is solved explicitly after solving for pressure at each time.
+%where $N_{\alpha}$ is first order finite element basis function and $M_{b}$ is the control volume basis function that is equal to unity over the control volume constructed around node j and is equal to zero everywhere else. 
+
 
 Control volume finite element methods require high resolution meshes in regions where material properties vary abruptly, such as permeability and/or porosity contrasts at fracture-matrix interfaces. Since geometries are captured by finite elements (FE), constructed control volumes (CV) typically extend over the interfaces which may have different properties. Therefore, some average value of the permeability (defined in the FE space but projected into the CV space) is applied across the CVs at these interface. This often leads to excessive numerical dispersion especially in highly heterogeneous media. In order to overcome such artificial numerical dispersion, discontinuous hybrid finite element finite volume method (DFEFVM) was developed by \citet{nick_2011b, nick_2011a}. This novel discretisation scheme was designed to simulate flows through discrete fractured rocks in which CVs are divided along the interfaces of different materials.  
 
