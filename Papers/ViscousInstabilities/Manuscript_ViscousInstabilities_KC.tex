@@ -202,7 +202,7 @@ In matrix form, Eq.~\ref{e:force_bal} is: %~\ref{force-semi-disc} is:
 \begin{equation}
   {\mathbf M} \underline {\mathbf v} = -{\mathbf C} \underline{\mathbf p} + \underline {\mathbf s}_{u}, \label{force-balance-matrix-form}
 \end{equation}
-where $\underline{\bf v}$ and $\underline{\bf p}$ solution-vectors are defined as:
+where $\underline{\bf v}$ and $\underline{\bf p}$ solution-vectors (also known as shape functions) are defined as:
 \begin{eqnarray}
     &&\underline{{\bf v}} = \left( \left( {v_x},{v_y},{v_z} \right)_{1,1}, \left( {v_x},{v_y},{v_z} \right)  _{2,1},\ldots, \left( {v_x},{v_y},{v_z} \right)_{\mathcal{N}_\alpha,\mathcal{N}_u} \right)^{T} \;\text{and} \nonumber \\ 
     && \underline{{\bf p}} = \left(p_1, p_2, p_3, \cdots, p_{\mathcal{N}_p}\right)^T. \nonumber% \nonumber
@@ -337,8 +337,8 @@ The method presented here builds on that reported by \citet{jackson_2015} is kno
 
 \begin{figure}[h] 
 \centering
-\includegraphics[width=.5\textwidth]{./Pics/P1DGP2.PNG}
-\caption{Porosity $\phi$, and permeability K are associated to the elements. The velocity nodes are associated to the element corners and the mid-points of the element edges as described in fig.\ref{fig:fem_cv}; pressure nodes are associated to the corners of the elements. The three CVs fit into a $2$D element. Saturation and saturation-dependent variables are stored CV-wise.}
+\includegraphics[width=.5\textwidth]{./Pics/element_n.png}
+\caption{Porosity $\phi_{i}$, and permeability $K_{i}$ are associated to the elements. The velocity and pressure are associated to the element corners and the mid-points as described in fig.\ref{fig:fem_cv}; three CVs fit into a $2$D element. Saturation and saturation-dependent variables are stored CV-wise.}
 \label{fig:fem_elem}
 \end{figure}
 
