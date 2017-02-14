@@ -670,29 +670,54 @@ In fig.\ref{fig:3testcase} there is a comparison between a single and double inj
 
 
 
-\begin{figure}[h]
-%\begin{center}
+\begin{figure}
+\centering 
+%\begin{minipage}{1.0\textwidth}%
+%\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_fixed/5regions_vel_magn.png}\\[2mm]%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_vel_magn.png}\\[2mm]%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_vel_magn.png}%
+%\end{minipage}%
+\caption{For the same time step, t=1000, these plots describe the velocity magnitudes of the phase $1$ (injected fluid) under the same boundary and initiall conditions. From top to bottom,these graphs describe the velocity magnitude %for fixed mesh is plotted(top), the velocity magnitude 
+for adaptive mesh-single inlet (top) and the velocity magnitude for adaptive mesh with double inlet (bottom) as these are also presented in fig.\ref{fig:3testcase}. The main difference between the upper and lower plot %is not just the ability to capture in greater detail, the fluid instabilities as they happen during the finger development and their velocity patterns. While there 
+is the impact of the second injection interval as this can be seen from the slope and the rate that the velocity magnitude is changing.}
+\label{fig:vel_magn}
+\end{figure}
+
+
+
+\begin{figure}
 \centering
-\subfigure[MR100 fixed mesh t=500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.png}
-}%
-\subfigure[MR100 fixed mesh t=1500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.png}
-}%
-\subfigure[MR100 fixed mesh t=3000]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.png}
-}\\ 
-\subfigure[MR100 fixed mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.png}
-}\\
-%\end{center}
-\caption{snapshots when the MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d) }
+\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.png}\\[2mm]%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.png}\\[2mm]%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.png}\\[2mm]%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.png}%
+\caption{from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d) }
 \label{fig:4testcase}
 \end{figure}
+
+%\begin{figure}[h]
+%\begin{center}
+%\centering
+%\subfigure[MR100 fixed mesh t=500]{%
+%\label{fig:}
+%\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.png}
+%}%
+%\subfigure[MR100 fixed mesh t=1500]{%
+%\label{fig:}
+%\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.png}
+%}%
+%\subfigure[MR100 fixed mesh t=3000]{%
+%\label{fig:}
+%\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.png}
+%}\\ 
+%\subfigure[MR100 fixed mesh end]{%
+%\label{fig:}
+%\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.png}
+%}\\
+%\end{center}
+%\caption{snapshots when the MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d) }
+%\label{fig:4testcase}
+%\end{figure}
 
 
 
@@ -772,25 +797,6 @@ In conclusion the method that has been described in this paper as well as the si
 \end{figure}
 \end{landscape}
 \end{comment}
-
-
-
-\begin{figure}
-\centering 
-%\begin{minipage}{1.0\textwidth}%
-%\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_fixed/5regions_vel_magn.png}\\[2mm]%
-\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_vel_magn.png}\\[2mm]%
-\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_vel_magn.png}%
-%\end{minipage}%
-\caption{For the same time step, t=1000, these plots describe the velocity magnitudes of the phase $1$ (injected fluid) under the same boundary and initiall conditions. Reading from top to bottom,these graphs describe the velocity magnitude %for fixed mesh is plotted(top), the velocity magnitude 
-for adaptive mesh-single inlet (top) and the velocity magnitude for adaptive mesh with double inlet (bottom). The main difference between the upper and lower plot %is not just the ability to capture in greater detail, the fluid instabilities as they happen during the finger development and their velocity patterns. While there 
-is the impact of the second injection interval as this can be seen from the slope and the rate that the velocity magnitude is changing.}
-\label{fig:vel_magn}
-\end{figure}
-
-
-
-
 
 
 
