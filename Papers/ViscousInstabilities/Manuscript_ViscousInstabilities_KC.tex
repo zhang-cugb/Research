@@ -621,7 +621,20 @@ Having already observed the significant growth of fingers comparing mobility rat
 \label{fig:2testcase}
 \end{figure}
 
-In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see fig.\ref{fig:vel_magn}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of ﬁngers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No ﬁngers could be observed due to mesh coarseness (ﬁngers were ob-served in ﬁner uniform and adaptive meshes). 
+
+
+\begin{figure}
+\centering 
+%\begin{minipage}{1.0\textwidth}%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr10_4regions_python_only_adapt/4regions_python_only_coarse_vel_magn.png}\\[2mm]%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr10_4regions_python_only_adapt/4regions_python_only_adapt_vel_magn.png}\\[2mm]%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr10_4regions_python_only_adapt/4regions_python_only_adapt_refine_vel_mag.png}%
+%\end{minipage}%
+\caption{For the same time step, t=1000, these plots describe the velocity magnitudes of the phase $1$ (injected fluid) under the same boundary and initiall conditions. From top to bottom,these graphs describe the velocity magnitude for single inlet with adaptive mesh coarse (top), adaptive and fine (middle) and adaptive and refined as these simulations are shown in fig.\ref{fig:2testcase}. The main difference between the top, middle and bottom graph lies in the first part and how the vleocity magnitude is builded up as a relation of phase $1$ volume fraction and lower.}
+\label{fig:vel_magn1}
+\end{figure}
+
+In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see fig.\ref{fig:vel_magn2}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of ﬁngers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No ﬁngers could be observed due to mesh coarseness (ﬁngers were ob-served in ﬁner uniform and adaptive meshes). 
 
 \begin{figure}[h]
 \begin{center}
@@ -674,7 +687,7 @@ In fig.\ref{fig:3testcase} there is a comparison between a single and double inj
 \caption{For the same time step, t=1000, these plots describe the velocity magnitudes of the phase $1$ (injected fluid) under the same boundary and initiall conditions. From top to bottom,these graphs describe the velocity magnitude %for fixed mesh is plotted(top), the velocity magnitude 
 for adaptive mesh-single inlet (top) and the velocity magnitude for adaptive mesh with double inlet (bottom) as these are also presented in fig.\ref{fig:3testcase}. The main difference between the upper and lower plot %is not just the ability to capture in greater detail, the fluid instabilities as they happen during the finger development and their velocity patterns. While there 
 is the impact of the second injection interval as this can be seen from the slope and the rate that the velocity magnitude is changing.}
-\label{fig:vel_magn}
+\label{fig:vel_magn2}
 \end{figure}
 
 
