@@ -286,7 +286,7 @@ Finite element basis functions for velocity and pressure fields are introduced i
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=.5\textwidth]{./Pics/P1DGP2.PNG}
+\includegraphics[width=.5\textwidth]{./Pics/P1DGP2.pdf}
 \caption{2D representation of the element pairs presented in this work. Shaded areas denote control volumes (in which saturation is stored), black points represent the pressure nodes and white points the velocity nodes. Note that in (b) velocity and pressure nodes overlap in the triangles' vertices.}
 \label{fig:fem_cv}
 \end{figure}
@@ -312,7 +312,6 @@ In the CVFE method pressure is interpollated using piecewise linear finite eleme
 \end{comment}
 
 %where $N_{\alpha}$ is first order finite element basis function and $M_{b}$ is the control volume basis function that is equal to unity over the control volume constructed around node j and is equal to zero everywhere else. 
-
 
 Control volume finite element methods require high resolution meshes in regions where material properties vary abruptly, such as permeability and/or porosity contrasts at fracture-matrix interfaces. Since geometries are captured by finite elements (FE), constructed control volumes (CV) typically extend over the interfaces which may have different properties. Therefore, some average value of the permeability (defined in the FE space but projected into the CV space) is applied across the CVs at these interface. This often leads to excessive numerical dispersion especially in highly heterogeneous media. In order to overcome such artificial numerical dispersion, discontinuous hybrid finite element finite volume method (DFEFVM) was developed by \citet{nick_2011b, nick_2011a}. This novel discretisation scheme was designed to simulate flows through discrete fractured rocks in which CVs are divided along the interfaces of different materials.  
 
@@ -350,7 +349,7 @@ The method presented here builds on that reported by \citet{jackson_2015, salina
 
 \begin{figure}[h] 
 \centering
-\includegraphics[width=.5\textwidth]{./Pics/element_n.png}
+\includegraphics[width=.5\textwidth]{./Pics/element_n.pdf}
 \caption{Porosity $\phi_{i}$, and permeability $K_{i}$ are associated to the elements. The velocity and pressure are associated to the element corners and the mid-points as described in fig.\ref{fig:fem_cv}; three CVs fit into a $2$D element. Saturation and saturation-dependent variables are stored CV-wise.}
 \label{fig:fem_elem}
 \end{figure}
@@ -381,11 +380,7 @@ Summing over all phases and discretizing in time using the $\theta$-method yield
 \label{global_mass_balance}
 \end{eqnarray}
 
-
-
 where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i respectively, n is normal vector of the CV and $\theta$ varies smoothly between $0.5$ (corresponding to CN) and $1$ (corresponding to BE) to avoid the introduction of spurious oscillations for large grid Courant numbers. The Eq.\ref{global_mass_balance} can be expressed in amtrix form at time level $n+1$ as
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Brief Overview of Viscous Instabilities}\label{section:ViscousInstabilities}
@@ -484,12 +479,12 @@ Starting from a simple case as this is described in fig. \ref{fig:square}, there
 
 \begin{figure}[h]
 \makebox[\textwidth]{%
-\includegraphics[width=0.39\textwidth]{./Pics/2b2_P1DGP2_perm}%
+\includegraphics[width=0.39\textwidth]{./Pics/2b2_P1DGP2_perm.pdf}%
 \hfill    
-\includegraphics[width=0.39\textwidth]{./Pics/2b2_P1DGP2_mesh}%
+\includegraphics[width=0.39\textwidth]{./Pics/2b2_P1DGP2_mesh.pdf}%
 }\\[0.5cm]% If you want some vertical space
 \makebox[\textwidth]{%
-\includegraphics[width=0.5\textwidth]{./Pics/2b2_P1DGP2_plot}%
+\includegraphics[width=0.5\textwidth]{./Pics/2b2_P1DGP2_plot.pdf}%
 }%
 \caption{A simple test-case of a square region with four subregions. The permeability contrast is constant. The mesh is unstructured but fixed. After the injection of fluid $1$ at a velocity of u = 1, the velocity magnitude drops to zero. The main finger starts to dies out during the transition from one permeability zone to another and as it approaches closer to the right boundary. The mechanism that still drives the phenomenon is the pressure difference and the tip-splitting pattern can be more profound. }
 \label{fig:square}
