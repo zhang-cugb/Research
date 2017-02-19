@@ -367,17 +367,25 @@ As in many areas of fluid mechanics, the behaviour of the flow for conditions th
 This viscous driven hydrodynamic instability results the collapse of the uniform interface between the fluids of different viscosity. This type of instability can be found across many research areas, disciplines and scales, from small chemical and medical separation systems to large scale field geological and /or reservoir systems. Starting from the work of \citet{saffman_1959} and \citet{homsy_1987}, and the experimental setup of Hele-Shaw cell by \citet{saffman_1986}, a basic mathematical model has been initially developed to describe the physics of this phenomenon. 
 
 \medskip
-In viscous fingering, a less viscous fluid (i.e. water) pushes a more viscous fluid (i.e. oil), in a thin rectangular cells (known as Hele-Shaw cells). Under the assumption that fluids remaining completely separated (or immiscible) along an interface, surface tension plays an important role in determining the shape and progress of the fingers. For homogeneous domains fingers will start to develop when surface tension acting on the interface, is opposing towards the change of shape of the interface thus the interface becomes unstable and will collapse, taking a curved shape. In heterogeneous environments this process may also be triggered by permeability differences between smaller regions. The higher the velocity of the injected fluid, the less wide (a tip-splitting behaviour) the finger will be. In addition, pressure differences acting on the interface will produce a net pressure force $\frac{dP}{dx}$ which is a function of the viscosities of the fluids, permeability value and whether gravitational effects are included or not.  
+In viscous fingering, a less viscous fluid (i.e. water) pushes a more viscous fluid (i.e. oil), in a thin rectangular cells (known as Hele-Shaw cells). Under the assumption that fluids remaining completely separated (or immiscible) along an interface, surface tension plays an important role in determining the shape and progress of the fingers. For homogeneous domains fingers will start to develop when surface tension acting on the interface, is opposing towards the change of shape of the interface thus the interface becomes unstable and will collapse, taking a curved shape. In heterogeneous environments this process may also be triggered by permeability differences between smaller regions. The higher the velocity of the injected fluid, the less wide (a tip-splitting behaviour) the finger will be. In addition, pressure differences (eq.\ref{eq:pressure_dif}) acting on the interface will produce a net pressure force.  
 
-As mentioned in section \ref{section:intro}, an unfavourable mobility-ratio (i.e. in a water-oil system, see eq.\ref{eq:MR}, displacement coupled with the heterogeneity of the porous medium results in viscous instability, which in turn affects the displacement efficiency of im/miscible processes. 
+\begin{equation}
+\Delta P= - \gamma \nabla \; \dot \; \hat{n} 
+\label{eq:pressure_dif} 
+\end{equation}
+
+\noindent This is also know as the Young-Laplace equation, a relation describing the capillary pressure difference across the interface between two fluids. With $\Delta P$ denoting the pressure difference,$\hat{n}$ the unit normal vector out of the surface, and $\gamma$ the surface tension. As mentioned in section \ref{section:intro}, an unfavourable mobility-ratio (i.e. in a water-oil system, see eq.\ref{eq:MR}, displacement coupled with the heterogeneity of the porous medium results in viscous instability, which in turn affects the displacement efficiency of im/miscible processes. 
 
 \begin{equation}
  MR \; = \frac{k_{rw} \; \mu_{w}}{k_{ro} \; \mu_{o}} 
 \label{eq:MR}
 \end{equation}
 
-Fingering will occur in miscible displacements when the viscocity ratio is greater than unity. %As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. 
-\noindent As a result of \textit{shielding}, one of these fingers will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
+\noindent Fingering will occur in miscible displacements when the viscocity ratio is greater than unity. %As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. 
+As a result of \textit{shielding}, one of these fingers will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
+
+In  this paper, viscous instabilities for different test-cases will be investigated. Adaptive and unstructured mesh will be used to capture the collapse of the interface and the development of the fingers in relation to different values of mobility ratios and different maps of permeabilities. Initially cases that verify 
+
 %%%%%%%%%%%%%%%
 \begin{comment}
 Important parameter is the mobility (or viscosity) ratio. This is given by Eq.~\ref{eq:mobility-of-fluid} where $K$ is absolute permeability and $k_{r}$ is relative permeability :
@@ -396,7 +404,8 @@ Important parameter is the mobility (or viscosity) ratio. This is given by Eq.~\
 and the above equation can be re-arranged for 1D steady flow as,
 
 \begin{equation}
- \frac{dp}{dx}= - \frac{\mu U}{K} + \rho g 
+\frac{dp}{dx}= - \frac{\mu U}{K} + \rho g
+\label{eq:pressure_dif} 
 \end{equation}
 
 where, \textit{U}, is the velocity of the more viscous fluid, \textit{b}, is the cell gap (referring to Hele-Shaw cell) and \textit{$\nabla p$} is the pressure gradient. Now consider a sharp interface or zone where density, viscosity, and solute concentration all change rapidly. Then the pressure force $(\rho_2-\rho_1)$ on the displaced fluid as a result of a virtual displacement $\delta_x$ of the interface from its simple convected location is 
