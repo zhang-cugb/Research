@@ -264,6 +264,7 @@ The saturations are computed in CV space, whereas the permeability tensor $\left
 
 \noindent The ${\underline {\underline \sigma}}_{\alpha}=\mu_\alpha S_\alpha \left(\mathcal{K}_{{r}_\alpha}\mathbf{K}\right)^{-1}$ represents the implicit linearisation of the viscous frictional forces. Assuming a porous media domain $\Omega\subset\mathcal{R}^{n}$ ($n$ is the number of dimensions). 
 \end{comment}
+
 %%%%%%%%%%%%%%%
 \begin{comment}
 The displacing and displaced fluids are considered to be incompressible and immiscible under isothermal and no source or sink conditions. In addition, we neglect the effects of capillarity and gravity in our simulations. Therefore the governing equations of conservation of mass and Darcy's law can be described below as, 
@@ -288,6 +289,7 @@ where $\mathbf{q}_{\alpha}$ is the $k\left(\in\left\{1,N_{p}\right\}\right)$-pha
 \end{equation}
 $\underline{\underline{\sigma}}_{\alpha}=\mu_{\alpha}S_{\alpha}\left(\mathcal{K}_{r\alpha}\mathbf{K}\right)^{-1}$ represents the implicit linearisation of the viscous frictional forces, and is piecewise constant within each FE and is obtained via basis functions local to each CV within each element \citep{Jackson13,Radunz14}.
 \end{comment}
+%%%%%%%%%%%%%%%
 
 The two-phase flow through the porous media $\Omega$ may be described by the coupled extended Darcy and global mass conservation equations,
 \begin{eqnarray}
@@ -336,22 +338,25 @@ Finite element basis functions for velocity and pressure fields are introduced i
 
 Saturation, and all saturation-dependent material properties such as relative permeability and capillary pressure, are represented CV-wise. The pressure, a key difference to other CVFE methods reported previously, allows the use of CVs that do not span multiple FEs. Hence each CV (and FE) is associated with a unique set of petrophysical properties, in contrast to most previous methods in which CVs span multiple values of petrophysical properties described FE-wise.
 
-As we have to be consistent with \citet{jackson_2015} we assume that rick and fluids are incopressible thus the mass ballance for phase $\alpha$ can be written as (Eq.\ref{mass_balance})
+In this model we assume that rock and fluids are incopressible thus the mass ballance for phase $\alpha$ can be written as (Eq.\ref{mass_balance})
 
 \begin{equation}
-\phi \; \frac{\partial S_{\alpha}}{\partial t} + \nabla (v_{\alpha}S_{\alpha})= q_{\alpha}
+\phi \; \frac{\partial S_{\alpha}}{\partial t} + \nabla (u_{\alpha}S_{\alpha})= \mathcal{S}_{cty,\alpha}
 \label{mass_balance}
 \end{equation}
  
-where $\phi$ represents the porosity, S represents the saturation and v is the saturation weighted Darcy velocity (such that $v_{\alpha}S_{\alpha}$ is the traditional Darcy velocity of phase p), and q is a volume source term, subject to the contrains on the saturation
+%\noindent where $\phi$ represents the porosity, S represents the saturation and v is the saturation weighted Darcy velocity (such that $v_{\alpha}S_{\alpha}$ is the traditional Darcy velocity of phase p), and q is a volume source term, subject to the contrains on the saturation
 
-\begin{equation}
-\sum  S_{p}-1
-\label{saturation_constrain}
-\end{equation}
+%\begin{equation}
+%\sum  S_{p}-1
+%\label{saturation_constrain}
+%\end{equation}
 
-The Eq.\ref{saturation_constrain}, is discretized in time and space following the approach of \citet{Jackson_2013} in which the time discretization is obtained using the $\theta$-method as implemented by %\citet{gomes_2013}. 
-Summing over all phases and discretizing in time using the $\theta$-method yields the global mass balance equation, Eq.\ref{global_mass_balance},
+Equation \ref{mass_balance}, is discretize in time and space following the $\theta$-method. Summing over all phases and discretizing in time using the $\theta$-method yields the global mass balance equation %\ref{global_mass_balance},
+
+\medskip
+The discretised global mass and force balance equations are solved using a multigrid-like approach ,see \citet{pavlidis2016}.
+
 
 \begin{eqnarray}
  && \sum_{\alpha=1}^{N_{p}} \int\limits_{\Omega_{CVi}} \; M_{i} \, \frac{\phi\left(S_{\alpha i}^{n+1}\right)-\left(S_{\alpha i}^{n}\right)}{\Delta t} dV  + \nonumber\\
