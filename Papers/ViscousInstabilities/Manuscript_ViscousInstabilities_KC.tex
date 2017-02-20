@@ -554,9 +554,6 @@ The set of test-cases that we are going to illustrate starts with an elementary 
 \KCnote{\blue{need to put screenshots from pseudo hele-shaw case - log on to Jeff's station and then include the following cases}}
 
 
-
-
-
 Having already verified that model is working for the test-cases illustrated in previous section, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used.
 
 \begin{figure}[h]
@@ -587,47 +584,42 @@ This test-case serves as a base case for comparison between mobility (or viscoci
 
 Having already observed the significant growth of fingers comparing mobility ratios that differ an order of magnitude (Fig.\ref{fig:1testcase}), the next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh test case (Fig.\ref{fig:2testcase}).    
 
-
-
 \begin{figure}[h]
-\begin{center}
+\makebox[\textwidth]{%
 \subfigure[MR10 fixed mesh start]{%
-\label{fig:first}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_250.pdf}
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_250.pdf}%
 }%
+\hfill    
 \subfigure[MR10 adapt mesh start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_250.pdf}
-}\\
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_250.pdf}%
+}}\\[0.5cm]% If you want some vertical space
+\makebox[\textwidth]{%
 \subfigure[MR10 fixed mesh]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_500.pdf}
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_500.pdf}%
 }%
+\hfill    
 \subfigure[MR10 adapt mesh]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_500.pdf}
-}\\
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_500.pdf}%
+}}\\[0.5cm]% If you want some vertical space
+\makebox[\textwidth]{%
 \subfigure[MR10 fixed mesh]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_1500.pdf}
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_1500.pdf}%
 }%
+\hfill    
 \subfigure[MR10 adapt mesh]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_1500.pdf}
-}\\ 
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_1500.pdf}%
+}}\\[0.5cm]% If you want some vertical space
+\makebox[\textwidth]{%
 \subfigure[MR10 fixed mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_2000.pdf}
-}\\
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_2000.pdf}%
+}%
+\hfill    
 \subfigure[MR10 adapt mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_3000.pdf}
-}\\
-\end{center}
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_3000.pdf}%
+}}%
 \caption{Comparing test-cases of fixed and adaptive mesh, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, t=250(a,b), t=500(c,d), t=1500(e,f), t=3000(g,h). When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time. }
 \label{fig:2testcase}
 \end{figure}
-
 
 
 \begin{figure}
@@ -644,43 +636,41 @@ Having already observed the significant growth of fingers comparing mobility rat
 In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see fig.\ref{fig:vel_magn2}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of ﬁngers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No ﬁngers could be observed due to mesh coarseness (ﬁngers were ob-served in ﬁner uniform and adaptive meshes). 
 
 
-
 \begin{figure}[h]
-\begin{center}
-\subfigure[MR10 fixed mesh start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_100.pdf}
+\makebox[\textwidth]{%
+\subfigure[[MR10 fixed mesh start]{%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_100.pdf}%
 }%
-\subfigure[MR10 fixed adapt start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_start.pdf}
-}\\
+\hfill    
+\subfigure[MR10 adapt mesh start]{%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_start.pdf}%
+}}\\[0.5cm]% If you want some vertical space
+\makebox[\textwidth]{%
 \subfigure[MR10 fixed mesh t=1500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_500.pdf}
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_500.pdf}%
 }%
-\subfigure[MR10 fixed adapt t=1500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_500.pdf}
-}\\
+\hfill    
+\subfigure[MR10 adapt mesh t=1500]{%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_500.pdf}%
+}}\\[0.5cm]% If you want some vertical space
+\makebox[\textwidth]{%
 \subfigure[MR10 fixed mesh t=7500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_2000.pdf}
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_2000.pdf}%
 }%
-\subfigure[MR10 fixed adapt t=7500]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_2000.pdf}
-}\\ 
+\hfill    
+\subfigure[MR10 adapt mesh t=7500]{%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_2000.pdf}%
+}}\\[0.5cm]% If you want some vertical space
+\makebox[\textwidth]{%
 \subfigure[MR10 fixed mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_end.pdf}
-}\\
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_end.pdf}%
+}%
+\hfill    
 \subfigure[MR10 fixed adapt end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_end.pdf}
-}\\
-\end{center}
-\caption{Comparing the MR=$10$, between single and double injection of fluid $1$ under the adaptive and unstructured mesh for the same time steps, t=100(a,b), t=1500(c,d), t=7500(e,f), t=10000(g,h) }
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_end.pdf}%
+}}%
+\caption{Comparing test-cases of fixed and adaptive mesh while we have a dual inlet, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, t=250(a,b), t=500(c,d), t=1500(e,f), t=3000(g,h). When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time.}
+%\caption{Comparing the MR=$10$, between single and double injection of fluid $1$ under the adaptive and unstructured mesh for the same time steps, t=100(a,b), t=1500(c,d), t=7500(e,f), t=10000(g,h) }
 \label{fig:3testcase}
 \end{figure}
 
