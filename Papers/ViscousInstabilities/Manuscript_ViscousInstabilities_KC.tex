@@ -689,8 +689,6 @@ is the impact of the second injection interval as this can be seen from the slop
 \label{fig:vel_magn2}
 \end{figure}
 
-
-
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf}\\[2mm]%
@@ -701,32 +699,7 @@ is the impact of the second injection interval as this can be seen from the slop
 \label{fig:4testcase}
 \end{figure}
 
-%\begin{figure}[h]
-%\begin{center}
-%\centering
-%\subfigure[MR100 fixed mesh t=500]{%
-%\label{fig:}
-%\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.png}
-%}%
-%\subfigure[MR100 fixed mesh t=1500]{%
-%\label{fig:}
-%\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.png}
-%}%
-%\subfigure[MR100 fixed mesh t=3000]{%
-%\label{fig:}
-%\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.png}
-%}\\ 
-%\subfigure[MR100 fixed mesh end]{%
-%\label{fig:}
-%\includegraphics[width=0.35\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.png}
-%}\\
-%\end{center}
-%\caption{snapshots when the MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d) }
-%\label{fig:4testcase}
-%\end{figure}
-
-
-
+\begin{comment}
 \begin{figure}[h] 
 \begin{center}
 \subfigure[MR1]{%
@@ -757,6 +730,8 @@ is the impact of the second injection interval as this can be seen from the slop
 \caption{Comparison of different MR's and their recovery rates. The comparison among the MR = $1$,MR = $10$ and MR = $100$ has been done using the boundary conditions and set upt as this has already been describe in the beginning of the section \ref{section:results}. }
 \label{fig:recoveryrates}
 \end{figure}
+\end{comment}
+
 
 The macroscopic sweep efficiency is principally affected by the heterogeneity in the reservoir which controls the spatial distribution of porosity and permeability. The permeability depends on the number, size and connectivity of the pores. This set of parameters is described by the $\sigma$ in the global mass balance equation (eq.\ref{global_mass_balance}). Including higher permeability zones also know as higher permeability channels or layers in the set up of the model, allows our test-cases to give a good approximation of the so called "thief zones", something that is common in heterogeneous geological formations. 
 As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. Adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface. Inside the high permeability square region there is an acceleration of the flow with the maximum value of it at the interface as this starts to develops at the back of this region and onwards. At this point attention should be given to the recovery rates as they can be illustrated from fig.{\ref{fig:recoveryrates}}. The breaking point, also known as the point the two curves meet where beyond that water production will occur, is shifted towards the right as MR is increased.
@@ -777,7 +752,6 @@ In conclusion the method that has been described in this paper as well as the si
 \item[3.] The increased viscosity ratio increases the computational cost and requires the use of smaller time-step sizes. At the same time the basis of the argument above is the flexibility and variance of the unstructured grid in time and space. The domain used in these test-cases the development of the flow follow the linear tip-splitting finger behaviour.
 \item[4.] Properties such as porosity and saturation can be readily up-scaled using statistical methods, can be included in the element boundaries,  while production simulations run directly on the geological model without the need to upscale.
 \end{enumerate}
-
 
 
 \begin{comment}
