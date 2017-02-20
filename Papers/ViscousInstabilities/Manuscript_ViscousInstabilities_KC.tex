@@ -476,6 +476,7 @@ U_c = \frac{(\rho_1-\rho_2) \cdot g \cdot K}{(\mu_1-\mu_2)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}\label{section:results}
 
+%%%%%%%%%%%%
 \subsection{Model Validation}
 
 The set of test-cases that we are going to illustrate starts with an elementary case in an homogeneous domain. The aim of this test-case is to verify that the numerical model is actually working in different simulation/scenarios starting from the basic ones. One step before it is important to verify the existence of cross flow in the following domain as this is defined in fig. \ref{fig:simple_case}. Fluid $1$ is introduced on the  across the left hand side of the formation. Later different mobility ratios and different regions of various permeabilities will be introduced, but for now only few of these initial and boundary conditions will be applied. 
@@ -488,7 +489,7 @@ The set of test-cases that we are going to illustrate starts with an elementary 
 \end{center}
 \end{figure}
 
-One more case to demonstrate the model validation against experiments is described in fig. \ref{fig:square}. A square shape formation consisted of $4$ square regions that each one has $2$ values of different permeabilities (K is represented by the blue and red shaded square areas). The aspect ratio of the domain is $1$ and is fully saturated with fluid $2$. At the upper and lower sides of the domain no-slip boundary condition is applied, that at a solid boundary, the fluid will have zero velocity relative to the boundary. The fluid velocity at all fluid–solid boundaries is equal to that of the solid boundary.. The left hand side of the domain is defined as the inlet for fluid $1$ with a velocity of $u=1$ while the right hand side is the outlet and pressure is set to $0$. Fluid $1$ across the left hand side of the formation is trying to displace the existing fluid $2$. What can been seen here is a cross flow case as the flow passes through different regions and develops. The front start to collapse at the first half of the lenght D (D:distance) of the domain ($x= \frac{1}{2} D)$.
+\noindent One more case to demonstrate the model validation against experiments is described in fig. \ref{fig:square}. A square shape formation consisted of $4$ square regions that each one has $2$ values of different permeabilities (K is represented by the blue and red shaded square areas). The aspect ratio of the domain is $1$ and is fully saturated with fluid $2$. At the upper and lower sides of the domain no-slip boundary condition is applied, that at a solid boundary, the fluid will have zero velocity relative to the boundary. The fluid velocity at all fluid–solid boundaries is equal to that of the solid boundary.. The left hand side of the domain is defined as the inlet for fluid $1$ with a velocity of $u=1$ while the right hand side is the outlet and pressure is set to $0$. Fluid $1$ across the left hand side of the formation is trying to displace the existing fluid $2$. What can been seen here is a cross flow case as the flow passes through different regions and develops. The front start to collapse at the first half of the lenght D (D:distance) of the domain ($x= \frac{1}{2} D)$.
 
 \begin{figure}[h]
 \begin{center}
@@ -499,45 +500,44 @@ One more case to demonstrate the model validation against experiments is describ
 \end{center}
 \end{figure}
 
-In this test-case above the two phase volume volume fractions have the same but opposite behaviour across the length of the formation. The velocity magnitute is builded up starting from the inlet all the way to the middle of the square. There is a sharp pressure drop which is also an indication that the fluid 2 cannot be pushed any further (see fig.\ref{fig:square}) while the phase volume fraction is constant. An slightly modified test-case follows with the initial and boundary condition to remain the same, but in this set of simulations the geometrical aspect ration is $2$.
+\noindent In this test-case above the two phase volume volume fractions have the same but opposite behaviour across the length of the formation. The velocity magnitute is builded up starting from the inlet all the way to the middle of the square. There is a sharp pressure drop which is also an indication that the fluid 2 cannot be pushed any further (see fig.\ref{fig:square}) while the phase volume fraction is constant. An slightly modified test-case follows with the initial and boundary condition to remain the same, but in this set of simulations the geometrical aspect ration is $2$.
 
 \begin{figure}[h]
 \begin{center}
 \subfigure[map of permeabilties K]{\includegraphics[width=0.75\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf}\label{a}}
-\subfigure[flow at t=250]{\includegraphics[width=0.65\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf}\label{b}}
-\subfigure[flow at t=3000]{\includegraphics[width=0.65\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_1.pdf}\label{b}}
-\caption{In this test-case fixed and unstructured mesh is used. The aspect ratio is 2, which allows the finger to develop faster and make the tip-splitting stage more obvious. Simulation time step increases from left (a) to right (b) and from t=250(start) to t=3000(end).}
+\subfigure[flow at t=250]{\includegraphics[width=0.75\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf}\label{b}}
+\subfigure[flow at t=3000]{\includegraphics[width=0.75\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_1.pdf}\label{b}}
+\caption{In this test-case fixed and unstructured mesh is used. The aspect ratio is 2, which allows the finger to develop faster and make the tip-splitting stage more obvious. Simulation time step increases from (b) to (c) and from t=250(start) to t=3000(end).}
 \label{fig:testcase}
 \end{center}
 \end{figure}
 
- The purpose of these case was to verify that our model is working for cases that experimentally are proven. This will allow to proceed further and expand this technique into more complex formations. A more detailed description of the element type and the formation that will be used in the next set of test cases follows.
+ The purpose of these cases was to verify that our model is working for cases that experimentally are proven. This will allow to proceed further and expand this technique into more complex formations. A more detailed description of the element type and the formation that will be used in the next set of test cases follows.
 
+%%%%%%%%%%%%
 \subsection{\blue{need to find a name for this heterogeneus region/set of test-cases}}
 
 %{./Pics/P1DG-P2_element_type} 
 %{./Pics/4r_po_adapt_fine_125_mesh} 
 %{./Pics/4r_po_adapt_fine_100_mesh}
 
+Having already verified that model is working for the test-cases illustrated in previous section, its to introduce a more complicated case where we have regions of different geometrical domains and different permeabilities. The time, the domain that we will use is defined in fig.\ref{fig:testcase_heter_domain}.
+
 \begin{figure}[h]
 \begin{center}
-\subfigure[The $P_{1}DGP_{2}$ element type]{%
-\label{fig:}
-\includegraphics[width=0.45\textwidth]{./Pics/P1DG-P2_element_type.pdf}
-}%
-\subfigure[The map of permeabilities]{%
-\label{fig:}
-\includegraphics[width=0.45\textwidth]{./Pics/4r_po_adapt_fine_125_mesh.pdf}
-}\\
+
+\subfigure[map of permeabilties K]{\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_mesh.pdf}\label{a}}
+
+\caption{In this test-case fixed and unstructured mesh is used. The aspect ratio is 2, which allows the finger to develop faster and make the tip-splitting stage more obvious. Simulation time step increases from left (a) to right (b) and from t=250(start) to t=3000(end).}
+\label{fig:testcase_heter_domain}
 \end{center}
-\caption{(a) represents the element type of $P_{1}DGP_{2}$ as well as where each of the parameters is located and calculated on the element type. (b) describes the permeability map as this is introduced throught a python script during the set-up of simulations. In general, the main body of the formation is the blue area that is fully saturated with fluid $2$. Above the main (blue colored) area there are two layers - formations of different absolute permeabilities while in the main body there is a also a square shaped red coloured area where the two fluids exist in 50-50 phase ratio. All those ratios as well as the values of the permeabilities can be changes any time according to the data that are provided.   }
-\label{fig:elem_type_perm_map}
 \end{figure}
 
 
 
 
-Based on these two case so far an initial relation between the quantitative and qualitative outcome of our simulations can be derived. Fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid $1$. 
+
+ Based on these two case so far an initial relation between the quantitative and qualitative outcome of our simulations can be derived. Fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid $1$. 
 
 %Starting from the middle of the formation there is an increase in the velocity of the injected fluid but then it 'crashes' on the red square shape region where it slows down from the existence of both the fluid 1 \& fluid 2 that coexists. After flowing through this area there is a balance (plateau) among the two faces on time fig.\ref{fig:subim8 middle}. Going higher in the formation, fig.\ref{fig:subim9 up} in the next zone just above the main body (blue area), there is an initial fluctuating decrease  of the velocity of the injected fluid which is driven by the different permeability value. At the top layer ref.\ref{fig:subim10 upper} of the formation there is a smooth increase of the injected fluid velocity magnitude which basically describes an overall and study development of the flow while just before the end collapses. 
          
