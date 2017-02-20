@@ -500,19 +500,49 @@ The set of test-cases that we are going to illustrate starts with an elementary 
 \end{center}
 \end{figure}
 
-\noindent In this test-case above the two phase volume volume fractions have the same but opposite behaviour across the length of the formation. The velocity magnitute is builded up starting from the inlet all the way to the middle of the square. There is a sharp pressure drop which is also an indication that the fluid 2 cannot be pushed any further (see fig.\ref{fig:square}) while the phase volume fraction is constant. An slightly modified test-case follows with the initial and boundary condition to remain the same, but in this set of simulations the geometrical aspect ration is $2$.
+\noindent In this test-case above the two phase volume volume fractions have the same but opposite behaviour across the length of the formation. The velocity magnitute is builded up starting from the inlet all the way to the middle of the square. There is a sharp pressure drop which is also an indication that the fluid 2 cannot be pushed any further (see fig.\ref{fig:square}) while the phase volume fraction is constant. An slightly modified test-case (see fig.\ref{fig:testcase}) follows with the initial and boundary condition to remain the same, but in this set of simulations the geometrical aspect ration is $2$. The last set of simulations as this is described in fig.\ref{fig:1testcase} is and extension of the previous case and the aim of is to verify the behaviour of the flow for two different mobility ratios of $1$ and $10$ respectively.
 
 \begin{figure}[h]
 \begin{center}
 \subfigure[map of permeabilties K]{\includegraphics[width=0.75\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf}\label{a}}
 \subfigure[flow at t=250]{\includegraphics[width=0.75\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf}\label{b}}
-\subfigure[flow at t=3000]{\includegraphics[width=0.75\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_1.pdf}\label{b}}
+\subfigure[flow at t=3000]{\includegraphics[width=0.75\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_1.pdf}\label{c}}
 \caption{In this test-case fixed and unstructured mesh is used. The aspect ratio is 2 (a), which allows the flow to develop for longer. Simulation time step increases from (b) to (c) and from t=250(start) to t=3000(end).}
 \label{fig:testcase}
 \end{center}
 \end{figure}
 
  The purpose of these cases was to verify that our model is working for cases that experimentally are proven. This will allow to proceed further and expand this technique into more complex formations. A more detailed description of the element type and the formation that will be used in the next set of test cases follows.
+
+\begin{figure}[h]
+\makebox[\textwidth]{%
+\subfigure[MR1]{%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr1_fixed/mr1_fixed_100_2.pdf}%
+}%
+\hfill    
+\subfigure[MR10]{%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100_1.pdf}%
+}}\\[0.5cm]% If you want some vertical space
+\makebox[\textwidth]{%
+\subfigure[MR1]{%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle_1.pdf}%
+}%
+\hfill    
+\subfigure[MR10]{%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_fixed/mr10_fixed_middle_1.pdf}%
+}}\\[0.5cm]% If you want some vertical space
+\makebox[\textwidth]{%
+\subfigure[MR1]{%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr1_fixed/mr1_fixed_end_2.pdf}%
+}%
+\hfill    
+\subfigure[MR10]{%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_2.pdf}%
+}}%
+\caption{Comparing MR1 and MR10 cases using fixed mesh. Simulation time step increases from top to bottom and from (a) t=100(start) to (c) t=3000(end).}
+\label{fig:1testcase}
+\end{figure}
+
 
 %%%%%%%%%%%%
 \subsection{\blue{need to find a name for this heterogeneus region/set of test-cases}}
@@ -521,17 +551,19 @@ The set of test-cases that we are going to illustrate starts with an elementary 
 %{./Pics/4r_po_adapt_fine_125_mesh} 
 %{./Pics/4r_po_adapt_fine_100_mesh}
 
-\KCnote{\blue{need to put screenshots from pseudo heleshaw case - log on to Jeff's station and then include the following cases}}
+\KCnote{\blue{need to put screenshots from pseudo hele-shaw case - log on to Jeff's station and then include the following cases}}
 
 
-Having already verified that model is working for the test-cases illustrated in previous section, its to introduce a more complicated case where we have regions of different geometrical domains and different permeabilities. The time, the domain that we will use is defined in fig.\ref{fig:testcase_heter_domain}.
+
+
+
+Having already verified that model is working for the test-cases illustrated in previous section, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used.
 
 \begin{figure}[h]
 \begin{center}
-
-\subfigure[map of permeabilties K]{\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_mesh.pdf}\label{a}}
-
-\caption{In this test-case fixed and unstructured mesh is used. The aspect ratio is 2, which allows the finger to develop faster and make the tip-splitting stage more obvious. Simulation time step increases from left (a) to right (b) and from t=250(start) to t=3000(end).}
+\subfigure[map of permeabilties K]{\includegraphics[width=0.75\textwidth]{./Pics/map_of_boundaries.pdf}\label{a}}
+\subfigure[permeabilities using an unstructured and fixed computational domain]{\includegraphics[width=0.75\textwidth]{./Pics/4r_po_adapt_fine_125_mesh.pdf}\label{b}}
+\caption{(a) describes the initial and boundary conditions as these are applied in this set of simulations. Below (b) the unstructured and fixed mesh can been seen and there is a colored representation of permeabilities.}
 \label{fig:testcase_heter_domain}
 \end{center}
 \end{figure}
@@ -552,41 +584,6 @@ Two general behaviors for the interface may occur: (i) If a more viscous fluid d
 This test-case serves as a base case for comparison between mobility (or viscocity) ratios that differ by an order of magnitude. Viscocity is a measure of resistance, therefore a frictional property. In these test-cases the $\sigma$ term as this is described above contains the individual parameters related with wettability and contact angle while the porous surface is a fluid $2$ wetted surface. For mobility ratios below $5$ the injection front will uniformly develop as time progress (piston shape front) and no fingers are expexted. Instabilities will start to occur and will be more obvious for mobility ratios higher than $5$. Between two layers or two regions with different permeabilities, but both saturated with fluid $2$, fingers will be triggered because of the permeability differences on the interface of these layers. In between the porous cappilary pressure difference with curve the interface and will lead to the formation of fingers. In macroscopic scale the interface between the two fluid will become unstable, an uneven or fingered profile will be controlled by capilary pressure -acting in the scale of the pores- and therefore due to the overall surface tension difference between the two immiscible fluids the front will collapse. This is of major practical importance in the petroleum industry, environmental waste remediation, and subsurface hydrology and it is key to understanding the movement of large volumes of injection fluids into subsurface reservoirs. The relationships between the capillarity of a geologic system, and the saturation and permeability of the fluids has a direct bearing on the migration speed and reservoir sweep of hydrocarbons affected the productivity of an oil field.
 
 \KCnote{need to include some figures and analysis of the velocities, magnitude etc.}
-
-
-
-\begin{figure}[h]
-\begin{center}
-\subfigure[MR1 fixed mesh start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_fixed/mr1_fixed_100_2.pdf}
-}%
-\subfigure[MR10 fixed mesh start]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100_1.pdf}
-}\\
-\subfigure[MR1 fixed mesh middle]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle_1.pdf}
-}%
-\subfigure[MR10 fixed mesh middle]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_middle_1.pdf}
-}\\
-\subfigure[MR1 fixed mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr1_fixed/mr1_fixed_end_2.pdf}
-}\\
-\subfigure[MR10 fixed mesh end]{%
-\label{fig:}
-\includegraphics[width=0.35\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_2.pdf}
-}\\
-\end{center}
-\caption{Comparing MR1 and MR10 cases using fixed mesh. Simulation time step increases from top to bottom and from t=100(start) to t=3000(end).}
-\label{fig:1testcase}
-\end{figure}
-
-
 
 Having already observed the significant growth of fingers comparing mobility ratios that differ an order of magnitude (Fig.\ref{fig:1testcase}), the next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh test case (Fig.\ref{fig:2testcase}).    
 
