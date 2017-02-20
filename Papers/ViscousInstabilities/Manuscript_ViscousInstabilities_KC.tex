@@ -479,17 +479,13 @@ U_c = \frac{(\rho_1-\rho_2) \cdot g \cdot K}{(\mu_1-\mu_2)}
 \subsection{Model Validation}
 Initially a case to demonstrate the model validation against experiments is described in fig. \ref{fig:square}. A simple square shape formation consisted of$4$ square regions that each one has $2$ values of different permeabilities (K is represented by the blue and red shaded square areas). The aspect ratio of the domain is $1$ and is fully saturated with fluid $2$. At the upper and lower sides of the domain no-slip boundary condition is applied, meaning there is no mass transport in and out of the domain. The left hand side of the domain is defined as the inlet for fluid $1$ with a velocity of $u=1$ while the right hand side is the outlet and pressure is set to $0$. Fluid $1$ across the left hand side of the formation is trying to displace the existing fluid $2$. What can been seen here is a cross flow case as the flow passes through different regions and develops. The front start to collapse at the first half of the lenght D (D:distance) of the domain ($x= \frac{1}{2} D)$.
 
-\begin{figure}[h]
-\makebox[\textwidth]{%
-\includegraphics[width=0.39\textwidth]{./Pics/2b2_P1DGP2_perm.pdf}%
-\hfill    
-\includegraphics[width=0.39\textwidth]{./Pics/2b2_P1DGP2_mesh.pdf}%
-}\\[0.5cm]% If you want some vertical space
-\makebox[\textwidth]{%
-\includegraphics[width=0.5\textwidth]{./Pics/2b2_P1DGP2_plot.pdf}%
-}%
-\caption{A simple test-case of a square region with four subregions. The permeability contrast is constant. The mesh is unstructured but fixed. After the injection of fluid $1$ at a velocity of u = 1, the velocity magnitude drops to zero. The main finger starts to dies out during the transition from one permeability zone to another and as it approaches closer to the right boundary. The mechanism that still drives the phenomenon is the pressure difference and the tip-splitting pattern can be more profound. }
+\begin{figure}
+\begin{center}
+\subfigure[Initial and boundary conditions]{\includegraphics[width=0.75\textwidth]{./Pics/2b2_P1DGP2.pdf}\label{a}}
+\subfigure[Plots of velocity magnitude, pressure and phase volume fraction]{\includegraphics[width=0.6\textwidth]{./Pics/2b2_P1DGP2_plot.pdf}\label{b}}
+\caption{This is the first test-case of a square region with four subregions of constant permeabilities K. The mesh is unstructured but fixed and on average there are 5000 elements. Fluid $1$ is introduced from the right hand side at a constant velocity of u = 1, while as the flow progress the velocity magnitude drops to zero close to the outlet. This is a cross flow example based on the experimental work of \citet{evans_1994}. The main finger desrcibes the cross flow and starts to dies out during the transition from one permeability zone to another and as it approaches closer to the right boundary.}
 \label{fig:square}
+\end{center}
 \end{figure}
 
 In this test-case above the two phase volume volume fractions have the same but opposite behaviour across the length of the formation. From that point till the end of the formation, the velocity magnitute of the injected fluid remains the same having the minimum value since there is no more fluid 2 to be displaced. There is a sharp pressure drop which is also an indication that the fluid 2 cannot be pushed any further since at the same time, as can been seen from the graph plot at fig. \ref{fig:square}, the phase volume fraction is constant.  
