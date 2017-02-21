@@ -545,11 +545,10 @@ The set of test-cases that we are going to illustrate starts with an elementary 
 
 
 %%%%%%%%%%%%
-\subsection{\blue{title for the $3$ hell shaw cases}}
+\subsection{Hele-Shaw verification cases for homogeneous and heterogeneous domains under two different mobility ratios}
 
-%\subsection{\blue{need to find a name for this heterogeneus region/set of test-cases}}
-
-At this point we have to mentioned one more set of simulations, based on the work of \citet{saffman_1986}. The Hele-shaw cell geometrical domain as this is defined by experimental studies and is presented in figures \ref{{fig:1a_homoheleshaw_3},{fig:1b_homoheleshaw_3}} and fig. \ref{fig:1c_homoheleshaw_3} is used. In all cases, simulations were performed in a squared geometry of $5x5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 (i.e., sqrt(2*0.25)). The sink (represented by 0 pressure BC) is allocated in the top right hand side corner of the domain. Newmann BC (i.e., no flux) was imposed to all borders of the domain except at the top righ hand side corner. The mobility ratios for these $3$ cases are $3$ and $10$ while for the latter homogeneous and heterogeneous domain is used.  
+\medskip
+At this point we have to mentioned one more set of simulations, based on the work of \citet{saffman_1986}. The Hele-shaw cell geometrical domain as this is defined by experimental studies and is presented in figures \ref{fig:1a_homoheleshaw_3}, \ref{fig:1b_homoheleshaw_3} and fig. \ref{fig:1c_homoheleshaw_3} is used. In all cases, simulations were performed in a squared geometry of $5x5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 (i.e., sqrt(2*0.25)). The sink (represented by 0 pressure BC) is allocated in the top right hand side corner of the domain. Newmann BC (i.e., no flux) was imposed to all borders of the domain except at the top righ hand side corner. The mobility ratios for these $3$ cases are $3$ and $10$ while for the latter homogeneous and heterogeneous domain is used.  
 
 \begin{figure}
 \centering
@@ -580,7 +579,7 @@ At this point we have to mentioned one more set of simulations, based on the wor
 \centering
 \subfigure[Hell-Shaw cell domain]{\includegraphics[width=0.5\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_1.pdf}}\\[2mm]%
 \subfigure[flow at t=250]{\includegraphics[width=0.5\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_250_1.pdf}}%
-\caption{This is a description of a Hele-Shaw experimental domain, when MR=$10$ showing the source and sink term as this is implied in this test-case followed by a screenshot of the flow at time, t=250(b). Screenshot will follow that describe the progression of the flow in fig.\ref{fig:2b_homoheleshaw_10} and fig.\ref{fig:2c_homoheleshaw_3}}
+\caption{This is a description of a Hele-Shaw experimental domain, when MR=$10$ showing the source and sink term as this is implied in this test-case followed by a screenshot of the flow at time, t=250(b). Screenshot will follow that describe the progression of the flow in fig.\ref{fig:2b_homoheleshaw_10} and fig.\ref{fig:2c_homoheleshaw_10}}
 \label{fig:2a_homoheleshaw_10}
 \end{figure}
 
@@ -605,7 +604,7 @@ At this point we have to mentioned one more set of simulations, based on the wor
 \centering
 \subfigure[Hell-Shaw cell domain]{\includegraphics[width=0.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1.pdf}}\\[2mm]%
 \subfigure[flow at t=250]{\includegraphics[width=0.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_500.pdf}}%
-\caption{This is a description of a heterogeneous Hele-Shaw experimental domain, when MR=$10$ showing the source and sink term as this is implied in this test-case followed by a screenshot of the flow at time, t=500(b). Screenshot will follow that describe the progression of the flow in fig.\ref{fig:3b_heteheleshaw_10} and fig.\ref{fig:3c_heteheleshaw_3}}
+\caption{This is a description of a heterogeneous Hele-Shaw experimental domain, when MR=$10$ showing the source and sink term as this is implied in this test-case followed by a screenshot of the flow at time, t=500(b). Screenshot will follow that describe the progression of the flow in fig.\ref{fig:3b_heteheleshaw_10} and fig.\ref{fig:3c_heteheleshaw_10}}
 \label{fig:3a_heteheleshaw_10}
 \end{figure}
 
@@ -625,12 +624,9 @@ At this point we have to mentioned one more set of simulations, based on the wor
 \label{fig:3c_heteheleshaw_10}
 \end{figure}
 
-
-
 %{./Pics/P1DG-P2_element_type} 
 %{./Pics/4r_po_adapt_fine_125_mesh} 
 %{./Pics/4r_po_adapt_fine_100_mesh}
-
 
 \begin{figure}[h]
 \makebox[\textwidth]{%
@@ -669,7 +665,12 @@ At this point we have to mentioned one more set of simulations, based on the wor
 \label{fig:2testcase}
 \end{figure}
 
-Having already verified that model is working for the test-cases illustrated in previous section, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used.
+\noindent Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used.
+
+\subsection{\blue{need to find a name for this heterogeneus region/set of test-cases}}
+
+\medskip
+\KCnote{mpla mplam mpla the case with 4regions and permeabilities}
 
 \begin{figure}[h]
 \begin{center}
