@@ -696,7 +696,8 @@ This test-case serves as a base case for comparison between mobility (or viscoci
 
 Having already observed the significant growth of fingers comparing mobility ratios that differ an order of magnitude (Fig.\ref{fig:1testcase}), the next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh test case (Fig.\ref{fig:2testcase}).    
 
-\begin{figure}[h]
+%%%%%%%%%%%%%%%%
+\begin{figure}
 \makebox[\textwidth]{%
 \subfigure[MR10 fixed mesh start]{%
 \includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_250.pdf}%
@@ -712,7 +713,12 @@ Having already observed the significant growth of fingers comparing mobility rat
 \hfill    
 \subfigure[MR10 adapt mesh]{%
 \includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_500.pdf}%
-}}\\[0.5cm]% If you want some vertical space
+}}%
+\caption{Comparing test-cases of fixed and adaptive mesh, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, t=250(a,b), t=500(c,d).,followed by the t=1500(a,b), t=3000(c,d) in fig.\ref{fig:2btestcase}.}
+\label{fig:2atestcase}
+\end{figure}
+
+\begin{figure}
 \makebox[\textwidth]{%
 \subfigure[MR10 fixed mesh]{%
 \includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_1500.pdf}%
@@ -729,8 +735,8 @@ Having already observed the significant growth of fingers comparing mobility rat
 \subfigure[MR10 adapt mesh end]{%
 \includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_3000.pdf}%
 }}%
-\caption{Comparing test-cases of fixed and adaptive mesh, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, t=250(a,b), t=500(c,d), t=1500(e,f), t=3000(g,h). When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time. }
-\label{fig:2testcase}
+\caption{When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time. }
+\label{fig:2btestcase}
 \end{figure}
 
 
@@ -789,7 +795,7 @@ In fig.\ref{fig:3testcase} there is a comparison between a single and double inj
 
 
 \begin{figure}
-\centering 
+%\center
 %\begin{minipage}{1.0\textwidth}%
 %\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_fixed/5regions_vel_magn.png}\\[2mm]%
 \includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_vel_magn.pdf}\\[2mm]%
