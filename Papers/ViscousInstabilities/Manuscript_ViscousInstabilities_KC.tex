@@ -704,29 +704,42 @@ In fig.\ref{fig:3testcase_a} there is a set of simulations for when another regi
 
 \begin{figure}
 \centering
-\subfigure[dual inlet flow, fixed mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}}\\[2mm]%
-\subfigure[dual inlet flow, adaptive mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}}%
+\subfigure[fixed mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}}\\[2mm]%
+\subfigure[adaptive mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}}%
 \caption{In fig.(a)  fig.(b) .}
 \label{fig:3testcase_b}
 \end{figure}
 
+\begin{figure}
+\centering
+\subfigure[fixed mesh, t=1500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_1500.pdf}}\\[2mm]%
+\subfigure[adaptive mesh, t=1500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_1500.pdf}}%
+\caption{In fig.(a)  fig.(b) .}
+\label{fig:3testcase_c}
+\end{figure}
+
+\begin{figure}
+\centering
+\subfigure[fixed mesh, t=end]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_end.pdf}}\\[2mm]%
+\subfigure[adaptive mesh, t=end]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_end.pdf}}%
+\caption{In fig.(a)  fig.(b) .}
+\label{fig:3testcase_d}
+\end{figure}
 
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf}\\[2mm]%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}\\[2mm]%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf}\\[2mm]%
+\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}%
+\caption{from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d)}
+\label{fig:4testcase}
+\end{center}
+\end{figure}
 
-
-
-
-
-%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
 \begin{comment}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. The aspect ratio of the $2D$ domain is 2 and it favors viscous fingering effects while temperature is not taken into account (assume isothermal environment) and gravity effects are negligible. Fluid $1$ is initially injected from the left hand side with velocity $u_{inj}=1$. The domain is fully saturated with fluid $2$. At the outlet (right hand side) boundary pressure levels are set to zero while no slip boundary conditions are implied at the upper and lower part of the formation. Fixed time step sizes of $1 \times 10^{-3}$ for both the fixed meshes and the CFL number for this set of simulations is $0.5$. The $P_{1}DGP_{2}$ element type with piecewise linear description of veleocity within each element and quadratic pressure representation as part of the OCVFEM method along with the discontinuous Galerkin method are implied and composing the mesh. Saturation is located at the pressure nodes. Five different regions of 5 distinct absolute permeabilities (K) are introduced (fig.\ref{fig:5regions_domain}). The red square region is saturated with a $50\%-50\%$ mixture of both phase $1$ and $2$. 
-
-Two general behaviors for the interface may occur: (i) If a more viscous fluid displaces a less viscous one or a less viscous displaces a more viscous with a low average velocity, the interface is flat; (ii) if a less viscous fluid displaces a more viscous one with intermediate values of the average velocity, single or mutliple fingers will be observed.
-
-This test-case serves as a base case for comparison between mobility (or viscocity) ratios that differ by an order of magnitude. Viscocity is a measure of resistance, therefore a frictional property. In these test-cases the $\sigma$ term as this is described above contains the individual parameters related with wettability and contact angle while the porous surface is a fluid $2$ wetted surface. For mobility ratios below $5$ the injection front will uniformly develop as time progress (piston shape front) and no fingers are expexted. Instabilities will start to occur and will be more obvious for mobility ratios higher than $5$. Between two layers or two regions with different permeabilities, but both saturated with fluid $2$, fingers will be triggered because of the permeability differences on the interface of these layers. In between the porous cappilary pressure difference with curve the interface and will lead to the formation of fingers. In macroscopic scale the interface between the two fluid will become unstable, an uneven or fingered profile will be controlled by capilary pressure -acting in the scale of the pores- and therefore due to the overall surface tension difference between the two immiscible fluids the front will collapse. This is of major practical importance in the petroleum industry, environmental waste remediation, and subsurface hydrology and it is key to understanding the movement of large volumes of injection fluids into subsurface reservoirs. The relationships between the capillarity of a geologic system, and the saturation and permeability of the fluids has a direct bearing on the migration speed and reservoir sweep of hydrocarbons affected the productivity of an oil field.
-
-%%%%%%%%%%%%%%%%
 \begin{figure}[h]
 \makebox[\textwidth]{%
 \subfigure[[MR10 fixed mesh start]{%
@@ -764,8 +777,16 @@ This test-case serves as a base case for comparison between mobility (or viscoci
 %\caption{Comparing the MR=$10$, between single and double injection of fluid $1$ under the adaptive and unstructured mesh for the same time steps, t=100(a,b), t=1500(c,d), t=7500(e,f), t=10000(g,h) }
 \label{fig:3testcase}
 \end{figure}
+\end{comment}
 
+\medskip
+The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. The aspect ratio of the $2D$ domain is 2 and it favors viscous fingering effects while temperature is not taken into account (assume isothermal environment) and gravity effects are negligible. Fluid $1$ is initially injected from the left hand side with velocity $u_{inj}=1$. The domain is fully saturated with fluid $2$. At the outlet (right hand side) boundary pressure levels are set to zero while no slip boundary conditions are implied at the upper and lower part of the formation. Fixed time step sizes of $1 \times 10^{-3}$ for both the fixed meshes and the CFL number for this set of simulations is $0.5$. The $P_{1}DGP_{2}$ element type with piecewise linear description of veleocity within each element and quadratic pressure representation as part of the OCVFEM method along with the discontinuous Galerkin method are implied and composing the mesh. Saturation is located at the pressure nodes. Five different regions of 5 distinct absolute permeabilities (K) are introduced (fig.\ref{fig:5regions_domain}). The red square region is saturated with a $50\%-50\%$ mixture of both phase $1$ and $2$. 
 
+Two general behaviors for the interface may occur: (i) If a more viscous fluid displaces a less viscous one or a less viscous displaces a more viscous with a low average velocity, the interface is flat; (ii) if a less viscous fluid displaces a more viscous one with intermediate values of the average velocity, single or mutliple fingers will be observed.
+
+This test-case serves as a base case for comparison between mobility (or viscocity) ratios that differ by an order of magnitude. Viscocity is a measure of resistance, therefore a frictional property. In these test-cases the $\sigma$ term as this is described above contains the individual parameters related with wettability and contact angle while the porous surface is a fluid $2$ wetted surface. For mobility ratios below $5$ the injection front will uniformly develop as time progress (piston shape front) and no fingers are expexted. Instabilities will start to occur and will be more obvious for mobility ratios higher than $5$. Between two layers or two regions with different permeabilities, but both saturated with fluid $2$, fingers will be triggered because of the permeability differences on the interface of these layers. In between the porous cappilary pressure difference with curve the interface and will lead to the formation of fingers. In macroscopic scale the interface between the two fluid will become unstable, an uneven or fingered profile will be controlled by capilary pressure -acting in the scale of the pores- and therefore due to the overall surface tension difference between the two immiscible fluids the front will collapse. This is of major practical importance in the petroleum industry, environmental waste remediation, and subsurface hydrology and it is key to understanding the movement of large volumes of injection fluids into subsurface reservoirs. The relationships between the capillarity of a geologic system, and the saturation and permeability of the fluids has a direct bearing on the migration speed and reservoir sweep of hydrocarbons affected the productivity of an oil field.
+
+%%%%%%%%%%%%%%%%
 \begin{figure}
 \begin{center}
 %\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_fixed/5regions_vel_magn.png}\\[2mm]%
@@ -778,19 +799,7 @@ is the impact of the second injection interval as this can be seen from the slop
 \end{center}
 \end{figure}
 
-
-
-%\begin{figure}
-%\begin{center}
-%\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf}\\[2mm]%
-%\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}\\[2mm]%
-%\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf}\\[2mm]%
-%\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}%
-%\caption{from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d)}
-%\label{fig:4testcase}
-%\end{center}
-%\end{figure}
-
+%%%%%%%%%%%%%%%
 \begin{comment}
 \begin{figure}[h] 
 \begin{center}
@@ -824,14 +833,19 @@ is the impact of the second injection interval as this can be seen from the slop
 \end{figure}
 \end{comment}
 
+\medskip
+The macroscopic sweep efficiency is principally affected by the heterogeneity in the reservoir which controls the spatial distribution of porosity and permeability. The permeability depends on the number, size and connectivity of the pores. This set of parameters is described by the $\sigma$ in the global mass balance equation (eq.\ref{global_mass_balance}). Including higher permeability zones also know as higher permeability channels or layers in the set up of the model, allows our test-cases to give a good approximation of the so called "thief zones", something that is common in heterogeneous geological formations.
 
-The macroscopic sweep efficiency is principally affected by the heterogeneity in the reservoir which controls the spatial distribution of porosity and permeability. The permeability depends on the number, size and connectivity of the pores. This set of parameters is described by the $\sigma$ in the global mass balance equation (eq.\ref{global_mass_balance}). Including higher permeability zones also know as higher permeability channels or layers in the set up of the model, allows our test-cases to give a good approximation of the so called "thief zones", something that is common in heterogeneous geological formations. 
+\medskip 
 As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. Adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface. Inside the high permeability square region there is an acceleration of the flow with the maximum value of it at the interface as this starts to develops at the back of this region and onwards. At this point attention should be given to the recovery rates as they can be illustrated from fig.{\ref{fig:recoveryrates}}. The breaking point, also known as the point the two curves meet where beyond that water production will occur, is shifted towards the right as MR is increased.
 
+\medskip
 Even though the commercial simulators provide the user with option of an unstructured type of mesh still they are not able to dynamically adapt the mesh as the simulation develops and they increase the computational cost as the saturation front changes slowly. In this paper the use and benefits of dynamic mesh adaptivity to capture the viscous fingering in reservoir flows was introduced byt the use of OCVFEM and families of elements. Both the evolution of visualisation techniques through the extensive use of parallel computing as well as the advances in modelling and simulation of porous media flows may help to address the importance of this phenomenon which can be found in both upstream and downstream operations. Even thought this model is promising there is still work to be done since it is not yet a complete product. Further work is required to develop the surface-based modelling algorithms.
 
 
-\section{Conclusions}
+\section{Conclusions }
+
+\KCnote{need to work that section again}
 
 In conclusion the method that has been described in this paper as well as the simulations performed have a number of distinct advantages: 
 \begin{enumerate}
