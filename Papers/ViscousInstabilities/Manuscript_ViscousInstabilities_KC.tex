@@ -628,49 +628,12 @@ At this point we have to mentioned one more set of simulations, based on the wor
 %{./Pics/4r_po_adapt_fine_125_mesh} 
 %{./Pics/4r_po_adapt_fine_100_mesh}
 
-\begin{figure}[h]
-\makebox[\textwidth]{%
-\subfigure[MR10 fixed mesh start]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_250.pdf}%
-}%
-\hfill    
-\subfigure[MR10 adapt mesh start]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_250.pdf}%
-}}\\[0.5cm]% If you want some vertical space
-\makebox[\textwidth]{%
-\subfigure[MR10 fixed mesh]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_500.pdf}%
-}%
-\hfill    
-\subfigure[MR10 adapt mesh]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_500.pdf}%
-}}\\[0.5cm]% If you want some vertical space
-\makebox[\textwidth]{%
-\subfigure[MR10 fixed mesh]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_1500.pdf}%
-}%
-\hfill    
-\subfigure[MR10 adapt mesh]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_1500.pdf}%
-}}\\[0.5cm]% If you want some vertical space
-\makebox[\textwidth]{%
-\subfigure[MR10 fixed mesh end]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_2000.pdf}%
-}%
-\hfill    
-\subfigure[MR10 adapt mesh end]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_3000.pdf}%
-}}%
-\caption{Comparing test-cases of fixed and adaptive mesh, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, t=250(a,b), t=500(c,d), t=1500(e,f), t=3000(g,h). When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time. }
-\label{fig:2testcase}
-\end{figure}
-
-\noindent Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used.
-
-\subsection{\blue{need to find a name for this heterogeneus region/set of test-cases}}
+%%%%%%%%%%%%%
+\subsection{\blue{need to find a name for this heterogeneus region/set of test-cases for MR10 fixed vs. adaptive mesh}}
 
 \medskip
-\KCnote{mpla mplam mpla the case with 4regions and permeabilities}
+\KCnote{ 4regions and 4 permeabilities}
+\noindent Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. There is a significant growth of fingers when comparing mobility ratios that differ an order of magnitude (Fig.\ref{fig:1testcase}) so the next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh test case. Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used. Figures \ref{fig:2testcase_a}, \ref{fig:2testcase_b}, \ref{fig:2testcase_c}, \ref{fig:2testcase_d} will give a description of th esimulation for different time-steps as these are desrcibed. In this set the interfacial instability is becoming more profound. Based on these two case so far, an initial relation between the quantitative and qualitative outcome of our simulations can be derived. Fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid $1$.    
 
 \begin{figure}[h]
 \begin{center}
@@ -681,10 +644,78 @@ At this point we have to mentioned one more set of simulations, based on the wor
 \end{center}
 \end{figure}
 
- Based on these two case so far an initial relation between the quantitative and qualitative outcome of our simulations can be derived. Fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid $1$. 
+\begin{figure}
+\centering
+\subfigure[flow at t=250 (fixed mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_250.pdf}}\\[2mm]%
+\subfigure[flow at t=250 (adaptive mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_250.pdf}}%
+\caption{Start to compare $2$ test-cases under MR=$10$ and under fixed (top) and adaptive(bottom) mesh for t=250. There is a significant difference on the main front (left hand side of the domain) and the number of finger that appear.}
+\label{fig:2testcase_a}
+\end{figure}
 
-%Starting from the middle of the formation there is an increase in the velocity of the injected fluid but then it 'crashes' on the red square shape region where it slows down from the existence of both the fluid 1 \& fluid 2 that coexists. After flowing through this area there is a balance (plateau) among the two faces on time fig.\ref{fig:subim8 middle}. Going higher in the formation, fig.\ref{fig:subim9 up} in the next zone just above the main body (blue area), there is an initial fluctuating decrease  of the velocity of the injected fluid which is driven by the different permeability value. At the top layer ref.\ref{fig:subim10 upper} of the formation there is a smooth increase of the injected fluid velocity magnitude which basically describes an overall and study development of the flow while just before the end collapses. 
-         
+\begin{figure}
+\centering
+\subfigure[flow at t=500 (fixed mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_500.pdf}}\\[2mm]%
+\subfigure[flow at t=500 (adaptive mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_500.pdf}}%
+\caption{Cross flow is taking place at the upper part of the formation. The fingers start to becoming more proufound for for the (b) case below.}
+\label{fig:2testcase_b}
+\end{figure}
+
+\begin{figure}
+\centering
+\subfigure[flow at t=1500 (fixed mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_1500.pdf}}\\[2mm]%
+\subfigure[flow at t=1500 (adaptive mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_1500.pdf}}%
+\caption{Cross flow at the upper part has almost travel all the way towards the outlet (left-hand side) and the finger below start forming a general trend/front that is also travelling towards the left-hand side.}
+\label{fig:2testcase_c}
+\end{figure}
+
+\begin{figure}
+\centering
+\subfigure[flow at t= end (fixed mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_2000.pdf}}\\[2mm]%
+\subfigure[flow at t= end (adaptive mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_3000.pdf}}%
+\caption{Using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, we compared the impact of fixed and adaptive mesh. When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time.}
+\label{fig:2testcase_d}
+\end{figure}
+
+%%%%%%%%%%%%%
+\subsection{\blue{need to find a name for this heterogeneus region/set of test-cases for MR10 adaptive double inlet}}
+
+\medskip
+\KCnote{velocity magnituted comparison under the adaptive vs. adaptive and refined mesh - NOT sure if we can include that}
+
+%\begin{figure}
+%\centering
+%\subfigure[flow at t=1000  (adaptive coarse mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_4regions_python_only_adapt/4regions_python_only_coarse_vel_magn.pdf}}\\[2mm]%
+%\subfigure[flow at t=1000  (adaptive and fine mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_4regions_python_only_adapt/4regions_python_only_adapt_vel_magn.pdf}}\\[2mm]%
+%\subfigure[flow at t=1000  (adaptive and refined mesh)]{\includegraphics[width=0.75\textwidth]{./Pics1/mr10_4regions_python_only_adapt/4regions_python_only_adapt_refine_vel_mag.pdf}}%
+%\caption{For the same time step, t=1000, these plots describe the velocity magnitudes of the phase $1$ (injected fluid) under the same boundary and initiall conditions. From top to bottom These graphs describe the velocity magnitude for single inlet with adaptive and fine mesh (a) and adaptive and refined mesh (b). The main difference between the (a) and (b) lies in the first part and how the velocity magnitude is builded up as a relation of phase $1$ volume fraction.}
+%\label{fig:vel_magn1}
+%\end{figure}
+
+In fig.\ref{fig:3testcase_a} there is a set of simulations for when another region (inlet) of fluid $1$ ins introduced into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see fig.\ref{fig:vel_magn2}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of ﬁngers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No ﬁngers could be observed due to mesh coarseness (ﬁngers were observed in ﬁner uniform and adaptive meshes).
+
+%%%%%%%%%%%%%
+\begin{figure}
+\centering
+\subfigure[map of permeabilities]{\includegraphics[width=0.5\textwidth]{./Pics1/map_of_perm_1.pdf}}\\[2mm]%
+\subfigure[flow at start]{\includegraphics[width=0.5\textwidth]{./Pics1/5reg_dinlet_adapt_100.pdf}}%
+\caption{In fig.(a) there is the map of permeabilities as this will be implemented in this case while in fig.(b) there is an illustration of the adaptive mesh just in the beggining of the simulation.}
+\label{fig:3testcase_a}
+\end{figure}
+
+\begin{figure}
+\centering
+\subfigure[dual inlet flow, fixed mesh, t=500]{\includegraphics[width=0.5\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}}\\[2mm]%
+\subfigure[dual inlet flow, adaptive mesh, t=500]{\includegraphics[width=0.5\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}}%
+\caption{In fig.(a) there is the map of permeabilities as this will be implemented in this case while in fig.(b) there is an illustration of the adaptive mesh just in the beggining of the simulation.}
+\label{fig:3testcase_b}
+\end{figure
+
+
+
+
+
+%%%%%%%%%%%%%
+\begin{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. The aspect ratio of the $2D$ domain is 2 and it favors viscous fingering effects while temperature is not taken into account (assume isothermal environment) and gravity effects are negligible. Fluid $1$ is initially injected from the left hand side with velocity $u_{inj}=1$. The domain is fully saturated with fluid $2$. At the outlet (right hand side) boundary pressure levels are set to zero while no slip boundary conditions are implied at the upper and lower part of the formation. Fixed time step sizes of $1 \times 10^{-3}$ for both the fixed meshes and the CFL number for this set of simulations is $0.5$. The $P_{1}DGP_{2}$ element type with piecewise linear description of veleocity within each element and quadratic pressure representation as part of the OCVFEM method along with the discontinuous Galerkin method are implied and composing the mesh. Saturation is located at the pressure nodes. Five different regions of 5 distinct absolute permeabilities (K) are introduced (fig.\ref{fig:5regions_domain}). The red square region is saturated with a $50\%-50\%$ mixture of both phase $1$ and $2$. 
 
@@ -692,68 +723,7 @@ Two general behaviors for the interface may occur: (i) If a more viscous fluid d
 
 This test-case serves as a base case for comparison between mobility (or viscocity) ratios that differ by an order of magnitude. Viscocity is a measure of resistance, therefore a frictional property. In these test-cases the $\sigma$ term as this is described above contains the individual parameters related with wettability and contact angle while the porous surface is a fluid $2$ wetted surface. For mobility ratios below $5$ the injection front will uniformly develop as time progress (piston shape front) and no fingers are expexted. Instabilities will start to occur and will be more obvious for mobility ratios higher than $5$. Between two layers or two regions with different permeabilities, but both saturated with fluid $2$, fingers will be triggered because of the permeability differences on the interface of these layers. In between the porous cappilary pressure difference with curve the interface and will lead to the formation of fingers. In macroscopic scale the interface between the two fluid will become unstable, an uneven or fingered profile will be controlled by capilary pressure -acting in the scale of the pores- and therefore due to the overall surface tension difference between the two immiscible fluids the front will collapse. This is of major practical importance in the petroleum industry, environmental waste remediation, and subsurface hydrology and it is key to understanding the movement of large volumes of injection fluids into subsurface reservoirs. The relationships between the capillarity of a geologic system, and the saturation and permeability of the fluids has a direct bearing on the migration speed and reservoir sweep of hydrocarbons affected the productivity of an oil field.
 
-\KCnote{need to include some figures and analysis of the velocities, magnitude etc.}
-
-Having already observed the significant growth of fingers comparing mobility ratios that differ an order of magnitude (Fig.\ref{fig:1testcase}), the next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh test case (Fig.\ref{fig:2testcase}).    
-
 %%%%%%%%%%%%%%%%
-\begin{figure}
-\makebox[\textwidth]{%
-\subfigure[MR10 fixed mesh start]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_250.pdf}%
-}%
-\hfill    
-\subfigure[MR10 adapt mesh start]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_250.pdf}%
-}}\\[0.5cm]% If you want some vertical space
-\makebox[\textwidth]{%
-\subfigure[MR10 fixed mesh]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_500.pdf}%
-}%
-\hfill    
-\subfigure[MR10 adapt mesh]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_500.pdf}%
-}}%
-\caption{Comparing test-cases of fixed and adaptive mesh, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, t=250(a,b), t=500(c,d).,followed by the t=1500(a,b), t=3000(c,d) in fig.\ref{fig:2btestcase}.}
-\label{fig:2atestcase}
-\end{figure}
-
-\begin{figure}
-\makebox[\textwidth]{%
-\subfigure[MR10 fixed mesh]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_1500.pdf}%
-}%
-\hfill    
-\subfigure[MR10 adapt mesh]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_1500.pdf}%
-}}\\[0.5cm]% If you want some vertical space
-\makebox[\textwidth]{%
-\subfigure[MR10 fixed mesh end]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_2000.pdf}%
-}%
-\hfill    
-\subfigure[MR10 adapt mesh end]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_3000.pdf}%
-}}%
-\caption{When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time. }
-\label{fig:2btestcase}
-\end{figure}
-
-
-\begin{figure}
-\centering 
-%\begin{minipage}{1.0\textwidth}%
-\includegraphics[width=0.5\textwidth]{./Pics1/mr10_4regions_python_only_adapt/4regions_python_only_coarse_vel_magn.pdf}\\[2mm]%
-\includegraphics[width=0.5\textwidth]{./Pics1/mr10_4regions_python_only_adapt/4regions_python_only_adapt_vel_magn.pdf}\\[2mm]%
-\includegraphics[width=0.5\textwidth]{./Pics1/mr10_4regions_python_only_adapt/4regions_python_only_adapt_refine_vel_mag.pdf}%
-%\end{minipage}%
-\caption{For the same time step, t=1000, these plots describe the velocity magnitudes of the phase $1$ (injected fluid) under the same boundary and initiall conditions. From top to bottom,these graphs describe the velocity magnitude for single inlet with adaptive mesh coarse (top), adaptive and fine (middle) and adaptive and refined as these simulations are shown in fig.\ref{fig:2testcase}. The main difference between the top, middle and bottom graph lies in the first part and how the vleocity magnitude is builded up as a relation of phase $1$ volume fraction and lower.}
-\label{fig:vel_magn1}
-\end{figure}
-
-In fig.\ref{fig:3testcase} there is a comparison between a single and double injection of fluid $1$ into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see fig.\ref{fig:vel_magn2}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of ﬁngers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No ﬁngers could be observed due to mesh coarseness (ﬁngers were ob-served in ﬁner uniform and adaptive meshes). 
-
-
 \begin{figure}[h]
 \makebox[\textwidth]{%
 \subfigure[[MR10 fixed mesh start]{%
@@ -793,19 +763,19 @@ In fig.\ref{fig:3testcase} there is a comparison between a single and double inj
 \end{figure}
 
 
-
 \begin{figure}
-%\center
-%\begin{minipage}{1.0\textwidth}%
+\begin{center}
 %\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_fixed/5regions_vel_magn.png}\\[2mm]%
-\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_vel_magn.pdf}\\[2mm]%
-\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_vel_magn.pdf}%
-%\end{minipage}%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_vel_magn.pdf}\\[2mm]%
+\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_vel_magn.pdf}%
 \caption{For the same time step, t=1000, these plots describe the velocity magnitudes of the phase $1$ (injected fluid) under the same boundary and initiall conditions. From top to bottom,these graphs describe the velocity magnitude %for fixed mesh is plotted(top), the velocity magnitude 
 for adaptive mesh-single inlet (top) and the velocity magnitude for adaptive mesh with double inlet (bottom) as these are also presented in fig.\ref{fig:3testcase}. The main difference between the upper and lower plot %is not just the ability to capture in greater detail, the fluid instabilities as they happen during the finger development and their velocity patterns. While there 
 is the impact of the second injection interval as this can be seen from the slope and the rate that the velocity magnitude is changing.}
 \label{fig:vel_magn2}
+\end{center}
 \end{figure}
+
+
 
 %\begin{figure}
 %\begin{center}
