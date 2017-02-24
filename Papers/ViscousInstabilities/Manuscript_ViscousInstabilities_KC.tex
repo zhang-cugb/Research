@@ -720,6 +720,7 @@ In fig.\ref{fig:3testcase_a} there is a set of simulations for when another regi
 \label{fig:3testcase_d}
 \end{figure}
 
+The last case that will give an estimable and quantitative description to the reader is the when the mobility ration is highly increased into $100$. Screenshots of the phase volume fraction and the development of fingers will are shown in fig. \red{fig:4testcase}.
 
 \begin{figure}
 \begin{center}
@@ -831,17 +832,24 @@ is the impact of the second injection interval as this can be seen from the slop
 The macroscopic sweep efficiency is principally affected by the heterogeneity in the reservoir which controls the spatial distribution of porosity and permeability. The permeability depends on the number, size and connectivity of the pores. This set of parameters is described by the $\sigma$ in the global mass balance equation (eq.\ref{global_mass_balance}). Including higher permeability zones also know as higher permeability channels or layers in the set up of the model, allows our test-cases to give a good approximation of the so called "thief zones", something that is common in heterogeneous geological formations.
 
 \medskip 
-As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. Adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface. Inside the high permeability square region there is an acceleration of the flow with the maximum value of it at the interface as this starts to develops at the back of this region and onwards. At this point attention should be given to the recovery rates as they can be illustrated from fig.{\ref{fig:recoveryrates}}. The breaking point, also known as the point the two curves meet where beyond that water production will occur, is shifted towards the right as MR is increased.
+As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. Adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface. Inside the high permeability square region there is an acceleration of the flow with the maximum value of it at the interface as this starts to develops at the back of this region and onwards. %At this point attention should be given to the recovery rates as they can be illustrated from fig.{\ref{fig:recoveryrates}}. The breaking point, also known as the point the two curves meet where beyond that water production will occur, is shifted towards the right as MR is increased.
 
-\medskip
-Even though the commercial simulators provide the user with option of an unstructured type of mesh still they are not able to dynamically adapt the mesh as the simulation develops and they increase the computational cost as the saturation front changes slowly. In this paper the use and benefits of dynamic mesh adaptivity to capture the viscous fingering in reservoir flows was introduced byt the use of OCVFEM and families of elements. Both the evolution of visualisation techniques through the extensive use of parallel computing as well as the advances in modelling and simulation of porous media flows may help to address the importance of this phenomenon which can be found in both upstream and downstream operations. Even thought this model is promising there is still work to be done since it is not yet a complete product. Further work is required to develop the surface-based modelling algorithms.
-
-
-\section{Conclusions }
+\section{Conclusions}
 
 \KCnote{need to work that section again, try to maintain the flow on the description of the results starting from the basics to the hele shaw to heterogeneities to more complicated MR10 flows to double inlet to MR1,10,100 compasiron}
 
-In conclusion the method that has been described in this paper as well as the simulations performed have a number of distinct advantages: 
+\medskip
+A number of different cases have been illustrated in section \ref{section:results}. Starting from tested experimental cases and geomtrical domains to verify that the numerical model is working and set up some initial benchmarks, to more complicated cases where various scenarios were implied. Observations made on various mobility ratios, geometrical domains and permeability zones as well as on the role of interfacial forces on the developement of the flows. For immiscible displacements upon which only viscous and capillary forces are acting (being horizontal flow, gravity can be ignored), the expected displacement patterns are either stable front displacement or unstable front displacement. In the latter case the instability arises due to either capillary or viscous fingering depending on capillary number (N_{c}) but mainly on mobility ratio (MR). If the mobility ratio is significantly less than $5$ (MR=$3$ has been used) , it is expected to find capillary fingering at relatively low flow rate and viscous fingering at relatively high flow rate. On the other hand, when the viscosity ratio is greater than $5$, the two basic forms of immiscible displacement are capillary fingering at relatively low flow rate and stable displacement at relatively high flow rate. Therefore for an i.e., water/oil system, the first condition applies as the viscosity of injected water is less than the viscosity of displaced oil. Hence, the displacement form could be either capillary fingering at relatively low injection rates or viscous fingering at higher injection rates. 
+
+\medskip
+We have numerically computed the evolution of the initial condition and for various values of the viscosity contrast under the same initial conditions and surface tension. Even though the commercial simulators provide the user with option of an unstructured type of mesh still they are not able to dynamically adapt the mesh as the simulation develops and they increase the computational cost as the saturation front changes slowly. In this paper the use and benefits of dynamic mesh adaptivity to capture the viscous fingering in reservoir flows was introduced. 
+
+\medskip
+As usually seen for high viscosity contrast, the leading finger screens out the trailing by suppressing its growth to the point that smaller fingers will break out driven by surface tension. At long times the large finger advances approximately at
+constant velocity. Results which question the evolution of fingers and the finger competition are those referring to the dynamic role of viscosity contrast.
+
+\medskip
+In summary, the method that has been described in this paper as well as the simulations performed have a number of distinct advantages: 
 \begin{enumerate}
 \item[1.] The geological model can be designed from the beginning without any previous reference or geometrical limitations due to both the flexibility of method and to the fact that the geological characteristic and parameters can be easily introduced.
 %\item[2.] Computational cost can be reduced because the complex geometries and surfaces are less expensive to generate and manage using fewer grid cells.
@@ -852,6 +860,9 @@ In conclusion the method that has been described in this paper as well as the si
 \item[3.] The increased viscosity ratio increases the computational cost and requires the use of smaller time-step sizes. At the same time the basis of the argument above is the flexibility and variance of the unstructured grid in time and space. The domain used in these test-cases the development of the flow follow the linear tip-splitting finger behaviour.
 \item[4.] Properties such as porosity and saturation can be readily up-scaled using statistical methods, can be included in the element boundaries,  while production simulations run directly on the geological model without the need to upscale.
 \end{enumerate}
+
+\KCnote{Having confirmed that equal viscosity fluids do not finger into each other, a set of experiments were completed at different mobility ratios. Keeping both the thickness and the injection rate constant, it was observed that increasing the mobility ratio decreases the finger width, which subsequently leads to more fingers and subsequently more complexity at a given distance away from the injection point. Tip-splitting, a phenomenon in which the initial stage of fingers split into two or more new fingers, can also be observed at higher mobility ratios.}
+
 
 
 \begin{comment}
