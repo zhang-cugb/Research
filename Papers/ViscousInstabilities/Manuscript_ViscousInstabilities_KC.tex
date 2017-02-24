@@ -479,7 +479,7 @@ U_c = \frac{(\rho_1-\rho_2) \cdot g \cdot K}{(\mu_1-\mu_2)}
 %%%%%%%%%%%%
 \subsection{Model Validation}
 
-The set of test-cases that we are going to illustrate starts with an elementary case in an homogeneous domain. The aim of this test-case is to verify that the numerical model is actually working in different simulation/scenarios starting from the basic ones. One step before it is important to verify the existence of cross flow in the following domain as this is defined in fig. \ref{fig:simple_case}. Fluid $1$ is introduced on the  across the left hand side of the formation. Later different mobility ratios and different regions of various permeabilities will be introduced, but for now only few of these initial and boundary conditions will be applied. 
+The set of test-cases that we are going to illustrate starts with an elementary case in an homogeneous domain. The aim of this test-case is to verify that the numerical model is actually working in different simulation/scenarios starting from some basic model set-ups. One step before it is important to verify the existence of cross flow in the following domain as this is defined in fig. \ref{fig:simple_case}. Fluid $1$ is introduced in the domain across the left hand side of the formation. Later, different mobility ratios and different regions of various permeabilities will be introduced, but for now only few of these initial and boundary conditions will be applied. 
 
 \begin{figure}[h]
 \begin{center}
@@ -489,18 +489,18 @@ The set of test-cases that we are going to illustrate starts with an elementary 
 \end{center}
 \end{figure}
 
-\noindent One more case to demonstrate the model validation against experiments is described in fig. \ref{fig:square}. A square shape formation consisted of $4$ square regions that each one has $2$ values of different permeabilities (K is represented by the blue and red shaded square areas). The aspect ratio of the domain is $1$ and is fully saturated with fluid $2$. At the upper and lower sides of the domain no-slip boundary condition is applied, that at a solid boundary, the fluid will have zero velocity relative to the boundary. The fluid velocity at all fluid–solid boundaries is equal to that of the solid boundary.. The left hand side of the domain is defined as the inlet for fluid $1$ with a velocity of $u=1$ while the right hand side is the outlet and pressure is set to $0$. Fluid $1$ across the left hand side of the formation is trying to displace the existing fluid $2$. What can been seen here is a cross flow case as the flow passes through different regions and develops. The front start to collapse at the first half of the lenght D (D:distance) of the domain ($x= \frac{1}{2} D)$.
+\noindent One more case to demonstrate the model validation against experiments is described in fig. \ref{fig:square}. A square domain consisted of $4$ square regions that each one has $2$ values of different permeabilities (K is represented by the blue and red shaded square areas). The geometrical aspect ratio of the domain is $1$ and is fully saturated with fluid $2$. At the upper and lower sides of the domain no-slip boundary condition is applied (fluid will have zero velocity relative to the boundary). The fluid velocity at all fluid–solid boundaries is equal to that of the solid boundary. The left hand side of the domain is defined as the inlet for fluid $1$ which is introduced along this side with a velocity of $u=1$. The right hand side is the outlet and pressure is set to $0$. Fluid $1$ across the left hand side of the formation is trying to displace the existing fluid $2$. What can been seen here is a cross flow case as the flow passes through different regions and evolves. The front start to collapse at the first half of the lenght D (D:distance) of the domain ($x= \frac{1}{2} D)$.
 
 \begin{figure}[h]
 \begin{center}
 \subfigure[Initial and boundary conditions]{\includegraphics[width=0.65\textwidth]{./Pics/2b2_P1DGP2.pdf}\label{a}}
 \subfigure[Plots of velocity magnitude, pressure and phase volume fraction]{\includegraphics[width=0.6\textwidth]{./Pics/2b2_P1DGP2_plot.pdf}\label{b}}
-\caption{This is the first test-case of a square region with four subregions of constant permeabilities K. The mesh is unstructured but fixed and on average there are 5000 elements. Fluid $1$ is introduced from the right hand side at a constant velocity of u = 1, while as the flow progress the velocity magnitude drops to zero close to the outlet. This is a cross flow example based on the experimental work of \citet{evans_1994}. The main finger desrcibes the cross flow and starts to dies out during the transition from one permeability zone to another and as it approaches closer to the right boundary.}
+\caption{This is the first test-case of a square region with four subregions of constant permeabilities K. The mesh is unstructured and fixed and on average there are 5000 elements. Fluid $1$ is introduced from the right hand side at a constant velocity of u = $1$, while as the flow progress the velocity magnitude drops to zero close to the outlet. This is a cross flow example based on the experimental work of \citet{evans_1994}. The main finger desrcibes the cross flow and starts to dies out during the transition from one permeability zone to another and as it approaches closer to the right boundary.}
 \label{fig:square}
 \end{center}
 \end{figure}
 
-\noindent In this test-case above the two phase volume volume fractions have the same but opposite behaviour across the length of the formation. The velocity magnitute is builded up starting from the inlet all the way to the middle of the square. There is a sharp pressure drop which is also an indication that the fluid 2 cannot be pushed any further (see fig.\ref{fig:square}) while the phase volume fraction is constant. An slightly modified test-case (see fig.\ref{fig:testcase}) follows with the initial and boundary condition to remain the same, but in this set of simulations the geometrical aspect ration is $2$. The last set of simulations as this is described in fig.\ref{fig:1testcase} is and extension of the previous case and the aim of is to verify the behaviour of the flow for two different mobility ratios of $1$ and $10$ respectively.
+\noindent In this test-case above the two phase volume volume fractions have the same but opposite behaviours across the length of the formation. The velocity magnitute is builded up starting from the inlet all the way to the middle of the square. There is a sharp pressure drop which is also an indication that the fluid $2$ cannot be displaced any further (see fig.\ref{fig:square}) while the phase volume fraction is constant. An slightly modified test-case (see fig.\ref{fig:testcase}) follows with the initial and boundary condition to remain the same, but in this set of simulations the geometrical aspect ration is $2$. The last set of simulations as this is described in fig.\ref{fig:1testcase} is and extension of the previous case and the aim of is to verify the behaviour of the flow for two different mobility ratios of $1$ and $10$ respectively.
 
 \begin{figure}[h]
 \begin{center}
@@ -512,7 +512,7 @@ The set of test-cases that we are going to illustrate starts with an elementary 
 \end{center}
 \end{figure}
 
- The purpose of these cases was to verify that our model is working for cases that experimentally are proven. This will allow to proceed further and expand this technique into more complex formations. A more detailed description of the element type and the formation that will be used in the next set of test cases follows.
+\noindent The purpose of these two cases was to verify that our model is working for cases that experimentally are proven. This will allow to proceed further and expand this technique into more complex formations. A more detailed description of the element type and the formation that will be used in the next set of test cases follows.
 
 \begin{figure}[h]
 \makebox[\textwidth]{%
@@ -548,7 +548,9 @@ The set of test-cases that we are going to illustrate starts with an elementary 
 \subsection{Hele-Shaw verification cases for homogeneous and heterogeneous domains under two different mobility ratios}
 
 \medskip
-At this point we have to mentioned one more set of simulations, based on the work of \citet{saffman_1986}. The Hele-shaw cell geometrical domain as this is defined by experimental studies and is presented in figures \ref{fig:1a_homoheleshaw_3}, \ref{fig:1b_homoheleshaw_3} and fig. \ref{fig:1c_homoheleshaw_3} is used. In all cases, simulations were performed in a squared geometry of $5x5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 (i.e., sqrt(2*0.25)). The sink (represented by 0 pressure BC) is allocated in the top right hand side corner of the domain. Newmann BC (i.e., no flux) was imposed to all borders of the domain except at the top righ hand side corner. The mobility ratios for these $3$ cases are $3$ and $10$ while for the latter homogeneous and heterogeneous domain is used.  
+At this point we have to mentioned one more set of simulations, based on the work of \citet{saffman_1986}. The Hele-shaw cell, a geometrical domain as this is defined by experimental studies and is presented in figures \ref{fig:1a_homoheleshaw_3}, \ref{fig:1b_homoheleshaw_3} and fig. \ref{fig:1c_homoheleshaw_3} is used. In all cases, simulations were performed in a squared geometry of $5x5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 %(i.e., sqrt(2*0.25))
+. The sink (pressure is set to $0$) is allocated in the top right hand side corner of the domain. Newmann boundary conditions %(i.e., no flux) 
+was imposed to all borders of the domain except at the top righ hand side corner. The mobility ratios for these $3$ cases are $3$ and $10$ while for the latter, homogeneous and heterogeneous domain is used.  
 
 \begin{figure}
 \centering
