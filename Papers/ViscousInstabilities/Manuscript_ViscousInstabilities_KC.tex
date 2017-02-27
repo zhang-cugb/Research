@@ -685,7 +685,7 @@ Figures \ref{fig:2testcase_a}, \ref{fig:2testcase_b}, \ref{fig:2testcase_c}, \re
 \medskip
 \KCnote{velocity magnituted comparison under the adaptive vs. adaptive and refined mesh - NOT sure if we can include that}
 
-In fig.\ref{fig:3testcase_a} there is a set of simulations for when another region (inlet) of fluid $1$ ins introduced into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see fig.\ref{fig:vel_magn2}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see fig.{\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of ﬁngers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No ﬁngers could be observed due to mesh coarseness (ﬁngers were observed in ﬁner uniform and adaptive meshes).
+In fig.\ref{fig:3testcase_a} there is a set of simulations for when another region (inlet) of fluid $1$ ins introduced into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see fig.\ref{fig:vel_magn2}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see fig.\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of ﬁngers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No ﬁngers could be observed due to mesh coarseness (ﬁngers were observed in ﬁner uniform and adaptive meshes).
 
 %%%%%%%%%%%%%
 \begin{figure}
@@ -700,7 +700,7 @@ In fig.\ref{fig:3testcase_a} there is a set of simulations for when another regi
 \centering
 \subfigure[fixed mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}}\\[2mm]%
 \subfigure[adaptive mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}}%
-\caption{In fig.(a)  fig.(b) .}
+\caption{In fig.(a)  fig.(b).}
 \label{fig:3testcase_b}
 \end{figure}
 
@@ -708,7 +708,7 @@ In fig.\ref{fig:3testcase_a} there is a set of simulations for when another regi
 \centering
 \subfigure[fixed mesh, t=1500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_1500.pdf}}\\[2mm]%
 \subfigure[adaptive mesh, t=1500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_1500.pdf}}%
-\caption{In fig.(a)  fig.(b) .}
+\caption{In fig.(a)  fig.(b).}
 \label{fig:3testcase_c}
 \end{figure}
 
@@ -716,18 +716,18 @@ In fig.\ref{fig:3testcase_a} there is a set of simulations for when another regi
 \centering
 \subfigure[fixed mesh, t=end]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_end.pdf}}\\[2mm]%
 \subfigure[adaptive mesh, t=end]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_end.pdf}}%
-\caption{In fig.(a)  fig.(b) .}
+\caption{In fig.(a)  fig.(b).}
 \label{fig:3testcase_d}
 \end{figure}
 
-The last case that will give an estimable and quantitative description to the reader is the when the mobility ration is highly increased into $100$. Screenshots of the phase volume fraction and the development of fingers will are shown in fig. \red{fig:4testcase}.
+The last case that will give an estimable and quantitative description to the reader is the when the mobility ration is highly increased into $100$. Screenshots of the phase volume fraction and the development of fingers will are shown in fig.\ref{fig:4testcase}.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf}\\[2mm]%
-\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}\\[2mm]%
-\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf}\\[2mm]%
-\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}%
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf}}\\[2mm]%
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}}\\[2mm]%
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf}}\\[2mm]%
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}}%
 \caption{from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d)}
 \label{fig:4testcase}
 \end{center}
