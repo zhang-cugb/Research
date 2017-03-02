@@ -59,7 +59,8 @@
 %The amsthm package provides extended theorem environments
 \usepackage{amsthm}
 \usepackage{graphicx}
-\usepackage{subfigure}  
+\usepackage{subfigure}
+  
 %% The lineno packages adds line numbers. Start line numbering with
 %% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
 %% for the whole article with \linenumbers after \end{frontmatter}.
@@ -160,24 +161,33 @@ The aim of this paper is to extend and further apply the formulation (embedded i
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Introduction}\label{section:intro}
 \medskip
-Numerical investigation and modelling of multiphase flows in porous media have attracted the attention of the scientific community over the past 40 years. Characterization of the flow of fluids through porous media serves as the foundation of reservoir engineering studies. Reservoir engineers and hydro-geologists are dealing with complex geometries, irregular boundaries and heterogeneous geological formations. Oil and gas migration, transport of contaminants through groundwater are some of important physical problem that porous media flows play a crucial role. Underground coal gasification, for the mining industry is an important area of interest, but more recently, also due to the global environmental problems, research focus on the CO$_{\text{2}}$ migration and trapping mechanisms in carbon capture utilization and storage (CCUS) operations~\citep{spycher_2003, chen_2006, self_2012, pruess_1990c, white_1981,jiang_2011}.
+Numerical investigation and modeling of multiphase flows in porous media have attracted the attention of the scientific community over the past 40 years. Characterization of the flow of fluids through porous media serves as the foundation of reservoir engineering studies. Oil and gas migration, transport of contaminants through groundwater are some of important physical problem that porous media flows play a crucial role. Reservoir engineers and hydro-geologists are dealing with complex geometries, irregular boundaries and heterogeneous geological formations.  Underground coal gasification, for the mining industry is an important area of interest, but more recently, also due to the global environmental problems, research focus on the CO$_{\text{2}}$ migration and trapping mechanisms in carbon capture utilization and storage (CCUS) operations~\citep{spycher_2003, chen_2006, self_2012, pruess_1990c, white_1981,jiang_2011}.
 
 \medskip
-Out of this mixed and complex various geological formations, multiphase flows through porous media. play the most important role in understanding the afformentioned operations. These often involves the displacement of a non-wetting invading fluid from a porous medium by a wetting fluid. Modeling of multiphase flow, on the other hand is still an enormous technical and computational challenge. In all branches of fluid mechanics, there are the instabilities, also know as flow instabilities. The first distinction should be made between microscopic and macroscopic instabilities. The term microscopic instabilities is used for the phenomena occurring locally; for example, the Helmholtz and Saffman-Taylor instabilities. On the other hand the macroscopic instabilities involve, e.g.the entire two-phase flow system. In this paper, the main focus is kept on macroscopic phenomena. Part of flow instabilities is the viscous flow instabilities, also know as \textit{viscous fingering}. In large scale field operations it is the condition whereby the interface of two fluids, such as oil and water, bypasses sections of reservoir as it moves along, creating an uneven, or fingered, profile. Fingering is a relatively common condition in reservoirs with water-injection wells. The result of fingering is an inefficient sweeping action that can bypass significant volumes of recoverable oil and, in severe cases, an early breakthrough of water into adjacent production wellbores. It can occur both within a single phase or when multiple phases flow through porous media. This instability is essentially governed by the mobility-ratio, MR, which is defined as the ratio of the mobility of the displacing fluid over that of the displaced fluid. %In a water-oil system the MR is given by eq.\ref{eq:MR}.
-However, other important factors also influence the severity of viscous fingering: heterogeneous permeability fields, gravity, anisotropic dispersion, velocity dependence of dispersion, nonmonotonic viscosity profiles, etc. High mobility-ratio displacement processes present very  complex  fingering  patterns.  
+Due to complex and/or heterogeneous geological formations, multiphase flows through porous media play an important role in understanding the afformentioned operations. Modeling of multiphase flow, is an enormous technical and computational challenge. Starting from important contributions on the field of multiphase flows from \citet{wooding_1976}, \citet{homsy_1987} and \citet{adler_1988}, in all branches of fluid mechanics, there are the instabilities, also know as flow instabilities as these, first described by \citet{saffman_1958}. The first distinction should be made between microscopic and macroscopic instabilities. Microscopic instabilities are used for phenomena occurring locally, for example, the Helmholtz and Saffman-Taylor instabilities (\citep{saffman_1959}). On the other hand the macroscopic instabilities involves two-phase flow system (\citep{bottoni_1992}). In this paper, the main focus is kept on macroscopic phenomena. A local flow instability that is the focus of this work is due to viscous and stress forces and often named as viscous instabilities or \textit{viscous fingering}. 
+
+\medskip
+In large scale field operations, fingering is a relatively common condition in reservoirs with water-injection wells. As water and oil interacts, the interface between those two fluids moves along the geological formation, creating an uneven, or fingered, profile. The result of fingering is an inefficient sweeping action that can bypass significant volumes of recoverable oil and, in severe cases, an early breakthrough of water into adjacent production wellbores. This instability is mainly governed by the ratio of the mobility of the displacing fluid over that of the displaced fluid (Mobility-ratio, MR). %In a water-oil system the MR is given by eq.\ref{eq:MR}.
+However, other important factors also influence the severity of viscous fingering: heterogeneous permeability fields, gravity, anisotropic dispersion, velocity dependence of dispersion, nonmonotonic viscosity profiles, etc. High mobility-ratio displacement processes introduces very complex fingering patterns.  
 
 %Forecasting the behaviour of multiphase flows or the future response of the system are major challenges that need to be taken into account. Injections of low-viscosity, high-density fluid (e.g. water) into a reservoir saturated with lighter but more viscous oil is an example where both viscous and gravitational instabilities may occur for two-phase immiscible and incompressible flow. These phenomena have great importance during the oil and gas recovery operations in both mature and new fields. 
 
-\medskip
-The conservation of mass along with Darcy's law are the governing equations that describe the flow pattern. Finding an exact solution to some differential  equations is whether impossible or very time consuming. This is where people employ numerical analysis schemes to address the issue by creating a sequence  of approximations. This is done through discretization of the continuous differential equations. Therefore there are several methods that offer a means to obtain the approximate solutions.
+% Good for thesis not for paper
+%\medskip
+%The conservation of mass along with Darcy's law are the governing equations that describe the flow pattern. Finding an exact solution to some differential  equations is whether impossible or very time consuming. This is where people employ numerical analysis schemes to address the issue by creating a sequence  of approximations. This is done through discretization of the continuous differential equations. Therefore there are several methods that offer a means to obtain the approximate solutions.
 
 \medskip 
-Finite difference methods (FDM) have been extensively used in most industry-standard flow simulators~\citep{aziz_1986, chen_2005, chang_1990} with relative success in multi-physics single phase applications (e.g., black oil model, passive tracer advection etc). Analytic models can be used to analyze reservoir performance as long as the reservoir is not highly heterogeneous. However, FDM are often limited to relatively simple geometries 
-%(with low grid quality and orientation) 
-representing idealised geological formations~\citep{mlacnik_2004, king_1999}. Additionally, FDM produce excessive numerical dispersion when heterogeneity (represented by permeability and porosity fields) is present~\citep{chavent_1986}. The geometrical flexibility associated with high-order numerical accuracy of finite element methods (FEM) has proven to overcome these deficiencies. Even though the most popular ones for the fluid flow equations are the Finite Difference Methods (FDM) there are also the Finite Volume Methods (FVM) and the Finite Element Methods. The latter is the one that will be used in this paper and more precisely a member of the FEM family, the Control-Volume FEM method (CVFEM). 
+The conservation of mass along with the Darcy's law are the governing equations that describe the flow dynamics in porous media. Several computational methods have been developed to accurately represent force balanceand mass conservation in darcean flows.
+Finite difference methods (FDM) have been extensively used in most industry-standard flow simulators~\citep{aziz_1986, chen_2005, chang_1990} with relative success in multi-physics single phase applications (e.g., black oil model, passive tracer advection etc). A finite difference method (FDM) discretization is based upon the differential form of the PDE to be solved. 
+%Analytic models can be used to analyze reservoir performance as long as the reservoir is not highly heterogeneous. However, FDM are often limited to relatively simple geometries (with low grid quality and orientation) representing idealised geological formations~\citep{mlacnik_2004, king_1999}. Additionally, FDM produce excessive numerical dispersion when heterogeneity (represented by permeability and porosity fields) is present~\citep{chavent_1986}.
+The geometrical flexibility associated with high-order numerical accuracy of finite element methods (FEM) has proven to overcome these deficiencies. A finite element method (FEM) discretization is based upon a piecewise representation of the solution in terms of specified basis functions. The computational domain is divided up into smaller domains (finite elements) and the solution in each element is constructed from the basis functions. Advantages of FEM are the better description of the geometry and complex shapes, better treatment of fluid flow and saccurate more accurate stress calculations using a smaller number of nodes, less memory space and shorter run times. At this point let us remind that a comparison of computaional methods is difficult and depends always on the test-case.
+%Even though the most popular ones for the fluid flow equations are the Finite Difference Methods (FDM) there are also the Finite Volume Methods (FVM) and the Finite Element Methods. The latter is the one that will be used in this paper and more precisely a member of the FEM family, the Control-Volume FEM method (CVFEM). 
 
 \medskip
-Among FEM-based formulations for porous media, the control volume finite element methods, ~\citep[CVFEM,][]{fung_1992} has been largely used as it can guarantee local mass conservation and high-order numerical accuracy as well as being able to use tetrahedral geometry-conforming elements~\citep{forsyth_1990, geiger_2004, hurtado_2007}. In this formulation, standard Galerkin-FEM method is used to discretise the pressure equation (FEM representation of pressure and velocity fields) whereas a control volume-based formulation is used to discretise all remaining scalar fields~\citep[e.g., saturation, density, species concentration etc, see][]{gomes_book_2012}. 
+Among FEM-based formulations for porous media, the control volume finite element methods, ~\citep[CVFEM,][]{fung_1992} has been largely used as it can guarantee local mass conservation and high-order numerical accuracy as well as being able to use tetrahedral geometry-conforming elements. 
+
+%~\citep{forsyth_1990, geiger_2004, hurtado_2007}. 
+%In this formulation, standard Galerkin-FEM method is used to discretise the pressure equation (FEM representation of pressure and velocity fields) whereas a control volume-based formulation is used to discretise all remaining scalar fields~\citep[e.g., saturation, density, species concentration etc, see][]{gomes_book_2012}. 
 
 \begin{figure}[h]
 \centering
@@ -187,7 +197,9 @@ Among FEM-based formulations for porous media, the control volume finite element
 \end{figure}
 
 \medskip
-In the CVFE method pressure is interpollated using piecewise linear finite element basis functions, also known as shape functions, $\underline{\bf v}$ and $\underline{\bf p}$) while saturation is represented in node centered CV basis functions respectevely, and the saturation equation is solved explicitly after solving for pressure at each time.
+In the CVFE method pressure is interpollated using piecewise linear finite element basis functions, also known as shape functions, %$\underline{\bf v}$ and $\underline{\bf p}$) 
+while saturation is represented in node centered CV basis functions respectevely, and the saturation equation is solved explicitly after solving for pressure at each time.
+
 %%%%%%%%%%%%%%%
 \begin{comment}
 \begin{equation}
@@ -201,25 +213,24 @@ In the CVFE method pressure is interpollated using piecewise linear finite eleme
 \end{equation}
 \end{comment}
 %%%%%%%%%%%%%%%
-Control volume finite element methods require high resolution meshes, as these are represented in fig.\ref{fig:fem_cv}, in regions where material properties vary abruptly, such as permeability and/or porosity contrasts at fracture-matrix interfaces. Since geometries are captured by finite elements (FE), constructed control volumes (CV) typically extend over the interfaces which may have different properties. Therefore, some average value of the permeability (defined in the FE space but projected into the CV space) is applied across the CVs at these interface. This often leads to excessive numerical dispersion especially in highly heterogeneous media. In order to overcome such artificial numerical dispersion, discontinuous hybrid finite element finite volume method (DFEFVM) was developed by \citet{nick_2011b, nick_2011a}. This novel discretisation scheme was designed to simulate flows through discrete fractured rocks in which CVs are divided along the interfaces of different materials. \citet{cumming_2011} demonstrated that CVFEM discretisation could also be used to solve Richards' equations (coupled mass conservation and Darcy equation) in heterogeneous media with relatively small computational overhead~\citep[compared with traditional coupled velocity-pressure based formulations, see also][]{cumming_phd2012}. Fluxes over CV's were calculated based upon material properties, whereas the saturation fields were volume-averaged at the interface of the materials, enforcing mass balance as described by \citet{kirkland_1992}.The conservation of mass along with Darcy's law are the governing equations while variables such as pressure, velocity,saturation and permeability define the behaviour of the flow. Finite difference methods have been applied to discretise the governing equations \citep{Luo2016,Moortgat2016,Hoteit2008} .
 
+Material properties in control volume finite element methods (Fig.\ref{fig:fem_cv}) may vary abruptly (permeability and/or porosity contrasts at fracture-matrix interfaces). Since geometries are captured by finite elements (FE), constructed control volumes (CV) typically extend over the interfaces which may have different properties. Therefore, some average value of the permeability (defined in the FE space but projected into the CV space) is applied across the CVs at these interface. This often leads to excessive numerical dispersion especially in highly heterogeneous media. In order to overcome such artificial numerical dispersion, discontinuous hybrid finite element finite volume method (DFEFVM) was developed by \citet{nick_2011b, nick_2011a}. This novel discretisation scheme was designed to simulate flows through discrete fractured rocks in which CVs are divided along the interfaces of different materials. \citet{cumming_2011} demonstrated that CVFEM discretisation could also be used to solve Richards' equations (coupled mass conservation and Darcy equation) in heterogeneous media with relatively small computational overhead~\citep[compared with traditional coupled velocity-pressure based formulations, see also][]{cumming_phd2012}. Fluxes over CV's were calculated based upon material properties, whereas the saturation fields were volume-averaged at the interface of the materials, enforcing mass balance as described by \citet{kirkland_1992}.
+
+%The conservation of mass along with Darcy's law are the governing equations while variables such as pressure, velocity,saturation and permeability define the behaviour of the flow. Finite difference methods have been applied to discretise the governing equations \citep{Luo2016,Moortgat2016,Hoteit2008} .
 %\KCnote{in our case only - In conventional reservoirs the principal forces that affect fluid flow include, viscous forces, effects of gravity and permeability diffrences while in unconventional gas reservoirs flow simulation models take into account the phenomena of adsorption and diffusion \citep{abdus_2015}. Even though the mechanisms of the instabilities may vary, however it is still a function of relative mobility, gravity, viscous forces and permeability differences. All these parameters are represented under one term in the global mass balance equation.}
 
 \medskip
-The objective of this study is to investigate and accurately describe the behaviour of fingering in multiphase ($2$-phase) flows using a control volume finite element method (CVFEM). Considering the limitations of finite differences formulations the CVFE the model formulation will use a conservative computational multi-fluid porous media flow model able to exploit mesh adaptivity methods on a fully-unstructured tetrahedral grid. Also two key characteristics that describe the research concept above are: (a) the hybrid element pair $P_{n}DGP_{n+1}$ which provides discontinuous and piecewise representation for velocity and pressure fields at FE space and (b) the overlapping control volume finite element method (CVFEM)formulation.
+The objective of this study is to investigate and describe the behaviour of viscous fingering in multiphase flows using a control volume finite element method (CVFEM). Taking into account the limitations of finite differences, the CVFE method  will use a conservative computational multi-fluid porous media approach able to exploit the mesh adaptivity on a fully-unstructured tetrahedral grid. Also two key characteristics that describe the research concept above are: (a) the hybrid element pair $P_{n}DGP_{n+1}$ which provides discontinuous and piecewise representation for velocity and continuous and piecewise representation of pressure at FE space and (b) the overlapping control volume finite element method (CVFEM)formulation.
 
 \medskip
-\KCnote{ \blue{as soon as we finish the paper}, the sections that follow include a summary of the main governing equations for multiphase compositional flow. The remainder of the paper will include a description of the viscous fingering along with the finite element method technique, a discussion of simulations results and the key conclusions. The analysis will consider ($1$)permeability heterogeities, ($2$)capturing the development of the interface and the evolution of fingers, ($3$)test-case comparison, but for now will neglect any gravitational effects.}
+In the sections following the introduction, numerical fomrulation and a summary of the main governing equations for multiphase compositional flows will follow. The remainder of the paper will include a description of the viscous fingering along with the finite element method technique, a discussion of the test-cases and the simulation results and the key conclusions. The analysis will consider ($1$)permeability heterogeities, ($2$)capturing the development of the interface and the evolution of fingers, ($3$)test-case comparison, but for now will neglect any gravitational effects.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Governing equations and numerical scheme}\label{equations_scheme}      
-Multiphase flow in porous media is described by mass conversation and Darcy equations for all the phase $\alpha$ ($\alpha$ = g, o, w, for gas, oil, and water phases). Different domains will produce different flow instabilities. In this paper, the test-cases are based on the discontinuous Galerkin (DG) method. DG-methods combine advantages of classical finite volume and finite element methods.  
+%Multiphase flow in porous media is described by mass conversation and Darcy equations for all the phase $\alpha$ ($\alpha$ = g, o, w, for gas, oil, and water phases). Different domains will produce different flow instabilities. In this paper, the test-cases are based on the discontinuous Galerkin (DG) method. DG-methods combine advantages of classical finite volume and finite element methods.  
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Numerical Formulation}
-\medskip
-
+%\subsection{Numerical Formulation}
 %%%%%%%%%%%%%%%
 \begin{comment}
 Flows in porous media are expressed by the Darcy's law and the saturation equation. At this stage the control volume finite element method is used (CVFEM). Darcy's law for immiscible multi-phase flow may be written in the form:
@@ -282,12 +293,13 @@ $\underline{\underline{\sigma}}_{\alpha}=\mu_{\alpha}S_{\alpha}\left(\mathcal{K}
 \end{comment}
 %%%%%%%%%%%%%%%
 
+\medskip
 The two-phase flow through the porous media $\Omega$ may be described by the coupled extended Darcy and global mass conservation equations,
 \begin{eqnarray}
 \left(\displaystyle\frac{\mu_{\alpha}S_{\alpha}}{{\mathbf K}\mathcal{K}_{r\alpha}}\right) {\mathbf u}_{\alpha} = \underline{\underline{\sigma}}_{\alpha} {\mathbf u}_{\alpha} = -\nabla p + \mathcal{S}_{u,\alpha},\;\;\; x_{i}\in\Omega, t>0 \label{eqn:darcy_eqn} \\
 \phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  \mathcal{S}_{cty,\alpha},\;\;\; x_{i}\in\Omega, t>0\label{eqn:saturation_eqn}
 \end{eqnarray}
-where $S$, $\mu$, ${\bf K}$, $p$ and $\phi$ are the saturation, viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{k}$ is the saturation-weighted Darcy velocity of the $k$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ is saturation of the $\alpha$-phase with the constraint of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases.
+where, $\mu$, ${\bf K}$, $p$ and $\phi$ are the viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{\alpha}$ is the saturation-weighted Darcy velocity of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ is saturation of the $\alpha$-phase with the constraint of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases.
 
 %%%%%%%%%%%%%%%
 \begin{comment}
@@ -314,22 +326,22 @@ B^T M_{\sigma} ^{-1} C{{\underline{p}}^{n+1}} = {\underline{s}_p ^{n+1}} - B^T M
 %%%%%%%%%%%%%%%
 
 \medskip
-Finite element basis functions for velocity and pressure fields are introduced in the discretisation of force-balance equation (eq.~\ref{e:darcy_eq}). Hybrid basis functions are also developed to allow CV-based velocity to be extrapolated across the entire element. $\underline{\underline{\sigma}}_{k}=\underline{\underline{\sigma}}_{k}\left({\mathbf K}, \mathcal{K}_{rk}, S_{K}, \mu_{k}\right)$ is an absorption-like term that lies in both CV and FEM spaces. Though, whilst the saturation field is calculated in CV space, permeability $\left({\mathbf K}\right)$ is piecewise constant in FE space to allow efficient representation of surface parametrised geometries. The global saturation equation (Eqn.~\ref{eqn:saturation_eqn}) is discretised in space with CV basis function and with the $\theta$-method in time as described by \citet{gomes_book_2012}. Velocities across CV interfaces (within and between elements, see fig.\ref{fig:fem_cv} below) are calculated through a directional-weighted flux-limited scheme based on upwind value of $\sigma$ at individual CV as described by \citet{jackson_2013}.
+Finite element basis functions for velocity and pressure fields are introduced in the discretisation of force-balance equation (Eqn.~\ref{e:darcy_eq}). Hybrid basis functions are also developed to allow CV-based velocity to be extrapolated across the entire element. $\underline{\underline{\sigma}}_{k}=\underline{\underline{\sigma}}_{k}\left({\mathbf K}, \mathcal{K}_{rk}, S_{K}, \mu_{k}\right)$ is an absorption-like term that lies in both CV and FEM spaces. Though, whilst the saturation field is calculated in CV space, permeability $\left({\mathbf K}\right)$ is piecewise constant in FE space to allow efficient representation of surface parametrised geometries. The global saturation equation (Eqn.~\ref{eqn:saturation_eqn}) is discretised in space with CV basis function and with the $\theta$-method in time as described by \citet{gomes_book_2012}. Velocities across CV interfaces (within and between elements, see fig.\ref{fig:fem_cv} below) are calculated through a directional-weighted flux-limited scheme based on upwind value of $\sigma$ at individual CV as described by \citet{jackson_2013}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Numerical Formulation}\label{section:NumericalFormulation}
- The method developed is applicable to $N_{p}$ fluid phases and is based on the novel family of $P_{n}(DG)-P_{m}(DG)$ element-pair consistent with the dual pressure-velocity representation in control volume (CV) and finite element (FE) spaces. These element-pairs have a discontinuous $n^{th}$-order polynomial representation for velocity and a discontinuous $m^{th}$-order of pressure. Another element pair, that can be used is the $P_{n}DGP_{m}$ with an $m^{th}$-order continuous representation for pressure. The mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin finite element (FE) method is used to obtain the high-order fluxes on CV boundaries (fig.\ref{fig:fem_elem})  , which are limited to yield bounded fields.
+ The method developed is applicable to $N_{p}$ fluid phases and is based on the novel family of $P_{n}(DG)-P_{m}(DG)$ element-pair consistent with the dual pressure-velocity representation in control volume (CV) and finite element (FE) spaces. These element-pairs have a discontinuous $n^{th}$-order polynomial representation for velocity and a discontinuous $m^{th}$-order polynomial pressure. Another element pair, that can be used is the $P_{n}DGP_{m}$ with an $m^{th}$-order continuous representation for pressure. The mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin finite element (FE) method is used to obtain the high-order fluxes on CV boundaries (fig.\ref{fig:fem_elem})  , which are limited to yield bounded fields.
 
 \begin{figure}[h] 
 \centering
 \includegraphics[width=.5\textwidth]{./Pics/element_n.pdf}
-\caption{Porosity $\phi_{i}$, and permeability $K_{i}$ are associated to the elements. The velocity and pressure are associated to the element corners and the mid-points as described in fig.\ref{fig:fem_cv}; three CVs fit into a $2$D element. Saturation and saturation-dependent variables are stored CV-wise.}
+\caption{This is a description of two different element types. Element A is the $P_{1}DGP_{2}$, while element B is the $P_{1}DGP_{2}$. Porosity $\phi_{i}$, and permeability $K_{i}$ are associated to the elements $P_{o}DG$. The velocity and pressure are associated to the element nodes and the mid-points as described in Fig.\ref{fig:fem_cv}; three CVs fit into a $2$D element. Saturation and saturation-dependent variables are stored CV-wise. }
 \label{fig:fem_elem}
 \end{figure}
 
 Saturation, and all saturation-dependent material properties such as relative permeability and capillary pressure, are represented CV-wise. The pressure, a key difference to other CVFE methods reported previously, allows the use of CVs that do not span multiple FEs. Hence each CV (and FE) is associated with a unique set of petrophysical properties, in contrast to most previous methods in which CVs span multiple values of petrophysical properties described FE-wise.
 
-In this model we assume that rock and fluids are incopressible thus the mass ballance for phase $\alpha$ can be written as (Eq.\ref{mass_balance})
+In this model we assume that rock and fluids are incompressible thus the mass ballance for phase $\alpha$ can be written as (Eq.\ref{mass_balance})
 
 \begin{equation}
 \phi \; \frac{\partial S_{\alpha}}{\partial t} + \nabla (u_{\alpha}S_{\alpha})= \mathcal{S}_{cty,\alpha}
@@ -343,16 +355,16 @@ In this model we assume that rock and fluids are incopressible thus the mass bal
 %\label{saturation_constrain}
 %\end{equation}
 
-Equation \ref{mass_balance}, is discretize in time and space following the $\theta$-method. Summing over all phases and discretizing in time using the $\theta$-method yields the global mass balance equation %\ref{global_mass_balance},
+Equation \ref{mass_balance} is discretized in time and space using the $\theta$-method (\citep{saramito_1994}) . Summing over all phases yields the global mass balance equation %\ref{global_mass_balance},
 
 \begin{eqnarray}
  && \sum_{\alpha=1}^{N_{p}} \int\limits_{\Omega_{CVi}} \; M_{i} \; \frac{\phi\left(S_{\alpha i}^{n+1}\right)-\left(S_{\alpha i}^{n}\right)}{\Delta t} dV  + \nonumber\\
- &&  \oint_{\Gamma_{CVi}} [\; \theta^{n+1/2}\; n\dot \; v_{\alpha}^{n+1}S_{\alpha}^{n+1} \; + \; (1-\theta^{n+1/2}) \; v_{\alpha}^{n}S_{\alpha}^{n}] d\Gamma \;- \nonumber\\
+ &&  \oint_{\Gamma_{CVi}} [\; \theta^{n+1/2}\; {\mathbf n}\dot \; {\mathbf u}_{\alpha}^{n+1}S_{\alpha}^{n+1} \; + \; (1-\theta^{n+1/2}) \; {\mathbf u}_{\alpha}^{n}S_{\alpha}^{n}] d\Gamma \;- \nonumber\\
  &&  \int_{\Omega_{CVi}} M_{i} \; \mathcal{S}_{cty,\alpha}^{n+\theta} \; dV\; =0
 \label{global_mass_balance}
 \end{eqnarray}
 
-\noindent where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i respectively, \textbf{n} is normal vector of the CV and $\theta$ varies smoothly between $0.5$ (corresponding to Crank-Nicolson method) and $1$ (corresponding to Backward-Euler scheme) to avoid the introduction of spurious oscillations for large grid Courant numbers. In addition to the numerical schemes above the discretised global mass and force balance equations are solved using a multigrid-like approach, see \citet{pavlidis2016}.
+\noindent where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i respectively, \textbf{n} is the outward pointing unit normal vector to the surface of $CV_{i}$ and $\theta$ varies smoothly between $0.5$ (corresponding to Crank-Nicolson method) and $1$ (corresponding to backward-Euler scheme) to avoid the introduction of spurious oscillations for large grid Courant numbers. In addition to the numerical schemes above the discretised global mass and force balance equations are solved using a multigrid-like approach (see \citet{pavlidis2016}).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -696,6 +708,13 @@ In fig.\ref{fig:3testcase_a} there is a set of simulations for when another regi
 \label{fig:3testcase_a}
 \end{figure}
 
+
+
+
+
+
+\begin{comment}
+
 \begin{figure}
 \centering
 \subfigure[fixed mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}}\\[2mm]%
@@ -722,16 +741,16 @@ In fig.\ref{fig:3testcase_a} there is a set of simulations for when another regi
 
 The last case that will give an estimable and quantitative description to the reader is the when the mobility ration is highly increased into $100$. Screenshots of the phase volume fraction and the development of fingers will are shown in fig.\ref{fig:4testcase}.
 
-%\begin{figure}
-%\begin{center}
-%\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf}}\\[2mm]%
-%\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}}\\[2mm]%
-%\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf}}\\[2mm]%
-%\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}}%
-%\caption{from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d)}
-%\label{fig:4testcase}
-%\end{center}
-%\end{figure}
+\begin{figure}
+\begin{center}
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf}}\\[2mm]%
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}}\\[2mm]%
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf}}\\[2mm]%
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}}%
+\caption{from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d)}
+\label{fig:4testcase}
+\end{center}
+\end{figure}
 
 %%%%%%%%%%%%%%%
 \begin{comment}
@@ -782,17 +801,17 @@ Two general behaviors for the interface may occur: (i) If a more viscous fluid d
 This test-case serves as a base case for comparison between mobility (or viscocity) ratios that differ by an order of magnitude. Viscocity is a measure of resistance, therefore a frictional property. In these test-cases the $\sigma$ term as this is described above contains the individual parameters related with wettability and contact angle while the porous surface is a fluid $2$ wetted surface. For mobility ratios below $5$ the injection front will uniformly develop as time progress (piston shape front) and no fingers are expexted. Instabilities will start to occur and will be more obvious for mobility ratios higher than $5$. Between two layers or two regions with different permeabilities, but both saturated with fluid $2$, fingers will be triggered because of the permeability differences on the interface of these layers. In between the porous cappilary pressure difference with curve the interface and will lead to the formation of fingers. In macroscopic scale the interface between the two fluid will become unstable, an uneven or fingered profile will be controlled by capilary pressure -acting in the scale of the pores- and therefore due to the overall surface tension difference between the two immiscible fluids the front will collapse. This is of major practical importance in the petroleum industry, environmental waste remediation, and subsurface hydrology and it is key to understanding the movement of large volumes of injection fluids into subsurface reservoirs. The relationships between the capillarity of a geologic system, and the saturation and permeability of the fluids has a direct bearing on the migration speed and reservoir sweep of hydrocarbons affected the productivity of an oil field.
 
 %%%%%%%%%%%%%%%%
-\begin{figure}
-\begin{center}
+\begin{comment}
+\begin{figure}[h!]
 %\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_fixed/5regions_vel_magn.png}\\[2mm]%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_vel_magn.pdf}\\[2mm]%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_vel_magn.pdf}%
+\subfigure[single inlet velocity magnitude]{\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_vel_magn.pdf}}\\[2mm]%
+\subfigure[double inlet velocity magnitude]{\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_vel_magn.pdf}}%
 \caption{For the same time step, t=1000, these plots describe the velocity magnitudes of the phase $1$ (injected fluid) under the same boundary and initiall conditions. From top to bottom,these graphs describe the velocity magnitude %for fixed mesh is plotted(top), the velocity magnitude 
-for adaptive mesh-single inlet (top) and the velocity magnitude for adaptive mesh with double inlet (bottom) as these are also presented in fig.\ref{fig:3testcase}. The main difference between the upper and lower plot %is not just the ability to capture in greater detail, the fluid instabilities as they happen during the finger development and their velocity patterns. While there 
+for adaptive mesh-single inlet (top) and the velocity magnitude for adaptive mesh with double inlet (bottom) as these are also presented in fig.\ref{fig:3testcase}. The main difference between the upper and lower plot %is not just the ability to capture in greater detail, the fluid instabilities as they happenduring the finger development and their velocity patterns. While there 
 is the impact of the second injection interval as this can be seen from the slope and the rate that the velocity magnitude is changing.}
 \label{fig:vel_magn2}
-\end{center}
 \end{figure}
+\end{comment}
 
 %%%%%%%%%%%%%%%
 \begin{comment}
@@ -839,7 +858,7 @@ As can been seen so far in all the test-case illustrated, main differences can b
 \KCnote{need to work that section again, try to maintain the flow on the description of the results starting from the basics to the hele shaw to heterogeneities to more complicated MR10 flows to double inlet to MR1,10,100 compasiron}
 
 \medskip
-A number of different cases have been illustrated in section \ref{section:results}. Starting from tested experimental cases and geomtrical domains to verify that the numerical model is working and set up some initial benchmarks, to more complicated cases where various scenarios were implied. Observations made on various mobility ratios, geometrical domains and permeability zones as well as on the role of interfacial forces on the developement of the flows. For immiscible displacements upon which only viscous and capillary forces are acting (being horizontal flow, gravity can be ignored), the expected displacement patterns are either stable front displacement or unstable front displacement. In the latter case the instability arises due to either capillary or viscous fingering depending on capillary number (N_{c}) but mainly on mobility ratio (MR). If the mobility ratio is significantly less than $5$ (MR=$3$ has been used) , it is expected to find capillary fingering at relatively low flow rate and viscous fingering at relatively high flow rate. On the other hand, when the viscosity ratio is greater than $5$, the two basic forms of immiscible displacement are capillary fingering at relatively low flow rate and stable displacement at relatively high flow rate. Therefore for an i.e., water/oil system, the first condition applies as the viscosity of injected water is less than the viscosity of displaced oil. Hence, the displacement form could be either capillary fingering at relatively low injection rates or viscous fingering at higher injection rates. 
+A number of different cases have been illustrated in section \ref{section:results}. Starting from tested experimental cases and geomtrical domains to verify that the numerical model is working and set up some initial benchmarks, to more complicated cases where various scenarios were implied. Observations made on various mobility ratios, geometrical domains and permeability zones as well as on the role of interfacial forces on the developement of the flows. For immiscible displacements upon which only viscous and capillary forces are acting (being horizontal flow, gravity can be ignored), the expected displacement patterns are either stable front displacement or unstable front displacement. In the latter case the instability arises due to either capillary or viscous fingering depending on capillary number ($N_{c}$) but mainly on mobility ratio (MR). If the mobility ratio is significantly less than $5$ (MR=$3$ has been used) , it is expected to find capillary fingering at relatively low flow rate and viscous fingering at relatively high flow rate. On the other hand, when the viscosity ratio is greater than $5$, the two basic forms of immiscible displacement are capillary fingering at relatively low flow rate and stable displacement at relatively high flow rate. Therefore for an i.e., water/oil system, the first condition applies as the viscosity of injected water is less than the viscosity of displaced oil. Hence, the displacement form could be either capillary fingering at relatively low injection rates or viscous fingering at higher injection rates. 
 
 \medskip
 We have numerically computed the evolution of the initial condition and for various values of the viscosity contrast under the same initial conditions and surface tension. Even though the commercial simulators provide the user with option of an unstructured type of mesh still they are not able to dynamically adapt the mesh as the simulation develops and they increase the computational cost as the saturation front changes slowly. In this paper the use and benefits of dynamic mesh adaptivity to capture the viscous fingering in reservoir flows was introduced. 
