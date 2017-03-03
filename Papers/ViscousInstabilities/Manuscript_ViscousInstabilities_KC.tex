@@ -568,7 +568,7 @@ In this section three different sets of simulations were explained. Starting fro
 \subsection{Hele-Shaw validation cases for homogeneous and heterogeneous domains under two different mobility ratios}
 
 \medskip
-Based on the work of \citet{saffman_1986}, the Hele-shaw cell, a geometrical domain as this is defined by experimental studies and is presented in Figures \ref{fig:1a_homoheleshaw_3}, \ref{fig:1b_homoheleshaw_3} and Fig. \ref{fig:1c_homoheleshaw_3} will be used for the next set of simulations. In all cases, simulations were performed in a squared geometry of $5\times5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 %(i.e., sqrt(2*0.25))
+Based on the work of \citet{saffman_1986}, the Hele-shaw cell, a geometrical domain as this is defined by experimental studies and is presented in Figures \ref{fig:1a_homoheleshaw_3},\ref{fig:1b_homoheleshaw_3} and Fig.\ref{fig:1c_homoheleshaw_3} will be used for the next set of simulations. In all cases, simulations were performed in a squared geometry of $5\times5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 %(i.e., sqrt(2*0.25))
 . The sink (pressure set to $0$) is allocated in the top right hand side corner of the domain. Newmann boundary conditions %(i.e., no flux) 
 was imposed to all borders of the domain except at the top righ hand side corner. The mobility ratios for these $3$ cases are $3$ and $10$ while for the latter, homogeneous and heterogeneous domain is used.
 
@@ -598,8 +598,6 @@ In Fig.\ref{fig:1a_homoheleshaw_3}(a), there is the description of the domain. T
 \caption{This tip will become sharper at t=3500(a) as it approaches the area where sink term exist and finally at t=end(b) it will be absorbed.}
 \label{fig:1c_homoheleshaw_3}
 \end{figure}
-
-As can been seen from the Fig.\ref{fig:1a_homoheleshaw_3},\ref{fig:1b_homoheleshaw_3} and Fig.\ref{fig:1c_homoheleshaw_3} there is a significant difference on the flow pattern when the mobility ratio is $3$ and when it is $10$. As the set-up of the simulation remained the same, fingers will be more profound and will start develop faster when the $MR=10$ compared to the uniform front that is developing when the $MR=3$ for the same time steps.
 
 %%%%%%%%%%%%%
 \begin{figure}
@@ -655,13 +653,17 @@ As can been seen from the Fig.\ref{fig:1a_homoheleshaw_3},\ref{fig:1b_homohelesh
 %{./Pics/4r_po_adapt_fine_125_mesh} 
 %{./Pics/4r_po_adapt_fine_100_mesh}
 
+\medskip
+As can been seen from the Fig.\ref{fig:1a_homoheleshaw_3},\ref{fig:1b_homoheleshaw_3} and Fig.\ref{fig:1c_homoheleshaw_3} there is a significant difference on the flow pattern when the mobility ratio is $3$ and when it is $10$ under the same number of elements. Figures \ref{fig:1a_homoheleshaw_3}, \ref{fig:1b_homoheleshaw_3}, \ref{fig:1c_homoheleshaw_3} give a description of the Hele-Shaw cell simulation when $MR=10$ followed by the same initial and boundary conditions set-up, but now for the Hele-Shaw case of a heterogeneous formation as this is described in Figures \ref{fig:3a_heteheleshaw_10},\ref{fig:3b_heteheleshaw_10},\ref{fig:3c_heteheleshaw_10}. Fingers will be more profound and will start develop faster when the $MR=10$ compared to the uniform front that is developing when the $MR=3$ for the same time steps. In addition the flow patter of the fingers will be sharper and more intense when different regions with different permeabilities are introduced in the formation. The importance of this set-up is to understand how the simulation works and if the result that will produced reagarding the development and pattern of the fingers, actually follow the experimental results  and how this is developed under different permeability schemes as these has already been experimentaly tested.  
+
+
+
 %%%%%%%%%%%%%
-\subsection{\blue{need to find a name for this heterogeneous region/set of test-cases for MR10 fixed vs. adaptive mesh}}
+\subsection{Comparison of fixed and adaptive mesh under heterogeneous domain schemes and the same mobility ratio.}
 
 \medskip
-\KCnote{ 4regions and 4 permeabilities}
-\noindent Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Initial and boundary conditions are described in fig. \ref{fig:testcase_heter_domain}. What is expected is a significant growth of fingers when comparing mobility ratios that differ an order of magnitude (Fig.\ref{fig:1testcase}). The next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh. %Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used. 
-Figures \ref{fig:2testcase_a}, \ref{fig:2testcase_b}, \ref{fig:2testcase_c}, \ref{fig:2testcase_d} will give a description of the simulation for different time-steps as these are described. In this set the interfacial instability is becoming more profound as the flow develops. Based on these two cases so far, an initial relation between the quantitative and qualitative outcome of our simulations can be derived. Fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid $1$.    
+Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Initial and boundary conditions are described in Fig. \ref{fig:testcase_heter_domain}, while inlet velocity is $u=1$ on the left hand side and the pressure set to $0$ on the outlet. A quick reminder at this point is that the simulator we are testing has also options to introduce gravity and/or corriolis, but for this current set of simulations these are neglected. What is expected is a significant growth of fingers when comparing mobility ratios that differ an order of magnitude (Fig.\ref{fig:1testcase}). The next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh. For the fixed mesh we have $4600$ elements, but for the adaptive mesh we start with $400$ up to $600$, depends how fine we would like the mesh to be, and we reach up to $24000$. %Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used. 
+Figures \ref{fig:2testcase_a}, \ref{fig:2testcase_b}, \ref{fig:2testcase_c} and \ref{fig:2testcase_d} will give a description of the simulation for different time-steps as these are described. In this set the interfacial instability is becoming more profound as the flow develops. Based on these two cases so far, an initial relation between the quantitative and qualitative outcome of our simulations can be derived. Fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid $1$.    
 
 \begin{figure}[h]
 \begin{center}
@@ -705,12 +707,10 @@ Figures \ref{fig:2testcase_a}, \ref{fig:2testcase_b}, \ref{fig:2testcase_c}, \re
 \end{figure}
 
 %%%%%%%%%%%%%
-\subsection{\blue{need to find a name for this heterogeneus region/set of test-cases for MR10 adaptive double inlet}}
+\subsection{Comparison of flow pattern under the same simulation set-up with an additional inlet}
 
 \medskip
-\KCnote{velocity magnituted comparison under the adaptive vs. adaptive and refined mesh - NOT sure if we can include that}
-
-In fig.\ref{fig:3testcase_a} there is a set of simulations for when another region (inlet) of fluid $1$ ins introduced into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see fig.\ref{fig:vel_magn2}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see fig.\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of ﬁngers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No ﬁngers could be observed due to mesh coarseness (ﬁngers were observed in ﬁner uniform and adaptive meshes).
+Figure \ref{fig:3testcase_a} illustrates another set of simulations for when another region (inlet) of fluid $1$ ins introduced into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see fig.\ref{fig:vel_magn2}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see fig.\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of ﬁngers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No ﬁngers could be observed due to mesh coarseness (ﬁngers were observed in ﬁner uniform and adaptive meshes).
 
 %%%%%%%%%%%%%
 \begin{figure}
