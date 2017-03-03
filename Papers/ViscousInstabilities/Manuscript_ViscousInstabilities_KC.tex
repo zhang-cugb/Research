@@ -568,15 +568,18 @@ In this section three different sets of simulations were explained. Starting fro
 \subsection{Hele-Shaw validation cases for homogeneous and heterogeneous domains under two different mobility ratios}
 
 \medskip
-Based on the work of \citet{saffman_1986}, the Hele-shaw cell, a geometrical domain as this is defined by experimental studies and is presented in Figures \ref{fig:1a_homoheleshaw_3}, \ref{fig:1b_homoheleshaw_3} and fig. \ref{fig:1c_homoheleshaw_3} will be used for the next set of simulations. In all cases, simulations were performed in a squared geometry of $5\times5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 %(i.e., sqrt(2*0.25))
-. The sink (pressure is set to $0$) is allocated in the top right hand side corner of the domain. Newmann boundary conditions %(i.e., no flux) 
-was imposed to all borders of the domain except at the top righ hand side corner. The mobility ratios for these $3$ cases are $3$ and $10$ while for the latter, homogeneous and heterogeneous domain is used.  
+Based on the work of \citet{saffman_1986}, the Hele-shaw cell, a geometrical domain as this is defined by experimental studies and is presented in Figures \ref{fig:1a_homoheleshaw_3}, \ref{fig:1b_homoheleshaw_3} and Fig. \ref{fig:1c_homoheleshaw_3} will be used for the next set of simulations. In all cases, simulations were performed in a squared geometry of $5\times5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 %(i.e., sqrt(2*0.25))
+. The sink (pressure set to $0$) is allocated in the top right hand side corner of the domain. Newmann boundary conditions %(i.e., no flux) 
+was imposed to all borders of the domain except at the top righ hand side corner. The mobility ratios for these $3$ cases are $3$ and $10$ while for the latter, homogeneous and heterogeneous domain is used.
+
+\medskip
+In Fig.\ref{fig:1a_homoheleshaw_3}(a), there is the description of the domain. Three different cases with different set-ups will follow. The first one is the homogeneous domain where permeability $K_{1}=1.e-10$ everywhere while for the heterogeneous case the following permeabilities have been introduced, $K_{1}=(1.e-10 \;to\; 5.e-10$), $K_{2}=1.e-10$, $K_{3}=(1.e-11 \;to\; 5.e-10)$ and $K_{4}=(1.e-12 \;to\; 5.e-10)$. For the homogeneous case we use two different mobility ratios of $3$ and $10$ while we proceed to the heterogenous case using a mobility ratio of $10$. 
 
 \begin{figure}
 \centering
 \subfigure[Hell-Shaw cell domain]{\includegraphics[width=0.5\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_1.pdf}}\\[2mm]%
 \subfigure[flow at t=250]{\includegraphics[width=0.5\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_250.pdf}}%
-\caption{This is a description of a Hele-Shaw experimental domain, showing the source and sink term as this is implied in this test-case followed by a screenshot of the flow at time, t=250(b). More screenshot follow that describe the progression of the flow in fig.\ref{fig:1b_homoheleshaw_3} and fig.\ref{fig:1c_homoheleshaw_3}}
+\caption{This is a description of a Hele-Shaw experimental domain, showing the source and sink term as this is implied in this test-case followed by a screenshot of the flow at time, t=250(b). More screenshot follow that describe the progression of the flow in Fig.\ref{fig:1b_homoheleshaw_3} and Fig.\ref{fig:1c_homoheleshaw_3}}
 \label{fig:1a_homoheleshaw_3}
 \end{figure}
 
