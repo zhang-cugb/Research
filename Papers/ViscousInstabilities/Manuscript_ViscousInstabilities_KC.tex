@@ -355,7 +355,7 @@ In this model we assume that rock and fluids are incompressible thus the mass ba
 %\label{saturation_constrain}
 %\end{equation}
 
-Equation \ref{mass_balance} is discretized in time and space using the $\theta$-method (\citep{saramito_1994}) . Summing over all phases yields the global mass balance equation %\ref{global_mass_balance},
+Equation \ref{mass_balance} is discretized in time and space using the $\theta$-method \citep{saramito_1994}. Summing over all phases yields the global mass balance equation %\ref{global_mass_balance},
 
 \begin{eqnarray}
  && \sum_{\alpha=1}^{N_{p}} \int\limits_{\Omega_{CVi}} \; M_{i} \; \frac{\phi\left(S_{\alpha i}^{n+1}\right)-\left(S_{\alpha i}^{n}\right)}{\Delta t} dV  + \nonumber\\
@@ -373,7 +373,7 @@ Equation \ref{mass_balance} is discretized in time and space using the $\theta$-
 As in many areas of fluid mechanics, the behaviour of the flow for conditions that exceed critical limits may cause instabilities in the system. The flow of a fluid over or next to another heavier fluid, can produce a flow instability. Under this assumption when a fluid is injected in a porous domain saturated with an other fluid trying to displace it, viscous fingering will occur. 
 
 \medskip
-This viscous driven hydrodynamic instability leads to the collapse of the uniform interface between fluids of different viscosity. This type of instability can be found across many research areas, disciplines and scales, from small chemical and medical separation systems to large scale field geological and /or reservoir systems. Starting from the work of \citet{muskat_1934} and later from \citet{saffman_1959} and \citet{homsy_1987}, the experimental setup of Hele-Shaw cell by \citet{saffman_1986}, and the basic mathematical model has been initially developed to describe the physics of this phenomenon. The idea is to introduce a fluid between two parallel flat plates separated by an infinitesimally small gap. The governing equation of Hele-Shaw flows is identical to that of the inviscid potential flow and to the flow of fluid through a porous medium (Darcy's law). More recently work that has been done by \citet{howison_2000} and \citet{praud_2005} give an extensive description on the Saffman $\&$ Taylor problem (also know as immiscible two-phase flow in Hele-Shaw cell). 
+This viscous driven hydrodynamic instability leads to the collapse of the uniform interface between fluids of different viscosity. This type of instability can be found across many research areas, disciplines and scales, from small chemical and medical separation systems to large scale field geological and /or reservoir systems. Starting from the work of \citet{muskat_1934} and later from \citet{saffman_1959} and \citet{homsy_1987}, the experimental setup of Hele-Shaw cell by \citet{saffman_1986}, and the basic mathematical model has been initially developed to describe the physics of this phenomenon. The idea is to introduce a fluid between two parallel flat plates separated by an infinitesimally small gap. The governing equation of Hele-Shaw flows is identical to that of the inviscid potential flow and to the flow of fluid through a porous medium (Darcy's law). More recently work that has been done by \citet{howison_2000} and \citet{praud_2005} give an extensive description on the mathematical background of the Saffman $\&$ Taylor problem (also know as immiscible two-phase flow in Hele-Shaw cell). 
 
 \medskip
 In viscous fingering, a less viscous fluid pushes a more viscous fluid, in a thin rectangular cell (known as Hele-Shaw cell). \citet{howison_2000}  Under the assumption that fluids remain immiscible along an interface, surface tension plays an important role in determining the shape and progress of the fingers. For homogeneous domains fingers will start to develop when surface tension acting on the interface, is opposing towards the change of shape of the interface thus the interface becomes unstable and will collapse, taking a curved shape. In heterogeneous environments this process may also be triggered by permeability differences between smaller regions. The higher the velocity of the injected fluid, the less wide (tip-splitting behaviour) the finger will be. In addition, pressure differences %(eq.\ref{eq:pressure_dif}) 
@@ -392,9 +392,9 @@ acting on the interface will produce a net pressure force,
 \end{equation}
 
 \noindent Fingering will occur in immiscible displacements when the viscocity ratio is greater than unity. %As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. 
-As a result of \textit{shielding}, one of these fingers will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
+As surface tension becomes weak, the front is stressed and goes under a viscous-fingering instability. The front will collapse and will start splitting into new lobes of fingers. One of these fingers will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
 
-In  this paper, viscous instabilities for different test-cases will be investigated. Adaptive and unstructured mesh will be used to capture the collapse of the interface and the development of the fingers in relation to different values of mobility ratios and different maps of permeabilities. Initially test-cases that verify the existence of fingers in plain domain will illustrated follow by more complicated computational domains and finger patterns.  
+In  this paper, viscous instabilities for different test-cases will be investigated. Adaptive and unstructured mesh will be used to capture the collapse of the interface and the development of the fingers in relation to different values of mobility ratios and different maps of permeabilities. Initially test-cases that verify the existence of fingers in experimental domains will illustrated follow by more complicated computational domains and finger patterns.  
 
 %%%%%%%%%%%%%%%
 \begin{comment}
@@ -492,35 +492,41 @@ U_c = \frac{(\rho_1-\rho_2) \cdot g \cdot K}{(\mu_1-\mu_2)}
 %%%%%%%%%%%%
 \subsection{Model Validation}
 
-The set of test-cases that we are going to illustrate starts with an elementary case in an homogeneous domain. The aim of this test-case is to verify that the numerical model is actually working in different simulation/scenarios starting from some basic model set-ups. One step before it is important to verify the existence of cross flow in the following domain as this is defined in fig. \ref{fig:simple_case}. Fluid $1$ is introduced in the domain across the left hand side of the formation. Later, different mobility ratios and different regions of various permeabilities will be introduced, but for now only few of these initial and boundary conditions will be applied. 
+The set of test-cases that we are going to illustrate starts with an elementary case in a homogeneous domain. The aim of this test-case is to validate the different simulation/scenarios i.e., cross flow in a porous formation, evolution of fingers based on experimental Hele-Shaw work, behaviour of two-phase flow in more complicated formations and how factors like mobility ratio and heterogenities of the formations may affect the finger pattern. 
+
+Fig.\ref{fig:simple_case} describes the starting point of the simulations that will follow. Fluid $1$ is from the left hand side of the formation. Later, different mobility ratios and different regions of various permeabilities will be introduced, but for now only few of these initial and boundary conditions will be applied. Boundary conditions will include a no-slip condition for the upper and lower boundary inlet is place at the left hand side while outlet on th right hand side of the domain. Initial conditions include initial values of velocity and pressure in the left and right hand side of the domain respectively. Also for different cases we have different geometrical domain aspect ratios, number of elements and types of grid (fixed and usntructured or adaptive and unstructured mesh). 
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=0.75\textwidth]{./Pics/phase_vol_frac_uni_perm_1.pdf}
-\caption{This is the case where the initially piston shape front is collapsing and starts forming fingers in an unstructured domain with uniform permeability (on average 3000 elements).}
+\caption{This is the case where the initially piston shape front is collapsing and starts forming fingers in an unstructured domain with uniform permeability (3000 elements, K=1, MR=5).}
 \label{fig:simple_case}
 \end{center}
 \end{figure}
 
-\noindent One more case to demonstrate the model validation against experiments is described in fig. \ref{fig:square}. A square domain consisted of $4$ square regions that each one has $2$ values of different permeabilities (K is represented by the blue and red shaded square areas). The geometrical aspect ratio of the domain is $1$ and is fully saturated with fluid $2$. At the upper and lower sides of the domain no-slip boundary condition is applied (fluid will have zero velocity relative to the boundary). The fluid velocity at all fluid–solid boundaries is equal to that of the solid boundary. The left hand side of the domain is defined as the inlet for fluid $1$ which is introduced along this side with a velocity of $u=1$. The right hand side is the outlet and pressure is set to $0$. Fluid $1$ across the left hand side of the formation is trying to displace the existing fluid $2$. What can been seen here is a cross flow case as the flow passes through different regions and evolves. The front start to collapse at the first half of the lenght D (D:distance) of the domain ($x= \frac{1}{2} D)$.
+%\noindent One more case to demonstrate the model validation against experiments is described in fig. \ref{fig:square}.
+\noindent A square domain consisting of $4$ square regions in which each quarter is represented by a permeability value (Fig.\ref{fig:square}a) and $1$ value of different permeabilities (K is represented by the blue and red shaded square areas) as well as it is fully saturated with fluid $2$. At the upper and lower sides of the domain no-slip boundary condition is applied. The left hand side of the domain is defined as the inlet for fluid $1$ which is introduced along this side with a velocity of $u=1$. The right hand side is the outlet and pressure is set to $0$. Fluid $1$ across the left hand side of the domain is trying to displace the existing fluid $2$. What can been seen here is a cross flow case as the flow passes through different regions and evolves. The front start to collapse at the first half of the lenght D (D:distance) of the domain ($x= \frac{1}{2} D)$ (Fig.\ref{fig:square}b).
 
 \begin{figure}[h]
 \begin{center}
 \subfigure[Initial and boundary conditions]{\includegraphics[width=0.65\textwidth]{./Pics/2b2_P1DGP2.pdf}\label{a}}
 \subfigure[Plots of velocity magnitude, pressure and phase volume fraction]{\includegraphics[width=0.6\textwidth]{./Pics/2b2_P1DGP2_plot.pdf}\label{b}}
-\caption{This is the first test-case of a square region with four subregions of constant permeabilities K. The mesh is unstructured and fixed and on average there are 5000 elements. Fluid $1$ is introduced from the right hand side at a constant velocity of u = $1$, while as the flow progress the velocity magnitude drops to zero close to the outlet. This is a cross flow example based on the experimental work of \citet{evans_1994}. The main finger desrcibes the cross flow and starts to dies out during the transition from one permeability zone to another and as it approaches closer to the right boundary.}
+\caption{This is the first test-case of a region with four squares of constant permeabilities K of $1$ at the the blue region and $2.5$ at the red region. The mesh is unstructured and fixed with 5000 elements. Fluid $1$ is introduced from the right hand side at a constant velocity of u = $1$, This test-case is based on the experimental work of \citet{evans_1994}.}
 \label{fig:square}
 \end{center}
 \end{figure}
 
-\noindent In this test-case above the two phase volume volume fractions have the same but opposite behaviours across the length of the formation. The velocity magnitute is builded up starting from the inlet all the way to the middle of the square. There is a sharp pressure drop which is also an indication that the fluid $2$ cannot be displaced any further (see fig.\ref{fig:square}) while the phase volume fraction is constant. An slightly modified test-case (see fig.\ref{fig:testcase}) follows with the initial and boundary condition to remain the same, but in this set of simulations the geometrical aspect ration is $2$. The last set of simulations as this is described in fig.\ref{fig:1testcase} is and extension of the previous case and the aim of is to verify the behaviour of the flow for two different mobility ratios of $1$ and $10$ respectively.
+\noindent In this test-case above the two phase volume volume fractions have the same but opposite behaviours across the length of the formation. The velocity magnitute is built up starting from the inlet all the way to the middle of the square. There is a sharp pressure drop which is also an indication that the fluid $2$ cannot be displaced any further (see Fig.\ref{fig:square}) while the phase volume fraction is constant. 
+
+\medskip
+A slightly modified test-case (see Fig.\ref{fig:testcase}) with similar initial and boundary conditions, but in this set of simulations the geometrical aspect ration is $2$. The model was also qualitatively validated against laboratory experiments conducted by \citet{evans_1994}. The last set of simulations as this is described in Fig.\ref{fig:1testcase} is and extension of the previous case and the aim of is to verify the behaviour of the flow for two different mobility ratios of $1$ and $10$ respectively.
 
 \begin{figure}[h]
 \begin{center}
 \subfigure[map of permeabilties K]{\includegraphics[width=0.75\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf}\label{a}}
 \subfigure[flow at t=250]{\includegraphics[width=0.75\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf}\label{b}}
 \subfigure[flow at t=3000]{\includegraphics[width=0.75\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_1.pdf}\label{c}}
-\caption{In this test-case fixed and unstructured mesh is used. The aspect ratio is 2 (a), which allows the flow to develop for longer. Simulation time step increases from (b) to (c) and from t=250(start) to t=3000(end).}
+\caption{In this test-case an unstructured mesh is used. Permeability $K=1$ at the blue region and $K=2.5$ at the red region. The aspect ratio is 2 (a), which allows the flow to develop for longer. Simulation time step increases from (b) to (c) and from t=250(start) to t=3000(end).}
 \label{fig:testcase}
 \end{center}
 \end{figure}
@@ -558,7 +564,7 @@ The set of test-cases that we are going to illustrate starts with an elementary 
 
 
 %%%%%%%%%%%%
-\subsection{Hele-Shaw verification cases for homogeneous and heterogeneous domains under two different mobility ratios}
+\subsection{Hele-Shaw validation cases for homogeneous and heterogeneous domains under two different mobility ratios}
 
 \medskip
 At this point we have to mentioned one more set of simulations, based on the work of \citet{saffman_1986}. The Hele-shaw cell, a geometrical domain as this is defined by experimental studies and is presented in figures \ref{fig:1a_homoheleshaw_3}, \ref{fig:1b_homoheleshaw_3} and fig. \ref{fig:1c_homoheleshaw_3} is used. In all cases, simulations were performed in a squared geometry of $5x5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 %(i.e., sqrt(2*0.25))
