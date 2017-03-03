@@ -710,64 +710,19 @@ Figures \ref{fig:2testcase_a}, \ref{fig:2testcase_b}, \ref{fig:2testcase_c} and 
 \subsection{Comparison of flow pattern under the same simulation set-up with an additional inlet}
 
 \medskip
-Figure \ref{fig:3testcase_a} illustrates another set of simulations for when another region (inlet) of fluid $1$ ins introduced into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see fig.\ref{fig:vel_magn2}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see fig.\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of ﬁngers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No ﬁngers could be observed due to mesh coarseness (ﬁngers were observed in ﬁner uniform and adaptive meshes).
+Figure \ref{fig:3testcase_a} illustrates another set of simulations for when another region (inlet) of fluid $1$ ins introduced into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields (see Fig.\ref{fig:vel_magn2}) as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see Fig.\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$. Even though a this case is unlikely to happen as the mobility ration of the existing fluids in the industry, it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou2015}  demonstrated the explicit formation of fingers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No fingers could be observed due to mesh coarseness (fingers were observed in ﬁner uniform and adaptive meshes).
 
-%%%%%%%%%%%%%
 \begin{figure}
-\centering
+\begin{center}
 \subfigure[map of permeabilities]{\includegraphics[width=0.75\textwidth]{./Pics1/map_of_perm_1.pdf}}\\[2mm]%
 \subfigure[flow at start]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_100.pdf}}%
 \caption{In fig.(a) there is the map of permeabilities as this will be implemented in this case while in fig.(b) there is an illustration of the adaptive mesh just in the beggining of the simulation.}
 \label{fig:3testcase_a}
-\end{figure}
-
-
-
-
-
-
-\begin{comment}
-
-\begin{figure}
-\centering
-\subfigure[fixed mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}}\\[2mm]%
-\subfigure[adaptive mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}}%
-\caption{In fig.(a)  fig.(b).}
-\label{fig:3testcase_b}
-\end{figure}
-
-\begin{figure}
-\centering
-\subfigure[fixed mesh, t=1500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_1500.pdf}}\\[2mm]%
-\subfigure[adaptive mesh, t=1500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_1500.pdf}}%
-\caption{In fig.(a)  fig.(b).}
-\label{fig:3testcase_c}
-\end{figure}
-
-\begin{figure}
-\centering
-\subfigure[fixed mesh, t=end]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_end.pdf}}\\[2mm]%
-\subfigure[adaptive mesh, t=end]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_end.pdf}}%
-\caption{In fig.(a)  fig.(b).}
-\label{fig:3testcase_d}
-\end{figure}
-
-The last case that will give an estimable and quantitative description to the reader is the when the mobility ration is highly increased into $100$. Screenshots of the phase volume fraction and the development of fingers will are shown in fig.\ref{fig:4testcase}.
-
-\begin{figure}
-\begin{center}
-\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf}}\\[2mm]%
-\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}}\\[2mm]%
-\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf}}\\[2mm]%
-\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}}%
-\caption{from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d)}
-\label{fig:4testcase}
 \end{center}
 \end{figure}
 
-%%%%%%%%%%%%%%%
 \begin{comment}
-\begin{figure}[h]
+\begin{figure}
 \makebox[\textwidth]{%
 \subfigure[[MR10 fixed mesh start]{%
 \includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_100.pdf}%
@@ -805,6 +760,47 @@ The last case that will give an estimable and quantitative description to the re
 \label{fig:3testcase}
 \end{figure}
 \end{comment}
+
+
+\begin{comment}
+\begin{figure}
+\centering
+\subfigure[fixed mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}}\\[2mm]%
+\subfigure[adaptive mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}}%
+\caption{for t=$500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
+\label{fig:3testcase_b}
+\end{figure}
+
+\begin{figure}
+\centering
+\subfigure[fixed mesh, t=1500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_1500.pdf}}\\[2mm]%
+\subfigure[adaptive mesh, t=1500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_1500.pdf}}%
+\caption{for t=$1500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
+\label{fig:3testcase_c}
+\end{figure}
+
+\begin{figure}
+\centering
+\subfigure[fixed mesh, t=end]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_end.pdf}}\\[2mm]%
+\subfigure[adaptive mesh, t=end]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_end.pdf}}%
+\caption{for t=end of simulation, there is a comparison between fixed mesh(a) and adaptive mesh(b).}
+\label{fig:3testcase_d}
+\end{figure}
+\end{comment}
+
+
+The last case that will give an estimable and quantitative description to the reader is the when the mobility ration is highly increased into $100$. Screenshots of the phase volume fraction and the development of fingers will are shown in fig.\ref{fig:4testcase}.
+
+\begin{figure}
+\begin{center}
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf}}\\[2mm]%
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}}\\[2mm]%
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf}}\\[2mm]%
+\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}}%
+\caption{from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d)}
+\label{fig:4testcase}
+\end{center}
+\end{figure}
 
 \medskip
 The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. The aspect ratio of the $2D$ domain is 2 and it favors viscous fingering effects while temperature is not taken into account (assume isothermal environment) and gravity effects are negligible. Fluid $1$ is initially injected from the left hand side with velocity $u_{inj}=1$. The domain is fully saturated with fluid $2$. At the outlet (right hand side) boundary pressure levels are set to zero while no slip boundary conditions are implied at the upper and lower part of the formation. Fixed time step sizes of $1 \times 10^{-3}$ for both the fixed meshes and the CFL number for this set of simulations is $0.5$. The $P_{1}DGP_{2}$ element type with piecewise linear description of veleocity within each element and quadratic pressure representation as part of the OCVFEM method along with the discontinuous Galerkin method are implied and composing the mesh. Saturation is located at the pressure nodes. Five different regions of 5 distinct absolute permeabilities (K) are introduced (fig.\ref{fig:5regions_domain}). The red square region is saturated with a $50\%-50\%$ mixture of both phase $1$ and $2$. 
@@ -867,8 +863,6 @@ The macroscopic sweep efficiency is principally affected by the heterogeneity in
 As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. Adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface. Inside the high permeability square region there is an acceleration of the flow with the maximum value of it at the interface as this starts to develops at the back of this region and onwards. %At this point attention should be given to the recovery rates as they can be illustrated from fig.{\ref{fig:recoveryrates}}. The breaking point, also known as the point the two curves meet where beyond that water production will occur, is shifted towards the right as MR is increased.
 
 \section{Conclusions}
-
-\KCnote{need to work that section again, try to maintain the flow on the description of the results starting from the basics to the hele shaw to heterogeneities to more complicated MR10 flows to double inlet to MR1,10,100 compasiron}
 
 \medskip
 A number of different cases have been illustrated in section \ref{section:results}. Starting from tested experimental cases and geomtrical domains to verify that the numerical model is working and set up some initial benchmarks, to more complicated cases where various scenarios were implied. Observations made on various mobility ratios, geometrical domains and permeability zones as well as on the role of interfacial forces on the developement of the flows. For immiscible displacements upon which only viscous and capillary forces are acting (being horizontal flow, gravity can be ignored), the expected displacement patterns are either stable front displacement or unstable front displacement. In the latter case the instability arises due to either capillary or viscous fingering depending on capillary number ($N_{c}$) but mainly on mobility ratio (MR). If the mobility ratio is significantly less than $5$ (MR=$3$ has been used) , it is expected to find capillary fingering at relatively low flow rate and viscous fingering at relatively high flow rate. On the other hand, when the viscosity ratio is greater than $5$, the two basic forms of immiscible displacement are capillary fingering at relatively low flow rate and stable displacement at relatively high flow rate. Therefore for an i.e., water/oil system, the first condition applies as the viscosity of injected water is less than the viscosity of displaced oil. Hence, the displacement form could be either capillary fingering at relatively low injection rates or viscous fingering at higher injection rates. 
