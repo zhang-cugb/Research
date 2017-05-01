@@ -596,42 +596,71 @@ A slightly modified test-case (see Fig.\ref{fig:testcase}) with similar initial 
 \hbox{\hspace{5.0cm} (b) flow at t=3000  
 }
 }     
-\caption{........}
+\caption{Using unstructured but fixed mesh the domain is devide into $4$ different regions of different permeabilities as these are represented in the figures above}
 \label{fem_cv_represent_a}
 \end{figure}
 
 \medskip
-In this section three different sets of simulations were explained. Starting from an initial square set-up to validate the existance of cross flow and how the simulator works, we moved to a larger domain by increasing the aspect ratio. The reason was to give more time, space and greater number of elements to our simulator and again see how the front/cross-flow will develop. The third test-case is based in the initial and boundary condition of the second set of simulations. Now we would like to know what is the impact of different mobility ratios (see Fig.\ref{fig:1testcase}) and how the cross-flow as well as the simulation will progress on time. The purpose of these three cases was to verify that our model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. 
-
-\begin{comment}
+In this section three different sets of simulations were explained. Starting from an initial square set-up to validate the existance of cross flow and how the simulator works, we moved to a larger domain by increasing the aspect ratio. The reason was to give more time, space and greater number of elements to our simulator and again see how the front/cross-flow will develop. The third test-case is based in the initial and boundary condition of the second set of simulations. Now we would like to know what is the impact of different mobility ratios (see Fig.\ref{fig:6a},\ref{fig:6b},\ref{fig:6c}) and how the cross-flow as well as the simulation will progress on time. The purpose of these three cases was to verify that our model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. 
 
 \begin{figure}[h]
-\makebox[\textwidth]{%
-\subfigure[MR1]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr1_fixed/mr1_fixed_100_2.pdf}%
-}%
-\hfill    
-\subfigure[MR10]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100_1.pdf}%
-}}\\[0.5cm]% If you want some vertical space
-\makebox[\textwidth]{%
-\subfigure[MR1]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle_1.pdf}%
-}%
-\hfill    
-\subfigure[MR10]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_fixed/mr10_fixed_middle_1.pdf}%
-}}\\[0.5cm]% If you want some vertical space
-\makebox[\textwidth]{%
-\subfigure[MR1]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr1_fixed/mr1_fixed_end_2.pdf}%
-}%
-\hfill    
-\subfigure[MR10]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_2.pdf}%
-}}%
-\caption{Comparing MR1 and MR10 cases using fixed mesh using the same map of permeabilities as test-case in Fig.\ref{fig:testcase}. Simulation time step increases from top to bottom and from (a,b) t=100(start) to (e,f) t=3000(end).}
-\label{fig:1testcase}
+\vbox{
+\hbox{\hspace{1.5cm}
+\includegraphics[width=.75\textwidth]{./Pics1/mr1_fixed/mr1_fixed_100_2.pdf} 
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (a) MR1 at t = 100 (start)   
+}
+\vspace{0.25cm}
+\hbox{\hspace{1.5cm}
+\includegraphics[width=.75\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100_1.pdf}
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (b) MR10 at t = 100 (start)  
+}
+}     
+\caption{Comparing the the MR1 and MR10 cases using fixed mesh in the beggining of the simulation.}
+\label{fig:6a}
+\end{figure}
+
+\begin{figure}[h]
+\vbox{
+\hbox{\hspace{1.5cm}
+\includegraphics[width=.75\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle_1.pdf} 
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (a) MR1 at t = 1500 (middle)   
+}
+\vspace{0.25cm}
+\hbox{\hspace{1.5cm}
+\includegraphics[width=.75\textwidth]{./Pics1/mr10_fixed/mr10_fixed_middle_1.pdf}
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (b) MR10 at t = 1500 (middle)  
+}
+}     
+\caption{Comparing the the MR1 and MR10 cases using fixed mesh in the middle of the simulation.}
+\label{fig:6b}
+\end{figure}
+
+\begin{figure}[h]
+\vbox{
+\hbox{\hspace{1.5cm}
+\includegraphics[width=.75\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle_1.pdf} 
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (a) MR1 at t = 3000 (end)   
+}
+\vspace{0.25cm}
+\hbox{\hspace{1.5cm}
+\includegraphics[width=.75\textwidth]{./Pics1/mr10_fixed/mr10_fixed_middle_1.pdf}
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (b) MR10 at t = 3000 (end)  
+}
+}     
+\caption{Comparing the the MR1 and MR10 cases using fixed mesh in the end of the simulation.}
+\label{fig:6c}
 \end{figure}
 
 %%%%%%%%%%%%
@@ -644,6 +673,10 @@ was imposed to all borders of the domain except at the top righ hand side corner
 
 \medskip
 In Fig.\ref{fig:1a_homoheleshaw_3}(a), there is the description of the domain. Three different cases with different set-ups will follow. The first one is the homogeneous domain where permeability $K_{1}=1.e-10$ everywhere while for the heterogeneous case the following permeabilities have been introduced, $K_{1}=(1.e-10 \;to\; 5.e-10$), $K_{2}=1.e-10$, $K_{3}=(1.e-11 \;to\; 5.e-10)$ and $K_{4}=(1.e-12 \;to\; 5.e-10)$. For the homogeneous case we use two different mobility ratios of $3$ and $10$ while we proceed to the heterogenous case using a mobility ratio of $10$. 
+
+
+
+\begin{comment}
 
 \begin{figure}
 \centering
