@@ -38,7 +38,9 @@
 %\documentclass[final,authoryear,5p,times,twocolumn]{elsarticle}
 
 %% if you use PostScript figures in your article
-%% use the graphics package for simple commands
+%% use the gra
+
+%%graphis package for simple commands
 %% \usepackage{graphics}
 %\usepackage{cases}
 %% or use the graphicx package for more complicated commands
@@ -953,13 +955,13 @@ Figures \ref{fig:2testcase_a}, \ref{fig:2testcase_b}, \ref{fig:2testcase_c} and 
 \hbox{\hspace{5.0cm} (b) flow at t=1500 (adaptive mesh)     
 }
 }     
-\caption{Cross flow at the upper part has almost travel all the way towards the outlet (left-hand side) and the finger below start forming a general trend/front that is also travelling towards the left-hand side.}
+\caption{Cross flow at the upper part has almost travel all the way towards the outlet (left-hand side) and the finger below start forming a front that is also travelling towards the left-hand side.}
 \label{fig:2testcase_c}
 \end{figure}
 
 
 
-\begin{figure}
+\begin{figure}[h]
 \vbox{
 \hbox{\hspace{3.5cm}
 \includegraphics[width=.5\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_2000.pdf} 
@@ -1035,21 +1037,18 @@ Figure \ref{fig:3testcase_a} illustrates another set of simulations for when ano
 \hbox{\hspace{5.0cm} (a) MR10 fixed mesh start    
 }
 \vspace{0.25cm}
-
 \hbox{\hspace{3.5cm}
 \includegraphics[width=.75\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_start.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{5.0cm} (b) MR10 adapt mesh start     
 }
-
 \hbox{\hspace{3.5cm}
 \includegraphics[width=.75\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_500.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{5.0cm} (c) MR10 fixed mesh t=1500      
 }
-
 \hbox{\hspace{3.5cm}
 \includegraphics[width=.75\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_500.pdf}
 }
@@ -1061,74 +1060,76 @@ Figure \ref{fig:3testcase_a} illustrates another set of simulations for when ano
 \label{fig:3testcase_a}
 \end{figure}
 
+
+
 \begin{figure}[h]
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.75\textwidth]{} 
+\includegraphics[width=.75\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_1500.pdf} 
 }
 \vspace{0.0cm}
 \hbox{\hspace{5.0cm} (e) MR10 fixed mesh t=7500    
 }
 \vspace{0.25cm}
-
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.75\textwidth]{}
+\includegraphics[width=.75\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_adapt_1500.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{5.0cm} (f) MR10 adapt mesh t=7500      
 }
-
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.75\textwidth]{}
+\includegraphics[width=.75\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_end.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{5.0cm} (g) MR10 fixed mesh end      
 }
-
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.75\textwidth]{}
+\includegraphics[width=.75\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_adapt_end.pdf}
 }
 \vspace{0.0cm}
-\hbox{\hspace{5.0cm} (h) MR10 fixed adapt end]     
+\hbox{\hspace{5.0cm} (h) MR10 fixed adapt end     
 }
 }     
 \caption{Comparing test-cases of fixed and adaptive mesh while we have a dual inlet, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, t=250(a,b), t=500(c,d), t=1500(e,f), t=3000(g,h). When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time.}
 \label{fig:3testcase_b}
 \end{figure}
 
-\begin{figure}                
-\centering
-\includegraphics{./Pics1/5reg_dinlet_fixed_500.pdf}
+
+\begin{figure}[h]
+\vbox{
+\hbox{\hspace{3.5cm}
+\includegraphics[width=.5\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf} 
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (a) double inlet - fixed mesh   
+}
+\hbox{\hspace{3.5cm}
+\includegraphics[width=.5\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (b) double inlet adaptive mesh   
+}
+}     
 \caption{for t=$500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
 \label{fig:3testcase_b}
 \end{figure}
 
-%\begin{comment}
-%\begin{figure}
-%\centering
-%\subfigure[fixed mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}}\\[2mm]%
-%\subfigure[adaptive mesh, t=500]{\includegraphics[width=0.75\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}}%
+
+
+%\begin{figure}[h]
+%\makebox[\textwidth]{%
+%\includegraphics[width=0.49\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}%
+%\hfill    
+%\includegraphics[width=0.49\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}%
+%}\\[0.5cm]% If you want some vertical space
+%\makebox[\textwidth]{%
+%\includegraphics[width=0.49\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}%
+%\hfill    
+%\includegraphics[width=0.49\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}%
+%}%
 %\caption{for t=$500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
 %\label{fig:3testcase_b}
 %\end{figure}
-
-\begin{comment}
-
-\begin{figure}[h]
-\makebox[\textwidth]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}%
-\hfill    
-\includegraphics[width=0.49\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}%
-}\\[0.5cm]% If you want some vertical space
-\makebox[\textwidth]{%
-\includegraphics[width=0.49\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf}%
-\hfill    
-\includegraphics[width=0.49\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}%
-}%
-\caption{for t=$500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
-\label{fig:3testcase_b}
-\end{figure}
-
 
 
 \begin{figure}
