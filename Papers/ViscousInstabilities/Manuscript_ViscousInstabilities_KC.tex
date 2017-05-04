@@ -201,12 +201,12 @@ while saturation is represented in node centered CV basis functions respectively
 %    \label{fem_cv_represent_a}
 %\end{figure}
 
-\begin{figure}[h]
-\centering
-\vbox{\includegraphics[width=.5\textwidth]{./Pics/P1DGP2.pdf}}
-\caption{2D representation of the $P_{1}DGP_{2}$ element pairs used in this work. Shaded areas denote control volumes (in which saturation field is stored), blue points represent the pressure nodes and white points the velocity nodes.}
-\label{fig:fem_cv}
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\vbox{\includegraphics[width=.5\textwidth]{./Pics/P1DGP2.pdf}}
+%\caption{2D representation of the $P_{1}DGP_{2}$ element pairs used in this work. Shaded areas denote control volumes (in which saturation field is stored), blue points represent the pressure nodes and white points the velocity nodes.}
+%\label{fig:fem_cv}
+%\end{figure}
 
 %%%%%%%%%%%%%%%
 %\begin{comment}
@@ -1109,39 +1109,43 @@ The last case that will give an estimable and quantitative description to the re
 \begin{figure}[h]
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.5\textwidth]{./Pics1/5reg_dinlet_fixed_end.pdf} 
+\includegraphics[width=.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf} 
 }
 \vspace{0.0cm}
-\hbox{\hspace{5.0cm} (a) double inlet - fixed mesh   
+\hbox{\hspace{5.0cm} (a) fixed and unstructured mesh for MR = 100 (start)   
 }
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.5\textwidth]{./Pics1/5reg_dinlet_adapt_end.pdf}
+\includegraphics[width=.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}
 }
 \vspace{0.0cm}
-\hbox{\hspace{5.0cm} (b) double inlet adaptive mesh   
+\hbox{\hspace{5.0cm} (b) fixed and unstructured mesh for MR = 100 (t = 1500)   
 }
 }     
-\caption{for t=$1500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
-\label{fig:3testcase_d}
+\caption{for the case of MR=$100$ from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d) }
+\label{fig:4testcase_a}
 \end{figure}
 
 
-
-
-
-
-
-
-
-\begin{figure}
-\centering
-\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf}}\\[2mm]%
-\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}}\\[2mm]%
-\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf}}\\[2mm]%
-\subfigure[]{\includegraphics[width=0.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}}%
-\caption{from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d)}
-\label{fig:4testcase}
+\begin{figure}[h]
+\vbox{
+\hbox{\hspace{3.5cm}
+\includegraphics[width=.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf} 
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (a) fixed and unstructured mesh for MR = 100 (t = 3000)   
+}
+\hbox{\hspace{3.5cm}
+\includegraphics[width=.5\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (b) fixed and unstructured mesh for MR = 100 (t = end)   
+}
+}     
+\caption{for the case of MR=$100$ from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=3000(a), t=end(b) }
+\label{fig:4testcase_b}
 \end{figure}
+
+
 
 \medskip
 The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. 
@@ -1153,17 +1157,28 @@ Two general behaviors for the interface may occur: (i) If a more viscous fluid d
 This test-case serves as a base case for comparison between mobility (or viscocity) ratios that differ by an order of magnitude. Viscocity is a measure of resistance, therefore a frictional property. In these test-cases the $\sigma$ term as this is described above contains the individual parameters related with wettability and contact angle while the porous surface is a fluid $2$ wetted surface. For mobility ratios below $5$ the injection front will uniformly develop as time progress (piston shape front) and no fingers are expexted. Instabilities will start to occur and will be more obvious for mobility ratios higher than $5$. Between two layers or two regions with different permeabilities, but both saturated with fluid $2$, fingers will be triggered because of the permeability differences on the interface of these layers. In between the porous cappilary pressure difference with curve the interface and will lead to the formation of fingers. In macroscopic scale the interface between the two fluid will become unstable, an uneven or fingered profile will be controlled by capilary pressure -acting in the scale of the pores- and therefore due to the overall surface tension difference between the two immiscible fluids the front will collapse. This is of major practical importance in the petroleum industry, environmental waste remediation, and subsurface hydrology and it is key to understanding the movement of large volumes of injection fluids into subsurface reservoirs. The relationships between the capillarity of a geologic system, and the saturation and permeability of the fluids has a direct bearing on the migration speed and reservoir sweep of hydrocarbons affected the productivity of an oil field.
 
 %%%%%%%%%%%%%%%%
-\begin{comment}
-\begin{figure}[h!]
-%\includegraphics[width=0.5\textwidth]{./Pics1/mr10_5regions_fixed/5regions_vel_magn.png}\\[2mm]%
-\subfigure[single inlet velocity magnitude]{\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_vel_magn.pdf}}\\[2mm]%
-\subfigure[double inlet velocity magnitude]{\includegraphics[width=0.49\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_vel_magn.pdf}}%
+\begin{figure}[h]
+\vbox{
+\hbox{\hspace{3.5cm}
+\includegraphics[width=.5\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_vel_magn.pdf} 
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (a) single inlet velocity magnitude   
+}
+\hbox{\hspace{3.5cm}
+\includegraphics[width=.5\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_vel_magn.pdf}
+}
+\vspace{0.0cm}
+\hbox{\hspace{5.0cm} (b) double inlet velocity magnitude   
+}
+}     
 \caption{For the same time step, t=1000, these plots describe the velocity magnitudes of the phase $1$ (injected fluid) under the same boundary and initiall conditions. From top to bottom,these graphs describe the velocity magnitude %for fixed mesh is plotted(top), the velocity magnitude 
 for adaptive mesh-single inlet (top) and the velocity magnitude for adaptive mesh with double inlet (bottom) as these are also presented in fig.\ref{fig:3testcase}. The main difference between the upper and lower plot %is not just the ability to capture in greater detail, the fluid instabilities as they happenduring the finger development and their velocity patterns. While there 
 is the impact of the second injection interval as this can be seen from the slope and the rate that the velocity magnitude is changing.}
-\label{fig:vel_magn2}
+\label{fig:vel_magn}
 \end{figure}
-\end{comment}
+
+
 
 \medskip
 The macroscopic sweep efficiency is principally affected by the heterogeneity in the reservoir which controls the spatial distribution of porosity and permeability. The permeability depends on the number, size and connectivity of the pores. This set of parameters is described by the $\sigma$ in the global mass balance equation (eq.\ref{global_mass_balance}). Including higher permeability zones also know as higher permeability channels or layers in the set up of the model, allows our test-cases to give a good approximation of the so called "thief zones", something that is common in heterogeneous geological formations.
@@ -1229,7 +1244,6 @@ In summary, the method that has been described in this paper as well as the simu
 \section{Achknowledgements}
 Mr William Rad\"unz would like to acknowledge the support from the Brazilian Research Council (CNPq) under the \textit{Science without Borders scholarship programme}. Mr Konstantinos Christou would like to acknowledge the support of the University of Aberdeen - College of Physical Science as well as the Aberdeen Formation Evaluation Society (\textit{AFES}). Last but not least credit should be given to both Dr Jefferson Gomes \& Dr Marcus Campell Bannerman, both lecturers at the University of Aberdeen, at the School of Engineering.
 \end{comment}
-
 
 \clearpage
 \listoffigures
