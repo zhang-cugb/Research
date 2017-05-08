@@ -312,12 +312,11 @@ Though, whilst saturation is calculated in CV space, permeability is piecewise c
 
 This formulation is applicable to $\mathcal{N}_{p}$ fluid phases and is based on the novel family of \PNDG[n]{m} element-pairs~\citep{cotter_2009a} consistent with the dual pressure-velocity representation in control volume (CV). In this family of FE-pairs velocity is represented by $n^{\text{th}}$-order polynomials that are discontinuous across elements, whereas pressure is represented by $m^{\text{th}}$-order polynomials that may be either discontinuous or continuous (thus the notation \PNDG[n]{m}) across elements. The mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin FEM is used to obtain the high-order fluxes on CV boundaries, which are limited to yield bounded fields~\citep{jackson_2013}. Simulations performed for this work were conducted using two types of elements: \PN[1]{2} and \PN[1]{1}. Saturation, and all saturation-dependent material properties such as relative permeability and capillary pressure, are represented CV-wise. %Hence, each CV (and FE) is associated with a unique set of petrophysical properties, in contrast to most previous methods in which CVs span multiple values of petrophysical properties described FE-wise.
 
-In this model we assume that rock and fluids are incompressible thus the mass ballance for phase $\alpha$ can be written as (Eq.\ref{mass_balance})
-
-\begin{equation}
-\phi \; \frac{\partial S_{\alpha}}{\partial t} + \nabla (u_{\alpha}S_{\alpha})= \mathcal{S}_{cty,\alpha} 
-\label{mass_balance}
-\end{equation}
+%For the simulations performed in this work, rock and fluids are assumed incompressible thus the mass balance for phase $\alpha$ can be written as
+%\begin{equation}
+%\phi \; \frac{\partial S_{\alpha}}{\partial t} + \nabla (u_{\alpha}S_{\alpha})= \mathcal{S}_{cty,\alpha} 
+%\label{mass_balance}
+%\end{equation}
  
 %\noindent where $\phi$ represents the porosity, S represents the saturation and v is the saturation weighted Darcy velocity (such that $v_{\alpha}S_{\alpha}$ is the traditional Darcy velocity of phase p), and q is a volume source term, subject to the contrains on the saturation
 
@@ -326,17 +325,15 @@ In this model we assume that rock and fluids are incompressible thus the mass ba
 %\label{saturation_constrain}
 %\end{equation}
 
-Equation \ref{mass_balance} is discretized in time and space using the $\theta$-method %\citep{saramito_1994}. 
-Summing over all phases yields the global mass balance equation %\ref{global_mass_balance},
+Equation~\ref{eqn:saturation_eqn} is discretized in time and space using the $\theta$-method. Summing over all phases yields the global mass balance equation %\ref{global_mass_balance},
 
 \begin{eqnarray}
  && \sum_{\alpha=1}^{N_{p}} \int\limits_{\Omega_{CVi}} \; M_{i} \; \frac{\phi\left(S_{\alpha i}^{n+1}\right)-\left(S_{\alpha i}^{n}\right)}{\Delta t} dV  + \nonumber\\
  &&  \oint_{\Gamma_{CVi}} [\; \theta^{n+1/2}\; {\mathbf n}\dot \; {\mathbf u}_{\alpha}^{n+1}S_{\alpha}^{n+1} \; + \; (1-\theta^{n+1/2}) \; {\mathbf u}_{\alpha}^{n}S_{\alpha}^{n}] d\Gamma \;- \nonumber\\
- &&  \int_{\Omega_{CVi}} M_{i} \; \mathcal{S}_{cty,\alpha}^{n+\theta} \; dV\; =0
+ &&  \int_{\Omega_{CVi}} M_{i} \; \mathcal{S}_{cty,\alpha}^{n+\theta} \; dV\; =0,
 \label{global_mass_balance}
 \end{eqnarray}
-
-\noindent where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i respectively, \textbf{n} is the outward pointing unit normal vector to the surface of $CV_{i}$ and $\theta$ varies smoothly between $0.5$ (corresponding to Crank-Nicolson method) and $1$ (corresponding to backward-Euler scheme) to avoid the introduction of spurious oscillations for large grid Courant numbers. In addition to the numerical schemes above the discretised global mass and force balance equations are solved using a multigrid-like approach, see \citet{pavlidis2016}.
+where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i respectively, \textbf{n} is the outward pointing unit normal vector to the surface of $CV_{i}$ and $\theta$ varies smoothly between $0.5$ (corresponding to Crank-Nicolson method) and $1$ (corresponding to backward-Euler scheme) to avoid the introduction of spurious oscillations for large grid Courant numbers. In addition to the numerical schemes above the discretised global mass and force balance equations are solved using a multigrid-like approach, see \citet{pavlidis2016}. This numerical formulation is fully described in \citet{gomes_2017}\citep[see also][]{salinas2015,adam_2016}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Brief Overview of Viscous Instabilities}\label{section:ViscousInstabilities}
