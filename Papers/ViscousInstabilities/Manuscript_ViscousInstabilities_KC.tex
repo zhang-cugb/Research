@@ -361,15 +361,16 @@ As demonstrated by \citet{habermann_1960}, mobility ratio (MR, see Section~\ref{
 \end{equation}
 MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
 \begin{eqnarray}
-  \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}}, \\
-  \mathcal{K}_{rnw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rnw}\left[\frc{S_{nw}-S_{nw,r}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{nw}}, \label{Eqn:CoreyBrooks}
+  \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}}, \label{Eqn:CoreyBrooks1}\\
+  \mathcal{K}_{rnw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rnw}\left[\frc{S_{nw}-S_{nw,r}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{nw}}, \label{Eqn:CoreyBrooks2}
 \end{eqnarray}
 where subscripts $w$ and $nw$ stand for wetting and non-wetting phases, respectively. $\mathcal{K}^{\circ}_{rw}$ and $\mathcal{K}^{\circ}_{rnw}$ are end-point relative permeability to wetting and non-wetting phases, $S_{w,irr}$ and $S_{nw,r}$ are irreducible wetting and residual non-wetting phase saturations, respectively. Exponents $n_{w}$ and $n_{nw}$ are both set to 2.
- 
 
-
-Fingering will occur in immiscible displacements when the viscocity ratio is greater than unity. %As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. 
-As surface tension becomes weak, the front is stressed and goes under a viscous-fingering instability. The front will collapse and will start splitting into new lobes of fingers. One of these fingers will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
+From Eqns.~\ref{eq:MR}-\ref{Eqn:CoreyBrooks2}, it is clear that during fluid displacement, the mobility ratio changes as phase saturation, $S_{w}\left(x_{i},t\right)$ and $S_{nw}\left(x_{i},t\right)$, varies in time and space (Eqn.~\ref{eqn:saturation_eqn}). Therefore, with no lack of generality, the parameterised MR can be reduced to
+\begin{displaymath}
+    \text{MR} = \frc{\mu_{i}}{\mu_{j}},
+\end{displaymath}
+ i.e., the viscosity ratio. Fingering will occur in immiscible displacements when the viscosity ratio is greater than unity. As surface tension becomes weak, the interface is stressed and becomes unstable leading to the formation of fingers. The interface collapses and starts splitting into new lobes of fingers. One of the fingers may eventually outgrow the others and then spread to occupy an increasingly larger width. In the process, the finger reaches a width that is again unstable and splits again, and the pattern repeats itself. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
 
 In  this paper, viscous instabilities for different test-cases will be investigated. Adaptive and unstructured mesh will be used to capture the collapse of the interface and the development of the fingers in relation to different values of mobility ratios and different maps of permeabilities. Initially test-cases that verify the existence of fingers in experimental domains will illustrated follow by more complicated computational domains and finger patterns.  
 
