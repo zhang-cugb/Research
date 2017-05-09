@@ -347,18 +347,19 @@ In the Hele-Shaw cell, a fluid is introduced between two parallel flat plates se
 \medskip
  Under the assumption that fluids remain immiscible along an interface, surface tension plays an important role in determining the shape and progress of the fingers~\citep{howison_2000}. During the displacement of a fluid by a less viscous one, the expected uniform front is perturbed \citep[described by the Buckley-Leverett theory of immiscible displacement][]{sheldon_1959} leading to an uneven front with elongations of the outside edge of the fluid interface (Fig.~\ref{fig:simple_case}), often referred as 'fingers'. In homogeneous domains, fingers start to develop when the surface tension acting on the interface between the fluids exert an opposite force towards the change of shape of the interface. The interface becomes unstable and collapses, taking a curved shape. 
  
-In heterogeneous domains, such instability may also be triggered by permeability differences between smaller regions as is shown in Section \red{XXX}. The higher the velocity of the low viscosity fluid, the less wide (tip-splitting behaviour) the finger is. In addition, pressure differences acting on the interface produces a net pressure force,      
+In heterogeneous domains, such instability may also be triggered by permeability differences between smaller regions as is demonstrated in \red{Section XXX}. The higher the velocity of the low viscosity fluid, the less wide (tip-splitting behaviour) the finger is. Pressure differences acting on the interface produces a net pressure force,      
 \begin{equation}
-\Delta P= - \gamma \; \nabla \; \dot \; \hat{n} 
+\Delta P= - \gamma \; \nabla \; \cdot \; \hat{n}. 
 \label{eq:pressure_dif} 
 \end{equation}
+This expression is also know as the Young-Laplace equation, a relation describing the capillary pressure difference across the interface between two fluids. With $\Delta P$ denoting the pressure difference, $\hat{n}$ is the unit normal vector out of the surface, and $\gamma$ is the surface tension. 
 
-\noindent this is also know as the Young-Laplace equation, a relation describing the capillary pressure difference across the interface between two fluids. With $\Delta P$ denoting the pressure difference, $\hat{n}$ the unit normal vector out of the surface, and $\gamma$ the surface tension. As mentioned in Section \ref{section:intro}, an unfavourable mobility-ratio in a water-oil system will have the following definition, see eqn.\ref{eq:MR}.
-
+As demonstrated by \citet{habermann_1960}, mobility ratio (MR, see Section~\ref{section:intro}) is a key-parameter to assess the efficiency during fluid displacement, and is defined as the ratio of mobility of the displacing (fluid $i$)to that of the displaced fluid ($j$),
 \begin{equation}
- MR \; = \frac{k_{rw} \; \mu_{w}}{k_{ro} \; \mu_{o}} 
+ \text{MR} \; = \frac{\mathcal{K}_{ri} \; \mu_{j}}{\mathcal{K}_{rj} \; \mu_{i}}. 
 \label{eq:MR}
 \end{equation}
+MR is a function not only of fluid viscosities and saturations, but also the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix.
 
 \noindent Fingering will occur in immiscible displacements when the viscocity ratio is greater than unity. %As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. 
 As surface tension becomes weak, the front is stressed and goes under a viscous-fingering instability. The front will collapse and will start splitting into new lobes of fingers. One of these fingers will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
