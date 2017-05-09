@@ -361,9 +361,10 @@ As demonstrated by \citet{habermann_1960}, mobility ratio (MR, see Section~\ref{
 \end{equation}
 MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
 \begin{eqnarray}
-  \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}} \\
-  \mathcal{K}_{rnw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rrw}\left[\frc{S_{nw}-S_{nw,r}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{nw}} 
+  \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}}, \\
+  \mathcal{K}_{rnw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rnw}\left[\frc{S_{nw}-S_{nw,r}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{nw}}, \label{Eqn:CoreyBrooks}
 \end{eqnarray}
+where subscripts $w$ and $nw$ stand for wetting and non-wetting phases, respectively. $\mathcal{K}^{\circ}_{rw}$ and $\mathcal{K}^{\circ}_{rnw}$ are end-point relative permeability to wetting and non-wetting phases, $S_{w,irr}$ and $S_{nw,r}$ are irreducible wetting and residual non-wetting phase saturations, respectively. Exponents $n_{w}$ and $n_{nw}$ are both set to 2.
  
 
 
