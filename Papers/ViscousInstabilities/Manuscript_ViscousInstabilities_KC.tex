@@ -360,6 +360,10 @@ As demonstrated by \citet{habermann_1960}, mobility ratio (MR, see Section~\ref{
 \label{eq:MR}
 \end{equation}
 MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
+\begin{eqnarray}
+  \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circle}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}} \\
+  \mathcal{K}_{rnw}\left(S_{w}\right) &=& \mathcal{K}^{\circle}_{rrw}\left[\frc{S_{nw}-S_{nw,r}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{nw}} 
+\end{eqnarray}
  
 
 
