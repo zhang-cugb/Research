@@ -345,7 +345,7 @@ Viscous flow instabilities can be found across many research areas, disciplines 
 In the Hele-Shaw cell, a fluid is introduced between two parallel flat plates separated by an infinitesimally small gap. The governing equation of Hele-Shaw flows is identical to that of the inviscid potential flow and to the flow of fluid through a porous medium (Darcy's law) \red{(THIS SENTENCE IS A BIT CONFUSING ... SO THE EQNS THAT DESCRIBE FLOWS IN H-S CELLS ARE THE POTENTIAL EQUATION FOR INVISCID FLUIDS AND THE DARCY EQN? ... TRY TO REWRITE THE SENTENCE AND EXPLAIN THE IMPORTANCE OF THE H-S CELLS IN THE UNDERSTANDING OF VISCOUS FLOW INSTABILITIES)}. More recently, \citet{howison_2000} and \citet{praud_2005} gave an extensive \red{(DO YOU MEAN EXTENSIVE OR COMPREHENSIVE?)} description of the mathematical formulation of immiscible two-phase flows in Hele-Shaw cell (also know as Saffman $\&$ Taylor problem). 
 
 \medskip
- Under the assumption that fluids remain immiscible along an interface, surface tension plays an important role in determining the shape and progress of the fingers~\citep{howison_2000}. During the displacement of a fluid by a less viscous one, the expected uniform front is perturbed \citep[described by the Buckley-Leverett theory of immiscible displacement][]{sheldon_1959} leading to an uneven front with elongations of the outside edge of the fluid interface (Fig.~\ref{fig:simple_case}), often referred as 'fingers'. In homogeneous domains, fingers start to develop when the surface tension acting on the interface between the fluids exert an opposite force towards the change of shape of the interface. The interface becomes unstable and collapses, taking a curved shape. 
+ Under the assumption that fluids remain immiscible along an interface, surface tension plays an important role in determining the shape and progress of the fingers~\citep{howison_2000}. During the displacement of a fluid by a less viscous one, the expected uniform front is perturbed \citep[described by the Buckley-Leverett theory of immiscible displacement][]{buckley_1942,sheldon_1959} leading to an uneven front with elongations of the outside edge of the fluid interface (Fig.~\ref{fig:simple_case}), often referred as 'fingers'. In homogeneous domains, fingers start to develop when the surface tension acting on the interface between the fluids exert an opposite force towards the change of shape of the interface. The interface becomes unstable and collapses, taking a curved shape. 
  
 In heterogeneous domains, such instability may also be triggered by permeability differences between smaller regions as is demonstrated in \red{Section XXX}. The higher the velocity of the low viscosity fluid, the less wide (tip-splitting behaviour) the finger is. Pressure differences acting on the interface produces a net pressure force,      
 \begin{equation}
@@ -359,9 +359,11 @@ As demonstrated by \citet{habermann_1960}, mobility ratio (MR, see Section~\ref{
  \text{MR} \; = \frac{\mathcal{K}_{ri} \; \mu_{j}}{\mathcal{K}_{rj} \; \mu_{i}}. 
 \label{eq:MR}
 \end{equation}
-MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix.
+MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
+ 
 
-\noindent Fingering will occur in immiscible displacements when the viscocity ratio is greater than unity. %As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. 
+
+Fingering will occur in immiscible displacements when the viscocity ratio is greater than unity. %As surface tension becomes weak, the front of the steady finger is susceptible to a viscous-fingering instability by the basic mechanism associated with a less viscous fluid displacing a more viscous one. After a split, each of the new lobes of the finger is stable as a result of their being thinner than the finger from which they split. 
 As surface tension becomes weak, the front is stressed and goes under a viscous-fingering instability. The front will collapse and will start splitting into new lobes of fingers. One of these fingers will eventually outgrow the others and will then spread to occupy the appropriate width of the cell. In the process, it reaches a width that is again unstable to splitting, and the pattern repeats. Thus, surface tension plays an essential dual role; it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
 
 In  this paper, viscous instabilities for different test-cases will be investigated. Adaptive and unstructured mesh will be used to capture the collapse of the interface and the development of the fingers in relation to different values of mobility ratios and different maps of permeabilities. Initially test-cases that verify the existence of fingers in experimental domains will illustrated follow by more complicated computational domains and finger patterns.  
@@ -412,15 +414,15 @@ In  this paper, viscous instabilities for different test-cases will be investiga
 %% \section{}
 %% \label{}
 
-\pagebreak
-\clearpage
+%\pagebreak
+%\clearpage
 
 %\listoftables
 %\pagebreak
 %\input{Manuscript_Table}
 
-\pagebreak
-\clearpage
+%\pagebreak
+%\clearpage
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
