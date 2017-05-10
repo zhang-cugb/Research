@@ -434,14 +434,14 @@ In the next section, multi-fluid simulations are performed to numerically invest
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results}\label{section:results}
+\section{Results}\label{section:results} 
 
 %%%%%%%%%%%% 
 \subsection{Model Set-up}\label{section:results:setup}
 
 Numerical simulations were conducted with model summarised in Section \ref{equations_scheme} and embedded in the next-generation reservoir simulator IC-FERST model software\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}} \citep[a full description of the model can be found in][]{gomes_2017,jackson_2013,porosity_documentation,fluidity_manual}. This multi-physics model has been validated against traditional multi-fluids test-cases (e.g., advection-diffusion, Buckley-Leverett problem, channel model, immiscible displacement, gravity-driven displacement etc) in \citet{jackson_2015,pavlidis2016,salinas2015,salinas_2016,adam_2016b,su_2015,radunz_2014}.
 
-All test-cases were performed in an idealised geometry discretised with unstructured triangular \PN[1]{2} and \PN[1]{1} FE mesh. In most simulations, the domain was initially fully saturated with the non-wetting fluid which was displaced by a pure (wetting) fluid at a prescribed initial velocity ($u$). For simplicity, the porosity ($\phi$) of the domain was kept constant at 0.2 in all simulations, whereas the absolute permeability ($\mathbf{K}$) varies in space, i.e., $\mathbf{K}=\mathbf{K}\left(x_{i}\right)$
+All test-cases were performed in idealised geometries discretised with unstructured triangular mesh using the \PN[1]{2} and \PN[1]{1} FE-pairs. In most simulations, the domain was initially fully saturated with non-wetting fluid which was displaced by a pure (wetting) fluid at a prescribed initial velocity $\left(u^{0}\right)$. For simplicity, the porosity ($\phi$) of the domain was kept constant at 0.2 in all simulations, whereas the absolute permeability ($\mathbf{K}$) varies in space, i.e., $\mathbf{K}=\mathbf{K}\left(x_{i}\right)$. Fluids are assumed incompressible and gravity was neglected. The set-up for the numerical simulations are summarised in Table \ref{table:setup}.
  
 %%%%%%%%%%%% 
 \subsection{Model Validation}\label{section:results:validation}    
