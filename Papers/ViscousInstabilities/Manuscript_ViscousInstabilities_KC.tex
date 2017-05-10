@@ -203,7 +203,7 @@ A brief description of the numerical formulation and viscous fluid instabilities
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Governing equations and numerical scheme}\label{equations_scheme}      
+\section{Model Formulation}\label{equations_scheme}      
 %Multiphase flow in porous media is described by mass conversation and Darcy equations for all the phase $\alpha$ ($\alpha$ = g, o, w, for gas, oil, and water phases). Different domains will produce different flow instabilities. In this paper, the test-cases are based on the discontinuous Galerkin (DG) method. DG-methods combine advantages of classical finite volume and finite element methods.  
 
 %\subsection{Numerical Formulation}
@@ -432,14 +432,12 @@ In the next section, multi-fluid simulations are performed to numerically invest
 %\pagebreak
 %\clearpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Model Validation}\label{section:validation:results}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results}\label{section:results}
+Numerical simulations performed for this work were conducted with the next generation reservoir simulator IC-FERST model\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}}. A full description of the model can be found in \citet{gomes_2017,jackson_2015,pavlidis2016} \citep[see also][]{porosity_documentation,fluidity_manual}
 
-%%%%%%%%%%%%
-\subsection{Model Validation}\label{section:validation:results}
-
-The set of test-cases that we are going to illustrate starts with an elementary case in a homogeneous domain. The aim of this test-case is to validate the different simulation/scenarios i.e., cross flow in a porous formation, evolution of fingers based on experimental Hele-Shaw work, behaviour of two-phase flow in more complicated formations and how factors like mobility ratio and heterogenities of the formations may affect the finger pattern. 
+The set of test-cases that we are going to illustrate starts with an elementary case in a homogeneous domain. The aim of this test-case is to validate the different simulation/scenarios i.e., cross flow in a porous formation, evolution of fingers based on experimental Hele-Shaw work, behaviour of two-phase flow in more complicated formations and how factors like mobility ratio and heterogenities of the formations may affect the finger pattern. \citet{salinas_2016}
 
 Fig.\ref{fig:simple_case} describes the starting point of the simulations that will follow. Fluid $1$ is from the left hand side of the formation. Later, different mobility ratios and different regions of various permeabilities will be introduced, but for now only few of these initial and boundary conditions will be applied. Boundary conditions will include a no-slip condition for the upper and lower boundary inlet is place at the left hand side while outlet on th right hand side of the domain. Initial conditions include initial values of velocity and pressure in the left and right hand side of the domain respectively. Also for different cases we have different geometrical domain aspect ratios, number of elements and types of grid (fixed and usntructured or adaptive and unstructured mesh). 
 
@@ -455,6 +453,15 @@ A slightly modified test-case (see Fig.\ref{fig:testcase}) with similar initial 
 In this section three different sets of simulations were explained. Starting from an initial square set-up to validate the existance of cross flow and how the simulator works, we moved to a larger domain by increasing the aspect ratio. The reason was to give more time, space and greater number of elements to our simulator and again see how the front/cross-flow will develop. The third test-case is based in the initial and boundary condition of the second set of simulations. Now we would like to know what is the impact of different mobility ratios (see Fig.\ref{fig:6a},\ref{fig:6b},\ref{fig:6c}) and how the cross-flow as well as the simulation will progress on time. The purpose of these three cases was to verify that our model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. 
   
  
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}\label{section:results}
+
+
 %%%%%%%%%%%% 
 \subsection{Hele-Shaw validation cases for homogeneous and heterogeneous domains under two different mobility ratios}
 
@@ -534,9 +541,9 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 
 \clearpage 
 %% References with bibTeX database:
-\bibliographystyle{elsarticle-harv}
+\bibliographystyle{elsarticle-harv} 
 \bibliography{references}
-
+  
 \clearpage 
 \listoffigures
 \clearpage
