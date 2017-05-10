@@ -366,11 +366,11 @@ MR is a function not only of fluids' viscosity and saturation, but also of the p
 \end{eqnarray}
 where subscripts $w$ and $nw$ stand for wetting and non-wetting phases, respectively. $\mathcal{K}^{\circ}_{rw}$ and $\mathcal{K}^{\circ}_{rnw}$ are end-point relative permeability to wetting and non-wetting phases, $S_{w,irr}$ and $S_{nw,r}$ are irreducible wetting and residual non-wetting phase saturations, respectively. Exponents $n_{w}$ and $n_{nw}$ are both set to 2.
 
-From Eqns.~\ref{eq:MR}-\ref{Eqn:CoreyBrooks2}, it is clear that during fluid displacement, the mobility ratio changes as phase saturation, $S_{w}\left(x_{i},t\right)$ and $S_{nw}\left(x_{i},t\right)$, varies in time and space (Eqn.~\ref{eqn:saturation_eqn}). Therefore, with no lack of generality, the MR can be reduced to
+From Eqns.~\ref{eq:MR}-\ref{Eqn:CoreyBrooks2}, it is clear that during fluid displacement, the mobility ratio changes as phase saturation, $S_{w}\left(x_{i},t\right)$ and $S_{nw}\left(x_{i},t\right)$, varies in time and space (Eqn.~\ref{eqn:saturation_eqn}). Therefore, with no lack of generality, the MR can be reduced to a viscosity ratio,
 \begin{displaymath}
-    \text{MR} = \frc{\mu_{i}}{\mu_{j}},
+    \text{VR} = \frc{\mu_{i}}{\mu_{j}},
 \end{displaymath}
- i.e., the viscosity ratio. Analysis performed in the following sections will make use of this simplified definition as phase saturation is a prognostic field that is calculated along with pressure and velocity. \red{(PARAGRAPH NEEDS TO BE IMPROVED)} 
+ that will be used in the parametrisation of the numerical simulations conducted in Section \ref{section:results}. Analysis performed in the following sections will make use of this simplified definition as phase saturation is a prognostic field that is calculated along with pressure and velocity. \red{(PARAGRAPH NEEDS TO BE IMPROVED)} 
 
 In immiscible displacements , viscous fingering occurs when the viscosity ratio is greater than unity. As surface tension becomes weak, the interface is stressed and becomes unstable leading to the formation of fingers. The interface collapses and starts splitting into new lobes of fingers. One of the fingers may eventually outgrow the others and then spreads to occupy an increasingly larger width. In the process, the finger reaches a (critical) width that is again unstable and splits again, and the pattern repeats itself. Thus, surface tension plays an essential dual role, it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
 
@@ -432,10 +432,20 @@ In the next section, multi-fluid simulations are performed to numerically invest
 %\pagebreak
 %\clearpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\section{Model Validation}\label{section:validation:results}
 
-Numerical simulations performed for this work were conducted with the next generation reservoir simulator IC-FERST model\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}} \citep[a full description of the model can be found in][]{gomes_2017,jackson_2013,porosity_documentation,fluidity_manual}. This multi-physics model has been validated against traditional multi-fluids test-cases (e.g., Buckley-Leverett problem, channel model, immiscible displacement, gravity-driven displecement, viscous crossflow etc) in \citet{jackson_2015,pavlidis2016,salinas2015,salinas_2016,adam_2016b,su_2015,radunz_2014}. Two test-cases
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}\label{section:results}
+
+%%%%%%%%%%%% 
+\subsection{Model Set-up}\label{section:results:setup}
+
+Numerical simulations performed in this section were conducted with the next-generation reservoir simulator IC-FERST model\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}} \citep[a full description of the model can be found in][]{gomes_2017,jackson_2013,porosity_documentation,fluidity_manual}. This multi-physics model has been validated against traditional multi-fluids test-cases (e.g., Buckley-Leverett problem, channel model, immiscible displacement, gravity-driven displacement etc) in \citet{jackson_2015,pavlidis2016,salinas2015,salinas_2016,adam_2016b,su_2015,radunz_2014}. 
+ 
+%%%%%%%%%%%% 
+\subsection{Model Validation}\label{section:results:validation}    
+
+
+This The test-case shown in this section demonstrates the model capability to capture viscous crossflow in immiscible displacement in homogeneous porous media
 
 
 The set of test-cases that we are going to illustrate starts with an elementary case in a homogeneous domain. The aim of this test-case is to validate the different simulation/scenarios i.e., cross flow in a porous formation, evolution of fingers based on experimental Hele-Shaw work, behaviour of two-phase flow in more complicated formations and how factors like mobility ratio and heterogenities of the formations may affect the finger pattern. 
@@ -452,19 +462,10 @@ A slightly modified test-case (see Fig.\ref{fig:testcase}) with similar initial 
 
 \medskip
 In this section three different sets of simulations were explained. Starting from an initial square set-up to validate the existance of cross flow and how the simulator works, we moved to a larger domain by increasing the aspect ratio. The reason was to give more time, space and greater number of elements to our simulator and again see how the front/cross-flow will develop. The third test-case is based in the initial and boundary condition of the second set of simulations. Now we would like to know what is the impact of different mobility ratios (see Fig.\ref{fig:6a},\ref{fig:6b},\ref{fig:6c}) and how the cross-flow as well as the simulation will progress on time. The purpose of these three cases was to verify that our model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. 
-  
- 
 
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results}\label{section:results}
-
-
-%%%%%%%%%%%% 
-\subsection{Hele-Shaw validation cases for homogeneous and heterogeneous domains under two different mobility ratios}
+%%%%%%%%%%%%  
+\subsection{Hele-Shaw validation cases for homogeneous and heterogeneous domains under two different mobility ratios}\label{section:results:heleshaw}   
 
 \medskip
 Based on the work of \citet{saffman_1986}, the Hele-shaw cell, a geometrical domain as this is defined by experimental studies and is presented in Figures \ref{fig:1a_homoheleshaw_3},\ref{fig:1b_homoheleshaw_3} and Fig.\ref{fig:1c_homoheleshaw_3} will be used for the next set of simulations. In all cases, simulations were performed in a squared geometry of $5\times5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 %(i.e., sqrt(2*0.25))
@@ -546,9 +547,13 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 \bibliography{references}
   
 \clearpage 
+
+\listoftables
+\clearpage
+\input{article_table}
+\clearpage  
 \listoffigures
 \clearpage
-
 \input{article_figure1}
 %\input{article_figure2} 
  
