@@ -1,0 +1,143 @@
+
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}
+\usepackage{graphicx,wrapfig}% Include figure files
+%\usepackage{dcolumn,enumerate}% Align table columns on decimal point
+\usepackage{bm,dpfloat}% bold math
+\usepackage[pdftex,bookmarks,colorlinks=true,urlcolor=rltblue,citecolor=blue]{hyperref}
+\usepackage{amsfonts,amsmath,amssymb,stmaryrd,indentfirst}
+%\usepackage{chemist}
+\usepackage{times,psfrag,subfigure}  
+\usepackage{color}
+\usepackage{gantt}
+\usepackage{pdflscape}
+
+\makeatletter
+
+\newcommand{\cmd}[1]{\texttt{\textbackslash #1}}
+\setlength{\parindent}{0pt}
+
+\usepackage{enumerate}%,enumitem}% Align table columns on decimal point
+
+\usepackage{supertabular}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{palatino}
+%\usepackage{doi}
+\usepackage{longtable}
+\usepackage{float}
+%\MakeSorted{figure}
+\usepackage{pdflscape}
+
+
+\definecolor{rltblue}{rgb}{0,0,0.75}
+\usepackage[round]{natbib}
+\usepackage{color}
+
+\setlength\textwidth      {16.cm}
+\setlength\textheight     {21.6cm}
+\setlength\oddsidemargin  {-0.3cm}
+\setlength\evensidemargin {0.3cm}
+
+\setlength\headheight{14.49998pt} 
+\setlength\topmargin{0.0cm}
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+\setlength\parindent{0pt}
+
+\makeatletter
+
+
+%%%
+%%% Notes
+%%%
+\newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{\color{blue} JG: #1}}}
+
+
+
+%%%
+%%% space between lines
+%%%
+\renewcommand{\baselinestretch}{1.5}
+
+\newenvironment{VarDescription}[1]%
+  {\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1:}\hfil}%
+    \settowidth{\labelwidth}{\textbf{#1:}}%
+    \setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}%
+  {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%      NOTATION SECTION        %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Text abbreviations.
+\newcommand{\ie}{{\em{i.e., }}}
+\newcommand{\eg}{{\em{e.g., }}}
+%XS\newcommand{\cf}{{\em{cf., }}}
+\newcommand{\wrt}{with respect to}
+\newcommand{\lhs}{left hand side}
+\newcommand{\rhs}{right hand side}
+\newcommand{\frc}{\displaystyle\frac}
+\newenvironment{frcseries}{\fontfamily{frc}\selectfont}{}
+\newcommand{\textfrc}[1]{{\frcseries#1}}
+\newcommand{\PN}[2][error]{P$_{#1}$DG-P$_{#2}$}
+\newcommand{\PNDG}[2][error]{P$_{#1}$DG-P$_{#2}$DG}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%% END OF THE NOTATION SECTION  %%%%%%%
+%%%%%%                              %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Cause numbering of subsubsections. 
+%\setcounter{secnumdepth}{8}
+%\setcounter{tocdepth}{8}
+
+\setcounter{secnumdepth}{4}%
+\setcounter{tocdepth}{4}%
+%\pagestyle{empty}
+\pagenumbering{gobble}
+
+%\author{CoMaELa/CoPhyMs}
+\usepackage{authblk} 
+
+\begin{document}
+\begin{center}
+{\Large{ \bf Multi-Fluid Dynamics Model for Heterogenoeus Porous Media Flows}}
+
+
+J. Gomes$^{\text{a}}$, K. Christou$^{\text{a}}$, B. Lashore$^{\text{a}}$
+
+$^{\text{a}}$Fluids and Structures Group, School of Engineering, \\
+University of Aberdeen, AB24 3UE, UK
+
+\end{center}
+
+
+\noindent
+{\large{\bf Abstract}}
+
+\noindent
+Current porous media flow models are often based on outdated computational methods (e.g. structured or block structured hexahedral FEM- and FDM-based discretisation). Since these methods are often at the heart of transport in porous media, it is vital that they are updated in light of recent advances in computational methods and able to exploit the current state-of-the-art mesh-adaptive methods. 
+
+\noindent
+Here, we introduce a conservative computational multi-fluid porous media flows model able to exploit the latest mesh adaptivity methods on fully-unstructured tetrahedral grids. The model is based on two key numerical characteristics: (a) novel families of P$_{\text{m}}$DG-P$_{\text{n}}$ and P$_{\text{m}}$DG-P$_{\text{n}}$DG finite element-pairs and (b) a consistent control volume finite element method (CVFEM) formulation. In particular, the P$_{\text{1}}$DG-P$_{\text{2}}$ and P$_{\text{1}}$DG-P$_{\text{1}}$DG element-pairs are introduced as the basis of the discretisation. This is necessary, as it is very difficult to use FE representation of scalar fields (e.g., saturation and density) and simultaneously ensure physical realism in these solution variables (i.e., positivity and suppression of numerical oscillations provided by high-order or limiting methods). 
+
+\noindent
+The main aim of this work is to report the latest development of a generic FEM-based unstructured and adaptive-mesh multi-fluid porous media flow model. In the simulations performed in this paper, scalar fields (e.g., phase saturation, concentration, density etc) are represented in the CV space and the velocity-pressure dual fields are embedded in FEM space with simultaneous projection into the CV space. High-order accurate downwind schemes on element boundaries on discontinuous scalar fields are flux-limited (based on NVD approach) to obtain bounded and compressive (capturing the interfaces) solutions. We focus on benchmark simulations of dual saturated-unsaturated flows in heterogeneous porous media, where a fluid is injected in a porous matrix and the resulting fluid content during the drainage is qualitively analysed.
+
+\medskip
+\noindent
+{\it{\bf Keywords:}}
+
+\noindent
+Multi-fluid Darcy flows, Finite element methods, Flow instabilities.
+ 
+
+\end{document}
+
