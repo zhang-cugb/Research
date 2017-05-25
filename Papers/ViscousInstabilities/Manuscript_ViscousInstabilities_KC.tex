@@ -361,7 +361,7 @@ More recently, \citet{howison_2000} and \citet{praud_2005} gave a comprehensive 
  Under the assumption that fluids remain immiscible along an interface, surface tension plays an important role in determining the shape and progress of the fingers~\citep{howison_2000}. During the displacement of a fluid by a less viscous one, the expected uniform front is perturbed %\citep{(described by the Buckley-Leverett theory of immiscible displacement){buckley_1942,sheldon_1959}} 
 leading to an uneven front with elongations of the outside edge of the fluid interface (Fig.~\ref{fig:simple_case}), often referred as 'fingers'. In homogeneous domains, fingers start to develop when the surface tension acting on the interface between the fluids exert an opposite force towards the change of shape of the interface. The interface becomes unstable and collapses, taking a curved shape. 
  
-In heterogeneous domains, such instability may also be triggered by permeability differences between smaller regions as is demonstrated in \red{Section XXX}. The higher the velocity of the low viscosity fluid, the less wide (tip-splitting behaviour) the finger is. Pressure differences acting on the interface produces a net pressure force,
+In heterogeneous domains, such instability may also be triggered by permeability differences between smaller regions as is demonstrated in Section \ref{section:results_homo_hete}. The higher the velocity of the low viscosity fluid, the less wide (tip-splitting behaviour) the finger is. Pressure differences acting on the interface produces a net pressure force,
       
 \begin{equation}
 \Delta P= - \gamma \; \nabla \; \cdot \; \hat{n}. 
@@ -464,7 +464,7 @@ Numerical simulations were conducted with model summarised in Section \ref{equat
 All test-cases were performed in idealised geometries discretised with unstructured triangular mesh using the \PN[1]{2} and \PN[1]{1} FE-pairs. In most simulations, the domain was initially fully saturated with non-wetting fluid which was displaced by a pure (wetting) fluid at a prescribed initial velocity $\left(u^{0}\right)$. For simplicity, the porosity ($\phi$) of the domain was kept constant at 0.2 in all simulations, whereas the absolute permeability ($\mathbf{K}$) varies in space, i.e., $\mathbf{K}=\mathbf{K}\left(x_{i}\right)$. Fluids are assumed incompressible and gravity was neglected. The set-up for the numerical simulations are summarised in Table \ref{table:setup}.
  
 %%%%%%%%%%%% 
-\subsection{Model Validation}\label{section:results:validation}    
+\subsection{Model Validation}\label{section:results_validation}    
 
 
 This The test-case shown in this section demonstrates the model capability to capture viscous crossflow in immiscible displacement in homogeneous porous media
@@ -487,7 +487,7 @@ In this section three different sets of simulations were explained. Starting fro
 
 
 %%%%%%%%%%%%  
-\subsection{Hele-Shaw validation cases for homogeneous and heterogeneous domains under two different mobility ratios}\label{section:results:heleshaw}   
+\subsection{Hele-Shaw validation cases for homogeneous and heterogeneous domains under two different mobility ratios}\label{section:results_homo_hete}   
 
 \medskip
 Based on the work of \citet{saffman_1986}, the Hele-shaw cell, a geometrical domain as this is defined by experimental studies and is presented in Figures \ref{fig:1a_homoheleshaw_3},\ref{fig:1b_homoheleshaw_3} and Fig.\ref{fig:1c_homoheleshaw_3} will be used for the next set of simulations. In all cases, simulations were performed in a squared geometry of $5\times5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 %(i.e., sqrt(2*0.25))
