@@ -29,9 +29,11 @@
 \begin{figure}[h]
 \centering
 \vbox{\includegraphics[width=.5\textwidth]{./Pics/P1DGP2.pdf}}
-\caption{2D representation of $P_{1}DGP_{2}$ element pairs used in this work. Shaded areas denote control volumes (in which saturation field is stored), blue and white circles represent pressure and velocity nodes, respectively.}
+\caption{2D representation of \PN[1]{2} element pairs used in this work. Shaded areas denote control volumes across two contiguous elements. Blue and white circles represent pressure and velocity nodes, respectively.}
 \label{fig:fem_cv}
 \end{figure}
+
+\clearpage
 
 %%%%
 %%%%  FIGURE
@@ -39,9 +41,11 @@
 \begin{figure}[h]
 \centering
 \vbox{\includegraphics[width=.5\textwidth]{./Pics/element_n.pdf}}
-\caption{This is a description of two different element types. Element A is the $P_{1}DGP_{2}$, while element B is the $P_{1}DGP_{1}$. Porosity $\phi_{i}$, and permeability $K_{i}$ are associated to the elements $P_{o}DG$. The velocity and pressure are associated to the element nodes and the mid-points as described in Fig.\ref{fig:fem_cv}; three CVs fit into a $2$D element. Saturation and saturation-dependent variables are stored CV-wise. }
+\caption{This is a description of two different element types. Element A is the \PN[1]{2}, while element B is the \PN[1]{1} \red{(THIS IS NOT CORRECT!!)}. Porosity $\phi_{i}$ \red{(THIS DOES NOT APPEAR IN THE FIGURE ... AT LEAST NOT WITH THIS SYMBOL)} and permeability $K_{i}$ are CV-wise quantities, whereas velocity and pressure are primarily represented in FE space. Scalar fields (such saturation, density, viscosity etc) are also represented in CV space.}
 \label{fig:fem_elem}
 \end{figure}
+
+\clearpage
 
 %%%%
 %%%%  FIGURE 1
