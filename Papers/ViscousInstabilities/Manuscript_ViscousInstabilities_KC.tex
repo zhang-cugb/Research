@@ -457,43 +457,41 @@ Numerical simulations were conducted with the model summarised in Section \ref{e
 All test-cases were performed in idealised geometries discretised with unstructured triangular mesh using the \PN[1]{2} and \PN[1]{1} FE-pairs. In most simulations, the domain was initially fully saturated with non-wetting fluid which was displaced by a pure (wetting) fluid at a prescribed initial velocity $\left(u^{0}\right)$. For simplicity, the porosity ($\phi$) of the domain was kept constant at 0.2 in all simulations, whereas the absolute permeability ($\mathbf{K}$) varies in space, \ie $\mathbf{K}=\mathbf{K}\left(x_{i}\right)$. Fluids are assumed incompressible and gravity was neglected. The set-up for the numerical simulations are summarised in Table \ref{table:setup}.
  
 %%%%%%%%%%%% 
-\subsection{Model Validation}\label{section:results_validation}    
-
+\subsection{Initial Model Validation}\label{section:results_validation}
+  
 \medskip
 Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is \red{XX} $\times$ \red{XX} unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also includes no-flux across upper and lower boundaries. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a).
 
-Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{evans_1994} \citep[see also][]{dawe_2008}.
+Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}.
 
 \medskip
-Two further numerical simulations were performed in slightly modified test-cases (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under distinct viscosity ratio conditions. In both simulations initial and boundary conditions remain the same, but V, but in this set of simulations the geometrical aspect ration is $2$ is following. The model was also qualitatively validated against laboratory experiments conducted by \citet{evans_1994}. The last set of simulations as this is described in fig.\ref{fem_cv_represent_a}c is and extension of the previous case and the aim of is to verify the behaviour of the flow for two different mobility ratios of $1$ and $10$ respectively. 
-
+Another numerical simulation was performed in slightly modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994} (\red{ .... COMMENT THE RESULTS OBTAINED AND COMPARE IT WITH EVANS WORK ...})
  
+\red{KOSTAS ... HAVE A LOOK IN FIG.~\ref{fem_cv_represent_abc} ... SATURATION PROFILES DO NOT SEEM TO MATCH ...}
  
 
- 
-The aim of this test-case is to validate the different simulation/scenarios \ie cross flow in a porous formation, evolution of fingers based on experimental Hele-Shaw work, behaviour of two-phase flow in more complicated formations and how factors like mobility ratio and heterogenities of the formations may affect the finger pattern. Figure \ref{fig:simple_case} describes the starting point of the simulations that will follow. 
-
 \medskip
-Fluid $1$ is introduced from the left hand side of the formation. Later, different mobility ratios and different regions of various permeabilities will be introduced, but for now only few of these initial and boundary conditions will be applied. Boundary conditions will include a no-slip condition for the upper and lower boundary inlet is place at the left hand side while outlet on the right hand side of the domain. Initial conditions include initial values of velocity and pressure in the left and right hand side of the domain respectively. Also for different cases we have different geometrical domain aspect ratios, number of elements and types of grid (fixed and usntructured or adaptive and unstructured mesh will be used). 
-%\noindent One more case to demonstrate the model validation against experiments is described in fig. \ref{fig:square}.
-A domain consisting of $4$ square regions in which each quarter is represented by a permeability value %(Fig.\ref{fig:square}a) 
-and $1$ value of different permeabilities (K is represented by the blue and red shaded square areas) as well as it is fully saturated with fluid $2$. At the upper and lower sides of the domain no-slip boundary condition is applied. The left hand side of the domain is defined as the inlet for fluid $1$ which is introduced along this side with a velocity of $u=1$. The right hand side is the outlet and pressure is set to $0$. Fluid $1$ across the left hand side of the domain is trying to displace the existing fluid $2$. What can been seen here is a cross flow case as the flow passes through different regions and evolves. The front start to collapse at the first half of the lenght D (D:distance) of the domain ($x= \frac{1}{2} D)$. %\ref{fig:square}b).
-
-\noindent In this test-case above the two phase volume volume fractions have the same but opposite behaviours across the length of the formation. The velocity magnitute is built up starting from the inlet all the way to the middle of the square. There is a sharp pressure drop which is also an indication that the fluid $2$ cannot be displaced any further %\ref{fig:square}) 
-while the phase volume fraction is constant. 
-
-\medskip
-A slightly modified test-case (see fig.\ref{fem_cv_represent_a}) with similar initial and boundary conditions, but in this set of simulations the geometrical aspect ration is $2$ is following. The model was also qualitatively validated against laboratory experiments conducted by \citet{evans_1994}. The last set of simulations as this is described in fig.\ref{fem_cv_represent_a}c is and extension of the previous case and the aim of is to verify the behaviour of the flow for two different mobility ratios of $1$ and $10$ respectively. 
-
-\medskip
-In this section three different sets of simulations were explained. Starting from an initial square set-up to validate the existance of cross flow and how the simulator works, we moved to a larger domain by increasing the aspect ratio. The reason was to give more time, space and greater number of elements to our simulator and again see how the front/cross-flow will develop. The third test-case is based in the initial and boundary condition of the second set of simulations. Now we would like to know what is the impact of different mobility ratios (see Fig.\ref{fig:6a}-%\ref{fig:6b},
+In this section three \red{(??)} different sets of simulations were explained. Starting from an initial square set-up to validate the existance of cross flow and how the simulator works, we moved to a larger domain by increasing the aspect ratio. The reason was to give more time, space and greater number of elements to our simulator and again see how the front/cross-flow will develop. The third test-case is based in the initial and boundary condition of the second set of simulations. Now we would like to know what is the impact of different mobility ratios (see Fig.\ref{fig:6a}-%\ref{fig:6b},
 \ref{fig:6c}) and how the cross-flow as well as the simulation will progress on time. The purpose of these three cases was to verify that our model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. 
+
+
+\medskip
+\noindent
+\red{QUICK QUESTIONS ... \\
+\noindent
+A) FOR THE FIRST TEST-CASE, WAS THE SIMULATION PERFORMED IN A SQUARED DOMAIN (FROM THE PICS, IT SEEMS TO BE RECTANGULAR)? \\ B) THUS ASSUMING THAT THE FIRST DOMAIN WAS RECTANGULAR, THUS IT IS THE SAME AS THE SECOND SIMULATION! THUS WHY THE SATURATION PROFILE IS DIFF (FOR VR=1) FROM SIMULATION 1??? \\
+\noindent
+C) ALSO: DO NOT USE 'WE' IN TECHNICAL TEXT ... IT DOES REALLY DOWNGRADE IT !!! }
   
 
 %%%%%%%%%%%%  
-\subsection{Hele-Shaw validation cases for homogeneous and heterogeneous domains under two different mobility ratios}\label{section:results_homo_hete}   
+\subsection{Flow Simulations in Hele-Shaw Cells at Several Viscosity Ratio Conditions}\label{section:results_homo_hete} 
 
-\medskip
+In order to investigate the impact of viscosity ratio on flow behaviour, numerical simulations of fluid displacement were conducted in Hele-shaw cells (\ie parallel flat plates separated by infinitesimal space) following \citet{saffman_1986} work. In this work, he investigated the onset of viscous flow instabilities \citep[following his seminal work in][]{saffman_1958} and the impact of boundary conditions in the problem formulation and solution.
+
+Here, 2D simulations are conducted in 5$\times$5 domain, Fig.~\ref{fig:homoheleshaw}(a) fully saturated with a fluid. Wetting phase fluid is injected from the bottom left-hand corner of the domain with velocity of $\frac{\sqrt{2}}{2}$. A zero-flux condition was applied to all boundaries, except the top right-hand corner (named as sink).
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ of the problem. formation and stability of viscous flow instaseminal work of \citet{saffman_1986}
 Based on the work of \citet{saffman_1986}, the Hele-shaw cell, a geometrical domain as this is defined by experimental studies and is presented in figures \ref{fig:1a_homoheleshaw_3}-%,\ref{fig:1b_homoheleshaw_3} 
 \ref{fig:1c_homoheleshaw_3} will be used for the next set of simulations. In all cases, simulations were performed in a squared geometry of $5\times5$, where fluid $1$ is added into the domain at the bottom left-hand side corner with a velocity (magnitude) of 0.7071 %(i.e., sqrt(2*0.25))
 . The sink (pressure set to $0$) is allocated in the top right hand side corner of the domain. Newmann boundary conditions %(i.e., no flux) 
