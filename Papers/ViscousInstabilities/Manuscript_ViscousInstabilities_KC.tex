@@ -460,7 +460,14 @@ All test-cases were performed in idealised geometries discretised with unstructu
 \subsection{Model Validation}\label{section:results_validation}    
 
 \medskip
-The test-case shown in this section demonstrates the model capability to capture viscous crossflow in immiscible displacement in homogeneous porous media. The aim of this test-case is to validate the different simulation/scenarios \ie cross flow in a porous formation, evolution of fingers based on experimental Hele-Shaw work, behaviour of two-phase flow in more complicated formations and how factors like mobility ratio and heterogenities of the formations may affect the finger pattern. Figure \ref{fig:simple_case} describes the starting point of the simulations that will follow. 
+Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is \red{XX} $\times$ \red{XX} unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also includes no-flux across upper and lower boundaries. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a).
+
+Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{evans_1994} \citep[see also][]{dawe_2008}.
+ 
+
+
+ 
+The aim of this test-case is to validate the different simulation/scenarios \ie cross flow in a porous formation, evolution of fingers based on experimental Hele-Shaw work, behaviour of two-phase flow in more complicated formations and how factors like mobility ratio and heterogenities of the formations may affect the finger pattern. Figure \ref{fig:simple_case} describes the starting point of the simulations that will follow. 
 
 \medskip
 Fluid $1$ is introduced from the left hand side of the formation. Later, different mobility ratios and different regions of various permeabilities will be introduced, but for now only few of these initial and boundary conditions will be applied. Boundary conditions will include a no-slip condition for the upper and lower boundary inlet is place at the left hand side while outlet on the right hand side of the domain. Initial conditions include initial values of velocity and pressure in the left and right hand side of the domain respectively. Also for different cases we have different geometrical domain aspect ratios, number of elements and types of grid (fixed and usntructured or adaptive and unstructured mesh will be used). 
@@ -472,12 +479,12 @@ and $1$ value of different permeabilities (K is represented by the blue and red 
 while the phase volume fraction is constant. 
 
 \medskip
-A slightly modified test-case (see fig.\ref{fem_cv_represent_a}) with similar initial and boundary conditions, but in this set of simulations the geometrical aspect ration is $2$ is following. The model was also qualitatively validated against laboratory experiments conducted by \citet{evans_1994}. The last set of simulations as this is described in fig.\ref{fem_cv_represent_a}c is and extension of the previous case and the aim of is to verify the behaviour of the flow for two different mobility ratios of $1$ and $10$ respectively.
+A slightly modified test-case (see fig.\ref{fem_cv_represent_a}) with similar initial and boundary conditions, but in this set of simulations the geometrical aspect ration is $2$ is following. The model was also qualitatively validated against laboratory experiments conducted by \citet{evans_1994}. The last set of simulations as this is described in fig.\ref{fem_cv_represent_a}c is and extension of the previous case and the aim of is to verify the behaviour of the flow for two different mobility ratios of $1$ and $10$ respectively. 
 
 \medskip
 In this section three different sets of simulations were explained. Starting from an initial square set-up to validate the existance of cross flow and how the simulator works, we moved to a larger domain by increasing the aspect ratio. The reason was to give more time, space and greater number of elements to our simulator and again see how the front/cross-flow will develop. The third test-case is based in the initial and boundary condition of the second set of simulations. Now we would like to know what is the impact of different mobility ratios (see Fig.\ref{fig:6a}-%\ref{fig:6b},
 \ref{fig:6c}) and how the cross-flow as well as the simulation will progress on time. The purpose of these three cases was to verify that our model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. 
-
+  
 
 %%%%%%%%%%%%  
 \subsection{Hele-Shaw validation cases for homogeneous and heterogeneous domains under two different mobility ratios}\label{section:results_homo_hete}   
