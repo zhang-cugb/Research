@@ -3,17 +3,17 @@
 \begin{table}
   \begin{tabular}{c | c c  c  c  c  c  c  c  c  c   c}
     \hline
-      {\bf Section} & $\phi$ & VR  & $S^{0}_{w}$ & $S^{0}_{nw}$ & $K_{1}$ & $K_{2}$ & $K_{3}$ & $K_{4}$ & $S_{w,irr}$ & $S_{nw,r}$ & $u^{0}_{w}$ \\ 
+      {\bf Section} & $\phi$ & VR  & $S^{0}_{w}$ & $S^{0}_{nw}$ & $\mathbf{K}_{1}$ & $\mathbf{K}_{2}$ & $\mathbf{K}_{3}$ & $\mathbf{K}_{4}$ & $S_{w,irr}$ & $S_{nw,r}$ & $u^{\circ}_{w}$ \\ 
     \hline
      \ref{section:results_validation} & 0.2 & 1.0 & 0.0 & 1.0 & 2.5 & 1.0 & N/A & N/A & 0.2 & 0.3 & 1.0 \\
-     \ref{section:results_homo_hete}(homogenous)  & 0.2 & 10.0 & 0.0 & 1.0 & 1.0 & N/A & N/A & N/A & 0.2 & 0.3 & XX  \\
+     \ref{section:results_homo_hete}(homogenous)  & 0.2 & 10.0 & 0.0 & 1.0 & 1.e-10 & N/A & N/A & N/A & 0.2 & 0.3 & \red{XX}  \\
      \ref{section:results_homo_hete}(heterogenous) & 0.2 & 1.0 & 0.0 & 1.0 & 1.e-11 -- & 1.e-12 -- & 1.e-12 -- & 1.e-10 & 0.2  & 0.3 & 1.0 \\
       &   &  &  &  & 5.e-10 & 5.e-10 & 1.e-10  &  &  &  & \\
-     \ref{section:results_hete_fix_adapt}  & 0.2 & 1.0 & 0.0 & 1.0  & 3.0 & 2.0 & 5.0 & 1.0 & 0.2 & 0.3 & XX  \\
-     \ref{section:results_dinlet}  & 0.2 & 1.0 & 0.0 & 1.0 & 3.0 & 2.0 & 5.0 & 1.0 & 0.2  & 0.3 & XX  \\
+     \ref{section:results_hete_fix_adapt}  & 0.2 & 1.0 & 0.0 & 1.0  & 3.0 & 2.0 & 5.0 & 1.0 & 0.2 & 0.3 & \red{XX}  \\
+     \ref{section:results_dinlet}  & 0.2 & 1.0 & 0.0 & 1.0 & 3.0 & 2.0 & 5.0 & 1.0 & 0.2  & 0.3 & \red{XX}  \\
      \hline
    \end{tabular}
-   \caption{Sumary of model set-up used in the numerical simulations. Superscript $0$ denotes initial condition. \blue{(PLEASE: 1. DOUBLE CHECK THE K, u and S0 VALUES FROM THE MPML FILES; 2. \underline{REPLACE ALL \red{XX}}; 3. COMPLETE THE TABLE FOR ALL SECTIONS/SIMULATIONS.  $S_{w,irr}$ and $S_{nw,r}$ are the same for all simulations.) }}\label{table:setup}
+   \caption{Sumary of model set-up used in the numerical simulations. Superscript $\circ$ denotes initial condition. $\mathbf{K}_{i}$ is in \red{XX} (units) and $u^{\circ}_{w}$ is in \red{XX} (units). \red{(PLEASE: 1. DOUBLE CHECK THE K, u and S0 VALUES FROM THE MPML FILES; 2. \underline{REPLACE ALL \red{XX}}; 3. COMPLETE THE TABLE FOR ALL SECTIONS/SIMULATIONS; 4. UNITS FOR K AND U.)}  $S_{w,irr}$ and $S_{nw,r}$ are the same for all simulations. }\label{table:setup}
 \end{table}
 \end{landscape}
 \clearpage
