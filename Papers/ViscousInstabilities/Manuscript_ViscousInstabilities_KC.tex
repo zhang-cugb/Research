@@ -785,6 +785,7 @@ while material properties and flow conditions (\eg phase saturation, density, te
 %\end{comment}
 %%%%%%%%%%%%%%%  
 
+\medskip
 Since geometries are captured by finite elements, constructed control volumes typically extend on each side of the interface which may have different properties (Fig.~\ref{fig:fem_cv}a). Therefore, some average values of the coupled velocity-pressure fields (defined in the FE space but projected into the CV space) are applied across the CVs at these interfaces. These often lead to excessive numerical dispersion especially in highly heterogeneous media (represented by spatial-dependent permeability and porosity fields). In order to overcome such artificial numerical dispersion, discontinuous hybrid finite element finite volume method (DFEFVM) was introduced by \citet{nick_2011b, nick_2011a}. This novel discretisation scheme was designed to simulate flows through discrete fractured rocks in which CVs are divided along the interfaces of different materials. \citet{cumming_2011} demonstrated that CVFEM discretisation could also be used to solve Richards' equations (coupled mass conservation and Darcy equation) in heterogeneous media with relatively small computational overhead~\citep[compared with traditional coupled velocity-pressure based formulations, see also][]{cumming_phd2012}. Fluxes over CV's were calculated based upon material properties, whereas the saturation fields were volume-averaged at the interface of the materials, enforcing mass balance as described by \citet{kirkland_1992}.
 
 %The conservation of mass along with Darcy's law are the governing equations while variables such as pressure, velocity,saturation and permeability define the behaviour of the flow. Finite difference methods have been applied to discretise the governing equations \citep{Luo2016,Moortgat2016,Hoteit2008} .
@@ -898,12 +899,14 @@ where $\mathcal{N}_{p}$ denotes the number of phases.
 %\end{comment}
 %%%%%%%%%%%%%%%
 
+\medskip
 Finite element basis functions for velocity and pressure fields are introduced in the discretisation of force-balance equation (Eqn.~\ref{eqn:darcy_eqn}). Hybrid basis functions are also used to allow CV-based velocity to be extrapolated across the entire element. $\underline{\underline{\sigma}}_{\alpha}$ is an absorption-like term that represents the implicit linearisation of the viscous frictional forces, and lies in both CV and FEM spaces,
 \begin{displaymath}
    \underline{\underline{\sigma}}_{\alpha} = \displaystyle\frac{\mu_{\alpha}S_{\alpha}}{{\mathbf K}\mathcal{K}_{r\alpha}}.
 \end{displaymath}
 Though, whilst saturation is calculated in CV space, permeability is piecewise constant in FE space to allow efficient representation of surface parameterised geometries (element $A$ in Fig.~\ref{fig:fem_cv}b). Saturation equations (Eqn.~\ref{eqn:saturation_eqn}) are discretised in space with CV basis function and with the $\theta$-method in time as described by \citet{gomes_book_2012}. Velocities across CV interfaces (within and between elements, see Fig.\ref{fig:fem_cv}a) are calculated through a directional-weighted flux-limited scheme based on upwind value of $\sigma$ at individual CV as described by \citet{jackson_2013}.
 
+\medskip
 This formulation is applicable to $\mathcal{N}_{p}$ fluid phases and is based on two families of  FE-pairs: \PNDG[n]{m} and \PN[n]{m}~\citep{cotter_2009a}, consistent with the dual pressure-velocity representation in control volume (CV). In these families of FE-pairs velocity is represented by $n^{\text{th}}$-order polynomials that are discontinuous across elements, whereas pressure is represented by $m^{\text{th}}$-order polynomials that may be either continuous or discontinuous (thus the notation \PN[n]{m} and \PNDG[n]{m}, respectively) across elements. Mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin FEM is used to obtain high-order fluxes on CV boundaries, which are limited to yield bounded fields. Simulations performed for this work were conducted using two types of elements: \PN[1]{2} and \PN[1]{1}. Saturation, and all saturation-dependent material properties such as relative permeability and capillary pressure, are represented in CV space. %Hence, each CV (and FE) is associated with a unique set of petrophysical properties, in contrast to most previous methods in which CVs span multiple values of petrophysical properties described FE-wise.
 
 %For the simulations performed in this work, rock and fluids are assumed incompressible thus the mass balance for phase $\alpha$ can be written as
@@ -1062,11 +1065,6 @@ All test-cases were performed in idealised geometries discretised with unstructu
 \medskip
 The test-case shown in this section demonstrates the model capability to capture crossflow in immiscible displacement in heterogeneous porous media. The numerical experiment is similar to the lab set up by \citet{evans_1994} and \citet{dawe_2008}
   
-
-
-
-
-
 The set of test-cases that we are going to illustrate starts with an elementary case in a homogeneous domain. The aim of this test-case is to validate the different simulation/scenarios \ie cross flow in a porous formation, evolution of fingers based on experimental Hele-Shaw work, behaviour of two-phase flow in more complicated formations and how factors like mobility ratio and heterogenities of the formations may affect the finger pattern. Figure \ref{fig:simple_case} describes the starting point of the simulations that will follow. 
 
 \medskip
