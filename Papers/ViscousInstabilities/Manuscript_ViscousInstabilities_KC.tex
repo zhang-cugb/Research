@@ -343,7 +343,7 @@ where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i resp
 \section{Brief Summary of Viscous Instabilities}\label{section:ViscousInstabilities}
 
 \medskip
-The behaviour of the fluid under conditions \blue{(what sort of conditions? thermophysical, rheological ...???)} that exceed critical limits may cause flow instabilities. For example, the flow of a fluid over or next to a heavier fluid can produce flow instabilities. Thus, when a fluid is injected into a porous domain saturated with a second and more viscous fluid, viscous fingering may occur as viscous driven hydrodynamic instability leads to the collapse of the uniform interface between fluids of different viscosity. 
+The behaviour of the fluid under conditions caused from pressure differences along the interface of two fluids, stresses acting in different directions, mobility differences that may exceed critical limits can cause flow instabilities. For example, the flow of a fluid over or next to a heavier fluid can produce flow instabilities. Thus, when a fluid is injected into a porous domain saturated with a second and more viscous fluid, viscous fingering may occur as viscous driven hydrodynamic instability leads to the collapse of the uniform interface between fluids of different viscosity. 
 
 Viscous flow instabilities can be found across many research areas, disciplines and scales, from chemical and medical separation systems to large scale geological reservoir fields. \citet{muskat_1934} investigated the flow of a fluid injected between two infinite parallel plates, and the impact of capillary number ($N_{c}$),
 \begin{equation}
@@ -355,24 +355,28 @@ on the interface pressure and pressure. \citet{muskat_1934} also derived the per
 \medskip
 In the Hele-Shaw cell, a fluid is introduced between two parallel flat plates separated by an infinitesimally small gap. This experimental apparatus allows the predicted instability to be verified qualitatively and simplifies the problem of flow in both porous and non-porous media.   
 %The governing equation of Hele-Shaw flows is identical to that of the inviscid potential flow and to the flow of fluid through a porous medium (Darcy's law) since the Hele-Shaw apparatus may be used for both porous and non-porous media.  
-More recently, \citet{howison_2000} and \citet{praud_2005} gave a comprehensive description of the mathematical formulation of immiscible two-phase flows in Hele-Shaw cell (also know as Saffman $\&$ Taylor problem). For a Hele-Shaw cell of a given size the developing flow only depends on the capillary number. Thus if \textit{Ca} \red{(What is Ca?)} is too high \citet{saffman_1959}, \citet{homsy_1987}, \citet{tabeling_1987} and others agreed that the flow develops into a single steady-state finger which moves through the cell with constant velocity $U$.
+More recently, \citet{howison_2000} and \citet{praud_2005} gave a comprehensive description of the mathematical formulation of immiscible two-phase flows in Hele-Shaw cell (also know as Saffman $\&$ Taylor problem). For a Hele-Shaw cell of a given size the developing flow only depends on the capillary number. Thus if \textit{$N_{c}$} is too high \citet{saffman_1959}, \citet{homsy_1987}, \citet{tabeling_1987} and others agreed that the flow develops into a single steady-state finger which moves through the cell with constant velocity $U$.
 
 \medskip
  Under the assumption that fluids remain immiscible along an interface, surface tension plays an important role in determining the shape and progress of the fingers~\citep{howison_2000}. During the displacement of a fluid by a less viscous one, the expected uniform front is perturbed %\citep{(described by the Buckley-Leverett theory of immiscible displacement){buckley_1942,sheldon_1959}} 
 leading to an uneven front with elongations of the outside edge of the fluid interface (Fig.~\ref{fig:simple_case}), often referred as 'fingers'. In homogeneous domains, fingers start to develop when the surface tension acting on the interface between the fluids exert an opposite force towards the change of shape of the interface. The interface becomes unstable and collapses, taking a curved shape. 
- 
+
+\medskip 
 In heterogeneous domains, such instability may also be triggered by permeability differences across regions as demonstrated in Section \ref{section:results_homo_hete}. The higher the velocity of the low viscosity fluid, the less wide (tip-splitting behaviour) the finger is. Pressure differences acting on the interface produces a net pressure force,      
 \begin{equation}
 \Delta P= - \gamma \; \nabla \; \cdot \; \hat{n}. 
 \label{eq:pressure_dif} 
 \end{equation}
-This expression is also know as the Young-Laplace equation, a relation describing the capillary pressure difference \red{(capillary pressure or pressure ??)} across the interface between two fluids. With $\Delta P$ denoting the pressure difference and $\hat{n}$ is the unit normal vector out of the surface. 
 
+This expression is also know as the Young-Laplace equation, a relation describing the capillary pressure across the interface between two fluids. With $\Delta P$ denoting the pressure difference and $\hat{n}$ is the unit normal vector out of the surface. 
+
+\medskip
 As demonstrated by \citet{habermann_1960}, mobility ratio (MR) is a key-parameter to assess the efficiency during fluid displacement and is defined as the ratio of mobility of the displacing (fluid $i$) to that of the displaced fluid ($j$),
 \begin{equation}
  \text{MR} \; = \frac{\mathcal{K}_{ri} \; \mu_{j}}{\mathcal{K}_{rj} \; \mu_{i}}. 
 \label{eq:MR}
 \end{equation}
+
 MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
 \begin{eqnarray}
   \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}}, \label{Eqn:CoreyBrooks1}\\
@@ -380,14 +384,17 @@ MR is a function not only of fluids' viscosity and saturation, but also of the p
 \end{eqnarray}
 where subscripts $w$ and $nw$ stand for wetting and non-wetting phases, respectively. $\mathcal{K}^{\circ}_{rw}$ and $\mathcal{K}^{\circ}_{rnw}$ are end-point relative permeability to wetting and non-wetting phases, $S_{w,irr}$ and $S_{nw,r}$ are irreducible wetting and residual non-wetting phase saturations, respectively. Exponents $n_{w}$ and $n_{nw}$ are both set to 2.
 
+\medskip
 From Eqns.~\ref{eq:MR}-\ref{Eqn:CoreyBrooks2}, it is clear that during fluid displacement, the mobility ratio changes as phase saturation, $S_{w}\left(x_{i},t\right)$ and $S_{nw}\left(x_{i},t\right)$, varies in time and space (Eqn.~\ref{eqn:saturation_eqn}). Therefore, with no lack of generality, the MR can be reduced to the viscosity ratio,
 \begin{displaymath}
     \text{VR} = \frc{\mu_{i}}{\mu_{j}},
 \end{displaymath}
  that will be used in the parametrisation of the numerical simulations conducted in Section \ref{section:results}. Analysis performed in the following sections will make use of this simplified definition as phase saturation is a prognostic field which is calculated along with pressure and velocity.
 
+\medskip
 In immiscible displacements, viscous fingering occurs when the viscosity ratio is greater than unity. As surface tension becomes weak, the interface is stressed and becomes unstable leading to the formation of fingers. The interface collapses and starts splitting into new lobes of fingers. One of the fingers may eventually outgrow the others and then spreads to occupy an increasingly larger width. In the process, the finger reaches a (critical) width that is again unstable and splits again, and the pattern repeats itself. Thus, surface tension plays an essential dual role, it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
 
+\medskip
 In the next section, multi-fluid simulations are performed to numerically investigate: (a) the impact of heterogeneity (here represented by spatially-dependent permeability) on the onset and propagation of viscous instabilities in Sections \ref{section:results_homo_hete} and \ref{section:results_hete_fix_adapt}; (b) the collapse of fluid interfaces through the use of adaptive mesh grid in Section \ref{section:results_homo_hete}; (c) the impact of viscosity ratios on the formation and progress of fingers in Section \ref{section:results_hete_fix_adapt} and \ref{section:results_dinlet}.
 
 %%%%%%%%%%%%%%%
@@ -455,6 +462,7 @@ In the next section, multi-fluid simulations are performed to numerically invest
 
 Numerical simulations were conducted with the model summarised in Section \ref{equations_scheme} and embedded in the next-generation reservoir simulator Fluidity/IC-FERST model software\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}} \citep[a full description of the model can be found in][]{porosity_documentation,fluidity_manual,jackson_2013,gomes_2017}. This multi-physics model has been validated against traditional multi-fluids test-cases (\eg advection-diffusion, Buckley-Leverett problem, channel model, immiscible displacement, gravity-driven displacement etc) in \citet{radunz_2014,jackson_2015,salinas2015,pavlidis2016}.
 
+\medskip
 All test-cases were performed in idealised geometries discretised with unstructured triangular mesh using the \PN[1]{2} and \PN[1]{1} FE-pairs. In most simulations, the domain was initially fully saturated with non-wetting fluid which was displaced by a pure (wetting) fluid at a prescribed initial velocity $\left(u^{0}\right)$. For simplicity, the porosity ($\phi$) of the domain was kept constant at 0.2 in all simulations, whereas the absolute permeability ($\mathbf{K}$) varies in space, \ie $\mathbf{K}=\mathbf{K}\left(x_{i}\right)$. Fluids are assumed incompressible and gravity was neglected. The set-up for the numerical simulations are summarised in Table \ref{table:setup}.
  
 %%%%%%%%%%%% 
