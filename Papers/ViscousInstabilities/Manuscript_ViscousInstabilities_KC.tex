@@ -922,6 +922,7 @@ This formulation is applicable to $\mathcal{N}_{p}$ fluid phases and is based on
 %\label{saturation_constrain}
 %\end{equation}
 
+\medskip
 Equation~\ref{eqn:saturation_eqn} is discretised in time and space using the $\theta$-method. Summing over all phases yields the global mass balance equation, 
 \begin{eqnarray}
  && \sum_{\alpha=1}^{N_{p}} \left\{\int\limits_{\Omega_{CVi}} \; M_{i} \; \frac{\phi\left(S_{\alpha i}^{n+1}-S_{\alpha i}^{n}\right)}{\Delta t} dV\right.  + \nonumber\\
@@ -935,7 +936,7 @@ where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i resp
 \section{Brief Overview of Viscous Instabilities}\label{section:ViscousInstabilities}
 
 \medskip
-As in many areas of fluid mechanics, the behaviour of the flow for conditions that exceed critical limits may cause instabilities in the system. The flow of a fluid over or next to another heavier fluid, can produce flow instabilities. Under this assumption when a fluid is injected in a porous domain saturated with another fluid, viscous fingering may occur, as viscous driven hydrodynamic instability leads to the collapse of the uniform interface between fluids of different viscosity. 
+As in many areas of fluid mechanics, the behaviour of the flow for conditions that exceed critical limits (unstable interface because of viscocity differences, density differences,the existance of gravitational forces or not, and/or opposite stress tensors) may cause instabilities in the system. The flow of a fluid over or next to another heavier fluid, can produce flow instabilities. Under this assumption when a fluid is injected in a porous domain saturated with another fluid, viscous fingering may occur, as viscous driven hydrodynamic instability leads to the collapse of the uniform interface between fluids of different viscosity. 
 
 \medskip
 Viscous flow instabilities can be found across many research areas, disciplines and scales, from chemical and medical separation systems to large scale geological reservoir fields. \citet{muskat_1934} initially derives a perturbation solution of an axisymmetric problem (injected fluid between two infinite parallel plates) assuming a circle shaped front of the interface while his main interest is on the interface pressure shape and pressure for different values of capillary number ($N_{c}$) as this is defined below in eq.~\ref{eq:capillarry_number} where $\mu$ is the viscosity of the fuid that initially fills the Hele-Shaw cell,
