@@ -469,37 +469,20 @@ All test-cases were performed in idealised geometries discretised with unstructu
 \subsection{Initial Model Validation}\label{section:results_validation}
   
 \medskip
-Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is $4$ $\times$ $2$ unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also includes no-flux across upper and lower boundaries. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a).
+Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is $4$ $\times$ $2$ unit-length (aspect ratio of $2$) and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also includes no-flux across upper and lower boundaries. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a).
 
 \medskip
-Figures~\ref{fem_cv_represent_a}(a) and (b) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}. The idea was to to study the effects of heterogeneity of a quadrant model geometry using the current element type. This, in large scale, is a problem that can be found in petroleum production. 
+Numerical simulation was performed in slightly modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}.
 
 \medskip
-Another numerical simulation was performed in slightly modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}. 
+Figures~\ref{fem_cv_represent_a}(a) and (b) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}. The idea was to to study the effects of heterogeneity of a quadrant model geometry using the current element type. This, in large scale, is a problem that can be found in petroleum production operations. 
 
 \medskip
 Permeability values have been prescribed in the formation following a simple quadrant heterogenous model that will give the cross-flow that is expected in such a system. The flow profile follows the same behaviour with the experimental work of \citet{evans_1994}. In both cases the flow will not follow the standar source-sink behaviour. The mobility ratio (or VR) is playing a crucial role for these flows but the cross-flow pattern always occurs. The main difference between these two works is that by introducing an unstructured mesh the flow patterns are not only verified but also there is a more accurate descriptions during the development of the flow. In the current case the map of permeabilities is the same but reversed sto the main cross-flow is heading downwards instead of upwards.   
 
-
- (\red{ .... COMMENT THE RESULTS OBTAINED AND COMPARE IT WITH EVANS WORK ...})
- 
-\red{KOSTAS ... HAVE A LOOK IN FIG.~\ref{fem_cv_represent_abc} ... SATURATION PROFILES DO NOT SEEM TO MATCH ...}
- 
-
 \medskip
-In this section three \red{(??)} different sets of simulations were explained. Starting from an initial square set-up to validate the existance of cross flow and how the simulator works, we moved to a larger domain by increasing the aspect ratio. The reason was to give more time, space and greater number of elements to our simulator and again see how the front/cross-flow will develop. The third test-case is based in the initial and boundary condition of the second set of simulations. Now we would like to know what is the impact of different mobility ratios (see Fig.\ref{fig:6a}-%\ref{fig:6b},
-\ref{fig:6c}) and how the cross-flow as well as the simulation will progress on time. The purpose of these three cases was to verify that our model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. 
+In Figures \ref{fem_cv_represent_vr1_vr10} there is a different set of simulationsd. Following a different set-up the idea is to validate the existance of cross flow and along with another region of different permeability.There is a comparison between the $VR=1$ and $VR=10$ case and the reason was under the same domain, boundary and initial conditions and number of elements to underastand how the cross-flow will develop. The purpose of these two cases was to verify that the model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. 
 
-
-\medskip
-\noindent
-\red{QUICK QUESTIONS ... \\
-\noindent
-A) FOR THE FIRST TEST-CASE, WAS THE SIMULATION PERFORMED IN A SQUARED DOMAIN (FROM THE PICS, IT SEEMS TO BE RECTANGULAR)? \\ B) THUS ASSUMING THAT THE FIRST DOMAIN WAS RECTANGULAR, THUS IT IS THE SAME AS THE SECOND SIMULATION! THUS WHY THE SATURATION PROFILE IS DIFF (FOR VR=1) FROM SIMULATION 1??? \\
-\noindent 
-C) ALSO: DO NOT USE 'WE' IN TECHNICAL TEXT ... IT DOES REALLY DOWNGRADE IT !!! }   
-  
-   
 %%%%%%%%%%%%  
 \subsection{Flow Simulations in Hele-Shaw Cells at Several Viscosity Ratio Conditions}\label{section:results_homo_hete} 
  
