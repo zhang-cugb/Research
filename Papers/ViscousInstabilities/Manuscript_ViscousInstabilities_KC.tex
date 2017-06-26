@@ -276,6 +276,7 @@ A brief description of the numerical formulation and viscous fluid instabilities
 
 \medskip
 The two-phase immiscible and incompressible fluid flow through a porous media domain $\Omega$, may be described by the coupled extended Darcy and saturation equations,
+
 \begin{eqnarray}
 \left(\displaystyle\frac{\mu_{\alpha}S_{\alpha}}{{\mathbf K}\mathcal{K}_{r\alpha}}\right) {\mathbf u}_{\alpha} = \underline{\underline{\sigma}}_{\alpha} {\mathbf u}_{\alpha} = -\nabla p + \mathcal{S}_{u,\alpha},\;\;\; x_{i}\in\Omega, t>0 \label{eqn:darcy_eqn} \\
 \phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  \mathcal{S}_{cty,\alpha},\;\;\; x_{i}\in\Omega, t>0\label{eqn:saturation_eqn}
@@ -285,6 +286,7 @@ respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute per
 \sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1, 
 \end{displaymath}
 where $\mathcal{N}_{p}$ denotes the number of phases.
+
 %%%%%%%%%%%%%%%
 %\begin{comment}
 %The main equations that will be used along with the following OCVFEM techique can be summarised below. The global mass balance equation and force balance equation are solving by vanishing the velocity term and solving the system of equations for pressure. At the $n+1$ step those two equations mentioned above can be rewritten as,
@@ -313,8 +315,11 @@ Finite element basis functions for velocity and pressure fields are introduced i
 %\begin{displaymath}
 %   \underline{\underline{\sigma}}_{\alpha} = \displaystyle\frac{\mu_{\alpha}S_{\alpha}}{{\mathbf K}\mathcal{K}_{r\alpha}}.
 %\end{displaymath}
+
+\medskip
 Though, whilst saturation (and all saturation-dependent material properties such as relative permeability and capillary pressure) is calculated in CV space, permeability is piecewise constant in FE space. Saturation equations (Eqn.~\ref{eqn:saturation_eqn}) are discretised in space with CV basis function and with the $\theta$-method in time as described by \citet{gomes_book_2012}. Velocities across CV interfaces (within and between elements) are calculated through a directional-weighted flux-limited scheme based on upwind value of $\sigma$ at individual CV as described by \citet{jackson_2013}.
 
+\medskip
 This formulation is applicable to $\mathcal{N}_{p}$ fluid phases and is based on two families of  FE-pairs: \PNDG[n]{m} and \PN[n]{m}~\citep{cotter_2009a}, consistent with the dual pressure-velocity representation in control volume (CV). In these families of FE-pairs velocity is represented by $n^{\text{th}}$-order polynomials that are discontinuous across elements, whereas pressure is represented by $m^{\text{th}}$-order polynomials that may be either continuous or discontinuous (thus the notation \PN[n]{m} and \PNDG[n]{m}, respectively) across elements. Mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin FEM is used to obtain high-order fluxes on CV boundaries, which are limited to yield bounded fields. Simulations performed for this work were conducted using two types of elements: \PN[1]{2} and \PN[1]{1}. %Saturation, and all saturation-dependent material properties such as relative permeability and capillary pressure, are represented in CV space. %Hence, each CV (and FE) is associated with a unique set of petrophysical properties, in contrast to most previous methods in which CVs span multiple values of petrophysical properties described FE-wise.
 
 %For the simulations performed in this work, rock and fluids are assumed incompressible thus the mass balance for phase $\alpha$ can be written as
@@ -345,11 +350,14 @@ where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i resp
 \medskip
 The behaviour of the fluid under conditions caused from pressure differences along the interface of two fluids, stresses acting in different directions, mobility differences that may exceed critical limits can cause flow instabilities. For example, the flow of a fluid over or next to a heavier fluid can produce flow instabilities. Thus, when a fluid is injected into a porous domain saturated with a second and more viscous fluid, viscous fingering may occur as viscous driven hydrodynamic instability leads to the collapse of the uniform interface between fluids of different viscosity. 
 
+\medskip
 Viscous flow instabilities can be found across many research areas, disciplines and scales, from chemical and medical separation systems to large scale geological reservoir fields. \citet{muskat_1934} investigated the flow of a fluid injected between two infinite parallel plates, and the impact of capillary number ($N_{c}$),
+
 \begin{equation}
 N_{C} = \frac{\mu U}{\gamma},
 \label{eq:capillary_number}
 \end{equation}
+
 on the interface pressure and pressure. \citet{muskat_1934} also derived the perturbation solution of this axisymmetric problem. In Eqn.~\ref{eq:capillary_number}, $\mu$ is the viscosity of the fuid that initially fills the Hele-Shaw cell, $\gamma$ is the surface tension and $U$ is a velocity characteristic of the moving interface. 
 
 \medskip
@@ -378,10 +386,12 @@ As demonstrated by \citet{habermann_1960}, mobility ratio (MR) is a key-paramete
 \end{equation}
 
 MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
+
 \begin{eqnarray}
   \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}}, \label{Eqn:CoreyBrooks1}\\
   \mathcal{K}_{rnw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rnw}\left[\frc{S_{nw}-S_{nw,r}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{nw}}, \label{Eqn:CoreyBrooks2}
 \end{eqnarray}
+
 where subscripts $w$ and $nw$ stand for wetting and non-wetting phases, respectively. $\mathcal{K}^{\circ}_{rw}$ and $\mathcal{K}^{\circ}_{rnw}$ are end-point relative permeability to wetting and non-wetting phases, $S_{w,irr}$ and $S_{nw,r}$ are irreducible wetting and residual non-wetting phase saturations, respectively. Exponents $n_{w}$ and $n_{nw}$ are both set to 2.
 
 \medskip
@@ -478,10 +488,11 @@ Numerical simulation was performed in slightly modified conditions (see Fig.~\re
 Figures~\ref{fem_cv_represent_a}(a) and (b) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}. The idea was to to study the effects of heterogeneity of a quadrant model geometry using the current element type. This, in large scale, is a problem that can be found in petroleum production operations. 
 
 \medskip
-Permeability values have been prescribed in the formation following a simple quadrant heterogenous model that will give the cross-flow that is expected in such a system. The flow profile follows the same behaviour with the experimental work of \citet{evans_1994}. In both cases the flow will not follow the standar source-sink behaviour. The mobility ratio (or VR) is playing a crucial role for these flows but the cross-flow pattern always occurs. The main difference between these two works is that by introducing an unstructured mesh the flow patterns are not only verified but also there is a more accurate descriptions during the development of the flow. In the current case the map of permeabilities is the same but reversed sto the main cross-flow is heading downwards instead of upwards.   
+%Permeability values have been prescribed in the formation following a simple quadrant heterogenous model that will give the cross-flow that is expected in such a system. 
+The flow profile follows the same behaviour with the experimental work of \citet{evans_1994}. In both cases the flow will not follow the standar source-sink behaviour while the mobility ratio (or VR) is playing a crucial role for these flows. The main difference between these two works is that by introducing an unstructured mesh the flow patterns are not only verified but also there is a more accurate descriptions during the development of the flow.    
 
 \medskip
-In Figures \ref{fem_cv_represent_vr1_vr10} there is a different set of simulationsd. Following a different set-up the idea is to validate the existance of cross flow and along with another region of different permeability.There is a comparison between the $VR=1$ and $VR=10$ case and the reason was under the same domain, boundary and initial conditions and number of elements to underastand how the cross-flow will develop. The purpose of these two cases was to verify that the model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. 
+In Figures \ref{fem_cv_represent_vr1_vr10} there is a different set of simulations. Following a different set-up the idea is to validate the existance of cross flow and along with another region of different permeability.There is a comparison between the $VR=1$ and $VR=10$ case and the reason was to imply the same domain, boundary and initial conditions and number of elements to underastand how the cross-flow will develop. The purpose of these two cases was to verify that the model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. 
 
 %%%%%%%%%%%%  
 \subsection{Flow Simulations in Hele-Shaw Cells at different Viscosity Ratio Conditions}\label{section:results_homo_hete} 
