@@ -469,16 +469,12 @@ In the next section, multi-fluid simulations are performed to numerically invest
 
 %%%%%%%%%%%% 
 \subsection{Model Set-up}\label{section:results:setup}
-
 Numerical simulations were conducted with the model summarised in Section \ref{equations_scheme} and embedded in the next-generation reservoir simulator Fluidity/IC-FERST model software\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}} \citep[a full description of the model can be found in][]{porosity_documentation,fluidity_manual,jackson_2013,gomes_2017}. This multi-physics model has been validated against traditional multi-fluids test-cases (\eg advection-diffusion, Buckley-Leverett problem, channel model, immiscible displacement, gravity-driven displacement etc) in \citet{radunz_2014,jackson_2015,salinas2015,pavlidis2016}.
  
-\medskip
 All test-cases were performed in idealised geometries discretised with unstructured triangular mesh using the \PN[1]{2} and \PN[1]{1} FE-pairs. In most simulations, the domain was initially fully saturated with non-wetting fluid which was displaced by a pure (wetting) fluid at a prescribed initial velocity $\left(u^{0}\right)$. For simplicity, the porosity ($\phi$) of the domain was kept constant at 0.2 in all simulations, whereas the absolute permeability ($\mathbf{K}$) varies in space, \ie $\mathbf{K}=\mathbf{K}\left(x_{i}\right)$. Fluids are assumed incompressible and gravity was neglected. The set-up for the numerical simulations are summarised in Table \ref{table:setup}.
  
 %%%%%%%%%%%% 
 \subsection{Initial Model Validation}\label{section:results_validation}
-  
-\medskip
 Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is $4$ $\times$ $2$ unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also include no-flux across upper and lower borders. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a).
 
 Numerical simulation was performed in slightly modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}.
@@ -498,7 +494,8 @@ Here, 2D simulations were conducted in a 5$\times$5 cm domain (Fig.~\ref{fig:hom
 
 Figures~\ref{fig:homoheleshaw_VN3} and \ref{fig:homoheleshaw_VN10} show fluid displacement in simulations conducted with {\it VR}=3 and {\it VR}=10, respectively. At relatively low viscosity ratio conditions (\ie {\it VR}=3), saturation evolves in time with a smooth front throughout most of the domain, and no finger could be observed. Elongated saturation profile at later stages of the simulation is due to pressure gradient near the sink region. However, formation of fingers can be readily noticed at early stages of the simulation conducted with {\it VR}=10. 
 
-Viscous finger morphologies \citet{guan_2003} investigated the impact of fluids' interfacial tension on formation and growth of fingers in Hele-Shaw Cells. Their calculations were based on \citet{mclean_1981} semi-analytical solution that correlate   
+Viscous finger morphologies were investigated by \citet{guan_2003} based on mathematical formulation and semi-analytic solutions of the coupled Darcy and continuity equations developed by \citet{mclean_1981}. A sensitivity study of capillary forces and viscosity ratios were conducted to assess the impact on fingers' formation, branchiness and dimensions. 
+the impact of fluids' interfacial tension on formation and growth of fingers in Hele-Shaw Cells. Their calculations were based on \citet{mclean_1981} semi-analytical solution that correlate   
 
 \medskip
 In figure \ref{fig:HeleShawHeter_VR10}(a), there is the description of the domain. Three different cases with different set-ups will follow. The first one is the homogeneous domain where permeability $K_{1}=1.e-10$ everywhere while for the heterogeneous case the following permeabilities have been introduced, $K_{1}=(1.e-10 \;to\; 5.e-10$), $K_{2}=1.e-10$, $K_{3}=(1.e-11 \;to\; 5.e-10)$ and $K_{4}=(1.e-12 \;to\; 5.e-10)$. For the homogeneous case there are  two different mobility ratios of $3$ and $10$ while for the heterogeneous case only the case of  mobility ratio of $10$ will be investigated. 
