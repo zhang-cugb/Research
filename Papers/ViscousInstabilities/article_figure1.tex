@@ -147,6 +147,31 @@
 \end{landscape}
 \clearpage
 
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\vbox{\vspace{-1cm}
+\hbox{\includegraphics[width=.9\textwidth, height=0.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D300b}
+\hspace{0.5cm}      
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D1600b}}
+\vspace{0.cm}
+\hbox{\hspace{5.cm} (a) t=0.27s \hspace{8.cm} (b) t=0.94s }
+\vspace{0.5cm}
+\hbox{
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D2700b}
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D4000b}
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D7000b}}
+\vspace{0.cm}
+\hbox{ \hspace{2.cm} (c) t=1.32s \hspace{4.5cm} (d) t=1.70s \hspace{4.5cm} (e)t=2.31s}
+\vspace{0.cm}
+}   
+\caption{Simulated flow in a Hele-Shaw cell ({\it VR}=150): snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
+\label{fig:homoheleshaw_VN10}
+\end{figure}
+\end{landscape}
+\clearpage
 
 
 %%%%
@@ -154,10 +179,14 @@
 %%%%
 \begin{landscape}
 \begin{figure}[ht] 
- \hbox{\includegraphics[width=.75\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_bbd}
+\hbox{\includegraphics[width=.75\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_bbd}
        \includegraphics[width=.75\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_bbd}}
 \caption{Simulated flow in a Hele-Shaw cell for viscosity ratio of 10 (left) and 150 (right \red{to be added}). \blue{ Jeff: Add comments here wrt to  tip width as a model validation wrt Saffmann's and  Guan's papers.} The domain contains $26313$ \PN[1]{2} triangular elements.}
 \label{fig:homoheleshaw_VN10_VN250}
+\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_bbd}
+       \includegraphics[width=.49\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_k2b}}
+\caption{Simulated flow in Hele-Shaw cells performed with viscosity ratios of 10 (left, t=7.61s) and 150 (t=1.94s). Width of largest fingers are approximetely 0.70 and 0.90cm, which are in good agreement with values obtained from \citet{guan_2003}'s analytic solution. Domains of both simulations contain $26313$ \PN[1]{2} triangular elements.}
+\label{fig:homoheleshaw_VN10_VN150}
 \end{figure}
 \end{landscape}
 
@@ -207,7 +236,7 @@
             \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_6000.pdf}
             \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_24000.pdf} }
       \hbox{\hspace{2.5cm} (d) t=18s \hspace{5.cm} (e) t= \hspace{3.0cm} (f) t=24000 }}
-\caption{Simulated flow in a modified Hele-Shaw cell with {\it VR}=10: (a) distribution of permeability ({\bf K}) field $\left(\text{10}^{-10}\le\mathbf{K}_{1}\le\text{5}\times\text{10}^{-10}\right.$, {\bf K}$_{2}$=10$^{-10}$, 10$^{-11}\le\mathbf{K}_{3}\le$ 5$\times$10$^{-10}$ and 10$^{-12}\le\mathbf{K}_{4}\le$ 5$\times$10$\left.^{-10}\text{ cm}^{2}\right)$; (b-f) snapshots of saturation profile during \red{XX} seconds of simulation. Saturation map is the same as used in Fig.\red{XX ... is it true??}. The domain contains \red{XXXX} elements.}
+\caption{Simulated flow in a modified Hele-Shaw cell with {\it VR}=10: (a) distribution of permeability ({\bf K}) field $\left(\text{10}^{-10}\le\mathbf{K}_{1}\le\text{5}\times\text{10}^{-10}\right.$, {\bf K}$_{2}$=10$^{-10}$, 10$^{-11}\le\mathbf{K}_{3}\le$ 5$\times$10$^{-10}$ and 10$^{-12}\le\mathbf{K}_{4}\le$ 5$\times$10$\left.^{-10}\text{ cm}^{2}\right)$; (b-f) snapshots of saturation profile during \red{XX} seconds of simulation. The domain contains elements.}
 \label{fig:HeleShawHeter_VR10}
 \end{figure}
 \end{landscape}
@@ -360,19 +389,19 @@
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_100}
+\includegraphics[width=.9\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_100_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) double inlet - fixed mesh   
 }
 \hbox{\hspace{3.5cm}
-  \includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_start}
+  \includegraphics[width=.9\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_start_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (b) double inlet adaptive mesh   
 }
 }     
-\caption{Comparing test-cases of fixed and adaptive mesh while we have a dual inlet, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps}
+\caption{Comparing test-cases of fixed and adaptive mesh while a second region/inlet is introduced. For $t=0.101$s, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps. For this simulation there are $13226$ elements for the fixed messh and $43716$ for the adaptive.}
 \label{fig:3testcase_a}
 \end{figure}
 \end{landscape}
@@ -409,19 +438,19 @@ is the impact of the second injection interval as this can be seen from the slop
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf} 
+\includegraphics[width=.65\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf} 
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) double inlet - fixed mesh   
 }
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}
+\includegraphics[width=.9\textwidth]{./Pics1/5reg_dinlet_adapt_500_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (b) double inlet adaptive mesh   
 }
 }     
-\caption{for t=$500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
+\caption{For $t=5$s there is a comparison between fixed mesh(a) and adaptive mesh(b).}
 \label{fig:3testcase_b}
 \end{figure}
 \end{landscape}
@@ -434,19 +463,19 @@ is the impact of the second injection interval as this can be seen from the slop
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/5reg_dinlet_fixed_1500.pdf} 
+\includegraphics[width=.65\textwidth]{./Pics1/5reg_dinlet_fixed_1500.pdf} 
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) double inlet - fixed mesh   
 }
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/5reg_dinlet_adapt_1500.pdf}
+\includegraphics[width=.9\textwidth]{./Pics1/5reg_dinlet_adapt_1500_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (b) double inlet adaptive mesh   
 }
 }     
-\caption{for t=$1500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
+\caption{For $t=7.5$s there is a comparison between fixed mesh(a) and adaptive mesh(b).}
 \label{fig:3testcase_c}
 \end{figure}
 \end{landscape}
@@ -471,7 +500,7 @@ is the impact of the second injection interval as this can be seen from the slop
 \hbox{\hspace{6.5cm} (b) double inlet adaptive mesh   
 }
 }     
-\caption{for t=$1500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
+\caption{This is a comparison between fixed mesh(a) and adaptive mesh(b) at the end of the simulation.}
 \label{fig:3testcase_d}
 \end{figure}
 \end{landscape}
