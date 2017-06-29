@@ -571,7 +571,7 @@ In summary, the method that has been described in this paper as well as the simu
 \section{Acknowledgements}
 Mr William Rad\"unz would like to acknowledge the support from the Brazilian Research Council (CNPq) under the \textit{Science without Borders scholarship programme}. Mr Konstantinos Christou would like to acknowledge the support of the University of Aberdeen - College of Physical Science as well as the Aberdeen Formation Evaluation Society (\textit{AFES} is an SPWLA chapter). 
 
-\clearpage 
+Manuscrip\clearpage 
 %% References with bibTeX database:
 \bibliographystyle{elsarticle-harv} 
 \bibliography{references}
