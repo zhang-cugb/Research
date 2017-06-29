@@ -348,10 +348,10 @@ where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i resp
 \section{Brief Summary of Viscous Instabilities}\label{section:ViscousInstabilities}
 
 \medskip
-The behaviour of the fluid under conditions caused from pressure differences along the interface of two fluids, stresses acting in different directions, mobility differences that may exceed critical limits can cause flow instabilities. For example, the flow of a fluid over or next to a heavier fluid can produce flow instabilities. Thus, when a fluid is injected into a porous domain saturated with a second and more viscous fluid, viscous fingering may occur as viscous driven hydrodynamic instability leads to the collapse of the uniform interface between fluids of different viscosity. 
+The behaviour of the fluid under conditions caused from pressure differences along the interface of two fluids, stresses acting in different directions, mobility differences that may exceed critical limits can cause flow instabilities. For example, during water flooding displacement, efficiency is related with capillary number. The higher the capillary number the higher the recovery. The driving force induced by the injected fluid should overcome the capillary force thus leading to a hydrodynamic instability that will cause the collapse of the uniform interface between fluids and start forming finger. Fingering problems can become more intense from the heterogeity (i.e. natural fractures) of the porous medium so sweep efficiency may reduce further or early breakthrough may result. During immiscible $CO_{2}$ flooding, $CO_{2}$ turns into supercritical phase under under high pressure and temperature. The density of supercritical $CO_{2}$ is usually lower than the \textit{in-situ} hydrocarbons therefore it may override oil. The viscocity of supercritical $CO_{2}$ is much smaller than that of the oil thus viscous fingering and/or channeling may result in $CO_{2}$. The outcome of the above operations is the that when a fluid is injected into a porous domain saturated with a second and more viscous fluid, viscous fingering may occur.  
 
 \medskip
-Viscous flow instabilities can be found across many research areas, disciplines and scales, from chemical and medical separation systems to large scale geological reservoir fields. \citet{muskat_1934} investigated the flow of a fluid injected between two infinite parallel plates, and the impact of capillary number ($N_{c}$),
+As mentioned above viscous flow instabilities can be found across many research areas, disciplines and scales, from chemical and medical separation systems to large scale geological reservoir fields. \citet{muskat_1934} investigated the flow of a fluid injected between two infinite parallel plates, and the impact of capillary number ($N_{c}$),
 
 \begin{equation}
 N_{C} = \frac{\mu U}{\gamma},
@@ -371,12 +371,13 @@ leading to an uneven front with elongations of the outside edge of the fluid int
 
 \medskip 
 In heterogeneous domains, such instability may also be triggered by permeability differences across regions as demonstrated in Section \ref{section:results_homo_hete}. The higher the velocity of the low viscosity fluid, the less wide (tip-splitting behaviour) the finger is. Pressure differences acting on the interface produces a net pressure force,      
+
 \begin{equation}
 \Delta P= - \gamma \; \nabla \; \cdot \; \hat{n}. 
 \label{eq:pressure_dif} 
 \end{equation}
 
-This expression is also know as the Young-Laplace equation, a relation describing the capillary pressure across the interface between two fluids. With $\Delta P$ denoting the pressure difference and $\hat{n}$ is the unit normal vector out of the surface. 
+\noindent This expression is also know as the Young-Laplace equation, a relation describing the capillary pressure across the interface between two fluids. With $\Delta P$ denoting the pressure difference and $\hat{n}$ is the unit normal vector out of the surface. 
 
 \medskip
 As demonstrated by \citet{habermann_1960}, mobility ratio (MR) is a key-parameter to assess the efficiency during fluid displacement and is defined as the ratio of mobility of the displacing (fluid $i$) to that of the displaced fluid ($j$),
@@ -385,17 +386,17 @@ As demonstrated by \citet{habermann_1960}, mobility ratio (MR) is a key-paramete
 \label{eq:MR}
 \end{equation}
 
-MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
+\noindent MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
 
 \begin{eqnarray}
   \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}}, \label{Eqn:CoreyBrooks1}\\
   \mathcal{K}_{rnw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rnw}\left[\frc{S_{nw}-S_{nw,r}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{nw}}, \label{Eqn:CoreyBrooks2}
 \end{eqnarray}
 
-where subscripts $w$ and $nw$ stand for wetting and non-wetting phases, respectively. $\mathcal{K}^{\circ}_{rw}$ and $\mathcal{K}^{\circ}_{rnw}$ are end-point relative permeability to wetting and non-wetting phases, $S_{w,irr}$ and $S_{nw,r}$ are irreducible wetting and residual non-wetting phase saturations, respectively. Exponents $n_{w}$ and $n_{nw}$ are both set to 2.
+\noindent where subscripts $w$ and $nw$ stand for wetting and non-wetting phases, respectively. $\mathcal{K}^{\circ}_{rw}$ and $\mathcal{K}^{\circ}_{rnw}$ are end-point relative permeability to wetting and non-wetting phases, $S_{w,irr}$ and $S_{nw,r}$ are irreducible wetting and residual non-wetting phase saturations, respectively. Exponents $n_{w}$ and $n_{nw}$ are both set to 2.
 
 \medskip
-From Eqns.~\ref{eq:MR}-\ref{Eqn:CoreyBrooks2}, it is clear that during fluid displacement, the mobility ratio changes as phase saturation, $S_{w}\left(x_{i},t\right)$ and $S_{nw}\left(x_{i},t\right)$, varies in time and space (Eqn.~\ref{eqn:saturation_eqn}). Therefore, with no lack of generality, the MR can be reduced to the viscosity ratio,
+\noindent From Eqns.~\ref{eq:MR}-\ref{Eqn:CoreyBrooks2}, it is clear that during fluid displacement, the mobility ratio changes as phase saturation, $S_{w}\left(x_{i},t\right)$ and $S_{nw}\left(x_{i},t\right)$, varies in time and space (Eqn.~\ref{eqn:saturation_eqn}). Therefore, with no lack of generality, the MR can be reduced to the viscosity ratio,
 \begin{displaymath}
     \text{VR} = \frc{\mu_{i}}{\mu_{j}},
 \end{displaymath}
@@ -471,15 +472,15 @@ In the next section, multi-fluid simulations are performed to numerically invest
 \subsection{Model Set-up}\label{section:results:setup}
 Numerical simulations were conducted with the model summarised in Section \ref{equations_scheme} and embedded in the next-generation reservoir simulator Fluidity/IC-FERST model software\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}} \citep[a full description of the model can be found in][]{porosity_documentation,fluidity_manual,jackson_2013,gomes_2017}. This multi-physics model has been validated against traditional multi-fluids test-cases (\eg advection-diffusion, Buckley-Leverett problem, channel model, immiscible displacement, gravity-driven displacement etc) in \citet{radunz_2014,jackson_2015,salinas2015,pavlidis2016}.
  
+\medskip
 All test-cases were performed in idealised geometries discretised with unstructured triangular mesh using the \PN[1]{2} and \PN[1]{1} FE-pairs. In most simulations, the domain was initially fully saturated with non-wetting fluid which was displaced by a pure (wetting) fluid at a prescribed initial velocity $\left(u^{0}\right)$. For simplicity, the porosity ($\phi$) of the domain was kept constant at 0.2 in all simulations, whereas the absolute permeability ($\mathbf{K}$) varies in space, \ie $\mathbf{K}=\mathbf{K}\left(x_{i}\right)$. Fluids are assumed incompressible and gravity was neglected. The set-up for the numerical simulations are summarised in Table \ref{table:setup}.
  
 %%%%%%%%%%%% 
 \subsection{Initial Model Validation}\label{section:results_validation}
 Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is $4$ $\times$ $2$ unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also include no-flux across upper and lower borders. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a).
 
-Numerical simulation was performed in slightly modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}.
-
-Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}. The main difference between these two works is that by introducing an unstructured mesh the flow patterns are not only verified but also there is a more accurate descriptions during the development of the flow. \red{(???? THESE TWO PAPERS ARE EXPERIMENTAL ... THIS LAST SENTENCE DOES NOT MAKE ANY SENSE ... PLEASE READ IT THROUGH AND ADDRESS MY PREVIOUS COMMENT ...!!)} 
+\medskip
+Numerical simulation was performed in slightly modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}. Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}. The main difference between the current works and the afformentioned is that by introducing an unstructured mesh the flow patterns are not only verified in greater detail but also there is a more accurate descriptions during the development of the flow. 
     
 %Permeability values have been prescribed in the formation following a simple quadrant heterogenous model that will give the cross-flow that is expected in such a system.   
 \red{(PLEASE REVISE THIS PARAGRAPH ... AND YOU HAVEN'T ADDRESSED MY PREVIOUS COMMENTS WRT FIG 5 AND FIG 4 !!!! ....)}
