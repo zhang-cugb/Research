@@ -396,7 +396,7 @@ As demonstrated by \citet{habermann_1960}, mobility ratio (MR) is a key-paramete
 \noindent where subscripts $w$ and $nw$ stand for wetting and non-wetting phases, respectively. $\mathcal{K}^{\circ}_{rw}$ and $\mathcal{K}^{\circ}_{rnw}$ are end-point relative permeability to wetting and non-wetting phases, $S_{w,irr}$ and $S_{nw,r}$ are irreducible wetting and residual non-wetting phase saturations, respectively. Exponents $n_{w}$ and $n_{nw}$ are both set to 2.
 
 \medskip
-From Eqns.~\ref{eq:MR}-\ref{Eqn:CoreyBrooks2}, it is clear that during fluid displacement, the mobility ratio changes as phase saturation, $S_{w}\left(x_{i},t\right)$ and $S_{nw}\left(x_{i},t\right)$, varies in time and space (Eqn.~\ref{eqn:saturation_eqn}). Therefore, with no lack of generality, the MR can be reduced to the viscosity ratio,
+\noindent From Eqns.~\ref{eq:MR}-\ref{Eqn:CoreyBrooks2}, it is clear that during fluid displacement, the mobility ratio changes as phase saturation, $S_{w}\left(x_{i},t\right)$ and $S_{nw}\left(x_{i},t\right)$, varies in time and space (Eqn.~\ref{eqn:saturation_eqn}). Therefore, with no lack of generality, the MR can be reduced to the viscosity ratio,
 \begin{displaymath}
     \text{VR} = \frc{\mu_{i}}{\mu_{j}},
 \end{displaymath}
@@ -472,15 +472,15 @@ In the next section, multi-fluid simulations are performed to numerically invest
 \subsection{Model Set-up}\label{section:results:setup}
 Numerical simulations were conducted with the model summarised in Section \ref{equations_scheme} and embedded in the next-generation reservoir simulator Fluidity/IC-FERST model software\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}} \citep[a full description of the model can be found in][]{porosity_documentation,fluidity_manual,jackson_2013,gomes_2017}. This multi-physics model has been validated against traditional multi-fluids test-cases (\eg advection-diffusion, Buckley-Leverett problem, channel model, immiscible displacement, gravity-driven displacement etc) in \citet{radunz_2014,jackson_2015,salinas2015,pavlidis2016}.
  
+\medskip
 All test-cases were performed in idealised geometries discretised with unstructured triangular mesh using the \PN[1]{2} and \PN[1]{1} FE-pairs. In most simulations, the domain was initially fully saturated with non-wetting fluid which was displaced by a pure (wetting) fluid at a prescribed initial velocity $\left(u^{0}\right)$. For simplicity, the porosity ($\phi$) of the domain was kept constant at 0.2 in all simulations, whereas the absolute permeability ($\mathbf{K}$) varies in space, \ie $\mathbf{K}=\mathbf{K}\left(x_{i}\right)$. Fluids are assumed incompressible and gravity was neglected. The set-up for the numerical simulations are summarised in Table \ref{table:setup}.
  
 %%%%%%%%%%%% 
 \subsection{Initial Model Validation}\label{section:results_validation}
 Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is $4$ $\times$ $2$ unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also include no-flux across upper and lower borders. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a).
 
-Numerical simulation was performed in slightly modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}.
-
-Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}. The main difference between these two works is that by introducing an unstructured mesh the flow patterns are not only verified but also there is a more accurate descriptions during the development of the flow. \red{(???? THESE TWO PAPERS ARE EXPERIMENTAL ... THIS LAST SENTENCE DOES NOT MAKE ANY SENSE ... PLEASE READ IT THROUGH AND ADDRESS MY PREVIOUS COMMENT ...!!)} 
+\medskip
+Numerical simulation was performed in slightly modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}. Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}. The main difference between the current works and the afformentioned is that by introducing an unstructured mesh the flow patterns are not only verified in greater detail but also there is a more accurate descriptions during the development of the flow. 
     
 %Permeability values have been prescribed in the formation following a simple quadrant heterogenous model that will give the cross-flow that is expected in such a system.   
 \red{(PLEASE REVISE THIS PARAGRAPH ... AND YOU HAVEN'T ADDRESSED MY PREVIOUS COMMENTS WRT FIG 5 AND FIG 4 !!!! ....)}
@@ -499,7 +499,7 @@ Viscous finger morphologies were investigated by \citet{guan_2003} based on math
 \begin{equation} 
    \mathcal{Q} = U_{f} b \lambda_{f}.\label{eqn:guaneqn} 
 \end{equation} 
-Numerical simulations performed with {\it VR} of 10 and 150 showed finger width of approximately 0.45-0.70 and \blue{XX (Jeff)} cm (Fig.~\ref{fig:homoheleshaw_VN10_VN250}), respectively. This is a close match with expected values obtained from Eqn.~\ref{eqn:guaneqn} which indicates finger width ranging from 0.125 to 0.750 (depending on the tip velocity). 
+Numerical simulations performed with {\it VR} of 10 and 150 showed finger width of approximately 0.45-0.70 and 0.50-0.90 cm (Fig.~\ref{fig:homoheleshaw_VN10_VN150}), respectively. This is in close agreement with expected values obtained from Eqn.~\ref{eqn:guaneqn} which indicates finger width ranging from 0.13 to 0.75 (for {\it VR}=10) and from 0.30 to 0.75 (depending on the tip velocity). 
 
 \medskip
 In order to investigate the impact of medium heterogeneity on formation and growth of viscous fingers, a numerical simulation was conducted using a distribution of permeability ({\bf K}) and viscosity ratio of 10. Absolute permeability ranging from 1.0$\times$10$^{-12}$ to 5.0$\times$10$^{-10}$ cm$^{2}$ (\ie 0.1 $\le$ {\bf K} $\le$ 50 milidarcy) was used in the simulation, which was conducted with the same mesh resolution, boundary and initial conditions as in the previous homogeneous cases. Figure~\ref{fig:HeleShawHeter_VR10} shows formation of multiscale elongations with continuous growth and coalescence of dendritic fingers. Finger width of approximately \red{XXX-XX} cm were obtained \red{(JG: COMPARE IT W THEORETICAL VALUE)}. 
@@ -571,7 +571,11 @@ In summary, the method that has been described in this paper as well as the simu
 \section{Acknowledgements}
 Mr William Rad\"unz would like to acknowledge the support from the Brazilian Research Council (CNPq) under the \textit{Science without Borders scholarship programme}. Mr Konstantinos Christou would like to acknowledge the support of the University of Aberdeen - College of Physical Science as well as the Aberdeen Formation Evaluation Society (\textit{AFES} is an SPWLA chapter). 
 
-Manuscrip\clearpage 
+
+
+
+
+\clearpage 
 %% References with bibTeX database:
 \bibliographystyle{elsarticle-harv} 
 \bibliography{references}
