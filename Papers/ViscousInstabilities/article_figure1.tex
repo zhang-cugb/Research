@@ -81,7 +81,7 @@
             \includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_2500.pdf}
             \includegraphics[width=.57\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_2.pdf} }
       \hbox{\hspace{8.0cm} (b) VR = 10  }}
-\caption{Initial model validation: snapshots of numerical simulations performed with VR=1 and VR=10. The domain contains $4678$ elements.}
+\caption{Initial model validation: snapshots of numerical simulations performed with VR=1 and VR=10. The domain contains $4678$ elements.(\blue{this is a different set of simulation, we might have to change it and bring between the  })}
 \label{fem_cv_represent_vr1_vr10}
 \end{figure}
 \end{landscape}
@@ -266,6 +266,33 @@
 \clearpage
 
 
+
+%%%
+%%% FIGURE
+%%%
+\begin{landscape}
+  \begin{figure}[ht]
+    \vbox{ 
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/mr1_fixed/mr1_fixed_100_2.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/mr1_fixed/mr1_fixed_2500.pdf} 
+            \includegraphics[width=.57\textwidth]{./Pics1/mr1_fixed/mr1_fixed_end_2.pdf} }
+      \hbox{\hspace{8.0cm} (a) VR = 1}
+      \vspace{1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100_1.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_2500.pdf}
+            \includegraphics[width=.57\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_2.pdf} }
+      \hbox{\hspace{8.0cm} (b) VR = 10  }}
+\caption{Initial model validation: snapshots of numerical simulations performed with VR=1 and VR=10. The domain contains $4678$ elements.(\blue{ Jeff this is a different set of simulation, I have moved it just after the \textit{map of permeabilities} above as a first comparison between $VR1$ and $VR10$})}
+\label{fem_cv_represent_vr1_vr10}
+\end{figure}
+\end{landscape}
+\clearpage
+%%%
+%%%
+%%%
+
+
+
 %%%%
 %%%%  FIGURE
 %%%%
@@ -286,7 +313,7 @@
 \hbox{\hspace{6.5cm} (b) flow at t=250 (adaptive mesh)    
 }
 }     
-\caption{For $t=0.125$s, $2$ test-cases under the MR=$10$ and under fixed (top) and adaptive(bottom) mesh are compared. There is a significant difference on the main front (left hand side of the domain) and the number of finger that appear.}
+\caption{For $t=0.125$s, $2$ test-cases under the VR=$10$ and under fixed (top) and adaptive(bottom) mesh are compared. There is a significant difference on the main front (left hand side of the domain) and the number of finger that appear.}
 \label{fig:2testcase_a}
 \end{figure}
 \end{landscape}
@@ -369,7 +396,7 @@
 \hbox{\hspace{6.5cm} (b) flow at t=end (adaptive mesh)     
 }
 }     
-\caption{Using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, we compared the impact of fixed and adaptive mesh for the same timeframe. The end of simulation happens at $time=5 sec$ and for the timestemp $t=9999$ while the number of elements in both simulations was approximately $4700$. When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time.}
+\caption{Using the $P_{1}DGP_{2}$ element type for VR=$10$ under the same time steps, we compared the impact of fixed and adaptive mesh for the same timeframe. The end of simulation happens at $time=5 sec$ and for the timestemp $t=9999$ while the number of elements in both simulations was approximately $4700$. When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time.}
 \label{fig:2testcase_d}
 \end{figure}
 \end{landscape}
@@ -520,7 +547,7 @@ is the impact of the second injection interval as this can be seen from the slop
 \hbox{\hspace{3.75cm} (b) fixed and unstructured mesh for MR = 100 (t = 1500)   
 }
 }     
-\caption{For the case of MR=$100$ from top to bottom, the number of elements is $4680$ and fixed and unstructured mesh for the same time steps, t=$0.25$ or t=500(a), t=$0.75$ or t=1500(b). }
+\caption{For the case of VR=$100$ from top to bottom, the number of elements is $4680$ and fixed and unstructured mesh for the same time steps, t=$0.25$ or t=500(a), t=$0.75$ or t=1500(b). }
 \label{fig:4testcase_a}
 \end{figure}
 \end{landscape}
