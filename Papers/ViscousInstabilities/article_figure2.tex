@@ -1,35 +1,11 @@
 
-%%%%%%%%%%%%%%%%
-%%% Figure 1 %%%
-%%%%%%%%%%%%%%%%
-%\begin{figure}[h]
-%\begin{center}
-%\includegraphics[width=.5\textwidth]{./Pics/P1DGP2.pdf}
-%\caption{2D representation of the $P_{1}DGP_{2}$ element pairs used in this work. Shaded areas denote control volumes (in which saturation field is stored), blue points represent the pressure nodes and white points the velocity nodes.}
-%\label{fig:fem_cv}
-%\end{center}
-%\end{figure}
-%\clearpage
-
-%%%%%%%%%%%%%%%%
-%%% Figure 2 %%%
-%%%%%%%%%%%%%%%%
-%\begin{figure}[h] 
-%\begin{center}
-%\includegraphics[width=.5\textwidth]{./Pics/element_n.pdf}
-%\caption{Porosity $\phi_{i}$, and permeability $K_{i}$ are associated to the elements. The velocity and pressure are associated to the element corners and the mid-points as described in fig.\ref{fig:fem_cv}; three CVs fit into a $2$D element. Saturation and saturation-dependent variables are stored CV-wise.}
-%\label{fig:fem_elem}
-%\end{center}
-%\end{figure}
-%\clearpage
-
 %%%%
 %%%%  FIGURE 
 %%%%
 \begin{figure}[h]
 \centering
 \vbox{\includegraphics[width=.5\textwidth]{./Pics/P1DGP2.pdf}}
-\caption{2D representation of \PN[1]{2} element pairs used in this work. Shaded areas denote control volumes across two contiguous elements. Blue and white circles represent pressure and velocity nodes, respectively.}
+\caption{2D representation of \PN[1]{2} element pairs used in this work. Shaded areas denote control volumes across two contiguous elements. Blue and white circles represent pressure and velocity nodes, respectively.} 
 \label{fig:fem_cv}
 \end{figure}
 
@@ -41,13 +17,13 @@
 \begin{figure}[h]
 \centering
 \vbox{\includegraphics[width=.75\textwidth]{./Pics/element_n.pdf}}
-\caption{This is a graphical representation of two different element types. Element A is the \PN[1]{2}, while element B is the \PN[1]{1}. Porosity $\phi_{i}$ and permeability $K_{i}$ are CV-wise quantities, whereas velocity and pressure are primarily represented in FE space. Scalar fields (such saturation, density, viscosity etc) are also represented in CV space.}
+\caption{This is a graphical representation of two different element types. Triangle {\it A} is a representation of the \PN[1]{2} element-pair, whereas triangle {\it B} represents the \PN[1]{1} element-pair. Porosity $\phi_{i}$, permeability {\bf K}$_{i}$, velocity and pressure are primarily represented in FE space whereas scalar fields (such as saturation, density, viscosity etc) are represented in CV space.}
 \label{fig:fem_elem}
 \end{figure}
 \clearpage
 
 %%%%
-%%%%  FIGURE 1
+%%%%  FIGURE 
 %%%%
 \begin{figure}[h]
 \centering
@@ -59,7 +35,7 @@
 
 
 %%%%
-%%%%  FIGURE 4
+%%%%  FIGURE 
 %%%%
 \begin{figure}[ht] 
 \vbox{
@@ -71,46 +47,22 @@
 }
 \vspace{0.25cm}
 \hbox{\hspace{1.5cm}
-\includegraphics[width=.9\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf}
+\includegraphics[width=.85\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf}
 }
 \vspace{0.0cm}
-\hbox{\hspace{4.5cm} (b) flow at t=250  
+\hbox{\hspace{4.5cm} (b) flow at t=250 
 }
 \vspace{0.25cm}
 \hbox{\hspace{1.5cm}
-\includegraphics[width=.65\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_1.pdf}
+\includegraphics[width=.65\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_2.pdf}
 }
 \vspace{0.0cm}
-\hbox{\hspace{4.0cm} (c) flow at t=3000  
-}
-}     
-\caption{Model validation of fluid displacement in heterogeneous porous media: (a) the domain is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=1$ and $\mathbf{K}_{2}=2.5$; (b-c) snapshots of saturation (displacing fluid) field at $t=250$ and $t=3000$ sec. The domain is discretised in $5960$ \PN[1]{2} elements. }
+\hbox{\hspace{4.0cm} (c) flow at t=3000   
+}}     
+\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): (a) the domain is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=1$ and $\mathbf{K}_{2}=2.5$; (b-c) snapshots of saturation (displacing fluid) field at t=$25$s and t=$300$ sec. The domain is discretised with $5960$ \PN[1]{2} elements. }
 \label{fem_cv_represent_a}
 \end{figure}
 \clearpage
-
-\begin{comment}
-%%%
-%%% FIGURE
-%%%
-\begin{landscape}
-  \begin{figure}[ht]
-    \vbox{ 
-      \hbox{\includegraphics[width=.55\textwidth]{./Pics1/mr1_fixed/mr1_fixed_100_2.pdf}
-            \includegraphics[width=.55\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf}
-            \includegraphics[width=.55\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle_1.pdf} }
-      \vspace{0.cm}
-      \hbox{\includegraphics[width=.55\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_1.pdf}
-            \includegraphics[width=.55\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle_1.pdf}}}
-\caption{\red{THIS IS JUST FOR OUR OWN COMPARISON ... IT DOESN'T SEEM TO MATCH ... }}
-\label{fem_cv_represent_abc}
-\end{figure}
-\end{landscape}
-\clearpage
-%%%
-%%%
-%%%
-\end{comment}
 
 
 
@@ -121,97 +73,22 @@
   \begin{figure}[ht]
     \vbox{ 
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/mr1_fixed/mr1_fixed_100_2.pdf}
-            \includegraphics[width=.45\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle_1.pdf} 
+            \includegraphics[width=.45\textwidth]{./Pics1/mr1_fixed/mr1_fixed_2500.pdf} 
             \includegraphics[width=.57\textwidth]{./Pics1/mr1_fixed/mr1_fixed_end_2.pdf} }
       \hbox{\hspace{8.0cm} (a) VR = 1}
       \vspace{1cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100_1.pdf}
-            \includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_middle_1.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_2500.pdf}
             \includegraphics[width=.57\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_2.pdf} }
       \hbox{\hspace{8.0cm} (b) VR = 10  }}
-\caption{Initial model validation: snapshots of numerical simulations performed with VR=1 and VR=10. The domain contains $4700$ elements.}
-\label{fem_cv_represent_a}
+\caption{Initial model validation: snapshots of numerical simulations performed with VR=1 and VR=10. The domain contains $4678$ elements.(\blue{this is a different set of simulation, we might have to change it and bring between the  })}
+\label{fem_cv_represent_vr1_vr10}
 \end{figure}
 \end{landscape}
 \clearpage
 %%%
 %%%
 %%%
-
-
-\begin{comment}
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{1.5cm}
-\includegraphics[width=.85\textwidth]{./Pics1/mr1_fixed/mr1_fixed_100_2.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.0cm} (a) MR1 at t = 100 (start)   
-}
-\vspace{0.25cm}
-\hbox{\hspace{1.5cm}
-\includegraphics[width=.85\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100_1.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.0cm} (b) MR10 at t = 100 (start)  
-}
-}     
-\caption{Comparing the the MR1 and MR10 cases using fixed mesh in the beggining of the simulation.}
-\label{fig:6a}
-\end{figure}
-\clearpage
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{1.5cm}
-\includegraphics[width=.85\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle_1.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.0cm} (a) MR1 at t = 1500 (middle)   
-}
-\vspace{0.25cm}
-\hbox{\hspace{1.5cm}
-\includegraphics[width=.85\textwidth]{./Pics1/mr10_fixed/mr10_fixed_middle_1.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.0cm} (b) MR10 at t = 1500 (middle)  
-}
-}     
-\caption{Comparing the the MR1 and MR10 cases using fixed mesh in the middle of the simulation.}
-\label{fig:6b}
-\end{figure}
-\clearpage
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{1.5cm}
-\includegraphics[width=.85\textwidth]{./Pics1/mr1_fixed/mr1_fixed_middle_1.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.0cm} (a) MR1 at t = 3000 (end)   
-}
-\vspace{0.25cm}
-\hbox{\hspace{1.5cm}
-\includegraphics[width=.85\textwidth]{./Pics1/mr10_fixed/mr10_fixed_middle_1.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.0cm} (b) MR10 at t = 3000 (end)  
-}
-}     
-\caption{Comparing the the MR1 and MR10 cases using fixed mesh in the end of the simulation.}
-\label{fig:6c}
-\end{figure}
-\clearpage
-\end{comment}
 
 
 
@@ -225,22 +102,92 @@
       \includegraphics[width=.37\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_250.pdf}
       \includegraphics[width=.37\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_1000.pdf}}
 \vspace{0.cm}
-\hbox{\hspace{2.0cm} (a) pressure at t=0 \hspace{5.cm} (b) t=250\red{(???)} \hspace{2.75cm} (c) t=1000\red{(???)}}
+\hbox{\hspace{2.5cm} (a) pressure at t=0s \hspace{5.cm} (b) t=0.87s \hspace{2.75cm} (c) t=3.54s}
 \vspace{0.5cm}
 \hbox{
       \includegraphics[width=.375\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2500.pdf}
       \includegraphics[width=.375\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_3500.pdf} 
       \includegraphics[width=.65\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_end.pdf}}
 \vspace{0.cm}
-\hbox{ \hspace{1.cm} (d) t=2500\red{(???)} \hspace{2.0cm} (e) t=1000\red{(???)}   \hspace{3.0cm} (f) t=XXX\red{(???)}}
+\hbox{ \hspace{1.cm} (d) t=8.86s \hspace{3.0cm} (e) t=12.41s   \hspace{4.0cm} (f) t=17.95s}
 \vspace{0.cm}
 }   
-\caption{Simulated flow in a Hele-Shaw cell ({\it VR}=3): (a) pressure profile $\left(\text{in g.cm}^{-1}\text{.s}^{-2}\right)$ with source and sink regions are explicitly shown along with dimensions (in cm); (b-f) snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $47500$ \PN[1]{2} triangular elements.}
+\caption{Simulated flow in a Hele-Shaw cell ({\it VR}=3): (a) initial pressure profile $\left(\text{in g.cm}^{-1}\text{.s}^{-2}\right)$ with source and sink regions are explicitly shown along with dimensions (in cm); (b-f) snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $47500$ \PN[1]{2} triangular elements.}
 \label{fig:homoheleshaw_VN3}
 \end{figure}
 \end{landscape}
 \clearpage
 
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\vbox{\vspace{-1cm}
+\hbox{\includegraphics[width=.9\textwidth, height=0.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D201c.pdf}
+\hspace{0.5cm}      
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D1001c.pdf}}
+\vspace{0.cm}
+\hbox{\hspace{5.cm} (a) t=0.66s \hspace{8.cm} (b) t=3.43s }
+\vspace{0.5cm}
+\hbox{
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2001c}
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201c}
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D3001c}}
+\vspace{0.cm}
+\hbox{ \hspace{2.cm} (c) t=6.92s \hspace{4.5cm} (d) t=7.61s \hspace{4.5cm} (e)t=10.00s}
+\vspace{0.cm}
+}   
+\caption{Simulated flow in a Hele-Shaw cell ({\it VR}=10): snapshots of overlapped wetting phase saturation and velocity vectors showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
+\label{fig:homoheleshaw_VN10}
+\end{figure}
+\end{landscape}
+\clearpage
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\vbox{\vspace{-1cm}
+\hbox{\includegraphics[width=.9\textwidth, height=0.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D300b}
+\hspace{0.5cm}      
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D1600b}}
+\vspace{0.cm}
+\hbox{\hspace{5.cm} (a) t=0.27s \hspace{8.cm} (b) t=0.94s }
+\vspace{0.5cm}
+\hbox{
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D2700b}
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D4000b}
+      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D7000b}}
+\vspace{0.cm}
+\hbox{ \hspace{2.cm} (c) t=1.32s \hspace{4.5cm} (d) t=1.70s \hspace{4.5cm} (e)t=2.31s}
+\vspace{0.cm}
+}   
+\caption{Simulated flow in a Hele-Shaw cell ({\it VR}=150): snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
+\label{fig:homoheleshaw_VN10}
+\end{figure}
+\end{landscape}
+\clearpage
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_bbd}
+       \includegraphics[width=.49\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_k2b}}
+\caption{Simulated flow in Hele-Shaw cells performed with viscosity ratios of 10 (left, t=7.61s) and 150 (t=1.94s). Width of largest fingers are approximetely 0.70 and 0.90cm, which are in good agreement with values obtained from \citet{guan_2003}'s analytic solution. Domains of both simulations contain $26313$ \PN[1]{2} triangular elements.\red{(More pics to be added!!)}}
+\label{fig:homoheleshaw_VN10_VN150}
+\end{figure}
+\end{landscape}
+
+
+
+\begin{comment}
 
 %%%%
 %%%%  FIGURE
@@ -266,152 +213,6 @@
 \end{figure}
 \end{landscape}
 \clearpage
-
-
-\begin{comment}
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_1.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.0cm} (a) Hell-Shaw cell domain   
-}
-\vspace{0.25cm}
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_250.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (b) flow at t=250  
-}
-}     
-\caption{This is a description of a Hele-Shaw experimental domain, showing the source and sink term as this is implied in this test-case followed by a screenshot of the flow at time, t=250(b). More screenshot follow that describe the progression of the flow in figure \ref{fig:1b_homoheleshaw_3} and figure \ref{fig:1c_homoheleshaw_3}.}
-\label{fig:1a_homoheleshaw_3}
-\end{figure}
-\clearpage
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_1000.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (a) flow at t=1000   
-}
-\vspace{0.25cm}
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2500.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (b) flow at t=2500  
-}
-}     
-\caption{Following figure \ref{fig:1a_homoheleshaw_3} as the flow progress, t=1000(a), a tip start to appears, at t=2500(b).}
-\label{fig:1b_homoheleshaw_3}
-\end{figure}
-\clearpage
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_3500.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (a) flow at t=3500   
-}
-\vspace{0.25cm}
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_end_1.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (b) flow at t=end  
-}
-}     
-\caption{This tip will become sharper at t=3500(a) as it approaches the area where sink term exist and finally at t=end(b) it will be absorbed.}
-\label{fig:1c_homoheleshaw_3}
-\end{figure}
-\clearpage
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_1.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.5cm} (a) Hell-Shaw cell domain   
-}
-\vspace{0.25cm}
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_250_1.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (b) flow at t=250  
-}
-}     
-\caption{This is a description of a Hele-Shaw experimental domain, when MR=$10$ showing the source and sink term as this is implied in this test-case followed by a screenshot of the flow at time, t=250(b). Screenshot will follow that describe the progression of the flow in figure \ref{fig:2b_homoheleshaw_10} and figure \ref{fig:2c_homoheleshaw_10}.}
-\label{fig:2a_homoheleshaw_10}
-\end{figure}
-\clearpage
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_1000.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (a) flow at t=1000   
-}
-\vspace{0.25cm}
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_4000.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (b) flow at t=4000  
-}
-}     
-\caption{As the flow progress at t=1000(a) the front still remains uniform. The first break down of the front is happening at t=4000(b) where $3$ tips start to come out of the main flow.}
-\label{fig:2b_homoheleshaw_10}
-\end{figure}
-\clearpage
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht]
-\vbox{
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_6000.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (a) flow at t=6000   
-}
-\vspace{0.25cm}
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_end_1.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (b) flow at t=end   
-}
-}     
-\caption{Fingers are now more obvious as the flow progress and the tip-splitting mechanism becomes stronger at t=6000(a) as it approaches the area where sink term exist and finally at t=end(b) it will be absorbed.}
-\label{fig:2c_homoheleshaw_10}
-\end{figure}
-\clearpage
 \end{comment}
 
 
@@ -424,95 +225,18 @@
       \hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1.pdf}
             \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_500.pdf} 
             \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_2000.pdf} }
-      \hbox{\hspace{2.0cm} (a) t=0\red{??} \hspace{5.cm} (b) t=500\red{(???)} \hspace{4.0cm} (c) t=2000\red{(???)}}
+      \hbox{\hspace{1.0cm} (a) permeability map \hspace{3.cm} (b) t=0.75s \hspace{4.0cm} (c) t=8s}
       \vspace{0.5cm}
       \hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_3000.pdf}
             \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_6000.pdf}
             \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_24000.pdf} }
-      \hbox{\hspace{1.0cm} (d) t=3000\red{??} \hspace{5.cm} (e) t=6000\red{(???)} \hspace{3.0cm} (f) t=24000\red{(???)}}}
-\caption{Simulated flow in a modified Hele-Shaw cell with (a) prescribed distribution of permeability field $\left(\text{10}^{-10}\le\mathbf{K}_{1}\le\text{5}\times\text{10}^{-10}\right.$. The domain contains \red{XXXX} elements.}
-\label{HeleShawHeter_VR10}
+      \hbox{\hspace{2.5cm} (d) t=18s \hspace{5.cm} (e) t= \hspace{3.0cm} (f) t=24000 }}
+\caption{Simulated flow in a modified Hele-Shaw cell with {\it VR}=10: (a) permeability distribution $\left(\text{10}^{-10}\le\mathbf{K}_{1}\le\text{5}\times\text{10}^{-10}\right.$, {\bf K}$_{2}$=10$^{-10}$, 10$^{-11}\le\mathbf{K}_{3}\le$ 5$\times$10$^{-10}$ and 10$^{-12}\le\mathbf{K}_{4}\le$ 5$\times$10$\left.^{-10}\text{ cm}^{2}\right)$; (b-f) snapshots of saturation profile during \red{XX} seconds of simulation. The domain contains \red{XX} \PN[1]{2} element-pairs.}
+\label{fig:HeleShawHeter_VR10}
 \end{figure}
 \end{landscape}
 \clearpage
 
-
-
-\begin{comment}
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.5cm} (a) Hell-Shaw cell domain   
-}
-\vspace{0.25cm}
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_500.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (b) flow at t=250     
-}
-}     
-\caption{This is a description of a heterogeneous Hele-Shaw experimental domain, when MR=$10$ showing the source and sink term as this is implied in this test-case followed by a screenshot of the flow at time, t=500(b). Screenshot will follow that describe the progression of the flow in figure \ref{fig:3b_heteheleshaw_10} and figure \ref{fig:3c_heteheleshaw_10}.}
-\label{fig:3a_heteheleshaw_10}
-\end{figure}
-\clearpage
-
-
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_2000.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (a) flow at t=2000   
-}
-\vspace{0.25cm}
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_3000.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (b) flow at t=3000     
-}
-}     
-\caption{As the flow progress at t=2000(a) but now the front is completely unstable as it has already collapsed forming many finger formations. Finger formations are more aggressive as the simulations progress, t=3000(b) where many tips have already start to develop out of the main flow.}
-\label{fig:3b_heteheleshaw_10}
-\end{figure}
-\clearpage
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_6000.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (a) flow at t=6000    
-}
-\vspace{0.25cm}
-\hbox{\hspace{2.5cm}
-\includegraphics[width=.6\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_24000.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.75cm} (b) flow at t=24000     
-}
-}     
-\caption{At t=6000(a), one main finger have already reached the area where sink exists as they have develop much faster than the rest of the fingers. At t=24000(b) there are two main fingers that now have developed and drive the flow forwards.}
-\label{fig:3c_heteheleshaw_10}
-\end{figure}
-\clearpage
-\end{comment}
 
 
 %%%%
@@ -535,11 +259,38 @@
 \hbox{\hspace{9cm} (b)      
 }
 }     
-\caption{(a) describes the initial and boundary conditions as these are applied in this set of simulations. Below (b) the unstructured and fixed mesh can been seen and there is a colored representation of permeabilities.}
+\caption{Figure (a) describes the initial and boundary conditions as these are applied in this set of simulations. Below (b) there is a comparison between the unstructured and fixed mesh and the unstructured and adaptive mesh. During the implementation of fixed mesh initially there $4606$ elements while for the adaptive mesh there are $606$ while the majority of them is on the interface between between the two fluids. }
 \label{fig:testcase_heter_domain}
 \end{figure}
 \end{landscape}
 \clearpage
+
+
+
+%%%
+%%% FIGURE
+%%%
+\begin{landscape}
+  \begin{figure}[ht]
+    \vbox{ 
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/mr1_fixed/mr1_fixed_100_2.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/mr1_fixed/mr1_fixed_2500.pdf} 
+            \includegraphics[width=.57\textwidth]{./Pics1/mr1_fixed/mr1_fixed_end_2.pdf} }
+      \hbox{\hspace{8.0cm} (a) VR = 1}
+      \vspace{1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100_1.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_2500.pdf}
+            \includegraphics[width=.57\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_2.pdf} }
+      \hbox{\hspace{8.0cm} (b) VR = 10  }}
+\caption{Initial model validation: snapshots of numerical simulations performed with VR=1 and VR=10. The domain contains $4678$ elements.(\blue{ Jeff this is a different set of simulation, I have moved it just after the \textit{map of permeabilities} above as a first comparison between $VR1$ and $VR10$})}
+\label{fem_cv_represent_vr1_vr10}
+\end{figure}
+\end{landscape}
+\clearpage
+%%%
+%%%
+%%%
+
 
 
 %%%%
@@ -549,20 +300,20 @@
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_250.pdf} 
+\includegraphics[width=.65\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_250.pdf} 
 }
 \vspace{0.0cm}
-\hbox{\hspace{6.5cm} (a) flow at t=250   
+\hbox{\hspace{6.5cm} (a) flow at t=250 (fixed mesh)  
 }
 \vspace{0.25cm}
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_250.pdf}
+\includegraphics[width=.9\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_250_1.pdf}
 }
 \vspace{0.0cm}
-\hbox{\hspace{6.5cm} (b) flow at t=250     
+\hbox{\hspace{6.5cm} (b) flow at t=250 (adaptive mesh)    
 }
 }     
-\caption{Start to compare $2$ test-cases under MR=$10$ and under fixed (top) and adaptive(bottom) mesh for t=250. There is a significant difference on the main front (left hand side of the domain) and the number of finger that appear.}
+\caption{For $t=0.125$s, $2$ test-cases under the VR=$10$ and under fixed (top) and adaptive(bottom) mesh are compared. There is a significant difference on the main front (left hand side of the domain) and the number of finger that appear.}
 \label{fig:2testcase_a}
 \end{figure}
 \end{landscape}
@@ -576,24 +327,26 @@
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_500.pdf} 
+\includegraphics[width=.65\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_500.pdf} 
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) flow at t=500 (fixed mesh)   
 }
 \vspace{0.25cm}
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_500.pdf}
+\includegraphics[width=.9\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_500_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (b) flow at t=500 (adaptive mesh)     
 }
 }     
-\caption{Cross flow is taking place at the upper part of the formation. The fingers start to becoming more proufound for for the (b) case below.}
+\caption{At $t=0.25$s ($t=500$, timestemp) cross flow is taking place at the upper part of the formation. The fingers start to becoming more proufound as can been seen at the bottom.}
 \label{fig:2testcase_b}
 \end{figure}
 \end{landscape}
 \clearpage
+
+
 
 %%%%
 %%%%  FIGURE
@@ -602,24 +355,26 @@
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_1500.pdf} 
+\includegraphics[width=.65\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_1500.pdf} 
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) flow at t=1500 (fixed mesh)   
 }
 \vspace{0.25cm}
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_1500.pdf}
+\includegraphics[width=.9\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_1500_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (b) flow at t=1500 (adaptive mesh)     
 }
 }     
-\caption{Cross flow at the upper part has almost travel all the way towards the outlet (left-hand side) and the finger below start forming a front that is also travelling towards the left-hand side.}
+\caption{At $t=0.75 sec$ ($t=1500$, timestemp) the initial cross flow is now fully developed and has travel all the way towards the outlet (right-hand side). and the finger below start forming a front that is also travelling towards the left-hand side.}
 \label{fig:2testcase_c}
 \end{figure}
 \end{landscape}
 \clearpage
+
+
 
 %%%%
 %%%%  FIGURE
@@ -628,24 +383,26 @@
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_2000.pdf} 
+\includegraphics[width=.65\textwidth]{./Pics1/mr10_5regions_fixed/5regions_fixed_2000.pdf} 
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) flow at t=end (fixed mesh)   
 }
 \vspace{0.25cm}
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_3000.pdf}
+\includegraphics[width=.9\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_3000_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (b) flow at t=end (adaptive mesh)     
 }
 }     
-\caption{Using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps, we compared the impact of fixed and adaptive mesh. When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time.}
+\caption{Using the $P_{1}DGP_{2}$ element type for VR=$10$ under the same time steps, we compared the impact of fixed and adaptive mesh for the same timeframe. The end of simulation happens at $time=5 sec$ and for the timestemp $t=9999$ while the number of elements in both simulations was approximately $4700$. When adaptive mesh is introduce there is better repersentation of the fluid instabilities as these are developed on time.}
 \label{fig:2testcase_d}
 \end{figure}
 \end{landscape}
 \clearpage
+
+
 
 %%%%
 %%%%  FIGURE
@@ -654,19 +411,19 @@
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_100}
+\includegraphics[width=.9\textwidth]{./Pics1/mr10_5regions_fixed_dinlet/5regions_dinlet_fixed_100_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) double inlet - fixed mesh   
 }
 \hbox{\hspace{3.5cm}
-  \includegraphics[width=.8\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_start}
+  \includegraphics[width=.67\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_start.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (b) double inlet adaptive mesh   
 }
 }     
-\caption{Comparing test-cases of fixed and adaptive mesh while we have a dual inlet, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps}
+\caption{Comparing test-cases of fixed and adaptive mesh while a second region/inlet is introduced. For $t=0.101$s, using the $P_{1}DGP_{2}$ element type for MR=$10$ under the same time steps. For this simulation there are $13226$ elements for the fixed messh and $43716$ for the adaptive.}
 \label{fig:3testcase_a}
 \end{figure}
 \end{landscape}
@@ -703,19 +460,19 @@ is the impact of the second injection interval as this can be seen from the slop
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf} 
+\includegraphics[width=.65\textwidth]{./Pics1/5reg_dinlet_fixed_500.pdf} 
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) double inlet - fixed mesh   
 }
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/5reg_dinlet_adapt_500.pdf}
+\includegraphics[width=.9\textwidth]{./Pics1/5reg_dinlet_adapt_500_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (b) double inlet adaptive mesh   
 }
 }     
-\caption{for t=$500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
+\caption{For $t=5$s there is a comparison between fixed mesh(a) and adaptive mesh(b).}
 \label{fig:3testcase_b}
 \end{figure}
 \end{landscape}
@@ -728,19 +485,19 @@ is the impact of the second injection interval as this can be seen from the slop
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/5reg_dinlet_fixed_1500.pdf} 
+\includegraphics[width=.65\textwidth]{./Pics1/5reg_dinlet_fixed_1500.pdf} 
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) double inlet - fixed mesh   
 }
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/5reg_dinlet_adapt_1500.pdf}
+\includegraphics[width=.9\textwidth]{./Pics1/5reg_dinlet_adapt_1500_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (b) double inlet adaptive mesh   
 }
 }     
-\caption{for t=$1500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
+\caption{For $t=7.5$s this is a comparison between fixed mesh(a) and adaptive mesh(b).}
 \label{fig:3testcase_c}
 \end{figure}
 \end{landscape}
@@ -753,19 +510,19 @@ is the impact of the second injection interval as this can be seen from the slop
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/5reg_dinlet_fixed_end.pdf} 
+\includegraphics[width=.65\textwidth]{./Pics1/5reg_dinlet_fixed_end.pdf} 
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) double inlet - fixed mesh   
 }
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/5reg_dinlet_adapt_end.pdf}
+\includegraphics[width=.9\textwidth]{./Pics1/5reg_dinlet_adapt_end_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (b) double inlet adaptive mesh   
 }
 }     
-\caption{for t=$1500$ there is a comparison between fixed mesh(a) and adaptive mesh(b).}
+\caption{This is a comparison between fixed mesh(a) and adaptive mesh(b) at the end of the simulation. For the fixed mesh at this point the maximum number of point is $13226$ while for the adaptive mesh is $7582$ and most of them are located where is needed in the domain.}
 \label{fig:3testcase_d}
 \end{figure}
 \end{landscape}
@@ -790,7 +547,7 @@ is the impact of the second injection interval as this can be seen from the slop
 \hbox{\hspace{3.75cm} (b) fixed and unstructured mesh for MR = 100 (t = 1500)   
 }
 }     
-\caption{for the case of MR=$100$ from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=500(a), t=1500(b), t=3000(c), t=end(d) }
+\caption{For the case of VR=$100$ from top to bottom, the number of elements is $4680$ and fixed and unstructured mesh for the same time steps, t=$0.25$ or t=500(a), t=$0.75$ or t=1500(b). }
 \label{fig:4testcase_a}
 \end{figure}
 \end{landscape}
@@ -806,16 +563,16 @@ is the impact of the second injection interval as this can be seen from the slop
 \includegraphics[width=.8\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf} 
 }
 \vspace{0.0cm}
-\hbox{\hspace{3.75cm} (a) fixed and unstructured mesh for MR = 100 (t = 3000)   
+\hbox{\hspace{3.75cm} (c) fixed and unstructured mesh for MR = 100    
 }
 \hbox{\hspace{3.5cm}
 \includegraphics[width=.8\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}
 }
 \vspace{0.0cm}
-\hbox{\hspace{3.75cm} (b) fixed and unstructured mesh for MR = 100 (t = end)   
+\hbox{\hspace{7.cm} (d) end of simulations     
 }
 }     
-\caption{for the case of MR=$100$ from top to bottom, these are screenshots taken from the test-case of MR=$100$ using fixed and unstructured mesh for the same time steps, t=3000(a), t=end(b) }
+\caption{screenshot (c) is for t=$1.5$ sec or t=$3000$ and screenshot (d) is for t=$3.175$ sec, at the end of the simulations. }
 \label{fig:4testcase_b}
 \end{figure}
 \end{landscape}
