@@ -492,13 +492,10 @@ Numerical simulation was performed in slightly modified conditions (see Fig.~\re
   
 %%%%%%%%%%%%    
 \subsection{Flow Simulations in Hele-Shaw Cells at different Viscosity Ratio Conditions}\label{section:results_homo_hete} 
-  
 In order to investigate the impact of viscosity ratio on the flow dynamics, numerical simulations of fluid displacement were conducted in Hele-shaw cells (\ie parallel flat plates separated by infinitesimal space) following the work by \citet{saffman_1986}. In this manuscript, the onset of viscous flow instabilities \citep[following his seminal work in][]{saffman_1958} is investigated along with the impact of boundary conditions in the problem's mathematical formulation and solutions.
 
-\medskip
 Here, 2D simulations were conducted in a 5$\times$5 cm domain (Fig.~\ref{fig:homoheleshaw_VN3}a) fully saturated with a fluid (\textit{in-situ} hydrocarbons). Wetting phase fluid is driven from the bottom left-hand corner of the domain with velocity of 1 cm.s$^{-1}$ (magnitude). Newmann (\ie no flux) boundary conditions were imposed to all borders of the domain except at the top right-hand corner (named as sink), and a pressure gradient between source and sink regions was initially prescribed to the system. 
 
-\medskip
 Figures~\ref{fig:homoheleshaw_VN3}-\ref{fig:homoheleshaw_VN150} show fluid displacement in simulations conducted with {\it VR} = $\left\{\text{3, 10, 150}\right\}$, respectively. At relatively low viscosity ratio conditions (\ie {\it VR}=3), saturation evolves in time with a smooth front throughout most of the domain, and no finger could be observed. Elongated saturation profile at later stages of the simulation is due to pressure gradient near the sink region. However, formation of fingers can be readily noticed at early stages of the simulation conducted with {\it VR}=10. 
 
 \medskip
@@ -509,12 +506,18 @@ Viscous finger morphologies were investigated by \citet{guan_2003} based on math
 Here, numerical simulations performed with viscosity ratio of 10 and 150 indicated fingers width of approximately 0.45-0.70 and 0.50-0.90 cm (Fig.~\ref{fig:homoheleshaw_VN10_VN150} a and b), respectively. This is in close agreement with expected values obtained from Eqn.~\ref{eqn:guaneqn} which indicates finger width ranging from 0.13 to 0.75 (for {\it VR}=10) and from 0.30 to 0.75 (depending on finger's tip velocity, Table~\ref{table:Heleshaw}). 
   
 \medskip
-In order to investigate the impact of porous media heterogeneity on formation and growth of viscous fingers, numerical simulations were conducted using a prescribed permeability distribution and viscosity ratios of 10 and 150. Absolute permeability ranging from 1.0$\times$10$^{-12}$ to 5.0$\times$10$^{-10}$ cm$^{2}$ (\ie 0.1 $\le$ {\bf K} $\le$ 50 milidarcy) were used in the simulations, which were performed with the same mesh resolution, boundary and initial conditions as in previous homogeneous cases. Figures~\ref{fig:HeleShawHeter_VR10} and \red{XXX(to be added)} show formation of multiscale elongations with continuous growth and coalescence of dendritic fingers. Finger width of approximately \red{XXX-XX} cm were obtained \red{(JG: COMPARE IT W THEORETICAL VALUE)}.   
+Porous media heterogeneity does play a significant role in formation and growth of fingers as it triggers fluid instabilities  
+In order to investigate the impact of porous media heterogeneity on formation and growth of viscous fingers, numerical simulations were conducted using a prescribed permeability distribution and viscosity ratios of 10 and 150. Absolute permeability ranging from 1.0$\times$10$^{-12}$ to 5.0$\times$10$^{-10}$ cm$^{2}$ (\ie 0.1 $\le$ {\bf K} $\le$ 50 milidarcy) was used in the simulations, which were performed with the same mesh resolution, boundary and initial conditions as in previous homogeneous cases. Figures~\ref{fig:HeleShawHeter_VR10} and ~\ref{fig:HeleShawHeter_VR150} show formation of multiscale elongations with continuous growth and coalescence of dendritic fingers.
+
+Finger width of approximately \red{XXX-XX} cm were obtained \red{(JG: COMPARE IT W THEORETICAL VALUE)}.   
        
      
 %%%%%%%%%%%%%
 \subsection{Comparison of fixed and adaptive mesh under heterogeneous domain schemes and the same mobility ratio.}\label{section:results_hete_fix_adapt}    
 \medskip
+
+\red{Blablabla ... improve text ...} ... {\it The mesh adaptive algorithm embedded in the Fluidity/ICFERST model utilises a metric tensor field dependent on solution interpolation error-estimates \red{(talk about a posteriori errors and a short description of the mesh adaptivity algorithm)}\blue{(ref mesh adaptivity paper of 1995)} which locally control size and shape of elements in the metric. Mesh optimisation, based on XXX simulated annealing, is able to generate unstructured finer mesh grid in regions where flow properties change faster and coarser mesh grid in regions  where properties does not change so quickly.  }
+
 Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Initial and boundary conditions are described in fig.\ref{fig:testcase_heter_domain}, while inlet velocity is $u=1$ on the left hand side and the pressure set to $0$ on the outlet. A quick reminder at this point is that the simulator we are testing has also options to introduce gravity and/or corriolis, but for this current set of simulations these are neglected. What is expected is a significant growth of fingers when comparing mobility ratios that differ an order of magnitude. %(fig.\ref{fig:1testcase})
 The next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh. For the fixed mesh we have $4600$ elements, but for the adaptive mesh we start with $400$ up to $600$, depends how fine we would like the mesh to be, and we reach up to $24000$. %Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used.  
 Figures \ref{fig:2testcase_a}%\ref{fig:2testcase_b}, \ref{fig:2testcase_c} 
