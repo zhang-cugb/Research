@@ -507,14 +507,13 @@ Viscous finger morphologies were investigated by \citet{guan_2003} based on math
    \mathcal{Q} = U_{f} b \lambda_{f}.\label{eqn:guaneqn} 
 \end{equation} 
 Numerical simulations performed with {\it VR} of 10 and 150 showed finger width of approximately 0.45-0.70 and 0.50-0.90 cm (Fig.~\ref{fig:homoheleshaw_VN10_VN150}), respectively. This is in close agreement with expected values obtained from Eqn.~\ref{eqn:guaneqn} which indicates finger width ranging from 0.13 to 0.75 (for {\it VR}=10) and from 0.30 to 0.75 (depending on finger's tip velocity). 
-
+ 
 \medskip
 In order to investigate the impact of porous media heterogeneity on formation and growth of viscous fingers, numerical simulations were conducted using a prescribed permeability distribution and viscosity ratios of 10 and 150. Absolute permeability ranging from 1.0$\times$10$^{-12}$ to 5.0$\times$10$^{-10}$ cm$^{2}$ (\ie 0.1 $\le$ {\bf K} $\le$ 50 milidarcy) were used in the simulations, which were performed with the same mesh resolution, boundary and initial conditions as in previous homogeneous cases. Figures~\ref{fig:HeleShawHeter_VR10} and \red{XXX(to be added)} show formation of multiscale elongations with continuous growth and coalescence of dendritic fingers. Finger width of approximately \red{XXX-XX} cm were obtained \red{(JG: COMPARE IT W THEORETICAL VALUE)}.  
-
-
+    
+ 
 %%%%%%%%%%%%%
-\subsection{Comparison of fixed and adaptive mesh under heterogeneous domain schemes and the same mobility ratio.}\label{section:results_hete_fix_adapt} 
-
+\subsection{Comparison of fixed and adaptive mesh under heterogeneous domain schemes and the same mobility ratio.}\label{section:results_hete_fix_adapt}   
 \medskip
 Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Initial and boundary conditions are described in fig.\ref{fig:testcase_heter_domain}, while inlet velocity is $u=1$ on the left hand side and the pressure set to $0$ on the outlet. A quick reminder at this point is that the simulator we are testing has also options to introduce gravity and/or corriolis, but for this current set of simulations these are neglected. What is expected is a significant growth of fingers when comparing mobility ratios that differ an order of magnitude. %(fig.\ref{fig:1testcase})
 The next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh. For the fixed mesh we have $4600$ elements, but for the adaptive mesh we start with $400$ up to $600$, depends how fine we would like the mesh to be, and we reach up to $24000$. %Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used. 
