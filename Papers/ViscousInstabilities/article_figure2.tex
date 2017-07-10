@@ -28,7 +28,7 @@
 \begin{figure}[h]
 \centering
 \vbox{\includegraphics[width=0.75\textwidth]{./Pics/phase_vol_frac_uni_perm_1.pdf}}
-\caption{Schematics of formation of flow instabilities during injection of a pure low viscosity fluid (red) into a domain saturated with a second fluid (dark blue). The ratio of viscosity between the two fluids is 5. In this case, the initially piston shape front collapses leading to the formation of several fingers.}
+\caption{Schematics of formation of flow instabilities during injection of a pure low viscosity fluid (red) into a domain saturated with a second fluid (dark blue). The viscocity ratio of the two fluids is VR=$5$. In this case, the initially piston shape front collapses leading to the formation of several fingers.}
 \label{fig:simple_case}
 \end{figure}
 \clearpage
@@ -66,32 +66,6 @@
 
 
 
-%%%
-%%% FIGURE
-%%%
-\begin{landscape}
-  \begin{figure}[ht]
-    \vbox{ 
-      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/mr1_fixed/mr1_fixed_100_2.pdf}
-            \includegraphics[width=.45\textwidth]{./Pics1/mr1_fixed/mr1_fixed_2500.pdf} 
-            \includegraphics[width=.57\textwidth]{./Pics1/mr1_fixed/mr1_fixed_end_2.pdf} }
-      \hbox{\hspace{8.0cm} (a) VR = 1}
-      \vspace{1cm}
-      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_100_1.pdf}
-            \includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_2500.pdf}
-            \includegraphics[width=.57\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_2.pdf} }
-      \hbox{\hspace{8.0cm} (b) VR = 10  }}
-\caption{Initial model validation: snapshots of numerical simulations performed with VR=1 and VR=10. The domain contains $4678$ elements.(\blue{this is a different set of simulation, we might have to change it and bring between the  })}
-\label{fem_cv_represent_vr1_vr10}
-\end{figure}
-\end{landscape}
-\clearpage
-%%%
-%%%
-%%%
-
-
-
 %%%%
 %%%%  FIGURE
 %%%%
@@ -112,7 +86,7 @@
 \hbox{ \hspace{1.cm} (d) t=8.86s \hspace{3.0cm} (e) t=12.41s   \hspace{4.0cm} (f) t=17.95s}
 \vspace{0.cm}
 }   
-\caption{Simulated flow in a Hele-Shaw cell ({\it VR}=3): (a) initial pressure profile $\left(\text{in g.cm}^{-1}\text{.s}^{-2}\right)$ with source and sink regions are explicitly shown along with dimensions (in cm); (b-f) snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $47500$ \PN[1]{2} triangular elements.}
+\caption{Simulated flow in a Hele-Shaw cell $\left(\text{{\it VR}=3, {\bf K}=10}^{-10}\text{cm}^{2}\right)$: (a) initial pressure profile $\left(\text{in g.cm}^{-1}\text{.s}^{-2}\right)$ with source and sink regions are explicitly shown along with dimensions (in cm); (b-f) snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
 \label{fig:homoheleshaw_VN3}
 \end{figure}
 \end{landscape}
@@ -140,7 +114,7 @@
 \hbox{ \hspace{2.cm} (c) t=6.92s \hspace{4.5cm} (d) t=7.61s \hspace{4.5cm} (e)t=10.00s}
 \vspace{0.cm}
 }   
-\caption{Simulated flow in a Hele-Shaw cell ({\it VR}=10): snapshots of overlapped wetting phase saturation and velocity vectors showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
+\caption{Simulated flow in a Hele-Shaw cell $\left(\text{{\it VR}=10, {\bf K}=10}^{-10}\text{cm}^{2}\right)$: snapshots of overlapped wetting phase saturation and velocity vectors showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
 \label{fig:homoheleshaw_VN10}
 \end{figure}
 \end{landscape}
@@ -166,54 +140,11 @@
 \hbox{ \hspace{2.cm} (c) t=1.32s \hspace{4.5cm} (d) t=1.70s \hspace{4.5cm} (e)t=2.31s}
 \vspace{0.cm}
 }   
-\caption{Simulated flow in a Hele-Shaw cell ({\it VR}=150): snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
-\label{fig:homoheleshaw_VN10}
+\caption{Simulated flow in a Hele-Shaw cell $\left(\text{{\it VR}=150, {\bf K}=10}^{-10}\text{cm}^{2}\right)$: snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
+\label{fig:homoheleshaw_VN150}
 \end{figure}
 \end{landscape}
 \clearpage
-
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{landscape}
-\begin{figure}[ht] 
-\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_bbd}
-       \includegraphics[width=.49\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_k2b}}
-\caption{Simulated flow in Hele-Shaw cells performed with viscosity ratios of 10 (left, t=7.61s) and 150 (t=1.94s). Width of largest fingers are approximetely 0.70 and 0.90cm, which are in good agreement with values obtained from \citet{guan_2003}'s analytic solution. Domains of both simulations contain $26313$ \PN[1]{2} triangular elements.\red{(More pics to be added!!)}}
-\label{fig:homoheleshaw_VN10_VN150}
-\end{figure}
-\end{landscape}
-
-
-
-\begin{comment}
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{landscape}
-\begin{figure}[ht] 
-\vbox{\vspace{-1cm}
-\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_1.pdf}
-      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_250_1.pdf}
-      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_1000.pdf}}
-\vspace{0.cm}
-\hbox{\hspace{1.0cm} (a) pressure at t=0 \hspace{3.cm} (b) t=250\red{(???)} \hspace{3.0cm} (c) t=1000\red{(???)}}
-\vspace{0.5cm}
-\hbox{
-      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_6000.pdf}
-      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous/saffman_homo_fixed_end_1.pdf}}
-\vspace{0.cm}
-\hbox{ \hspace{2.cm} (d) t=6000\red{(???)} \hspace{3.cm} (e) t=XXX\red{(???)}}
-\vspace{0.cm}
-}   
-\caption{Simulated flow in a Hele-Shaw cell ({\it VR}=10): (a) pressure profile $\left(\text{in g.cm}^{-1}\text{.s}^{-2}\right)$ with source and sink regions explicitly shown along with dimensions (in cm); (b-e) snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $47000$ \PN[1]{2} triangular elements. The pressure and saturation range of values are the same like the  case in fig.\ref{fig:homoheleshaw_VN3}.}
-\label{fig:homoheleshaw_VN10}
-\end{figure}
-\end{landscape}
-\clearpage
-\end{comment}
 
 
 %%%
@@ -221,20 +152,60 @@
 %%%
 \begin{landscape}
   \begin{figure}[ht]
-  \vbox{\vspace{-1cm}
-      \hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1.pdf}
-            \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_500.pdf} 
-            \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_2000.pdf} }
-      \hbox{\hspace{1.0cm} (a) permeability map \hspace{3.cm} (b) t=0.75s \hspace{4.0cm} (c) t=8s}
+  \vbox{\vspace{-.5cm}
+      \hbox{\includegraphics[width=.4\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1}
+            \includegraphics[width=.55\textwidth, height=.4\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D200Hb} 
+            \includegraphics[width=.42\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D900Hb} }
+      \hbox{\hspace{1.0cm} (a) permeability map \hspace{3.cm} (b) t=0.19s \hspace{4.0cm} (c) t=0.63s}
       \vspace{0.5cm}
-      \hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_3000.pdf}
-            \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_6000.pdf}
-            \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_24000.pdf} }
-      \hbox{\hspace{2.5cm} (d) t=18s \hspace{5.cm} (e) t= \hspace{3.0cm} (f) t=24000 }}
-\caption{Simulated flow in a modified Hele-Shaw cell with {\it VR}=10: (a) permeability distribution $\left(\text{10}^{-10}\le\mathbf{K}_{1}\le\text{5}\times\text{10}^{-10}\right.$, {\bf K}$_{2}$=10$^{-10}$, 10$^{-11}\le\mathbf{K}_{3}\le$ 5$\times$10$^{-10}$ and 10$^{-12}\le\mathbf{K}_{4}\le$ 5$\times$10$\left.^{-10}\text{ cm}^{2}\right)$; (b-f) snapshots of saturation profile during \red{XX} seconds of simulation. The domain contains \red{XX} \PN[1]{2} element-pairs.}
+      \hbox{\includegraphics[width=.42\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D5000Hb}
+            \includegraphics[width=.42\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D8000Hb}
+            \includegraphics[width=.42\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D13800Hb} }
+      \hbox{\hspace{2.5cm} (d) t=3.41s \hspace{5.cm} (e) t= 5.54s\hspace{3.0cm} (f) t=9.77s }}
+\caption{Simulated flow in a modified Hele-Shaw cell with {\it VR}=10: (a) permeability distribution $\left(\text{10}^{-10}\le\mathbf{K}_{1}\le\text{5}\times\text{10}^{-10}\right.$, {\bf K}$_{2}$=10$^{-10}$, 10$^{-11}\le\mathbf{K}_{3}\le$ 5$\times$10$^{-10}$ and 10$^{-12}\le\mathbf{K}_{4}\le$ 5$\times$10$\left.^{-10}\text{ cm}^{2}\right)$; (b-f) snapshots of saturation profile during 9.77 seconds of simulation. The domain contains 26313 \PN[1]{2} element-pairs.}
 \label{fig:HeleShawHeter_VR10}
 \end{figure}
 \end{landscape}
+\clearpage
+
+%%%
+%%% FIGURE XXXXXX
+%%%
+\begin{landscape}
+  \begin{figure}[ht]
+  \vbox{\vspace{-.5cm}
+      \hbox{\includegraphics[width=.65\textwidth, height=.46\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D200Hb.pdf} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D500Hb.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D800Hb.pdf} }
+      \hbox{\hspace{2.0cm} (a) t=0.10s \hspace{4.cm} (b) t=0.24ss \hspace{4.0cm} (c) t=0.37s}
+      \vspace{0.5cm}
+      \hbox{\hspace{.5cm} \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D1500Hb.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D5000Hb.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D8000Hb.pdf} }
+      \hbox{\hspace{2.5cm} (d) t=0.59s \hspace{4.cm} (e) t= 1.61s\hspace{3.0cm} (f) t=2.50s }}
+\caption{Simulated flow in a modified Hele-Shaw cell with {\it VR}=150: snapshots of saturation profile during 2.50 seconds of simulation. Permeability distribution used in this simulation was the same as shown in Fig.~\ref{fig:HeleShawHeter_VR10}a. The domain contains 26313 \PN[1]{2} element-pairs.}
+\label{fig:HeleShawHeter_VR150}
+\end{figure}
+\end{landscape}
+\clearpage
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{figure}[ht]
+\vbox{
+\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_W2b.pdf}
+       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_W2b.pdf}}
+\hbox{\hspace{0.25cm} (a) {\it VR}=10 (homogeneous) \hspace{1.5cm} (b) {\it VR}=150 (homogeneous) }
+\vspace{0.5cm}
+\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D11000_W2b.pdf}
+       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D6500_W2b.pdf}}
+\hbox{\hspace{0.25cm} (c) {\it VR}=10 (heterogeneous) \hspace{1.5cm} (d) {\it VR}=150 (heterogeneous) }
+}
+\caption{Isosurfaces of simulated flows in Hele-Shaw cells with viscosity ratios of 10 (a and c) and 150 (b and d). Top and bottom rows describe simulations performed with constant \textit{i.e. homogeneous with \textbf{K}}= $10^{-10}$ \textit{${cm}^{2}$} and randomly distributed (i.e. heterogeneous, Fig.~\ref{fig:HeleShawHeter_VR10}a) permeabilities. Width of largest fingers for homogeneous cases are approximately $0.70$ and $0.90$cm (\textit{VR}=$10$ and \textit{VR}=$150$, respectively), whereas for heterogeneous cases are $0.56$ and $0.40$cm. Results for homogeneous cases are in good agreement with values obtained from \citet{guan_2003}'s analytic solution.}
+\label{fig:homoheleshaw_VN10_VN150}
+\end{figure}
 \clearpage
 
 
@@ -246,14 +217,14 @@
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{4.0cm}
-\includegraphics[width=.8\textwidth]{./Pics/map_of_boundaries.pdf} 
+\includegraphics[width=.75\textwidth]{./Pics/map_of_boundaries.pdf} 
 }
 \vspace{0.0cm}
 \hbox{\hspace{6.5cm} (a) map of permeabilties K   
 }
 \vspace{0.25cm}
 \hbox{\hspace{4.0cm}
-\includegraphics[width=.8\textwidth]{./Pics/4r_po_adapt_fine_125_mesh.pdf}
+\includegraphics[width=.9\textwidth]{./Pics/map_of_boundaries_1.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{9cm} (b)      
@@ -318,6 +289,7 @@
 \end{figure}
 \end{landscape}
 \clearpage
+
 
 
 %%%%
@@ -577,5 +549,91 @@ is the impact of the second injection interval as this can be seen from the slop
 \end{figure}
 \end{landscape}
 \clearpage
+
+
+
+%%%
+%%% FIGURE XXXXXX
+%%%
+\begin{figure}[ht]
+\vbox{\vspace{-.5cm}
+      \hbox{\includegraphics[width=\textwidth]{./Pics1/3D_Channel/Test_SlowNew_MeshPermeability.pdf} }
+      \hbox{\hspace{5.0cm} (a) permeability map }}
+\caption{3D channel flow. The domain contains 243056 \PN[1]{1} element-pairs.}
+\label{fig:3DChannel_PermMesh}
+\end{figure}
+\clearpage
+
+
+
+%%%
+%%% FIGURE XXXXXX
+%%%
+%\begin{landscape}
+\begin{figure}[ht]
+\vbox{\vspace{-.5cm}
+      \hbox{\includegraphics[width=\textwidth]{./Pics1/3D_Channel/3D_channel_elem_planes_1.pdf} }
+      \hbox{\hspace{5.0cm} }}
+\caption{ XY and YZ planes in the middle of the domain at the end of simulation \red{t=$4.3$sec, but am I reading something wrong?} }
+\label{fig:3DChannel_elem_planes}
+\end{figure}
+%\end{landscape}
+\clearpage
+
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\vbox{
+\hbox{\hspace{3.5cm}
+\includegraphics[width=1.0\textwidth]{./Pics1/3D_Channel/3D_channel_darcy_vel_planes_100.pdf} 
+}
+\vspace{0.0cm}
+\hbox{\hspace{10.0cm} (a)     
+}
+\hbox{\hspace{3.5cm}
+\includegraphics[width=1.0\textwidth]{./Pics1/3D_Channel/3D_channel_darcy_vel_planes_490.pdf}
+}
+\vspace{0.0cm}
+\hbox{\hspace{10.cm} (b)      
+}
+}     
+\caption{ contours of Darcy velocity in XY and YZ planes for (a) t=$0.91$s and (b)t=$4.3$s.}
+\label{fig:3DChannel_darcy_vel}
+\end{figure}
+\end{landscape}
+\clearpage
+
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\vbox{
+\hbox{\hspace{3.5cm}
+\includegraphics[width=1.0\textwidth]{./Pics1/3D_Channel/3D_channel_sat_100.pdf} 
+}
+\vspace{0.0cm}
+\hbox{\hspace{10.0cm} (a)     
+}
+\hbox{\hspace{3.5cm}
+\includegraphics[width=1.0\textwidth]{./Pics1/3D_Channel/3D_channel_sat_490.pdf}
+}
+\vspace{0.0cm}
+\hbox{\hspace{10.cm} (b)      
+}
+}     
+\caption{For the same time steps as in fig.\ref{fig:3DChannel_darcy_vel} there is a description of the saturation front in (a) t=$0.91$s and (b)t=$4.3$s.}
+\label{fig:3DChannel_sat}
+\end{figure}
+\end{landscape}
+\clearpage
+
+
 
 
