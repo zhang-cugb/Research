@@ -522,19 +522,14 @@ Figures~\ref{fig:HeleShawHeter_VR10} and ~\ref{fig:HeleShawHeter_VR150} show for
 %\subsection{Comparison of fixed and adaptive mesh under heterogeneous domain schemes and the same mobility ratio.}
 In most numerical simulations involving geofluid dynamics local geometric constraints (\eg faults, fractures etc) and spatial multi-scale variability of flow properties are often ignored as the underlying computational mesh grid is too coarse to reliably represent any of these features. Whilst structured grids often struggle to conform to complex domain boundaries with consistent mesh connectivity, unstructured mesh techniques often relax cells' neighbourhood relationship constraints by dividing the domain into polytopes in which elements share adjacent faces. This leads to mesh grids that conform to the domain topography and can make the best use of state-of-the-art self-adaptive computational methods.
 
-In Section~\ref{section:results_homo_hete}, the impact of viscosity ratio on the growth of fingers and the triggering effect of heterogeneity on instability's nucleation were demonstrated in modified simulated Hele-Shaw cells. In order to capture the continuous development of viscous instabilities, mesh grids with sufficient resolution need to be applied over the interface between fluids. In this section, numerical simulations were conducted with distinct mesh resolutions to qualitatively assess model capability to capture fingers growth. In order to trigger the formation of fingers, regions with sharp permeability gradient were introduced (Fig.~\ref{fig:testcase_heter_domain}). 
+In Section~\ref{section:results_homo_hete}, the impact of viscosity ratio on the growth of fingers and the triggering effect of heterogeneity on instability's nucleation were demonstrated in modified simulated Hele-Shaw cells. In order to capture the continuous development of viscous instabilities, mesh grids with sufficient resolution need to be applied over the interface between fluids. Traditional numerical methods often rely on fixed mesh with sufficient resolution throughout the domain to capture specific flow dynamics (\eg fluid instabilities, flow recirculation, heat and mass transfers etc), however computational resources may make it prohibitive for complex geometries and highly heterogeneous properties. 
 
-
-
-
-
-
-
-\medskip
 Mesh adaptivity methods have been extensively used by the computational geofluid dynamic community to help capturing detailed flow dynamics, compositional non-equilibrium fluid displacement and solid-fluid interactions \citep{pluszny_2007,pietro_2014,su_2016,melnikova_2016}. In these methods, the mesh grid is continuously modified (\ie adjustments of the number and distribution of the degrees of freedom to reduce solution error) to focus resolution where is necessary as the simulation evolves in time and space. There are four main families of mesh adaptivity methods: adaptive mesh refinement (AMR), edge and face element manipulations whereas keeping the order of the element basis function fixed (h-adaptivity), mesh deformation (r-adaptivity) and changes of element basis function order (p-adaptivity). Detailed description and analysis of mesh adaptivity methods are beyond the scope of this manuscript but can be readily found in \citet{lo_book} \citep[see also][]{plewa_book,frey_book}.  
 
-\medskip
 The mesh adaptive algorithm embedded in the Fluidity/IC-FERST model utilises a metric tensor field dependent on solution interpolation error-estimates which locally control the topology of elements in the metric \citep{pain_2001,power_2006}. Mesh optimisation generates unstructured finer mesh in regions where flow properties change faster and coarser mesh in regions where properties change more slowly \citep{piggott_2006}.
+
+\medskip
+In this section, two numerical simulations were conducted with fixed and adaptive mesh resolutions to qualitatively assess model capability to capture fingers growth. In order to trigger the formation of fingers, regions with sharp permeability gradient were introduced (Fig.~\ref{fig:testcase_heter_domain} a). 
 
 \medskip
 Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Initial and boundary conditions are described in fig.\ref{fig:testcase_heter_domain}, while inlet velocity is $1$ on the left hand side, and the pressure is set to $0$ on the outlet. What is expected is a significant growth of fingers when comparing mobility ratios that differ an order of magnitude. 
