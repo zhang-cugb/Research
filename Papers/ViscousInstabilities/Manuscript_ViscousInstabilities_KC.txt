@@ -130,7 +130,7 @@
 %% \address{Address\fnref{label3}}
 %% \fntext[label3]{}
 
-\title{ \blue{...Numerical investigation of viscous flow instabilities through heterogeneous porous media using adaptive and unstructured meshes under different mobility scenarios - change the title to something close to the main topic of the manuscript ... something with viscous flow instability or viscous fingering...}}
+\title{ \blue{...Numerical investigation of viscous flow instabilities through heterogeneous porous media using adaptive and unstructured meshes under different mobility scenarios...}}
 
 %% use optional labels to link authors explicitly to addresses:
 \author[UoA]{K. Christou} \author[UoA,UFRGS]{W.C. Rad\"unz}  \author[UoA]{B. Lashore} \author[UESC]{F.B.S. de Oliveira}
@@ -142,12 +142,11 @@
 \address[UESC]{Department of Exact and Technological Sciences, State University of Santa Cruz, Bahia, Brazil}
 
 \begin{abstract} 
-A set of simulations is presented so as to model the viscous fingering-flow instability using a novel method for modeling multi-phase flows in porous media. Starting from the Hele-Shaw experimental which is mathematically analogous to the two-dimensional flow in porous medium, test-cases of both homogenous and heterogeneous computational domains, under different conditions are listed. The development of finger structures is explained by taking into account different maps of permeabilities, mobility ratios and surface tension. A novel control finite element method (CVFEM) is used to discretize the governing equations that will solve the multi-fluid porous media flow model. The governing multiphase porous media flow equations are solved using an adaptive and unstructured mesh. In this paper the use of dynamic mesh adaptivity to capture the viscous fingering in reservoir flows is introduced, as one of the methods that will allow the user to focus the effort where is needed, minimizing both the CPU time and the numerical diffusion. It was found that the initial state is the decisive factor in the development of the process up to large times 
-The aim of this paper is to extend and further apply the formulation (embedded in the Fluidity software framework) to multiphase flows in heterogeneous porous media combined with either uniform or random generated permeability distribution.
+The aim of this paper is to model flow instabilities \ie{viscous fingering} using a novel method for modeling multi-phase flows in heterogeneous porous with either uniform or random generated permeability distribution. Starting from modelling the Hele-Shaw experimental apparatus, which is mathematically analogous to the two-dimensional flow in porous media problem. The development of finger structures is investigated by taking into account different conditions such as, different domains under uniform or different permeabilities regions, mobility ratios, mesh types. A novel control finite element method (CVFEM) is used to discretize the governing equations that will solve the multi-fluid porous media flow model. The governing multiphase porous media flow equations are solved using an unstructured mesh by introducing adaptivity in later stages. Dynamic mesh adaptivity will not only help to better capture the development of finger but also allow the system to focus the computational effort where is needed, minimizing both the CPU time and the numerical diffusion. It was found that mobility ratio along with the initial and boundary conditions, as well as the use of adaptivity on top of an ustructured mesh allow the user to better describe and visualise the phenomenon.   
 \end{abstract} 
 
 \begin{keyword} %% keywords here, in the form: keyword \sep keyword
- Multi-fluid flows \sep Viscous Instabilities \sep Mobility Ratio \sep Porous media \sep Finite Element Methods.
+ Multi-fluid flows \sep Viscous Instabilities \sep Mobility Ratio \sep Porous media \sep Finite Element Methods \sep Capillary number.
 \end{keyword}
  
 \end{frontmatter}
@@ -162,15 +161,16 @@ The aim of this paper is to extend and further apply the formulation (embedded i
 \medskip
 Numerical investigation of multiphase flows in porous media have attracted the attention of the scientific community over the past 40 years. Characterisation of such fluid flows serves as the foundation of reservoir engineering and groundwater studies \citep{white_1981}. %Oil and gas migration in reservoirs and transport of contaminants in groundwater are some of important physical problems in which porous media flows play a crucial role. 
 %Reservoir engineers and hydro-geologists are dealing with complex geometries, irregular boundaries and heterogeneous geological formations.
-Underground coal gasification is another important field of interest and, more recently, due to global environmental problems, several research work have focused on CO$_{\text{2}}$ migration and trapping mechanisms in carbon capture utilisation and storage (CCUS) operations \citep{spycher_2003, self_2012, jiang_2011}.
+Underground coal gasification is another important field of interest and, more recently, due to global environmental problems, several research work has been focused on CO$_{2}$ migration and trapping mechanisms in carbon capture utilisation and storage (CCUS) operations \citep{spycher_2003, self_2012, jiang_2011}.
 
 \medskip
-Due to the heterogeneity of geological formations, detailed modelling and simulation of multiphase flows through porous media is crucial for design, control and prediction of the aforementioned processes. Description of physics and mechanisms of multiphase flows were reported by \citet{wooding_1976} with focus on capillary pressure and flow regimes. A comprehensive review of mechanisms of fluid instabilities (\ie fingering) and forces acting on the interface between two immiscible fluids can be found in \citet{homsy_1987}. \citet{adler_1988} described both microscopic and macroscopic scale Darcy-equations.
+%Due to the heterogeneity of geological formations, detailed modelling and simulation of multiphase flows through porous media is crucial for design, control and prediction of the aforementioned processes. 
+Description of physics and mechanisms of multiphase flows were reported by \citet{wooding_1976} with focus on capillary pressure and flow regimes. A comprehensive review of mechanisms of fluid instabilities (\ie fingering) and forces acting on the interface between two immiscible fluids can be found in \citet{homsy_1987}. \citet{adler_1988} described both microscopic and macroscopic scale Darcy-equations.
 % Nevertheless we should refer to the area of flow instabilities  as these, first described by \citet{saffman_1958} \red{(IS THIS TRUE? SAFFMANN MAY HAVE BEEN THE FIRST TO THROUGHLY DISCUSS VISCOUS INSTABILITIES, BUT THERE WERE OTHER SCIENTISTS THAT DESCRIBED FLUID INSTABILITIES BEFORE, E.G., RAYLEIGH(1896), TAYLOR (1955) ETC)}. 
-The first distinction should be made between microscopic and macroscopic instabilities. Microscopic instabilities describe phenomena occurring locally, for example, Kelvin-Helmholtz and Saffman-Taylor instabilities \citep{saffman_1959}. On the other hand, macroscopic instabilities involve two-phase flow system \citep{bottoni_1992}. This paper focuses on microscopic instabilities in two-phase systems that occurs due to viscous and stress forces and is often referred as viscous instabilities or viscous fingering.
+The first distinction should be made between microscopic and macroscopic instabilities. Microscopic instabilities describe phenomena occurring locally, for example, Kelvin-Helmholtz and Saffman-Taylor instabilities \citep{saffman_1959}. On the other hand, macroscopic instabilities involve two-phase flow system \citep{bottoni_1992}. This paper focuses on microscopic instabilities in two-phase systems that occurs due to viscous and stress forces, often referred as viscous instabilities or \textit{viscous fingering} (see section \ref{section:ViscousInstabilities}).
 
 \medskip
-In oil and gas reservoir exploration, viscous and density instabilities are relatively common during water-injection processes. As water and oil interacts, the interface between these two fluids moves along the geological formation, creating an uneven or fingered flow profile (see Fig.~\ref{fig:simple_case}). Viscous fingering results in inefficient flow sweeping which can bypass significant quantities of recoverable oil and, may lead to early breakthrough of water into neighbour production wells. Viscous instabilities are mainly governed by the mobility ratio (MR) between the displacing and the displaced fluids. Other conditions that may also influence the severity of viscous fingering are: heterogeneity (\ie wide spatial permeability distribution), gravitational forces, anisotropic dispersion, non-monotonic viscosity profile etc.
+In oil and gas reservoir exploration, viscous and density instabilities are relatively common during water-injection processes. As water and oil interacts, the interface between these two fluids moves creating an uneven or fingered flow profile (see Fig.~\ref{fig:simple_case}). Viscous fingering results in inefficient flow sweeping which can bypass significant quantities of recoverable oil and, may lead to early breakthrough of water into neighbour production wells. Viscous instabilities are mainly governed by the mobility ratio (MR) between the displacing and the displaced fluids. Other conditions that may also influence the severity of viscous fingering are: heterogeneity (\ie wide spatial permeability distribution), gravitational forces, anisotropic dispersion, non-monotonic viscosity profile etc.
 
 \medskip 
 Conservation of mass and Darcy's law are the governing equations that describe flow dynamics in porous media. Advanced numerical methods are in continuous development to accurately represent force balances in Darcean flows. Finite difference methods (FDM) have been extensively used in most industry-standard reservoir simulators~\citep{aziz_1986, chen_2005, chang_1990} with relative success. However, they are often limited to relatively simple geometries representing idealised geological formations through structured quadilateral (2-D) and hexahedral (3-D) grid cells of low quality~\citep{mlacnik_2004, king_1999}. Additionally, FDM produce excessive numerical dispersion when heterogeneity (represented by permeability and porosity fields) is present~\citep{chavent_1986}.
@@ -281,7 +281,8 @@ The two-phase immiscible and incompressible fluid flow through a porous media do
 \left(\displaystyle\frac{\mu_{\alpha}S_{\alpha}}{{\mathbf K}\mathcal{K}_{r\alpha}}\right) {\mathbf u}_{\alpha} = \underline{\underline{\sigma}}_{\alpha} {\mathbf u}_{\alpha} = -\nabla p + \mathcal{S}_{u,\alpha},\;\;\; x_{i}\in\Omega, t>0 \label{eqn:darcy_eqn} \\
 \phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  \mathcal{S}_{cty,\alpha},\;\;\; x_{i}\in\Omega, t>0\label{eqn:saturation_eqn}
 \end{eqnarray} 
-respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{\alpha}$ is the saturation-weighted Darcy velocity of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ represents the saturation of the $\alpha$-phase with mass conservation constraints of 
+
+\noindent respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{\alpha}$ is the saturation-weighted Darcy velocity of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ represents the saturation of the $\alpha$-phase with mass conservation constraints of 
 \begin{displaymath}
 \sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1, 
 \end{displaymath}
@@ -311,13 +312,14 @@ where $\mathcal{N}_{p}$ denotes the number of phases.
 %\end{comment}
 %%%%%%%%%%%%%%%
 
+\medskip
 Finite element basis functions for velocity and pressure fields are introduced in the discretisation of force-balance equation (Eqn.~\ref{eqn:darcy_eqn}). Hybrid basis functions are also used to allow CV-based velocity to be extrapolated across the entire element. $\underline{\underline{\sigma}}_{\alpha}$ is an absorption-like term that represents the implicit linearisation of the viscous frictional forces, and lies in both CV and FEM spaces.
 %\begin{displaymath}
 %   \underline{\underline{\sigma}}_{\alpha} = \displaystyle\frac{\mu_{\alpha}S_{\alpha}}{{\mathbf K}\mathcal{K}_{r\alpha}}.
 %\end{displaymath}
 
 \medskip
-Though, whilst saturation (and all saturation-dependent material properties such as relative permeability and capillary pressure) is calculated in CV space, permeability is piecewise constant in FE space. Saturation equations (Eqn.~\ref{eqn:saturation_eqn}) are discretised in space with CV basis function and with the $\theta$-method in time as described by \citet{gomes_book_2012}. Velocities across CV interfaces (within and between elements) are calculated through a directional-weighted flux-limited scheme based on upwind value of $\sigma$ at individual CV as described by \citet{jackson_2013}.
+Whilst saturation (and all saturation-dependent material properties such as relative permeability and capillary pressure) is calculated in CV space, permeability is piecewise constant in FE space. Saturation equations (Eqn.~\ref{eqn:saturation_eqn}) are discretised in space with CV basis function and with the $\theta$-method in time as described by \citet{gomes_book_2012}. Velocities across CV interfaces (within and between elements) are calculated through a directional-weighted flux-limited scheme based on upwind value of $\sigma$ at individual CV as described by \citet{jackson_2013}.
 
 \medskip
 This formulation is applicable to $\mathcal{N}_{p}$ fluid phases and is based on two families of  FE-pairs: \PNDG[n]{m} and \PN[n]{m}~\citep{cotter_2009a}, consistent with the dual pressure-velocity representation in control volume (CV). In these families of FE-pairs velocity is represented by $n^{\text{th}}$-order polynomials that are discontinuous across elements, whereas pressure is represented by $m^{\text{th}}$-order polynomials that may be either continuous or discontinuous (thus the notation \PN[n]{m} and \PNDG[n]{m}, respectively) across elements. Mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin FEM is used to obtain high-order fluxes on CV boundaries, which are limited to yield bounded fields. Simulations performed for this work were conducted using two types of elements: \PN[1]{2} and \PN[1]{1}. %Saturation, and all saturation-dependent material properties such as relative permeability and capillary pressure, are represented in CV space. %Hence, each CV (and FE) is associated with a unique set of petrophysical properties, in contrast to most previous methods in which CVs span multiple values of petrophysical properties described FE-wise.
@@ -335,7 +337,7 @@ This formulation is applicable to $\mathcal{N}_{p}$ fluid phases and is based on
 %\label{saturation_constrain}
 %\end{equation}
 
-Equation~\ref{eqn:saturation_eqn} is discretised in time and space using the $\theta$-method. Summing over all phases yields the global mass balance equation,
+\noindent Equation~\ref{eqn:saturation_eqn} is discretised in time and space using the $\theta$-method. Summing over all phases yields the global mass balance equation,
 \begin{eqnarray}
  && \sum_{\alpha=1}^{N_{p}} \left\{\int\limits_{\Omega_{CVi}} \; M_{i} \; \frac{\phi\left(S_{\alpha i}^{n+1}-S_{\alpha i}^{n}\right)}{\Delta t} dV\right.  + \nonumber\\
  &&  \oint_{\Gamma_{CVi}} \left[\; \theta^{n+1/2}\; {\mathbf n}\cdot {\mathbf u}_{\alpha}^{n+1}S_{\alpha}^{n+1} \; + \; \left(1-\theta^{n+1/2}\right) \; {\mathbf u}_{\alpha}^{n}S_{\alpha}^{n}\right] d\Gamma \;- \nonumber\\
@@ -348,17 +350,21 @@ where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i resp
 \section{Brief Summary of Viscous Instabilities}\label{section:ViscousInstabilities}
 
 \medskip
-The behaviour of the fluid under conditions caused from pressure differences along the interface of two fluids, stresses acting in different directions, mobility differences that may exceed critical limits can cause flow instabilities. For example, during water flooding displacement, efficiency is related with capillary number. The higher the capillary number the higher the recovery. The driving force induced by the injected fluid should overcome the capillary force thus leading to a hydrodynamic instability that will cause the collapse of the uniform interface between fluids and start forming finger. Fingering problems can become more intense from the heterogeity (i.e. natural fractures) of the porous medium so sweep efficiency may reduce further or early breakthrough may result. During immiscible $CO_{2}$ flooding, $CO_{2}$ turns into supercritical phase under under high pressure and temperature. The density of supercritical $CO_{2}$ is usually lower than the \textit{in-situ} hydrocarbons therefore it may override oil. The viscocity of supercritical $CO_{2}$ is much smaller than that of the oil thus viscous fingering and/or channeling may result in $CO_{2}$. The outcome of the above operations is the that when a fluid is injected into a porous domain saturated with a second and more viscous fluid, viscous fingering may occur.  
+Flow instabilities may be due to pressure gradient along the interface of fluids, stress forces acting in opposite directions, mobility differences that may exceed critical limits and heterogeneities of the domain. %\red{For example, during water flooding, efficiency is related with capillary number. The higher the capillary number the higher the recovery of hydrocarbons (LINK THESE SENTENCES ! HOW THIS NEW SENTENCE IS RELATED TO THE PREVIOUS -- 'Flow instabilities ... of the domain' ... AND HOW IS IT RELATED WITH THE FOLLOWING SENTENCES?)}. 
+When the driving force of the injected fluid overcomes the capillary force, hydrodynamic instabilities may occur, resulting in the collapse of the interface between fluids and start forming fingers. 
 
 \medskip
-As mentioned above viscous flow instabilities can be found across many research areas, disciplines and scales, from chemical and medical separation systems to large scale geological reservoir fields. \citet{muskat_1934} investigated the flow of a fluid injected between two infinite parallel plates, and the impact of capillary number ($N_{c}$),
+Viscous instabilities (\ie fingering) can become more pronounced due to heterogeneities (\ie natural fractures, different permeability characteristics in different zones) of the porous medium therefore sweep efficiency may be reduced or early breakthrough may occur \citep{riaz_2004, tavassoli_2015}. During immiscible CO$_{2}$ flooding, density of supercritical CO$_{2}$ is usually lower than the \textit{in-situ} hydrocarbons, thus viscous fingering and/or channelling may occur.  
 
+\medskip
+As mentioned above viscous flow instabilities can be found across many research areas, disciplines and scales, from chemical and medical separation systems to large scale geological reservoir fields. \citet{muskat_1934} investigated the flow of a fluid injected between two infinite parallel plates and the impact of capillary number ($N_{c}$),
+ 
 \begin{equation}
 N_{C} = \frac{\mu U}{\gamma},
 \label{eq:capillary_number}
 \end{equation}
 
-\noindent on the interface pressure and pressure. \citet{muskat_1934} also derived the perturbation solution of this axisymmetric problem. In Eqn.~\ref{eq:capillary_number}, $\mu$ is the viscosity of the fuid that initially fills the Hele-Shaw cell, $\gamma$ is the surface tension and $U$ is a velocity characteristic of the moving interface.
+\noindent In Eqn. \ref{eq:capillary_number}, $\mu$ is the viscosity of the fuid that initially fills the Hele-Shaw cell, $\gamma$ is the surface tension and $U$ is a velocity characteristic of the moving interface.
 
 \medskip
 In the Hele-Shaw cell, a fluid is introduced between two parallel flat plates separated by an infinitesimally small gap. This experimental apparatus allows the predicted instability to be verified qualitatively and simplifies the problem of flow in both porous and non-porous media.   
@@ -367,12 +373,12 @@ More recently, \citet{howison_2000} and \citet{praud_2005} gave a comprehensive 
 
 \medskip
  Under the assumption that fluids remain immiscible along an interface, surface tension plays an important role in determining the shape and progress of the fingers~\citep{howison_2000}. During the displacement of a fluid by a less viscous one, the expected uniform front is perturbed %\citep{(described by the Buckley-Leverett theory of immiscible displacement){buckley_1942,sheldon_1959}} 
-leading to an uneven front with elongations of the outside edge of the fluid interface (Fig.~\ref{fig:simple_case}), often referred as 'fingers'. In homogeneous domains, fingers start to develop when the surface tension acting on the interface between the fluids exert an opposite force towards the change of shape of the interface. The interface becomes unstable and collapses, taking a curved shape. 
+leading to an uneven front with elongations of the outside edge of the fluid interface (Fig.~\ref{fig:simple_case}), often referred as \textit{fingers}. In homogeneous domains, fingers start to develop when the surface tension acting on the interface between the fluids exert an opposite force towards the change of shape of the interface. The interface becomes unstable and collapses, taking a curved shape. 
 
 \medskip 
 In heterogeneous domains, such instability may also be triggered by permeability differences across regions as demonstrated in Section \ref{section:results_homo_hete}. The higher the velocity of the low viscosity fluid, the less wide (tip-splitting behaviour) the finger is. Pressure differences acting on the interface produces a net pressure force,      
 
-\begin{equation}
+\begin{equation} 
 \Delta P= - \gamma \; \nabla \; \cdot \; \hat{n}. 
 \label{eq:pressure_dif} 
 \end{equation}
@@ -380,13 +386,13 @@ In heterogeneous domains, such instability may also be triggered by permeability
 \noindent This expression is also know as the Young-Laplace equation, a relation describing the capillary pressure across the interface between two fluids. With $\Delta P$ denoting the pressure difference and $\hat{n}$ is the unit normal vector out of the surface. 
 
 \medskip
-As demonstrated by \citet{habermann_1960}, mobility ratio (MR) is a key-parameter to assess the efficiency during fluid displacement and is defined as the ratio of mobility of the displacing (fluid $i$) to that of the displaced fluid ($j$),
+As demonstrated by \citet{habermann_1960}, \textit{mobility ratio} (MR) also known as \textit{viscocity ratio} (VR), is a key-parameter to assess the efficiency during fluid displacement and is defined as the ratio of mobility of the displacing (fluid $i$) to that of the displaced fluid ($j$),
 \begin{equation}
  \text{MR} \; = \frac{\mathcal{K}_{ri} \; \mu_{j}}{\mathcal{K}_{rj} \; \mu_{i}}. 
 \label{eq:MR}
 \end{equation}
 
-\noindent MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
+\noindent VR  is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
 
 \begin{eqnarray}
   \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}}, \label{Eqn:CoreyBrooks1}\\
@@ -457,13 +463,13 @@ In the next section, multi-fluid simulations are performed to numerically invest
 %\pagebreak
 %\clearpage
 
-%\listoftables
+%\listoftables 
 %\pagebreak
 %\input{Manuscript_Table}
 
 %\pagebreak
 %\clearpage
-
+ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}\label{section:results} 
@@ -472,55 +478,77 @@ In the next section, multi-fluid simulations are performed to numerically invest
 \subsection{Model Set-up}\label{section:results:setup}
 Numerical simulations were conducted with the model summarised in Section \ref{equations_scheme} and embedded in the next-generation reservoir simulator Fluidity/IC-FERST model software\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}} \citep[a full description of the model can be found in][]{porosity_documentation,fluidity_manual,jackson_2013,gomes_2017}. This multi-physics model has been validated against traditional multi-fluids test-cases (\eg advection-diffusion, Buckley-Leverett problem, channel model, immiscible displacement, gravity-driven displacement etc) in \citet{radunz_2014,jackson_2015,salinas2015,pavlidis2016}.
  
-\medskip
-All test-cases were performed in idealised geometries discretised with unstructured triangular mesh using the \PN[1]{2} and \PN[1]{1} FE-pairs. In most simulations, the domain was initially fully saturated with non-wetting fluid which was displaced by a pure (wetting) fluid at a prescribed initial velocity $\left(u^{0}\right)$. For simplicity, the porosity ($\phi$) of the domain was kept constant at 0.2 in all simulations, whereas the absolute permeability ($\mathbf{K}$) varies in space, \ie $\mathbf{K}=\mathbf{K}\left(x_{i}\right)$. Fluids are assumed incompressible and gravity was neglected. The set-up for the numerical simulations are summarised in Table \ref{table:setup}.
+All test-cases were performed in idealised geometries discretised with unstructured triangular mesh using the \PN[1]{2} and \PN[1]{1} FE-pairs. An implicit Crank-Nicolson time-stepping scheme was used with an {\it a posteriori} adaptive time-step size targeting a maximum Courant-Friedrichs-Lewy \citep{courant_1941} number of 2. In most simulations, the domain was initially fully saturated (\ie in-situ hydrocarbons) with non-wetting fluid which was displaced by a pure (wetting) fluid at a prescribed initial velocity $\left(u^{0}\right)$. For simplicity, the porosity ($\phi$) of the domain was kept constant at 0.2 in all simulations, whereas the absolute permeability ($\mathbf{K}$) varied in space, \ie $\mathbf{K}=\mathbf{K}\left(x_{i}\right)$. Fluids are assumed incompressible and gravity was neglected. The set-up for the numerical simulations are summarised in Table \ref{table:setup}.
  
 %%%%%%%%%%%% 
 \subsection{Initial Model Validation}\label{section:results_validation}
 Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is $4$ $\times$ $2$ unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also include no-flux across upper and lower borders. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a).
 
 \medskip
-Numerical simulation was performed in slightly modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}. Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the wetting phase 'fingering' through the four subdomains, demonstrating the preferential flow through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}. The main difference between the current works and the afformentioned is that by introducing an unstructured mesh the flow patterns are not only verified in greater detail but also there is a more accurate descriptions during the development of the flow. 
-    
-%Permeability values have been prescribed in the formation following a simple quadrant heterogenous model that will give the cross-flow that is expected in such a system.   
-\red{(PLEASE REVISE THIS PARAGRAPH ... AND YOU HAVEN'T ADDRESSED MY PREVIOUS COMMENTS WRT FIG 5 AND FIG 4 !!!! ....)}
-In Figures \ref{fem_cv_represent_vr1_vr10} there is a different set of simulations. Following a different set-up the idea is to validate the existance of cross flow and along with another region of different permeability.There is a comparison between the $VR=1$ and $VR=10$ case and the reason was to imply the same domain, boundary and initial conditions and number of elements to underastand how the cross-flow will develop. The purpose of these two cases was to verify that the model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations.    
- 
+Numerical simulation was performed in modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}. Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the development of wetting phase through the four subdomains, demonstrating the preferential flow path through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}.
+
+\red{(KOSTAS: YOU HAVE REMOVED 1 SIMULATION HERE ... THEREFORE YOU NEED TO MAKE SURE THAT THE TEXT REFLECT THE NEW FIGURE'S CONFIGURATION!!) \blue{will work on it ASAP this evening}} 
+
 %%%%%%%%%%%%    
-\subsection{Flow Simulations in Hele-Shaw Cells at different Viscosity Ratio Conditions}\label{section:results_homo_hete} 
- 
+\subsection{Flow simulations in Hele-Shaw cells at different Viscosity Ratio conditions}\label{section:results_homo_hete} 
 In order to investigate the impact of viscosity ratio on the flow dynamics, numerical simulations of fluid displacement were conducted in Hele-shaw cells (\ie parallel flat plates separated by infinitesimal space) following the work by \citet{saffman_1986}. In this manuscript, the onset of viscous flow instabilities \citep[following his seminal work in][]{saffman_1958} is investigated along with the impact of boundary conditions in the problem's mathematical formulation and solutions.
 
-Here, 2D simulations were conducted in a 5$\times$5 cm domain (Fig.~\ref{fig:homoheleshaw_VN3}a) fully saturated with a fluid. Wetting phase fluid is driven from the bottom left-hand corner of the domain with velocity of 1 cm.s$^{-1}$ (magnitude). Newmann (\ie no flux) boundary conditions were imposed to all borders of the domain except at the top r ight-hand corner (named as sink), and a pressure gradient between source and sink regions was initially prescribed to the system. 
+\medskip
+Here, 2D simulations were conducted in a 5$\times$5 cm domain (Fig.~\ref{fig:homoheleshaw_VN3}a) fully saturated with a fluid \ie in-situ hydrocarbons. Wetting phase fluid is driven from the bottom left-hand corner of the domain with velocity of 1 cm.s$^{-1}$ (magnitude). Newmann (\ie no flux) boundary conditions were imposed to all borders of the domain except at the top right-hand corner (named as sink), and a pressure gradient between source and sink regions was initially prescribed to the system. 
 
-Figures~\ref{fig:homoheleshaw_VN3} and \ref{fig:homoheleshaw_VN10} show fluid displacement in simulations conducted with {\it VR}=3 and {\it VR}=10, respectively. At relatively low viscosity ratio conditions (\ie {\it VR}=3), saturation evolves in time with a smooth front throughout most of the domain, and no finger could be observed. Elongated saturation profile at later stages of the simulation is due to pressure gradient near the sink region. However, formation of fingers can be readily noticed at early stages of the simulation conducted with {\it VR}=10. 
+\medskip
+Figures~\ref{fig:homoheleshaw_VN3}-\ref{fig:homoheleshaw_VN150} show fluid displacement in simulations conducted with {\it VR} = $\left\{\text{3, 10, 150}\right\}$, respectively. At relatively low viscosity ratio conditions (\ie {\it VR}=3), saturation evolves in time with a smooth front throughout most of the domain, and no finger could be observed. Elongated saturation profile at later stages of the simulation is due to pressure gradient near the sink region. However, formation of fingers can be readily noticed at early stages of the simulation conducted with {\it VR}=$10$. 
 
-Viscous finger morphologies were investigated by \citet{guan_2003} based on mathematical formulation and semi-analytic solutions of the coupled Darcy and continuity equations developed by \citet{mclean_1981}. A sensitivity study was conducted to assess the impact on fingers' formation, dimensions and branchiness for a range of viscosity ratio $\left(\right.$10$^{2}\le\textit{VR}\le$10$\left.^{4}\right)$ and modified capillary number $\left(\right.$632$\le N_{C}^{'}\le$6.32$\times$10$^{7}$, with $N_{C}^{'}= U_{f}\mu\gamma^{-1}(W/b)^{2}$, where $U_{f}$ is the velocity of the finger, $W$ is half Hele-Shaw cell width and $b$ is the cell thickness$\left.\right)$. Finger width $\left(\lambda_{f}\right)$ and volumetric flow rate $\left(\mathcal{Q}\right)$ at the outflow region are correlated through \citep{guan_2003}, 
-\begin{equation} 
+\medskip
+Viscous finger morphologies were investigated by \citet{guan_2003} based on mathematical formulation and semi-analytic solutions of the coupled Darcy and continuity equations developed by \citet{mclean_1981}. A sensitivity study was conducted to assess the impact on fingers' formation, dimensions and branchiness for a range of viscosity ratio $\left(\right.$10$^{2}\le\textit{VR}\le$10$\left.^{4}\right)$ and modified capillary number $\left(\right.$632$\le N_{C}^{'}\le$6.32$\times$10$^{7}$, with $N_{C}^{'}= U_{f}\mu\gamma^{-1}(W/b)^{2}$, where $U_{f}$ is the velocity of the finger, $W$ is half Hele-Shaw cell width and $b$ is the cell thickness$\left.\right)$. Finger width $\left(\lambda_{f}\right)$ and volumetric flow rate $\left(\mathcal{Q}\right)$ at the outflow region are correlated through \citep{guan_2003},    
+
+\begin{equation}   
    \mathcal{Q} = U_{f} b \lambda_{f}.\label{eqn:guaneqn} 
-\end{equation} 
-Numerical simulations performed with {\it VR} of 10 and 150 showed finger width of approximately 0.45-0.70 and 0.50-0.90 cm (Fig.~\ref{fig:homoheleshaw_VN10_VN150}), respectively. This is in close agreement with expected values obtained from Eqn.~\ref{eqn:guaneqn} which indicates finger width ranging from 0.13 to 0.75 (for {\it VR}=10) and from 0.30 to 0.75 (depending on the tip velocity). 
+\end{equation}  
 
-\medskip
-In order to investigate the impact of medium heterogeneity on formation and growth of viscous fingers, a numerical simulation was conducted using a distribution of permeability ({\bf K}) and viscosity ratio of 10. Absolute permeability ranging from 1.0$\times$10$^{-12}$ to 5.0$\times$10$^{-10}$ cm$^{2}$ (\ie 0.1 $\le$ {\bf K} $\le$ 50 milidarcy) was used in the simulation, which was conducted with the same mesh resolution, boundary and initial conditions as in the previous homogeneous cases. Figure~\ref{fig:HeleShawHeter_VR10} shows formation of multiscale elongations with continuous growth and coalescence of dendritic fingers. Finger width of approximately \red{XXX-XX} cm were obtained \red{(JG: COMPARE IT W THEORETICAL VALUE)}. 
+\noindent Here, numerical simulations performed with viscosity ratio of 10 and 150 indicated maximum fingers width of approximately 0.45-0.70 and 0.50-0.90 cm (Fig.~\ref{fig:homoheleshaw_VN10_VN150} a and b), respectively. This is in close agreement with expected values obtained from Eqn.~\ref{eqn:guaneqn} which indicates maximum finger width ranging from 0.13 to 0.75 (for {\it VR}=10) and from 0.30 to 0.75 (depending on finger's tip velocity, Table~\ref{table:Heleshaw}). 
   
-
-
-%%%%%%%%%%%%%
-\subsection{Comparison of fixed and adaptive mesh under heterogeneous domain schemes and the same mobility ratio.}\label{section:results_hete_fix_adapt}
+\medskip
+Fluid flow dynamics through heterogeneous porous media are sensibly more complex than in homogeneous media and strongly depend on problem properties. Spatial variation in geological formations occurs in all length-scales, where heterogeneity characteristics in small length-scales (\ie pore) are statistically embedded into permeability (absolute and relative) and porosity parameters. Such multi-scale heterogeneity induces preferential flow pathways and plays a significant role in the onset of fluid instabilities as it triggers fingers formation and their accelerated growth \citep[see][]{ewing_1989,tchelepi_1994}.
 
 \medskip
-Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Initial and boundary conditions are described in fig.\ref{fig:testcase_heter_domain}, while inlet velocity is $u=1$ on the left hand side and the pressure set to $0$ on the outlet. A quick reminder at this point is that the simulator we are testing has also options to introduce gravity and/or corriolis, but for this current set of simulations these are neglected. What is expected is a significant growth of fingers when comparing mobility ratios that differ an order of magnitude. %(fig.\ref{fig:1testcase})
-The next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh. For the fixed mesh we have $4600$ elements, but for the adaptive mesh we start with $400$ up to $600$, depends how fine we would like the mesh to be, and we reach up to $24000$. %Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used. 
+In order to qualitatively investigate the impact of heterogeneity (here represented by changing in the permeability field), numerical simulations were conducted using a prescribed permeability distribution and viscosity ratios of 10 and 150. Absolute permeability ranging from 1.0$\times$10$^{-12}$ to 5.0$\times$10$^{-10}$ cm$^{2}$ (\ie 0.1 $\le$ {\bf K} $\le$ 50 milidarcy) was used in the simulations, which were performed with the same geometry,  mesh resolution, boundary and initial conditions as in previous homogeneous cases. 
+
+\medskip
+Figures~\ref{fig:HeleShawHeter_VR10} and ~\ref{fig:HeleShawHeter_VR150} show formation of multi-scale elongations with continuous growth and coalescence of dendritic finger branching in simulations performed with viscosity ratio of 10 and 150, respectively. In both simulations, maximum fingers width of approximately 0.44-0.56 ({\it VR}=10) and 0.24-0.44 cm were found, whereas estimated values (based on Eqn.~\ref{eqn:guaneqn}) were 0.25-4.50 ({\it VR}=10) and 0.88-3.00 cm (Fig.~\ref{fig:homoheleshaw_VN10_VN150} c and d, Table~\ref{table:Heleshaw}). Such calculated ranges \citep[\ie theoretical values based on analytic solutions due to][]{mclean_1981} clearly overestimate fingers dimensions as the mathematical formulation (and therefore Eqn.~\ref{eqn:guaneqn}) assumes incompressible flows in homogeneous porous medium, \ie it does not take into account any spatial variability of heterogeneity.       
+     
+%%%%%%%%%%%%%
+\subsection{Capturing Flow Dynamics and Fingering Growth: Impact of Mesh Resolution}\label{section:results_hete_fix_adapt}    
+%\subsection{Comparison of fixed and adaptive mesh under heterogeneous domain schemes and the same mobility ratio.}
+In most numerical simulations involving geofluid dynamics local geometric constraints (\eg faults, fractures etc) and spatial multi-scale variability of flow properties are often ignored as the underlying computational mesh grid is too coarse to reliably represent any of these features. Whilst structured grids often struggle to conform to complex domain boundaries with consistent mesh connectivity, unstructured mesh techniques often relax cells' neighbourhood relationship constraints by dividing the domain into polytopes in which elements share adjacent faces. This leads to mesh grids that conform to the domain topography and can make the best use of state-of-the-art self-adaptive computational methods.
+
+\medskip
+In Section~\ref{section:results_homo_hete}, the impact of viscosity ratio on the growth of fingers and the triggering effect of heterogeneity on instability's nucleation were demonstrated in modified simulated Hele-Shaw cells. In order to capture the continuous development of viscous instabilities, mesh grids with sufficient resolution need to be applied over the interface between fluids. Traditional numerical methods often rely on fixed mesh with sufficient resolution throughout the domain to capture specific flow dynamics (\eg fluid instabilities, flow recirculation, heat and mass transfers etc), however computational resources may make it prohibitive for complex geometries and highly heterogeneous properties. 
+
+\medskip
+Mesh adaptivity methods have been extensively used by the computational geofluid dynamic community to help capturing detailed flow dynamics, compositional non-equilibrium fluid displacement and solid-fluid interactions \citep{pluszny_2007,pietro_2014,su_2016,melnikova_2016}. In these methods, the mesh grid is continuously modified (\ie adjustments of the number and distribution of the degrees of freedom to reduce solution error) to focus resolution where is necessary as the simulation evolves in time and space. There are four main families of mesh adaptivity methods: adaptive mesh refinement (AMR), edge and face element manipulations whereas keeping the order of the element basis function fixed (h-adaptivity), mesh deformation (r-adaptivity) and changes of element basis function order (p-adaptivity). Detailed description and analysis of mesh adaptivity methods are beyond the scope of this manuscript but can be readily found in \citet{lo_book} \citep[see also][]{plewa_book,frey_book}.  
+
+The mesh adaptive algorithm embedded in the Fluidity/IC-FERST model utilises a metric tensor field dependent on solution interpolation error-estimates which locally control the topology of elements in the metric \citep{pain_2001,power_2006}. Mesh optimisation generates unstructured finer mesh in regions where flow properties change faster and coarser mesh in regions where properties change more slowly \citep{piggott_2006}.
+
+\medskip
+In this section, two numerical simulations were conducted with fixed and adaptive mesh resolutions to qualitatively assess model capability to capture fingers growth. In order to trigger the formation of fingers, regions with sharp permeability gradient were introduced (Fig.~\ref{fig:testcase_heter_domain} a). 
+
+\medskip
+Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Initial and boundary conditions are described in fig.\ref{fig:testcase_heter_domain}, while inlet velocity is $1$ on the left hand side, and the pressure is set to $0$ on the outlet. What is expected is a significant growth of fingers when comparing mobility ratios that differ an order of magnitude. 
+%(fig.\ref{fig:1testcase})
+Figure \ref{fem_cv_represent_vr1_vr10} describes an initial comparison between the $VR=1$ and $VR=10$ case under the same domain, boundary and initial conditions and number of elements so as to underastand how the cross-flow in the upper layers can be developed compared with the fingers that will appear below. The purpose of these two cases was to verify that the model is working for cross flow cases thus will allow to proceed further and expand this technique into more complex formations. The next step is a comparison under the same mobility ratio of $10$, using the fixed and the adaptive mesh. For the fixed mesh we have $4600$ elements, but for the adaptive mesh we start with $400$ up to $600$, depends how fine we would like the mesh to be, and we reach up to $24000$. %Figure \ref{fig:testcase_heter_domain} gives a description of the domain that will be used.  
+
+\medskip
 Figures \ref{fig:2testcase_a}%\ref{fig:2testcase_b}, \ref{fig:2testcase_c} 
--\ref{fig:2testcase_d} will give a description of the simulation for different time-steps as these are described. In this set the interfacial instability is becoming more profound as the flow develops. Based on these two cases so far, an initial relation between the quantitative and qualitative outcome of our simulations can be derived. Fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid $1$.    
+-\ref{fig:2testcase_d} give a summary of the simulation for different time-steps as these are described. In this set, the interfacial instability is becoming more profound as the flow develops. Based on these two cases so far, an initial relation between the quantitative and qualitative outcome of our simulations can be derived. Fingers will develop faster in areas where permeabilities are higher. This can be seen from the overall sharp increase of velocity magnitude during the injection of the fluid $1$.        
+  
 
 
 \subsection{Comparison of flow pattern with a different simulation set-up with and an additional inlet region.}\label{section:results_dinlet}
 
 \medskip
-Figure \ref{fig:3testcase_a} illustrates another set of simulations for when another region (inlet) of fluid $1$ ins introduced into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields %(see Fig.\ref{fig:vel_magn2}) 
-as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see Fig.\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when MR=$100$, 
+Figure \ref{fig:3testcase_a} illustrates another set of simulations for when another region (inlet) of fluid $1$ has introduced into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields %(see Fig.\ref{fig:vel_magn2}) 
+as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see Fig.\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when VR=$100$, 
 %this case is unlikely to happen as the mobility ration of the existing fluids in the industry , 
 it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou_2015}  demonstrated the explicit formation of fingers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No fingers could be observed due to mesh coarseness (fingers were observed in ﬁner uniform and adaptive meshes). The last case that will give an estimable and quantitative description to the reader is the when the mobility ration is highly increased into $100$. Screenshots of the phase volume fraction and the development of fingers are shown in figures \ref{fig:4testcase_a}-\ref{fig:4testcase_b}.
 
@@ -544,7 +572,7 @@ As can been seen so far in all the test-case illustrated, main differences can b
 \section{Conclusions}\label{Section:Conclusion}
 
 \medskip
-A number of different cases have been illustrated in Section \ref{section:results}. Starting from tested experimental cases and geometrical domains to verify that the numerical model is working and set up some initial benchmarks, to more complicated cases where various scenarios were implied. Observations made on various mobility ratios, geometrical domains and permeability zones as well as on the role of interfacial forces on the developement of the flows. For immiscible displacements upon which only viscous and capillary forces are acting (being horizontal flow, gravity can be ignored), the expected displacement patterns are either stable front displacement or unstable front displacement. In the latter case the instability arises due to either capillary or viscous fingering depending on capillary number ($N_{c}$) but mainly on mobility ratio (MR). If the mobility ratio is significantly less than $5$ (MR=$3$ has been used) , it is expected to find capillary fingering at relatively low flow rate and viscous fingering at relatively high flow rate. On the other hand, when the viscosity ratio is greater than $5$, the two basic forms of immiscible displacement are capillary fingering at relatively low flow rate and stable displacement at relatively high flow rate. Therefore for an \ie water/oil system, the first condition applies as the viscosity of injected water is less than the viscosity of displaced oil. Hence, the displacement form could be either capillary fingering at relatively low injection rates or viscous fingering at higher injection rates. 
+A number of different cases have been illustrated in Section \ref{section:results}. Starting from tested experimental cases and geometrical domains to verify that the numerical model is working and set up some initial benchmarks, to more complicated cases where various scenarios were implied. Observations made on various mobility ratios, geometrical domains and permeability zones as well as on the role of interfacial forces on the developement of the flows. For immiscible displacements upon which only viscous and capillary forces are acting (being horizontal flow, gravity can be ignored), the expected displacement patterns are either stable front displacement or unstable front displacement. In the latter case the instability arises due to either capillary or viscous fingering depending on capillary number ($N_{c}$) but mainly on mobility ratio (MR or VR). If the mobility ratio is significantly less than $5$ (MR=$3$ has been used) , it is expected to find capillary fingering at relatively low flow rate and viscous fingering at relatively high flow rate. On the other hand, when the viscosity ratio is greater than $5$, the two basic forms of immiscible displacement are capillary fingering at relatively low flow rate and stable displacement at relatively high flow rate. Therefore for an \ie water/oil system, the first condition applies as the viscosity of injected water is less than the viscosity of displaced oil. Hence, the displacement form could be either capillary fingering at relatively low injection rates or viscous fingering at higher injection rates. 
 
 %\medskip
 %We have numerically computed the evolution of the initial condition and for various values of the viscosity contrast under the same initial conditions and surface tension. Even though the commercial simulators provide the user with option of an unstructured type of mesh still they are not able to dynamically adapt the mesh as the simulation develops and they increase the computational cost as the saturation front changes slowly. In this paper the use and benefits of dynamic mesh adaptivity to capture the viscous fingering in reservoir flows was introduced. 
@@ -571,10 +599,6 @@ In summary, the method that has been described in this paper as well as the simu
 \section{Acknowledgements}
 Mr William Rad\"unz would like to acknowledge the support from the Brazilian Research Council (CNPq) under the \textit{Science without Borders scholarship programme}. Mr Konstantinos Christou would like to acknowledge the support of the University of Aberdeen - College of Physical Science as well as the Aberdeen Formation Evaluation Society (\textit{AFES} is an SPWLA chapter). 
 
-
-
-
-
 \clearpage 
 %% References with bibTeX database:
 \bibliographystyle{elsarticle-harv} 
@@ -594,5 +618,6 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
  
 \end{document}
 %% End of tex file.
+
 
 
