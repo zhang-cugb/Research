@@ -8,7 +8,6 @@
 \caption{2D representation of \PN[1]{2} element pairs used in this work. Shaded areas denote control volumes across two contiguous elements. Blue and white circles represent pressure and velocity nodes, respectively.} 
 \label{fig:fem_cv}
 \end{figure}
-
 \clearpage
 
 %%%%
@@ -43,7 +42,7 @@
 \includegraphics[width=.8\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf} 
 }
 \vspace{0.0cm}
-\hbox{\hspace{3.5cm} (a) map of permeabilities ($\mathbf{K}$)
+\hbox{\hspace{3.5cm} (a) Schematics of the domain with permeability ($\mathbf{K}$) distribution
 }
 \vspace{0.25cm}
 \hbox{\hspace{1.5cm}
@@ -59,7 +58,7 @@
 \vspace{0.0cm}
 \hbox{\hspace{4.0cm} (c) flow at t=3000   
 }}     
-\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): (a) the domain is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=1$ and $\mathbf{K}_{2}=2.5$; (b-c) snapshots of saturation (displacing fluid) field at t=$25$s and t=$300$ sec. The domain is discretised with $5960$ \PN[1]{2} elements. }
+\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): (a) the domain is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=1$ and $\mathbf{K}_{2}=2.5$; (b-c) snapshots of saturation (displacing fluid) field at t=$25$s and t=$300$ sec. The domain is discretised with $5960$ \PN[1]{2} elements. \red{(ARE YOU SURE TIME IS CORRECT ??)} }
 \label{fem_cv_represent_a}
 \end{figure}
 \clearpage
@@ -72,16 +71,16 @@
 \begin{landscape}
 \begin{figure}[ht] 
 \vbox{\vspace{-1cm}
-\hbox{\includegraphics[width=.7\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2.pdf}
+\hbox{\includegraphics[width=.71\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2.pdf}
       \includegraphics[width=.37\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_250.pdf}
       \includegraphics[width=.37\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_1000.pdf}}
 \vspace{0.cm}
 \hbox{\hspace{2.5cm} (a) pressure at t=0s \hspace{5.cm} (b) t=0.87s \hspace{2.75cm} (c) t=3.54s}
 \vspace{0.5cm}
 \hbox{
-      \includegraphics[width=.375\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2500.pdf}
-      \includegraphics[width=.375\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_3500.pdf} 
-      \includegraphics[width=.65\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_end.pdf}}
+      \includegraphics[width=.38\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2500.pdf}
+      \includegraphics[width=.38\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_3500.pdf} 
+      \includegraphics[width=.66\textwidth]{./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_end.pdf}}
 \vspace{0.cm}
 \hbox{ \hspace{1.cm} (d) t=8.86s \hspace{3.0cm} (e) t=12.41s   \hspace{4.0cm} (f) t=17.95s}
 \vspace{0.cm}
@@ -107,11 +106,11 @@
 \hbox{\hspace{5.cm} (a) t=0.66s \hspace{8.cm} (b) t=3.43s }
 \vspace{0.5cm}
 \hbox{
-      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2001c}
+      \includegraphics[width=.51\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2001c}
       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201c}
-      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D3001c}}
+      \includegraphics[width=.51\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D3001c}}
 \vspace{0.cm}
-\hbox{ \hspace{2.cm} (c) t=6.92s \hspace{4.5cm} (d) t=7.61s \hspace{4.5cm} (e)t=10.00s}
+\hbox{ \hspace{2.cm} (c) t=6.92s \hspace{4.5cm} (d) t=7.61s \hspace{5.cm} (e)t=10.00s}
 \vspace{0.cm}
 }   
 \caption{Simulated flow in a Hele-Shaw cell $\left(\text{{\it VR}=10, {\bf K}=10}^{-10}\text{cm}^{2}\right)$: snapshots of overlapped wetting phase saturation and velocity vectors showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
@@ -135,9 +134,9 @@
 \hbox{
       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D2700b}
       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D4000b}
-      \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D7000b}}
+      \includegraphics[width=.51\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D7000b}}
 \vspace{0.cm}
-\hbox{ \hspace{2.cm} (c) t=1.32s \hspace{4.5cm} (d) t=1.70s \hspace{4.5cm} (e)t=2.31s}
+\hbox{ \hspace{2.cm} (c) t=1.32s \hspace{4.5cm} (d) t=1.70s \hspace{5.cm} (e)t=2.31s}
 \vspace{0.cm}
 }   
 \caption{Simulated flow in a Hele-Shaw cell $\left(\text{{\it VR}=150, {\bf K}=10}^{-10}\text{cm}^{2}\right)$: snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
@@ -153,15 +152,15 @@
 \begin{landscape}
   \begin{figure}[ht]
   \vbox{\vspace{-.5cm}
-      \hbox{\includegraphics[width=.4\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1}
-            \includegraphics[width=.55\textwidth, height=.4\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D200Hb} 
-            \includegraphics[width=.42\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D900Hb} }
+      \hbox{\includegraphics[width=.4\textwidth]{./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1.pdf}
+            \includegraphics[width=.55\textwidth, height=.4\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D200Hb.pdf} 
+            \includegraphics[width=.42\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D900Hb.pdf} }
       \hbox{\hspace{1.0cm} (a) permeability map \hspace{3.cm} (b) t=0.19s \hspace{4.0cm} (c) t=0.63s}
       \vspace{0.5cm}
-      \hbox{\includegraphics[width=.42\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D5000Hb}
-            \includegraphics[width=.42\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D8000Hb}
-            \includegraphics[width=.42\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D13800Hb} }
-      \hbox{\hspace{2.5cm} (d) t=3.41s \hspace{5.cm} (e) t= 5.54s\hspace{3.0cm} (f) t=9.77s }}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D5000Hb.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D8000Hb.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D13800Hb.pdf} }
+      \hbox{\hspace{2.cm} (d) t=3.41s \hspace{3.5cm} (e) t= 5.54s\hspace{4.5cm} (f) t=9.77s }}
 \caption{Simulated flow in a modified Hele-Shaw cell with {\it VR}=10: (a) permeability distribution $\left(\text{10}^{-10}\le\mathbf{K}_{1}\le\text{5}\times\text{10}^{-10}\right.$, {\bf K}$_{2}$=10$^{-10}$, 10$^{-11}\le\mathbf{K}_{3}\le$ 5$\times$10$^{-10}$ and 10$^{-12}\le\mathbf{K}_{4}\le$ 5$\times$10$\left.^{-10}\text{ cm}^{2}\right)$; (b-f) snapshots of saturation profile during 9.77 seconds of simulation. The domain contains 26313 \PN[1]{2} element-pairs.}
 \label{fig:HeleShawHeter_VR10}
 \end{figure}
@@ -177,12 +176,12 @@
       \hbox{\includegraphics[width=.65\textwidth, height=.46\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D200Hb.pdf} 
             \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D500Hb.pdf}
             \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D800Hb.pdf} }
-      \hbox{\hspace{2.0cm} (a) t=0.10s \hspace{4.cm} (b) t=0.24ss \hspace{4.0cm} (c) t=0.37s}
+      \hbox{\hspace{2.0cm} (a) t=0.10s \hspace{6.cm} (b) t=0.24ss \hspace{4.cm} (c) t=0.37s}
       \vspace{0.5cm}
       \hbox{\hspace{.5cm} \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D1500Hb.pdf}
             \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D5000Hb.pdf}
             \includegraphics[width=.45\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D8000Hb.pdf} }
-      \hbox{\hspace{2.5cm} (d) t=0.59s \hspace{4.cm} (e) t= 1.61s\hspace{3.0cm} (f) t=2.50s }}
+      \hbox{\hspace{3.cm} (d) t=0.59s \hspace{3.cm} (e) t= 1.61s\hspace{4.cm} (f) t=2.50s }}
 \caption{Simulated flow in a modified Hele-Shaw cell with {\it VR}=150: snapshots of saturation profile during 2.50 seconds of simulation. Permeability distribution used in this simulation was the same as shown in Fig.~\ref{fig:HeleShawHeter_VR10}a. The domain contains 26313 \PN[1]{2} element-pairs.}
 \label{fig:HeleShawHeter_VR150}
 \end{figure}
@@ -213,31 +212,148 @@
 %%%%
 %%%%  FIGURE
 %%%%
-\begin{landscape}
 \begin{figure}[ht] 
 \vbox{
-\hbox{\hspace{4.0cm}
-\includegraphics[width=.75\textwidth]{./Pics/map_of_boundaries.pdf} 
-}
+%\hbox{\hspace{4.0cm}
+%\includegraphics[width=.75\textwidth]{./Pics/map_of_boundaries.pdf} 
+%}
+%\vspace{0.0cm}
+%\hbox{\hspace{6.5cm} (a) Schematics of the domain
+%}
+%\vspace{0.25cm}
+%\hbox{\hspace{4.0cm}
+%\includegraphics[width=\textwidth]{./Pics1/Four_regions_coarse_MeshPermeability}
+\hbox{\hspace{1cm}
+\includegraphics[width=\textwidth]{./Pics1/Section4_4/Five_regions_adapt_MeshPerm}}
+\vspace{-1.0cm}
+\hbox{\hspace{3.5cm} (a) Permeability mapping ({\bf K})}
 \vspace{0.0cm}
-\hbox{\hspace{6.5cm} (a) map of permeabilties K   
-}
-\vspace{0.25cm}
-\hbox{\hspace{4.0cm}
-\includegraphics[width=.9\textwidth]{./Pics/map_of_boundaries_1.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{9cm} (b)      
-}
-}     
-\caption{Figure (a) describes the initial and boundary conditions as these are applied in this set of simulations. Below (b) there is a comparison between the unstructured and fixed mesh and the unstructured and adaptive mesh. During the implementation of fixed mesh initially there $4606$ elements while for the adaptive mesh there are $606$ while the majority of them is on the interface between between the two fluids. }
+\hbox{\hspace{1cm}
+\includegraphics[width=\textwidth]{./Pics1/Section4_4/Five_regions_adapt_MeshSat1}}
+\vspace{-1.0cm}
+\hbox{\hspace{3.5cm} (b) Initial saturation distribution}}
+%}
+%\vspace{0.0cm}
+%\hbox{\hspace{4cm} (b) Permeability distribution for coarse mesh simulation     
+%}
+%}     
+\caption{Impact of mesh resolution on capturing flow instabilities: (a) permeability and (b) initial saturation and  mesh resolution used in the simulations performed in Section~\ref{section:results_hete_fix_adapt}. There are 13068 \PN[1]{2} element-pairs in the domain.}
 \label{fig:testcase_heter_domain}
 \end{figure}
-\end{landscape}
+\clearpage
+
+
+%%%
+%%% FIGURE XXXXXX
+%%%
+  \begin{figure}[ht]
+  \vbox{\vspace{-1.cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D0b} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D350b}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(a) t=0.00s \hspace{4cm} (f) t= 0.35s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D100b} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D700b}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(b) t=0.10s \hspace{4cm} (g) t= 0.70s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D150b} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D1000b}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(c) t=0.15s \hspace{4cm} (h) t= 1.00s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D200b} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D1500b}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(d) t=0.20s \hspace{4cm} (i) t= 1.50s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D250b}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(e) t=0.25s}\vspace{-.1cm}}
+\caption{Impact of mesh resolution on capturing flow instabilities: snapshots of saturation field through 1.50 seconds of numerical simulation performed with fixed mesh (of 13068 elements) and {\it VR}=10.}
+\label{fig:5regions_fixedmesh}
+\end{figure}
+\clearpage
+
+
+%%%
+%%% FIGURE XXXXXX
+%%%
+  \begin{figure}[ht]
+  \vbox{\vspace{-2.cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D0b} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D350b}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(a) t=0.00s \hspace{4cm} (f) t= 0.35s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D100b} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D700b}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(b) t=0.10s \hspace{4cm} (g) t= 0.70s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D150b} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D1000b}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(c) t=0.15s \hspace{4cm} (h) t= 1.00s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D200b} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D1500b}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(d) t=0.20s \hspace{4cm} (i) t= 1.50s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D250b}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(e) t=0.25s}\vspace{-.1cm}}
+\caption{Impact of mesh resolution on capturing flow instabilities: snapshots of saturation field through 1.50 seconds of numerical simulation performed with adaptive mesh and {\it VR}=10.}
+\label{fig:5regions_adaptmesh}
+\end{figure}
+\clearpage
+%%%
+%%% FIGURE XXXXXX
+%%%
+  \begin{figure}[ht]
+  \vbox{\vspace{-2.5cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D10velb} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D350velb}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(a) t=0.00s \hspace{4cm} (f) t= 0.35s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D100velb} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D700velb}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(b) t=0.10s \hspace{4cm} (g) t= 0.70s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D150velb} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D1000velb}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(c) t=0.15s \hspace{4cm} (h) t= 1.00s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D200velb} 
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D1500velb}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(d) t=0.20s \hspace{4cm} (i) t= 1.50s}\vspace{-.1cm}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D250velb}}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(e) t=0.25s}\vspace{-.1cm}}
+\caption{Impact of mesh resolution on capturing flow instabilities: snapshots of saturation field overlapped with Darcy velocity (in cm/s) through 1.50 seconds of numerical simulation performed with adaptive mesh and {\it VR}=10. Colour scheme for saturation is the same as used in Fig.~\ref{fig:5regions_adaptmesh}.}
+\label{fig:5regions_adaptmeshvels}
+\end{figure}
+\clearpage
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{figure}[ht] 
+\includegraphics[width=\textwidth]{./Pics1/Section4_4/Five_regions_adapt_PlotTimeNodesElements}
+\caption{Impact of mesh resolution on capturing flow instabilities: total number of elements and nodes for simulations performed with fixed and adaptive mesh. }
+\label{fig:5regions_plottimenodeselements}
+\end{figure}
+
+
+
+%%%
+%%% FIGURE XXXXXX
+%%%
+%\begin{landscape}
+  \begin{figure}[ht]
+  \vbox{\vspace{-.5cm}
+      \hbox{\includegraphics[width=.5\textwidth, height=0.3\textwidth,clip]{./Pics1/Section4_4/5r_po_left_inlet_D250_meshb}
+            \includegraphics[width=.5\textwidth, height=0.33\textwidth,clip]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D250_edb} }
+      \vspace{-0.cm}\hbox{\hspace{4.5cm}(a) fixed and adaptive mesh  }\vspace{-0.cm}
+      %\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_vel1b.pdf}
+      %      \includegraphics[width=.5\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_vel2b.pdf} }
+      %\vspace{-0.cm}\hbox{\hspace{1cm}(b) Darcy velocity (phase 1) \hspace{1cm}(c) Darcy velocity (phase 2) }\vspace{0.cm}
+      \hbox{ \includegraphics[width=.5\textwidth, height=0.3\textwidth,clip]{./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom1b}
+             \includegraphics[width=.5\textwidth, height=0.3\textwidth,clip]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom1b} }
+      \vspace{-0.cm}\hbox{\hspace{4.5cm}(b) Zoom on region {\it A}  }\vspace{-0.cm}
+      \hbox{ \includegraphics[width=.5\textwidth, height=0.3\textwidth,clip]{./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom2b}
+             \includegraphics[width=.5\textwidth, height=0.3\textwidth,clip]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom2b} }
+      \vspace{-0.cm}\hbox{\hspace{4.5cm}(c) Zoom on region {\it B}  }\vspace{-0.cm}}
+\caption{Impact of mesh resolution on flow instabilities: capturing formation and growth of flow instabilities at fluid interfaces (t = 0.20 s) in two regions of the computational domain, {\it A} and {\it B}. Simulations were conducted with fixed (left-hand side) and adaptive meshes. }
+\label{fig:5regions_AdaptZoom}
+\end{figure}
+%\end{landscape}
 \clearpage
 
 
 
+\begin{comment}
 %%%
 %%% FIGURE
 %%%
@@ -253,7 +369,7 @@
             \includegraphics[width=.45\textwidth]{./Pics1/mr10_fixed/mr10_fixed_2500.pdf}
             \includegraphics[width=.57\textwidth]{./Pics1/mr10_fixed/mr10_fixed_end_2.pdf} }
       \hbox{\hspace{8.0cm} (b) VR = 10  }}
-\caption{Initial model validation: snapshots of numerical simulations performed with VR=1 and VR=10. The domain contains $4678$ elements.(\blue{ Jeff this is a different set of simulation, I have moved it just after the \textit{map of permeabilities} above as a first comparison between $VR1$ and $VR10$})}
+\caption{Initial model validation: snapshots of numerical simulations performed with VR=1 and VR=10. The domain contains $4678$ elements. \red{need to put his footnote here? "At this poing it is proper to mention that the white grid lines of the domain, as they appear in this set of figures and the rest are for visual purposes only and they are not related with mesh itslef"}}
 \label{fem_cv_represent_vr1_vr10}
 \end{figure}
 \end{landscape}
@@ -261,6 +377,7 @@
 %%%
 %%%
 %%%
+\end{comment}
 
 
 
@@ -404,30 +521,6 @@
 %%%%
 %%%%  FIGURE
 %%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{3.5cm}
-\includegraphics[width=.5\textwidth]{./Pics1/mr10_5regions_adapt/5regions_adapt_vel_magn.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (a) single inlet velocity magnitude   
-}
-\hbox{\hspace{3.5cm}
-\includegraphics[width=.5\textwidth]{./Pics1/mr10_5regions_adapt_dinlet/5regions_dinlet_adapt_vel_magn.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{5.0cm} (b) double inlet velocity magnitude   
-}
-}     
-\caption{For the same time step, t=1000, these plots describe the velocity magnitudes of the phase $1$ (injected fluid) under the same boundary and initiall conditions. From top to bottom,these graphs describe the velocity magnitude %for fixed mesh is plotted(top), the velocity magnitude 
-for adaptive mesh-single inlet (top) and the velocity magnitude for adaptive mesh with double inlet (bottom) as these are also presented in fig.\ref{fig:3testcase_a}. The main difference between the upper and lower plot %is not just the ability to capture in greater detail, the fluid instabilities as they happenduring the finger development and their velocity patterns. While there 
-is the impact of the second injection interval as this can be seen from the slope and the rate that the velocity magnitude is changing.}
-\label{fig:vel_magn}
-\end{figure}
-
-%%%%
-%%%%  FIGURE
-%%%%
 \begin{landscape}
 \begin{figure}[ht] 
 \vbox{
@@ -507,19 +600,19 @@ is the impact of the second injection interval as this can be seen from the slop
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf} 
+\includegraphics[width=.93\textwidth]{./Pics1/mr100_fixed/mr100_fixed_500.pdf} 
 }
 \vspace{0.0cm}
-\hbox{\hspace{4.0cm} (a) fixed and unstructured mesh for MR = 100 (start)   
+\hbox{\hspace{4.0cm} (a) fixed and unstructured mesh for VR = 100 (start)   
 }
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}
+\includegraphics[width=.7\textwidth]{./Pics1/mr100_fixed/mr100_fixed_1500.pdf}
 }
 \vspace{0.0cm}
-\hbox{\hspace{3.75cm} (b) fixed and unstructured mesh for MR = 100 (t = 1500)   
+\hbox{\hspace{3.75cm} (b) fixed and unstructured mesh for VR = 100 (t = 1500)   
 }
 }     
-\caption{For the case of VR=$100$ from top to bottom, the number of elements is $4680$ and fixed and unstructured mesh for the same time steps, t=$0.25$ or t=500(a), t=$0.75$ or t=1500(b). }
+\caption{For the case of VR=$100$ from top to bottom, the number of elements is $4680$ and fixed and unstructured mesh was used for the same time steps, t=$0.25$s or t=500(a), t=$0.75$s or t=1500(b). }
 \label{fig:4testcase_a}
 \end{figure}
 \end{landscape}
@@ -532,19 +625,19 @@ is the impact of the second injection interval as this can be seen from the slop
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf} 
+\includegraphics[width=.7\textwidth]{./Pics1/mr100_fixed/mr100_fixed_3000.pdf} 
 }
 \vspace{0.0cm}
-\hbox{\hspace{3.75cm} (c) fixed and unstructured mesh for MR = 100    
+\hbox{\hspace{3.75cm} (c) fixed and unstructured mesh for VR = 100    
 }
 \hbox{\hspace{3.5cm}
-\includegraphics[width=.8\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}
+\includegraphics[width=.93\textwidth]{./Pics1/mr100_fixed/mr100_fixed_end.pdf}
 }
 \vspace{0.0cm}
 \hbox{\hspace{7.cm} (d) end of simulations     
 }
 }     
-\caption{screenshot (c) is for t=$1.5$ sec or t=$3000$ and screenshot (d) is for t=$3.175$ sec, at the end of the simulations. }
+\caption{screenshot (c) is for t=$1.5$s or t=$3000$ and screenshot (d) is for t=$3.175$s, at the end of the simulations. }
 \label{fig:4testcase_b}
 \end{figure}
 \end{landscape}
@@ -563,24 +656,6 @@ is the impact of the second injection interval as this can be seen from the slop
 \label{fig:3DChannel_PermMesh}
 \end{figure}
 \clearpage
-
-
-
-%%%
-%%% FIGURE XXXXXX
-%%%
-%\begin{landscape}
-\begin{figure}[ht]
-\vbox{\vspace{-.5cm}
-      \hbox{\includegraphics[width=\textwidth]{./Pics1/3D_Channel/3D_channel_elem_planes_1.pdf} }
-      \hbox{\hspace{5.0cm} }}
-\caption{ XY and YZ planes in the middle of the domain at the end of simulation \red{t=$4.3$sec, but am I reading something wrong?} }
-\label{fig:3DChannel_elem_planes}
-\end{figure}
-%\end{landscape}
-\clearpage
-
-
 
 %%%%
 %%%%  FIGURE
@@ -601,13 +676,11 @@ is the impact of the second injection interval as this can be seen from the slop
 \hbox{\hspace{10.cm} (b)      
 }
 }     
-\caption{ contours of Darcy velocity in XY and YZ planes for (a) t=$0.91$s and (b)t=$4.3$s.}
+\caption{Contours of Darcy velocity in XY and YZ planes for (a) t=$0.91$s and (b)t=$4.3$s.}
 \label{fig:3DChannel_darcy_vel}
 \end{figure}
 \end{landscape}
 \clearpage
-
-
 
 %%%%
 %%%%  FIGURE
@@ -635,5 +708,23 @@ is the impact of the second injection interval as this can be seen from the slop
 \clearpage
 
 
-
-
+%%%
+%%% FIGURE XXXXXX
+%%%
+\begin{landscape}
+  \begin{figure}[ht]
+  \vbox{\vspace{-.5cm}
+      \hbox{\includegraphics[width=.55\textwidth, height=.45\textwidth]{./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D30c} 
+            \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D60c}
+            \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D90c} }
+      \hbox{\hspace{2.0cm} (a) t=0.29s \hspace{6.cm} (b) t=0.56s \hspace{4.cm} (c) t=0.82s}
+      \vspace{0.5cm}
+      \hbox{\hspace{.5cm} \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D110c}
+            \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D150c}
+            \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D400c} }
+      \hbox{\hspace{3.cm} (d) t=1.00s \hspace{3.cm} (e) t=1.35s\hspace{4.cm} (f) t=3.50s }}
+\caption{XXX.}
+\label{fig:3DChannel_Isosurf}
+\end{figure}
+\end{landscape}
+\clearpage
