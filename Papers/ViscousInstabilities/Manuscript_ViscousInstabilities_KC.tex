@@ -537,16 +537,6 @@ Figures \ref{fig:5regions_fixedmesh} and \ref{fig:5regions_adaptmesh} show fluid
 The simulation performed with a fixed and relatively fine mesh
 Sharp permeability gradient triggered the onset of fingers' formation, as shown in 
 
-
-
-
-
-
-
-
-
-
-
 \medskip
 Having already verified that model is working for the hele-shaw experimental test-cases, now a more complicated case will be introduced with regions of different geometrical domains and different permeabilities. Initial and boundary conditions are described in fig.\ref{fig:testcase_heter_domain}, while inlet velocity is $1$ on the left hand side, and the pressure is set to $0$ on the outlet. What is expected is a significant growth of fingers when comparing mobility ratios that differ an order of magnitude. 
 %(fig.\ref{fig:1testcase})
@@ -558,30 +548,21 @@ Figures \ref{fig:2testcase_a}%\ref{fig:2testcase_b}, \ref{fig:2testcase_c}
   
 
 
-\subsection{Comparison of flow pattern with a different simulation set-up with and an additional inlet region.}\label{section:results_dinlet}
+\subsection{ \blue{The concept of the preferential flow path. A 3D case demonstration} }\label{section:results_dinlet}
 
 \medskip
-Figure \ref{fig:3testcase_a} illustrates another set of simulations for when another region (inlet) of fluid $1$ has introduced into the formation. This time fluid $1$ is injected from both the left hand side and the upper left corner of the domain, at a velocity u=$0.5$ while the set up of the problem remains the same, the mobility ratio is $10$, and the adaptive and ustructured mesh is implied. The top layer is saturated with phase $2$, while the rest of the domain has a saturation of $0.1$. The major difference is located in the velocity fields %(see Fig.\ref{fig:vel_magn2}) 
-as the presence of this extra inlet increases the flow at the top layers. At this point is proper to mentioned the extreme case, see Fig.\ref{fig:4testcase}, when mobility ratio is even an order of magnitude higher, when VR=$100$, 
-%this case is unlikely to happen as the mobility ration of the existing fluids in the industry , 
-it is a test-case that can illustrate the higher, faster and more profound development of instabilities. Also by focusing the grid resolution in the saturation front, \citet{christou_2015}  demonstrated the explicit formation of fingers formed due to the instability in the pressure ﬁeld and triggered by viscosity ratio. A comparison has also been made by using a low resolution element, the $P_{1}DG-P_{1}DG$. No fingers could be observed due to mesh coarseness (fingers were observed in ﬁner uniform and adaptive meshes). The last case that will give an estimable and quantitative description to the reader is the when the mobility ration is highly increased into $100$. Screenshots of the phase volume fraction and the development of fingers are shown in figures \ref{fig:4testcase_a}-\ref{fig:4testcase_b}.
+Figure \ref{fig:3DChannel_PermMesh} describes the permeability pattern as this is implied in a $3D$ domain. The surface on the left hand side of the domain is the area where fluid $1$ is injected with a velovity $ u=2.5 cm/sec $. The areas around the domain have a no-slip condition is implied (\ie insulation, no exchange of material or Neumann boundary condition for mass transfer) while at the right hand side of the domain is the outlet. The domain is constructed in such a way so as to be able tos capture the preferencial path of flow as this can be seen from figures \ref{fig:3DChannel_planes}-\ref{fig:3DChannel_Isosurf}. 
 
 \medskip
-The first example is a simple comparison between two cases using fixed mesh and mobility ratios of $1$ and $10$ respectively. 
-%The aspect ratio of the $2D$ domain is 2 and it favors viscous fingering effects while temperature is not taken into account (assume isothermal environment) and gravity effects are negligible. 
-Fluid $1$ is initially injected from the left hand side with velocity $u_{inj}=1$. The domain is fully saturated with fluid $2$. At the outlet (right hand side) boundary pressure levels are set to zero while no slip boundary conditions are implied at the upper and lower part of the formation. Fixed time step sizes of $1 \times 10^{-3}$ for both the fixed meshes and the CFL number for this set of simulations is $0.5$. The $P_{1}DGP_{2}$ element type with piecewise linear description of veleocity within each element and quadratic pressure representation as part of the OCVFEM method along with the discontinuous Galerkin method are implied and composing the mesh. Saturation is located at the pressure nodes. Five different regions of 5 distinct absolute permeabilities (K) are introduced (fig.\ref{fig:5regions_domain}). The red square region is saturated with a $50\%-50\%$ mixture of both phase $1$ and $2$. 
+Figure \ref{fig:3DChannel_planes} give a comprehensive description of the contours of phase $1$ darcy velocity, in the beggining and just before the end of the simulation. 
+While the saturation levels for phase $1$, as this is progress over time, remain between the values of $0.25-0.75$ there the main difference between the figures \ref{fig:3DChannel_planes} (a) and (b) is the intensity of the flow. A comparison between the figures \ref{fig:3DChannel_planes}(a)-\ref{fig:3DChannel_sat}(a) and \ref{fig:3DChannel_planes}(b)-\ref{fig:3DChannel_sat}(f) as they both describe the darcy velocity contours and the saturation front for the same timesteps, is necesserary. Along with the individual steps as the also shown in figures \ref{fig:3DChannel_sat}(a)-(f), the evolution of the saturation front becomes more obvious. Based on the boundary conditions that implemented in this domain, the preferencial path of the flow can been seen. In a large scale enhanced oil-recovery operation this might have direct impact on the in-sity hydrocarbons located in lower permeability areas. 
 
 \medskip
-Two general behaviors for the interface may occur: (i) If a more viscous fluid displaces a less viscous one or a less viscous displaces a more viscous with a low average velocity, the interface is flat; (ii) if a less viscous fluid displaces a more viscous one with intermediate values of the average velocity, single or multiple fingers will be observed.
-
-\medskip
-This test-case serves as a base case for comparison between mobility (or viscocity) ratios that differ by an order of magnitude. Viscocity is a measure of resistance, therefore a frictional property. In these test-cases the $\sigma$ term as this is described above contains the individual parameters related with wettability and contact angle while the porous surface is a fluid $2$ wetted surface. For mobility ratios below $5$ the injection front will uniformly develop as time progress (piston shape front) and no fingers are expexted. Instabilities will start to occur and will be more obvious for mobility ratios higher than $5$. Between two layers or two regions with different permeabilities, but both saturated with fluid $2$, fingers will be triggered because of the permeability differences on the interface of these layers. In between the porous cappilary pressure difference with curve the interface and will lead to the formation of fingers. In macroscopic scale the interface between the two fluid will become unstable, an uneven or fingered profile will be controlled by capilary pressure -acting in the scale of the pores- and therefore due to the overall surface tension difference between the two immiscible fluids the front will collapse. This is of major practical importance in the petroleum industry, environmental waste remediation, and subsurface hydrology and it is key to understanding the movement of large volumes of injection fluids into subsurface reservoirs. The relationships between the capillarity of a geologic system, and the saturation and permeability of the fluids has a direct bearing on the migration speed and reservoir sweep of hydrocarbons affected the productivity of an oil field.
-
-\medskip
-The macroscopic sweep efficiency is principally affected by the heterogeneity in the reservoir which controls the spatial distribution of porosity and permeability. The permeability depends on the number, size and connectivity of the pores. This set of parameters is described by the $\sigma$ in the global mass balance equation (eq.\ref{global_mass_balance}). Including higher permeability zones also know as higher permeability channels or layers in the set up of the model, allows our test-cases to give a good approximation of the so called "thief zones", something that is common in heterogeneous geological formations.
+Thus macroscopic sweep efficiency is affected by the heterogeneity in the reservoir which controls the spatial distribution of porosity and permeability. The permeability depends on the number, size and connectivity of the pores. An on purpose implementation of significant high permeability zones (compared with the lower ones) also know as higher permeability channels or layers in the set up of the model, allows our test-cases to give a good approximation of the so called "thief zones", something that is common in heterogeneous geological formations.
 
 \medskip 
-As can been seen so far in all the test-case illustrated, main differences can be found on the way the shape of fingering is developed. Adaptive meshes tend to display fingering easier because of the enhcanced and stronger resolution in the interface. Inside the high permeability square region there is an acceleration of the flow with the maximum value of it at the interface as this starts to develops at the back of this region and onwards. %At this point attention should be given to the recovery rates as they can be illustrated from fig.{\ref{fig:recoveryrates}}. The breaking point, also known as the point the two curves meet where beyond that water production will occur, is shifted towards the right as MR is increased.
+The evolution and results of the saturation front and the idea of preferential flow path in the domain is followed by a more detail representation as this can be found in figure \ref{fig:3DChannel_Isosurf}. For the same timesteps of the saturation front evolution an inside look on the domain provides with a more detailed description of not only the flow path itself as well as the minor fingers that may be created.
+
 
 \section{Conclusions}\label{Section:Conclusion}
 
