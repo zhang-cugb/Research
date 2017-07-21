@@ -482,12 +482,12 @@ All test-cases were performed in idealised geometries discretised with unstructu
  
 %%%%%%%%%%%% 
 \subsection{Initial Model Validation}\label{section:results_validation}
-Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is $4$ $\times$ $2$ unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also include no-flux across upper and lower borders. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a).
+Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is $4$ $\times$ $2$ unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also include no-flux across upper and lower borders. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a). The spatial discontinuities of permeability distribution will create a rough pressure field, \ie the pressure gradient is discontinuous across the interface between different permeability zones thus the flow will be lead to the high permeability region. This fact will cause difficulties for numerically solving fluid flows in heterogeneous porous media. 
 
 \medskip
 Numerical simulation was performed in modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}. Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the development of wetting phase through the four subdomains, demonstrating the preferential flow path through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}.
 
-\red{(KOSTAS: YOU HAVE REMOVED 1 SIMULATION HERE ... THEREFORE YOU NEED TO MAKE SURE THAT THE TEXT REFLECT THE NEW FIGURE'S CONFIGURATION!!) \blue{will work on it ASAP this evening}} 
+
 
 %%%%%%%%%%%%    
 \subsection{Flow simulations in Hele-Shaw cells at different Viscosity Ratio conditions}\label{section:results_homo_hete} 
