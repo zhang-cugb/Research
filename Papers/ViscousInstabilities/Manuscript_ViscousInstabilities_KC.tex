@@ -537,25 +537,21 @@ Figures \ref{fig:5regions_fixedmesh} and \ref{fig:5regions_adaptmesh} show fluid
 
 \subsection{3-D Channel Flows: Investigation of Preferential Flow Path and Formation of Fingers} \label{section:results_dinlet}
 
-\blue{(a) Little intro of the case;} 
+\blue{(a) Little intro of the case; }\\
 The last of the simulations is related with the effort to describe the finger evolution and the idea of the prefereable path using 3D domain with different permeability regions as these are decribed by figure \ref{fig:3DChannel_PermMesh}.   
 
-\blue{(b) set up what are the main issues (theory) of the simulations you are showing in this section;}
+\blue{(b) set up what are the main issues (theory) of the simulations you are showing in this section; }\\
 \textit{Viscous fingering} is characterized by the formation of a characteristic pattern, called
 viscous fingers. The geometrical evolution of these patterns provides good indications about the evolution of the penetration into a zone with a less viscous fluid. 
 
-\blue{(c) then briefly describe what are the strategies to tackle these issues; }
-Capturing and tracking the  evolution of viscous fingers is important for the understanding the penetration process and fluid patterns that will be created.  
+\blue{(c) then briefly describe what are the strategies to tackle these issues; }\\
+Capturing and tracking the evolution of fluid patterns is important for the understanding the penetration process.  
+
+\blue{(d) then describe the numerical experiment w all BC and IC;}\\
+Figure \ref{fig:3DChannel_PermMesh} describes the permeability pattern as this is implied in a $3D$ domain. The surface on the left hand side of the domain is the area where fluid $1$ is injected with a velovity $ u=2.5 cm/sec $. The areas around the domain have a no-slip condition is implied (\ie insulation, no exchange of material or Neumann boundary condition for mass transfer) while at the right hand side of the domain is the outlet. The domain is constructed in such a way so as to be able tos capture the preferencial path of flow as this can be seen from figures \ref{fig:3DChannel_planes}-\ref{fig:3DChannel_Isosurf}.
 
 
-
-
-\blue{(d) then describe the numerical experiment w all BC and IC; (e) then finally describe the results with a clear conclusion based on observation but backed by theory and/or physics!!}
-
-\medskip
-Figure \ref{fig:3DChannel_PermMesh} describes the permeability pattern as this is implied in a $3D$ domain. The surface on the left hand side of the domain is the area where fluid $1$ is injected with a velovity $ u=2.5 cm/sec $. The areas around the domain have a no-slip condition is implied (\ie insulation, no exchange of material or Neumann boundary condition for mass transfer) while at the right hand side of the domain is the outlet. The domain is constructed in such a way so as to be able tos capture the preferencial path of flow as this can be seen from figures \ref{fig:3DChannel_planes}-\ref{fig:3DChannel_Isosurf}. 
-
-\medskip
+\blue{(e) then finally describe the results with a clear conclusion based on observation but backed by theory and/or physics!!}
 Figure \ref{fig:3DChannel_planes} give a comprehensive description of the contours of phase $1$ darcy velocity, in the beggining and just before the end of the simulation. 
 While the saturation levels for phase $1$, as this is progress over time, remain between the values of $0.25-0.75$ there the main difference between the figures \ref{fig:3DChannel_planes} (a) and (b) is the intensity of the flow. A comparison between the figures \ref{fig:3DChannel_planes}(a)-\ref{fig:3DChannel_sat}(a) and \ref{fig:3DChannel_planes}(b)-\ref{fig:3DChannel_sat}(f) as they both describe the darcy velocity contours and the saturation front for the same timesteps, is necesserary. Along with the individual steps as the also shown in figures \ref{fig:3DChannel_sat}(a)-(f), the evolution of the saturation front becomes more obvious. Based on the boundary conditions that implemented in this domain, the preferencial path of the flow can been seen. In a large scale enhanced oil-recovery operation this might have direct impact on the in-sity hydrocarbons located in lower permeability areas. 
 
