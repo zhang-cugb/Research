@@ -448,6 +448,7 @@
 \clearpage
 
 
+
 \begin{comment}
 %%%%
 %%%%  FIGURE
@@ -525,25 +526,59 @@
 
 
 
+%%%%
+%%%%  FIGURE
+%%%%
+%\begin{landscape}
+\begin{figure}[ht] 
+\vbox{
+\hbox{\hspace{0.5cm}
+\includegraphics[width=0.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_end.pdf} 
+}
+\vspace{-12.0cm}
+\hbox{\hspace{6.0cm} (a)     
+}
+\hbox{\hspace{0.5cm}
+\includegraphics[width=0.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_end.pdf}
+}
+\vspace{-12.0cm}
+\hbox{\hspace{6.0cm} (b)      
+}
+}     
+\caption{\red{The XY and YZ plabes, this is a description of the Darcy velocity vectors for (a) t=$0.29$s and (b)t=$4.3$s.}
+\label{fig:3DChannel_planes}.}
+\end{figure}
+%\end{landscape}
+\clearpage
+
+
 %%%
 %%% FIGURE XXXXXX
 %%%
 \begin{landscape}
-\begin{figure}[ht]
+  \begin{figure}[ht]
   \vbox{\vspace{-.5cm}
-      \hbox{\includegraphics[width=.6\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_30.pdf} 
+      \hbox{\includegraphics[width=.45\textwidth, height=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_30.pdf} 
             \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_60.pdf}
-            \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_90.pdf} } 
-      \hbox{\hspace{2.cm} (a) t=0.29s \hspace{5.cm} (b) t=0.56s \hspace{4.cm} (c) t=0.82s}
-      \vspace{0.5cm}
-      \hbox{\hspace{.5cm} 
-            \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_110.pdf}
-            \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_150.pdf}
-            \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_288.pdf} }
-      \hbox{\hspace{2.cm} (d) t=1.00s \hspace{5.cm} (e) t=1.35s\hspace{4.cm} (f) t=3.50s  } }
-\caption{Evolution of saturation front and description of the preferable flow path in different times steps. The domain at t=$0.29$s currently has $327253$ elements while the maximum number of elements as the adaptive mesh develops is $1242202$. In figure (a) an initial tip of the flow front can been seen, while as the time progress, in figure (f) the flow path has become more obvious. The advantage of adaptivity is that computational times has decreased significantly as less files have been created for the same solution time.}
-\label{fig:3DChannel_sat}
+            \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_90.pdf} }
+      \hbox{\hspace{2.0cm} (a) t=0.29s \hspace{6.cm} (b) t=0.56s \hspace{4.cm} (c) t=0.82s}
+      \vspace{-0.5cm}
+      \hbox{\hspace{.5cm} \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_110.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_150.pdf}
+            \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_288.pdf} }
+      \hbox{\hspace{3.cm} (d) t=1.00s \hspace{3.cm} (e) t=1.35s\hspace{4.cm} (f) t=3.50s }}
+\caption{\red{For the same time steps as these are shown in figure \ref{fig:3DChannel_sat} there is a partial visual isolation of the preferential path of the flow inside the domain. The aim was to manage and describe the individual finger patterns, as the flow develops, inside the domain. In particular, figures (c)-(f) give a detailed description of the finger that starts to break out of the front}.}
+\label{fig:3DChannel_sat_adapt}
 \end{figure}
 \end{landscape}
 \clearpage
+
+
+
+
+
+
+
+
+
 
