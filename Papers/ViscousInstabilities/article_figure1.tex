@@ -526,52 +526,55 @@
 
 
 
-%%%%
-%%%%  FIGURE
-%%%%
-%\begin{landscape}
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{0.5cm}
-\includegraphics[width=0.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_end.pdf} 
-}
-\vspace{-12.0cm}
-\hbox{\hspace{6.0cm} (a)     
-}
-\hbox{\hspace{0.5cm}
-\includegraphics[width=0.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_end.pdf}
-}
-\vspace{-12.0cm}
-\hbox{\hspace{6.0cm} (b)      
-}
-}     
-\caption{\red{The XY and YZ plabes, this is a description of the Darcy velocity vectors for (a) t=$0.29$s and (b)t=$4.3$s.}
-\label{fig:3DChannel_planes}.}
-\end{figure}
-%\end{landscape}
-\clearpage
-
-
 %%%
 %%% FIGURE XXXXXX
 %%%
 \begin{landscape}
   \begin{figure}[ht]
   \vbox{\vspace{-.5cm}
-      \hbox{\includegraphics[width=.45\textwidth, height=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_30.pdf} 
+      \hbox{\includegraphics[width=.5\textwidth, height=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_30.pdf} 
             \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_60.pdf}
             \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_90.pdf} }
-      \hbox{\hspace{2.0cm} (a) t=0.29s \hspace{6.cm} (b) t=0.56s \hspace{4.cm} (c) t=0.82s}
-      \vspace{-0.5cm}
+      \hbox{\hspace{3.0cm} (a) t=0.29s \hspace{4.cm} (b) t=0.56s \hspace{4.cm} (c) t=0.82s}
+      \vspace{1.5cm}
       \hbox{\hspace{.5cm} \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_110.pdf}
             \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_150.pdf}
             \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_288.pdf} }
       \hbox{\hspace{3.cm} (d) t=1.00s \hspace{3.cm} (e) t=1.35s\hspace{4.cm} (f) t=3.50s }}
-\caption{\red{For the same time steps as these are shown in figure \ref{fig:3DChannel_sat} there is a partial visual isolation of the preferential path of the flow inside the domain. The aim was to manage and describe the individual finger patterns, as the flow develops, inside the domain. In particular, figures (c)-(f) give a detailed description of the finger that starts to break out of the front}.}
+\caption{For the same time steps as these are shown in figure \ref{fig:3DChannel_sat} there is a description of the same flow path but now using an adaptive and unstructured mesh. The aim was to describe in greater detail the finger patterns, as the flow develops but also address the importance of a resolution, in this case the type of mesh that is used to capture these phenomena.}
 \label{fig:3DChannel_sat_adapt}
 \end{figure}
 \end{landscape}
 \clearpage
+
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+%\begin{landscape}
+\begin{figure}[ht] 
+\vbox{\vspace{-4.cm}
+\vbox{\hspace{2.5cm}
+\includegraphics[width=0.75\textwidth]{./Pics1/3D_Channel/3D_channel_sat_end.pdf} 
+}
+\vspace{0.0cm}
+\hbox{\hspace{2.0cm} (a) fixed unstructured mesh of 322493 elements    
+}
+\hbox{\hspace{2.5cm}
+\includegraphics[width=0.75\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_end.pdf}
+}
+\vspace{0.0cm}
+\hbox{\hspace{-2.0cm} (b) adaptive and unstructured mesh with a maximum of 1242202 elements at the end of the simulation    
+}
+}     
+\caption{This is a qualitative comparison at t=end of simulation, for bot the fixed and unstructured mesh used in the 3D domain.}
+\end{figure}
+%\end{landscape}
+\clearpage
+
+
+
 
 
 
