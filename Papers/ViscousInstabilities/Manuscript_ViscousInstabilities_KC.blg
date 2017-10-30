@@ -1,0 +1,28 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Manuscript_ViscousInstabilities_KC.aux
+The style file: elsarticle-harv.bst
+Database file #1: references.bib
+Repeated entry---line 112 of file references.bib
+ : @book{brooks_1964
+ :                  ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 632 of file references.bib
+ :   
+ :   volume =   {25235},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1708 of file references.bib
+ :   
+ :   pages =   {290-296}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty pages in alpak_1999
+Warning--empty institution in porosity_documentation
+Warning--empty pages in brooks_1964
+Warning--can't use both author and editor fields in chavent_1986
+Warning--can't use both author and editor fields in gomes_book_2012
+Warning--empty pages in gomes_book_2012
+Warning--empty pages in jackson_2013
+Warning--empty pages in melnikova_2016
+Warning--empty pages in radunz_2014
+Warning--empty pages in salinas2015
+(There were 3 error messages)
