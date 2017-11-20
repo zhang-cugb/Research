@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.5)  13 NOV 2017 13:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.5)  20 NOV 2017 10:51
 entering extended mode
 **./Manuscript_ViscousInstabilities_KC.tex
 (Manuscript_ViscousInstabilities_KC.tex
@@ -558,7 +558,7 @@ Overfull \hbox (1.20155pt too wide) in paragraph at lines 14--14
 \openout7 = `Manuscript_ViscousInstabilities_KC.lof'.
 
  [32] (article_figure1.tex
-<./Pics/P1DGP2.pdf, id=675, 343.2825pt x 261.22594pt>
+<./Pics/P1DGP2.pdf, id=676, 343.2825pt x 261.22594pt>
 File: ./Pics/P1DGP2.pdf Graphic file (type pdf)
  <use ./Pics/P1DGP2.pdf>
 Package pdftex.def Info: ./Pics/P1DGP2.pdf used on input line 7.
@@ -567,7 +567,7 @@ Package pdftex.def Info: ./Pics/P1DGP2.pdf used on input line 7.
 [33
 
  <./Pics/P1DGP2.pdf>]
-<./Pics/element_n.pdf, id=683, 557.83406pt x 229.60782pt>
+<./Pics/element_n.pdf, id=684, 557.83406pt x 229.60782pt>
 File: ./Pics/element_n.pdf Graphic file (type pdf)
 
 <use ./Pics/element_n.pdf>
@@ -576,7 +576,7 @@ Package pdftex.def Info: ./Pics/element_n.pdf used on input line 19.
  [34
 
  <./Pics/element_n.pdf>]
-<./Pics/phase_vol_frac_uni_perm_1.pdf, id=691, 473.51906pt x 170.13562pt>
+<./Pics/phase_vol_frac_uni_perm_1.pdf, id=692, 473.51906pt x 170.13562pt>
 File: ./Pics/phase_vol_frac_uni_perm_1.pdf Graphic file (type pdf)
 
 <use ./Pics/phase_vol_frac_uni_perm_1.pdf>
@@ -586,7 +586,7 @@ e 30.
  [35
 
  <./Pics/phase_vol_frac_uni_perm_1.pdf>]
-<./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf, id=699, 642.90187pt x 304.13
+<./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf, id=700, 642.90187pt x 304.13
 625pt>
 File: ./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf Graphic file (type pdf)
  <use ./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf>
@@ -594,7 +594,7 @@ Package pdftex.def Info: ./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf used
 on input line 43.
 (pdftex.def)             Requested size: 312.00119pt x 147.60335pt.
 
-<./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf, id=700, 831.85782pt x 330.484
+<./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf, id=701, 831.85782pt x 330.484
 68pt>
 File: ./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf Graphic file (type pdf)
  <use ./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf>
@@ -602,7 +602,7 @@ Package pdftex.def Info: ./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf used o
 n input line 50.
 (pdftex.def)             Requested size: 331.50238pt x 131.70238pt.
 
-<./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_2.pdf, id=701, 790.45313pt x 399.74
+<./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_2.pdf, id=702, 790.45313pt x 399.74
 344pt>
 File: ./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_2.pdf Graphic file (type pdf)
  <use ./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_2.pdf>
@@ -611,7 +611,7 @@ on input line 57.
 (pdftex.def)             Requested size: 253.49762pt x 128.19499pt.
  [36 <./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf> <./Pics1/2b2_wi_fine/2b
 2_whole_in_fine_250_2.pdf> <./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_2.pdf>]
-<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2.pdf, id=715, 567.62062pt 
+<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2.pdf, id=716, 567.62062pt 
 x 296.60812pt>
 File: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2.pdf Graphic file (ty
 pe pdf)
@@ -620,7 +620,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2.p
 df used on input line 75.
 (pdftex.def)             Requested size: 276.90262pt x 144.69656pt.
 
-<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_250.pdf, id=716, 426.84468p
+<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_250.pdf, id=717, 426.84468p
 t x 427.5975pt>
 File: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_250.pdf Graphic file (
 type pdf)
@@ -630,7 +630,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_250
 .pdf used on input line 76.
 (pdftex.def)             Requested size: 144.2981pt x 144.5526pt.
 
-<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_1000.pdf, id=717, 426.09187
+<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_1000.pdf, id=718, 426.09187
 pt x 427.5975pt>
 File: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_1000.pdf Graphic file 
 (type pdf)
@@ -640,7 +640,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_100
 0.pdf used on input line 77.
 (pdftex.def)             Requested size: 144.2981pt x 144.80705pt.
 
-<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2500.pdf, id=718, 428.35031
+<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2500.pdf, id=719, 428.35031
 pt x 427.5975pt>
 File: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_2500.pdf Graphic file 
 (type pdf)
@@ -650,7 +650,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_250
 0.pdf used on input line 82.
 (pdftex.def)             Requested size: 148.2019pt x 147.93886pt.
 
-<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_3500.pdf, id=719, 426.84468
+<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_3500.pdf, id=720, 426.84468
 pt x 428.35031pt>
 File: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_3500.pdf Graphic file 
 (type pdf)
@@ -660,7 +660,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_350
 0.pdf used on input line 83.
 (pdftex.def)             Requested size: 148.2019pt x 148.72874pt.
 
-<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_end.pdf, id=720, 621.07031p
+<./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_end.pdf, id=721, 621.07031p
 t x 356.83313pt>
 File: ./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_end.pdf Graphic file (
 type pdf)
@@ -674,7 +674,7 @@ n_homogeneous_MR3/saffman_homo_fixed_250.pdf> <./Pics1/Saffman_homogeneous_MR3/
 saffman_homo_fixed_1000.pdf> <./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixe
 d_2500.pdf> <./Pics1/Saffman_homogeneous_MR3/saffman_homo_fixed_3500.pdf> <./Pi
 cs1/Saffman_homogeneous_MR3/saffman_homo_fixed_end.pdf>]
-<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D201c.pdf, id=744, 460.72125pt 
+<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D201c.pdf, id=745, 460.72125pt 
 x 272.01625pt>
 File: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D201c.pdf Graphic file (ty
 pe pdf)
@@ -683,7 +683,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D201c.p
 df used on input line 103.
 (pdftex.def)             Requested size: 350.99539pt x 195.00896pt.
 
-<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D1001c.pdf, id=745, 328.22626pt
+<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D1001c.pdf, id=746, 328.22626pt
  x 328.22626pt>
 File: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D1001c.pdf Graphic file (t
 ype pdf)
@@ -693,7 +693,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D1001c.
 pdf used on input line 105.
 (pdftex.def)             Requested size: 195.0pt x 194.99904pt.
 
-<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2001c.pdf, id=746, 326.21875pt
+<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2001c.pdf, id=747, 326.21875pt
  x 326.21875pt>
 File: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2001c.pdf Graphic file (t
 ype pdf)
@@ -703,7 +703,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2001c.
 pdf used on input line 110.
 (pdftex.def)             Requested size: 198.89786pt x 198.90353pt.
 
-<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201c.pdf, id=747, 324.21124pt
+<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201c.pdf, id=748, 324.21124pt
  x 326.21875pt>
 File: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201c.pdf Graphic file (t
 ype pdf)
@@ -713,7 +713,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201c.
 pdf used on input line 111.
 (pdftex.def)             Requested size: 195.0pt x 196.2106pt.
 
-<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D3001c.pdf, id=748, 328.22626pt
+<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D3001c.pdf, id=749, 328.22626pt
  x 327.2225pt>
 File: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D3001c.pdf Graphic file (t
 ype pdf)
@@ -729,7 +729,7 @@ LaTeX Warning: Float too large for page by 61.63055pt on input line 119.
 _homogeneous_VR10/ST_Homog_VR10_D1001c.pdf> <./Pics1/Saffman_homogeneous_VR10/S
 T_Homog_VR10_D2001c.pdf> <./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201c
 .pdf> <./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D3001c.pdf>]
-<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D300b.pdf, id=793, 436.63126p
+<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D300b.pdf, id=794, 436.63126p
 t x 322.20375pt>
 File: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D300b.pdf Graphic file (
 type pdf)
@@ -739,7 +739,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D300b
 .pdf used on input line 129.
 (pdftex.def)             Requested size: 350.99774pt x 195.00516pt.
 
-<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D1600b.pdf, id=794, 318.18875
+<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D1600b.pdf, id=795, 318.18875
 pt x 321.2pt>
 File: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D1600b.pdf Graphic file 
 (type pdf)
@@ -749,7 +749,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D1600
 b.pdf used on input line 131.
 (pdftex.def)             Requested size: 195.0pt x 196.84332pt.
 
-<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D2700b.pdf, id=795, 319.1925p
+<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D2700b.pdf, id=796, 319.1925p
 t x 322.20375pt>
 File: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D2700b.pdf Graphic file 
 (type pdf)
@@ -759,7 +759,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D2700
 b.pdf used on input line 136.
 (pdftex.def)             Requested size: 195.0pt x 196.83897pt.
 
-<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D4000b.pdf, id=796, 315.1775p
+<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D4000b.pdf, id=797, 315.1775p
 t x 320.19624pt>
 File: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D4000b.pdf Graphic file 
 (type pdf)
@@ -769,7 +769,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D4000
 b.pdf used on input line 137.
 (pdftex.def)             Requested size: 195.0pt x 198.10431pt.
 
-<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D7000b.pdf, id=797, 320.19624
+<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D7000b.pdf, id=798, 320.19624
 pt x 318.18875pt>
 File: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D7000b.pdf Graphic file 
 (type pdf)
@@ -786,7 +786,7 @@ LaTeX Warning: Float too large for page by 62.6657pt on input line 145.
 an_homogeneous_VR150/ST_Homog_VR150_D1600b.pdf> <./Pics1/Saffman_homogeneous_VR
 150/ST_Homog_VR150_D2700b.pdf> <./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR15
 0_D4000b.pdf> <./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D7000b.pdf>]
-<./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1.pdf, id=842, 344.78813pt x
+<./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1.pdf, id=843, 344.78813pt x
  344.78813pt>
 File: ./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1.pdf Graphic file (typ
 e pdf)
@@ -795,7 +795,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous/saffman_heter_fixed_1.pd
 f used on input line 156.
 (pdftex.def)             Requested size: 155.99762pt x 156.00024pt.
 
-<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D200Hb.pdf, id=843, 439.642
+<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D200Hb.pdf, id=844, 439.642
 5pt x 327.2225pt>
 File: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D200Hb.pdf Graphic fil
 e (type pdf)
@@ -805,7 +805,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D20
 0Hb.pdf used on input line 157.
 (pdftex.def)             Requested size: 214.50095pt x 155.9965pt.
 
-<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D900Hb.pdf, id=844, 325.215
+<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D900Hb.pdf, id=845, 325.215
 pt x 307.1475pt>
 File: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D900Hb.pdf Graphic fil
 e (type pdf)
@@ -815,7 +815,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D90
 0Hb.pdf used on input line 158.
 (pdftex.def)             Requested size: 163.79929pt x 154.70285pt.
 
-<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D5000Hb.pdf, id=845, 325.21
+<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D5000Hb.pdf, id=846, 325.21
 5pt x 326.21875pt>
 File: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D5000Hb.pdf Graphic fi
 le (type pdf)
@@ -825,7 +825,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D50
 00Hb.pdf used on input line 161.
 (pdftex.def)             Requested size: 175.49881pt x 176.04597pt.
 
-<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D8000Hb.pdf, id=846, 323.20
+<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D8000Hb.pdf, id=847, 323.20
 75pt x 327.2225pt>
 File: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D8000Hb.pdf Graphic fi
 le (type pdf)
@@ -835,7 +835,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D80
 00Hb.pdf used on input line 162.
 (pdftex.def)             Requested size: 175.49881pt x 177.67615pt.
 
-<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D13800Hb.pdf, id=847, 324.2
+<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D13800Hb.pdf, id=848, 324.2
 1124pt x 327.2225pt>
 File: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D13800Hb.pdf Graphic f
 ile (type pdf)
@@ -853,7 +853,7 @@ heterogeneous_VR10/ST_Heterog_VR10_D200Hb.pdf> <./Pics1/Saffman_heterogeneous_V
 R10/ST_Heterog_VR10_D900Hb.pdf> <./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_
 VR10_D5000Hb.pdf> <./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D8000Hb.p
 df> <./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D13800Hb.pdf>]
-<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D200Hb.pdf, id=895, 439.6
+<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D200Hb.pdf, id=896, 439.6
 425pt x 327.2225pt>
 File: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D200Hb.pdf Graphic f
 ile (type pdf)
@@ -863,7 +863,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D
 200Hb.pdf used on input line 178.
 (pdftex.def)             Requested size: 253.49684pt x 179.40372pt.
 
-<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D500Hb.pdf, id=896, 321.2
+<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D500Hb.pdf, id=897, 321.2
 pt x 327.2225pt>
 File: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D500Hb.pdf Graphic f
 ile (type pdf)
@@ -873,7 +873,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D
 500Hb.pdf used on input line 179.
 (pdftex.def)             Requested size: 175.49881pt x 178.79457pt.
 
-<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D800Hb.pdf, id=897, 322.2
+<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D800Hb.pdf, id=898, 322.2
 0375pt x 326.21875pt>
 File: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D800Hb.pdf Graphic f
 ile (type pdf)
@@ -883,7 +883,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D
 800Hb.pdf used on input line 180.
 (pdftex.def)             Requested size: 175.49881pt x 177.6936pt.
 
-<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D1500Hb.pdf, id=898, 321.
+<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D1500Hb.pdf, id=899, 321.
 2pt x 327.2225pt>
 File: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D1500Hb.pdf Graphic 
 file (type pdf)
@@ -893,7 +893,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D
 1500Hb.pdf used on input line 183.
 (pdftex.def)             Requested size: 175.49881pt x 178.79457pt.
 
-<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D5000Hb.pdf, id=899, 323.
+<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D5000Hb.pdf, id=900, 323.
 2075pt x 325.215pt>
 File: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D5000Hb.pdf Graphic 
 file (type pdf)
@@ -903,7 +903,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D
 5000Hb.pdf used on input line 184.
 (pdftex.def)             Requested size: 175.49881pt x 176.5861pt.
 
-<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D8000Hb.pdf, id=900, 322.
+<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D8000Hb.pdf, id=901, 322.
 20375pt x 329.23pt>
 File: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D8000Hb.pdf Graphic 
 file (type pdf)
@@ -922,7 +922,7 @@ ogeneous_VR150/ST_Heterog_VR150_D800Hb.pdf> <./Pics1/Saffman_heterogeneous_VR15
 0/ST_Heterog_VR150_D1500Hb.pdf> <./Pics1/Saffman_heterogeneous_VR150/ST_Heterog
 _VR150_D5000Hb.pdf> <./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D8000
 Hb.pdf>]
-<./Pics1/Saffman_new/ST_Heterog_50.pdf, id=955, 661.72218pt x 378.66469pt>
+<./Pics1/Saffman_new/ST_Heterog_50.pdf, id=956, 661.72218pt x 378.66469pt>
 File: ./Pics1/Saffman_new/ST_Heterog_50.pdf Graphic file (type pdf)
 
 <use ./Pics1/Saffman_new/ST_Heterog_50.pdf>
@@ -930,7 +930,7 @@ Package pdftex.def Info: ./Pics1/Saffman_new/ST_Heterog_50.pdf used on input li
 ne 201.
 (pdftex.def)             Requested size: 253.49664pt x 175.49945pt.
 
-<./Pics1/Saffman_new/ST_Heterog_500.pdf, id=956, 374.14781pt x 373.395pt>
+<./Pics1/Saffman_new/ST_Heterog_500.pdf, id=957, 374.14781pt x 373.395pt>
 File: ./Pics1/Saffman_new/ST_Heterog_500.pdf Graphic file (type pdf)
 
 <use ./Pics1/Saffman_new/ST_Heterog_500.pdf>
@@ -938,7 +938,7 @@ Package pdftex.def Info: ./Pics1/Saffman_new/ST_Heterog_500.pdf used on input l
 ine 202.
 (pdftex.def)             Requested size: 175.49881pt x 175.14812pt.
 
-<./Pics1/Saffman_new/ST_Heterog_1000.pdf, id=957, 374.14781pt x 371.88937pt>
+<./Pics1/Saffman_new/ST_Heterog_1000.pdf, id=958, 374.14781pt x 371.88937pt>
 File: ./Pics1/Saffman_new/ST_Heterog_1000.pdf Graphic file (type pdf)
 
 <use ./Pics1/Saffman_new/ST_Heterog_1000.pdf>
@@ -946,7 +946,7 @@ Package pdftex.def Info: ./Pics1/Saffman_new/ST_Heterog_1000.pdf used on input
 line 203.
 (pdftex.def)             Requested size: 175.49881pt x 174.44188pt.
 
-<./Pics1/Saffman_new/ST_Heterog_1500.pdf, id=958, 374.14781pt x 373.395pt>
+<./Pics1/Saffman_new/ST_Heterog_1500.pdf, id=959, 374.14781pt x 373.395pt>
 File: ./Pics1/Saffman_new/ST_Heterog_1500.pdf Graphic file (type pdf)
 
 <use ./Pics1/Saffman_new/ST_Heterog_1500.pdf>
@@ -954,7 +954,7 @@ Package pdftex.def Info: ./Pics1/Saffman_new/ST_Heterog_1500.pdf used on input
 line 206.
 (pdftex.def)             Requested size: 175.49881pt x 175.14812pt.
 
-<./Pics1/Saffman_new/ST_Heterog_1800.pdf, id=959, 374.90062pt x 374.14781pt>
+<./Pics1/Saffman_new/ST_Heterog_1800.pdf, id=960, 374.90062pt x 374.14781pt>
 File: ./Pics1/Saffman_new/ST_Heterog_1800.pdf Graphic file (type pdf)
 
 <use ./Pics1/Saffman_new/ST_Heterog_1800.pdf>
@@ -962,7 +962,7 @@ Package pdftex.def Info: ./Pics1/Saffman_new/ST_Heterog_1800.pdf used on input
 line 207.
 (pdftex.def)             Requested size: 175.49881pt x 175.14728pt.
 
-<./Pics1/Saffman_new/ST_Heterog_2180.pdf, id=960, 374.14781pt x 374.14781pt>
+<./Pics1/Saffman_new/ST_Heterog_2180.pdf, id=961, 374.14781pt x 374.14781pt>
 File: ./Pics1/Saffman_new/ST_Heterog_2180.pdf Graphic file (type pdf)
 
 <use ./Pics1/Saffman_new/ST_Heterog_2180.pdf>
@@ -977,7 +977,7 @@ LaTeX Warning: Float too large for page by 29.94513pt on input line 212.
 .pdf> <./Pics1/Saffman_new/ST_Heterog_1000.pdf> <./Pics1/Saffman_new/ST_Heterog
 _1500.pdf> <./Pics1/Saffman_new/ST_Heterog_1800.pdf> <./Pics1/Saffman_new/ST_He
 terog_2180.pdf>]
-<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_W2b.pdf, id=991, 436.6312
+<./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_W2b.pdf, id=992, 436.6312
 6pt x 322.20375pt>
 File: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_W2b.pdf Graphic file
  (type pdf)
@@ -987,7 +987,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_W
 2b.pdf used on input line 223.
 (pdftex.def)             Requested size: 195.0pt x 143.89398pt.
 
-<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_W2b.pdf, id=992, 434.62
+<./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_W2b.pdf, id=993, 434.62
 375pt x 321.2pt>
 File: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_W2b.pdf Graphic fi
 le (type pdf)
@@ -997,7 +997,7 @@ Package pdftex.def Info: ./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003
 _W2b.pdf used on input line 224.
 (pdftex.def)             Requested size: 195.0pt x 144.11226pt.
 
-<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D11000_W2b.pdf, id=993, 433
+<./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D11000_W2b.pdf, id=994, 433
 .62pt x 321.2pt>
 File: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D11000_W2b.pdf Graphic
  file (type pdf)
@@ -1007,7 +1007,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D11
 000_W2b.pdf used on input line 227.
 (pdftex.def)             Requested size: 195.0pt x 144.44554pt.
 
-<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D6500_W2b.pdf, id=994, 43
+<./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D6500_W2b.pdf, id=995, 43
 4.62375pt x 321.2pt>
 File: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D6500_W2b.pdf Graphi
 c file (type pdf)
@@ -1021,7 +1021,7 @@ Package pdftex.def Info: ./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D
 fman_homogeneous_VR150/ST_Homog_VR150_D5003_W2b.pdf> <./Pics1/Saffman_heterogen
 eous_VR10/ST_Heterog_VR10_D11000_W2b.pdf> <./Pics1/Saffman_heterogeneous_VR150/
 ST_Heterog_VR150_D6500_W2b.pdf>]
-<./Pics1/Section4_4/Five_regions_adapt_MeshPerm.pdf, id=1038, 551.05875pt x 308
+<./Pics1/Section4_4/Five_regions_adapt_MeshPerm.pdf, id=1039, 551.05875pt x 308
 .15125pt>
 File: ./Pics1/Section4_4/Five_regions_adapt_MeshPerm.pdf Graphic file (type pdf
 )
@@ -1030,7 +1030,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/Five_regions_adapt_MeshPerm.pdf use
 d on input line 253.
 (pdftex.def)             Requested size: 390.0pt x 218.0977pt.
 
-<./Pics1/Section4_4/Five_regions_adapt_MeshSat1.pdf, id=1039, 551.05875pt x 308
+<./Pics1/Section4_4/Five_regions_adapt_MeshSat1.pdf, id=1040, 551.05875pt x 308
 .15125pt>
 File: ./Pics1/Section4_4/Five_regions_adapt_MeshSat1.pdf Graphic file (type pdf
 )
@@ -1040,7 +1040,7 @@ d on input line 258.
 (pdftex.def)             Requested size: 390.0pt x 218.0977pt.
  [44 <./Pics1/Section4_4/Five_regions_adapt_MeshPerm.pdf> <./Pics1/Section4_4/F
 ive_regions_adapt_MeshSat1.pdf>]
-<./Pics1/Section4_4/5r_po_left_inlet_D0b.pdf, id=1060, 551.05875pt x 308.15125p
+<./Pics1/Section4_4/5r_po_left_inlet_D0b.pdf, id=1061, 551.05875pt x 308.15125p
 t>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D0b.pdf Graphic file (type pdf)
  <use ./Pics1/Section4_4/5r_po_left_inlet_D0b.pdf>
@@ -1048,7 +1048,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D0b.pdf used on in
 put line 278.
 (pdftex.def)             Requested size: 175.49881pt x 98.1402pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D350b.pdf, id=1061, 551.05875pt x 308.1512
+<./Pics1/Section4_4/5r_po_left_inlet_D350b.pdf, id=1062, 551.05875pt x 308.1512
 5pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D350b.pdf Graphic file (type pdf)
  <use ./Pics1/Section4_4/5r_po_left_inlet_D350b.pdf>
@@ -1056,7 +1056,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D350b.pdf used on
 input line 279.
 (pdftex.def)             Requested size: 175.49881pt x 98.1402pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D100b.pdf, id=1062, 551.05875pt x 308.1512
+<./Pics1/Section4_4/5r_po_left_inlet_D100b.pdf, id=1063, 551.05875pt x 308.1512
 5pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D100b.pdf Graphic file (type pdf)
  <use ./Pics1/Section4_4/5r_po_left_inlet_D100b.pdf>
@@ -1064,7 +1064,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D100b.pdf used on
 input line 281.
 (pdftex.def)             Requested size: 175.49881pt x 98.1402pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D700b.pdf, id=1063, 551.05875pt x 308.1512
+<./Pics1/Section4_4/5r_po_left_inlet_D700b.pdf, id=1064, 551.05875pt x 308.1512
 5pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D700b.pdf Graphic file (type pdf)
  <use ./Pics1/Section4_4/5r_po_left_inlet_D700b.pdf>
@@ -1072,7 +1072,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D700b.pdf used on
 input line 282.
 (pdftex.def)             Requested size: 175.49881pt x 98.1402pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D150b.pdf, id=1064, 551.05875pt x 308.1512
+<./Pics1/Section4_4/5r_po_left_inlet_D150b.pdf, id=1065, 551.05875pt x 308.1512
 5pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D150b.pdf Graphic file (type pdf)
  <use ./Pics1/Section4_4/5r_po_left_inlet_D150b.pdf>
@@ -1080,7 +1080,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D150b.pdf used on
 input line 284.
 (pdftex.def)             Requested size: 175.49881pt x 98.1402pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D1000b.pdf, id=1065, 551.05875pt x 308.151
+<./Pics1/Section4_4/5r_po_left_inlet_D1000b.pdf, id=1066, 551.05875pt x 308.151
 25pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D1000b.pdf Graphic file (type pdf)
  <use ./Pics1/Section4_4/5r_po_left_inlet_D1000b.pdf>
@@ -1088,7 +1088,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D1000b.pdf used on
  input line 285.
 (pdftex.def)             Requested size: 175.49881pt x 98.1402pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D200b.pdf, id=1066, 551.05875pt x 308.1512
+<./Pics1/Section4_4/5r_po_left_inlet_D200b.pdf, id=1067, 551.05875pt x 308.1512
 5pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D200b.pdf Graphic file (type pdf)
  <use ./Pics1/Section4_4/5r_po_left_inlet_D200b.pdf>
@@ -1096,7 +1096,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D200b.pdf used on
 input line 287.
 (pdftex.def)             Requested size: 175.49881pt x 98.1402pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D1500b.pdf, id=1067, 551.05875pt x 308.151
+<./Pics1/Section4_4/5r_po_left_inlet_D1500b.pdf, id=1068, 551.05875pt x 308.151
 25pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D1500b.pdf Graphic file (type pdf)
  <use ./Pics1/Section4_4/5r_po_left_inlet_D1500b.pdf>
@@ -1104,7 +1104,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D1500b.pdf used on
  input line 288.
 (pdftex.def)             Requested size: 175.49881pt x 98.1402pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D250b.pdf, id=1068, 551.05875pt x 308.1512
+<./Pics1/Section4_4/5r_po_left_inlet_D250b.pdf, id=1069, 551.05875pt x 308.1512
 5pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D250b.pdf Graphic file (type pdf)
  <use ./Pics1/Section4_4/5r_po_left_inlet_D250b.pdf>
@@ -1121,7 +1121,7 @@ tion4_4/5r_po_left_inlet_D700b.pdf> <./Pics1/Section4_4/5r_po_left_inlet_D150b.
 pdf> <./Pics1/Section4_4/5r_po_left_inlet_D1000b.pdf> <./Pics1/Section4_4/5r_po
 _left_inlet_D200b.pdf> <./Pics1/Section4_4/5r_po_left_inlet_D1500b.pdf> <./Pics
 1/Section4_4/5r_po_left_inlet_D250b.pdf>]
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D0b.pdf, id=1136, 551.05875pt x 308.
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D0b.pdf, id=1137, 551.05875pt x 308.
 15125pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D0b.pdf Graphic file (type pdf)
 
@@ -1130,7 +1130,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D0b.pdf used
  on input line 304.
 (pdftex.def)             Requested size: 175.49881pt x 98.1402pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D350b.pdf, id=1137, 551.05875pt x 31
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D350b.pdf, id=1138, 551.05875pt x 31
 9.1925pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D350b.pdf Graphic file (type pd
 f)
@@ -1139,7 +1139,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D350b.pdf us
 ed on input line 305.
 (pdftex.def)             Requested size: 175.49881pt x 101.65663pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D100b.pdf, id=1138, 551.05875pt x 31
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D100b.pdf, id=1139, 551.05875pt x 31
 9.1925pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D100b.pdf Graphic file (type pd
 f)
@@ -1148,7 +1148,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D100b.pdf us
 ed on input line 307.
 (pdftex.def)             Requested size: 175.49881pt x 101.65663pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D700b.pdf, id=1139, 551.05875pt x 31
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D700b.pdf, id=1140, 551.05875pt x 31
 9.1925pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D700b.pdf Graphic file (type pd
 f)
@@ -1157,7 +1157,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D700b.pdf us
 ed on input line 308.
 (pdftex.def)             Requested size: 175.49881pt x 101.65663pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D150b.pdf, id=1140, 551.05875pt x 31
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D150b.pdf, id=1141, 551.05875pt x 31
 9.1925pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D150b.pdf Graphic file (type pd
 f)
@@ -1166,7 +1166,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D150b.pdf us
 ed on input line 310.
 (pdftex.def)             Requested size: 175.49881pt x 101.65663pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D1000b.pdf, id=1141, 551.05875pt x 3
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D1000b.pdf, id=1142, 551.05875pt x 3
 19.1925pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D1000b.pdf Graphic file (type p
 df)
@@ -1175,7 +1175,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D1000b.pdf u
 sed on input line 311.
 (pdftex.def)             Requested size: 175.49881pt x 101.65663pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D200b.pdf, id=1142, 551.05875pt x 31
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D200b.pdf, id=1143, 551.05875pt x 31
 9.1925pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D200b.pdf Graphic file (type pd
 f)
@@ -1184,7 +1184,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D200b.pdf us
 ed on input line 313.
 (pdftex.def)             Requested size: 175.49881pt x 101.65663pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D1500b.pdf, id=1143, 551.05875pt x 3
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D1500b.pdf, id=1144, 551.05875pt x 3
 19.1925pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D1500b.pdf Graphic file (type p
 df)
@@ -1193,7 +1193,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D1500b.pdf u
 sed on input line 314.
 (pdftex.def)             Requested size: 175.49881pt x 101.65663pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D250b.pdf, id=1144, 551.05875pt x 31
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D250b.pdf, id=1145, 551.05875pt x 31
 9.1925pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D250b.pdf Graphic file (type pd
 f)
@@ -1212,7 +1212,7 @@ po_left_inlet_adapt_D350b.pdf> <./Pics1/Section4_4/5r_po_left_inlet_adapt_D100b
 1000b.pdf> <./Pics1/Section4_4/5r_po_left_inlet_adapt_D200b.pdf> <./Pics1/Secti
 on4_4/5r_po_left_inlet_adapt_D1500b.pdf> <./Pics1/Section4_4/5r_po_left_inlet_a
 dapt_D250b.pdf>]
-<./Pics1/Section4_4/Five_regions_adapt_PlotTimeNodesElements.pdf, id=1212, 845.
+<./Pics1/Section4_4/Five_regions_adapt_PlotTimeNodesElements.pdf, id=1213, 845.
 1575pt x 597.23125pt>
 File: ./Pics1/Section4_4/Five_regions_adapt_PlotTimeNodesElements.pdf Graphic f
 ile (type pdf)
@@ -1222,7 +1222,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/Five_regions_adapt_PlotTimeNodesEle
 ments.pdf used on input line 329.
 (pdftex.def)             Requested size: 390.0pt x 275.59544pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D250_meshb.pdf, id=1213, 551.05875pt x 308
+<./Pics1/Section4_4/5r_po_left_inlet_D250_meshb.pdf, id=1214, 551.05875pt x 308
 .15125pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D250_meshb.pdf Graphic file (type pdf
 )
@@ -1231,7 +1231,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D250_meshb.pdf use
 d on input line 342.
 (pdftex.def)             Requested size: 195.00078pt x 116.99994pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D250_edb.pdf, id=1215, 551.47026pt x
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D250_edb.pdf, id=1216, 551.47026pt x
  319.4635pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D250_edb.pdf Graphic file (type
  pdf)
@@ -1240,7 +1240,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D250_edb.pdf
  used on input line 343.
 (pdftex.def)             Requested size: 194.99493pt x 128.70442pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom1b.pdf, id=1217, 551.05875pt x 30
+<./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom1b.pdf, id=1218, 551.05875pt x 30
 8.15125pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom1b.pdf Graphic file (type pd
 f)
@@ -1249,7 +1249,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom1b.pdf us
 ed on input line 348.
 (pdftex.def)             Requested size: 195.00078pt x 116.99994pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom1b.pdf, id=1219, 551.05875p
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom1b.pdf, id=1220, 551.05875p
 t x 308.15125pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom1b.pdf Graphic file (t
 ype pdf)
@@ -1259,7 +1259,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom1b.
 pdf used on input line 349.
 (pdftex.def)             Requested size: 195.00078pt x 116.99994pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom2b.pdf, id=1221, 551.05875pt x 30
+<./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom2b.pdf, id=1222, 551.05875pt x 30
 8.15125pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom2b.pdf Graphic file (type pd
 f)
@@ -1268,7 +1268,7 @@ Package pdftex.def Info: ./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom2b.pdf us
 ed on input line 351.
 (pdftex.def)             Requested size: 195.00078pt x 116.99994pt.
 
-<./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom2b.pdf, id=1223, 551.05875p
+<./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom2b.pdf, id=1224, 551.05875p
 t x 308.15125pt>
 File: ./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom2b.pdf Graphic file (t
 ype pdf)
@@ -1308,7 +1308,7 @@ cs1/Section4_4/5r_po_left_inlet_adapt_D250_edb.pdf> <./Pics1/Section4_4/5r_po_l
 eft_inlet_D251_Zoom1b.pdf> <./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom
 1b.pdf> <./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom2b.pdf> <./Pics1/Section4
 _4/5r_po_left_inlet_adapt_D251_Zoom2b.pdf>]
-<./Pics1/3D_Channel/Test_SlowNew_MeshPermeability.pdf, id=1286, 551.05875pt x 3
+<./Pics1/3D_Channel/Test_SlowNew_MeshPermeability.pdf, id=1287, 551.05875pt x 3
 27.2225pt>
 File: ./Pics1/3D_Channel/Test_SlowNew_MeshPermeability.pdf Graphic file (type p
 df)
@@ -1319,7 +1319,7 @@ sed on input line 367.
  [49
 
  <./Pics1/3D_Channel/Test_SlowNew_MeshPermeability.pdf>]
-<./Pics1/3D_Channel/3D_channel_darcy_vel_planes_490_1_1.pdf, id=1299, 597.23125
+<./Pics1/3D_Channel/3D_channel_darcy_vel_planes_490_1_1.pdf, id=1300, 597.23125
 pt x 845.1575pt>
 File: ./Pics1/3D_Channel/3D_channel_darcy_vel_planes_490_1_1.pdf Graphic file (
 type pdf)
@@ -1329,7 +1329,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_darcy_vel_planes_490_1_1
 .pdf used on input line 382.
 (pdftex.def)             Requested size: 390.0pt x 551.89929pt.
 
-<./Pics1/3D_Channel/3D_channel_darcy_vel_planes_30_1_1.pdf, id=1300, 597.23125p
+<./Pics1/3D_Channel/3D_channel_darcy_vel_planes_30_1_1.pdf, id=1301, 597.23125p
 t x 845.1575pt>
 File: ./Pics1/3D_Channel/3D_channel_darcy_vel_planes_30_1_1.pdf Graphic file (t
 ype pdf)
@@ -1340,7 +1340,7 @@ pdf used on input line 388.
 (pdftex.def)             Requested size: 390.0pt x 551.89929pt.
  [50 <./Pics1/3D_Channel/3D_channel_darcy_vel_planes_490_1_1.pdf> <./Pics1/3D_C
 hannel/3D_channel_darcy_vel_planes_30_1_1.pdf>]
-<./Pics1/3D_Channel/3D_channel_sat_30.pdf, id=1315, 596.2275pt x 365.86688pt>
+<./Pics1/3D_Channel/3D_channel_sat_30.pdf, id=1316, 596.2275pt x 365.86688pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_30.pdf Graphic file (type pdf)
 
 <use ./Pics1/3D_Channel/3D_channel_sat_30.pdf>
@@ -1348,7 +1348,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_30.pdf used on input
  line 408.
 (pdftex.def)             Requested size: 234.00238pt x 143.59189pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_60.pdf, id=1316, 690.32906pt x 487.8225pt>
+<./Pics1/3D_Channel/3D_channel_sat_60.pdf, id=1317, 690.32906pt x 487.8225pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_60.pdf Graphic file (type pdf)
 
 <use ./Pics1/3D_Channel/3D_channel_sat_60.pdf>
@@ -1356,7 +1356,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_60.pdf used on input
  line 409.
 (pdftex.def)             Requested size: 195.0pt x 137.79521pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_90.pdf, id=1317, 663.98062pt x 495.35063pt>
+<./Pics1/3D_Channel/3D_channel_sat_90.pdf, id=1318, 663.98062pt x 495.35063pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_90.pdf Graphic file (type pdf)
 
 <use ./Pics1/3D_Channel/3D_channel_sat_90.pdf>
@@ -1364,21 +1364,21 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_90.pdf used on input
  line 410.
 (pdftex.def)             Requested size: 195.0pt x 145.47714pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_110.pdf, id=1318, 653.44125pt x 497.60907pt>
+<./Pics1/3D_Channel/3D_channel_sat_110.pdf, id=1319, 653.44125pt x 497.60907pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_110.pdf Graphic file (type pdf)
 <use ./Pics1/3D_Channel/3D_channel_sat_110.pdf>
 Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_110.pdf used on inpu
 t line 414.
 (pdftex.def)             Requested size: 195.0pt x 148.4942pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_150.pdf, id=1319, 665.48625pt x 496.10344pt>
+<./Pics1/3D_Channel/3D_channel_sat_150.pdf, id=1320, 665.48625pt x 496.10344pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_150.pdf Graphic file (type pdf)
 <use ./Pics1/3D_Channel/3D_channel_sat_150.pdf>
 Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_150.pdf used on inpu
 t line 415.
 (pdftex.def)             Requested size: 195.0pt x 145.36514pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_490.pdf, id=1320, 655.69969pt x 499.8675pt>
+<./Pics1/3D_Channel/3D_channel_sat_490.pdf, id=1321, 655.69969pt x 499.8675pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_490.pdf Graphic file (type pdf)
 
 <use ./Pics1/3D_Channel/3D_channel_sat_490.pdf>
@@ -1389,7 +1389,7 @@ t line 416.
 sat_60.pdf> <./Pics1/3D_Channel/3D_channel_sat_90.pdf> <./Pics1/3D_Channel/3D_c
 hannel_sat_110.pdf> <./Pics1/3D_Channel/3D_channel_sat_150.pdf> <./Pics1/3D_Cha
 nnel/3D_channel_sat_490.pdf>]
-<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D30c.pdf, id=1349, 460.721
+<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D30c.pdf, id=1350, 460.721
 25pt x 306.14375pt>
 File: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D30c.pdf Graphic file
  (type pdf)
@@ -1399,7 +1399,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D3
 0c.pdf used on input line 432.
 (pdftex.def)             Requested size: 214.5003pt x 175.49873pt.
 
-<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D60c.pdf, id=1350, 367.372
+<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D60c.pdf, id=1351, 367.372
 5pt x 308.15125pt>
 File: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D60c.pdf Graphic file
  (type pdf)
@@ -1409,7 +1409,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D6
 0c.pdf used on input line 433.
 (pdftex.def)             Requested size: 195.0pt x 163.56857pt.
 
-<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D90c.pdf, id=1351, 370.383
+<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D90c.pdf, id=1352, 370.383
 74pt x 307.1475pt>
 File: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D90c.pdf Graphic file
  (type pdf)
@@ -1419,7 +1419,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D9
 0c.pdf used on input line 434.
 (pdftex.def)             Requested size: 195.0pt x 161.70946pt.
 
-<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D110c.pdf, id=1352, 370.38
+<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D110c.pdf, id=1353, 370.38
 374pt x 308.15125pt>
 File: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D110c.pdf Graphic fil
 e (type pdf)
@@ -1429,7 +1429,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D1
 10c.pdf used on input line 437.
 (pdftex.def)             Requested size: 175.49881pt x 146.01129pt.
 
-<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D150c.pdf, id=1353, 367.37
+<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D150c.pdf, id=1354, 367.37
 25pt x 303.1325pt>
 File: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D150c.pdf Graphic fil
 e (type pdf)
@@ -1439,7 +1439,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D1
 50c.pdf used on input line 438.
 (pdftex.def)             Requested size: 175.49881pt x 144.81276pt.
 
-<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D400c.pdf, id=1354, 373.39
+<./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D400c.pdf, id=1355, 373.39
 5pt x 299.1175pt>
 File: ./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D400c.pdf Graphic fil
 e (type pdf)
@@ -1457,7 +1457,7 @@ Channel/3D_Channel_Saturation1Isosurface_D60c.pdf> <./Pics1/3D_Channel/3D_Chann
 el_Saturation1Isosurface_D90c.pdf> <./Pics1/3D_Channel/3D_Channel_Saturation1Is
 osurface_D110c.pdf> <./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D150c.
 pdf> <./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D400c.pdf>]
-<./Pics1/3D_Channel/3D_channel_sat_adapt_30.pdf, id=1409, 451.6875pt x 290.5856
+<./Pics1/3D_Channel/3D_channel_sat_adapt_30.pdf, id=1410, 451.6875pt x 290.5856
 3pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_adapt_30.pdf Graphic file (type pdf)
  <use ./Pics1/3D_Channel/3D_channel_sat_adapt_30.pdf>
@@ -1465,7 +1465,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_adapt_30.pdf used on
  input line 454.
 (pdftex.def)             Requested size: 195.00064pt x 175.50111pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_adapt_60.pdf, id=1410, 615.0478pt x 422.3278
+<./Pics1/3D_Channel/3D_channel_sat_adapt_60.pdf, id=1411, 615.0478pt x 422.3278
 2pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_adapt_60.pdf Graphic file (type pdf)
  <use ./Pics1/3D_Channel/3D_channel_sat_adapt_60.pdf>
@@ -1473,7 +1473,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_adapt_60.pdf used on
  input line 455.
 (pdftex.def)             Requested size: 195.0pt x 133.89748pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_adapt_90.pdf, id=1411, 605.26125pt x 402.754
+<./Pics1/3D_Channel/3D_channel_sat_adapt_90.pdf, id=1412, 605.26125pt x 402.754
 68pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_adapt_90.pdf Graphic file (type pdf)
  <use ./Pics1/3D_Channel/3D_channel_sat_adapt_90.pdf>
@@ -1481,7 +1481,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_adapt_90.pdf used on
  input line 456.
 (pdftex.def)             Requested size: 195.0pt x 129.75679pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_adapt_110.pdf, id=1412, 594.72188pt x 395.97
+<./Pics1/3D_Channel/3D_channel_sat_adapt_110.pdf, id=1413, 594.72188pt x 395.97
 937pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_adapt_110.pdf Graphic file (type pdf)
  <use ./Pics1/3D_Channel/3D_channel_sat_adapt_110.pdf>
@@ -1489,7 +1489,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_adapt_110.pdf used o
 n input line 459.
 (pdftex.def)             Requested size: 175.49881pt x 116.84915pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_adapt_150.pdf, id=1413, 585.68813pt x 416.30
+<./Pics1/3D_Channel/3D_channel_sat_adapt_150.pdf, id=1414, 585.68813pt x 416.30
 531pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_adapt_150.pdf Graphic file (type pdf)
  <use ./Pics1/3D_Channel/3D_channel_sat_adapt_150.pdf>
@@ -1497,7 +1497,7 @@ Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_adapt_150.pdf used o
 n input line 460.
 (pdftex.def)             Requested size: 175.49881pt x 124.74644pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_adapt_288.pdf, id=1414, 580.41844pt x 416.30
+<./Pics1/3D_Channel/3D_channel_sat_adapt_288.pdf, id=1415, 580.41844pt x 416.30
 531pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_adapt_288.pdf Graphic file (type pdf)
  <use ./Pics1/3D_Channel/3D_channel_sat_adapt_288.pdf>
@@ -1512,14 +1512,14 @@ LaTeX Warning: Float too large for page by 20.77547pt on input line 465.
 nnel_sat_adapt_60.pdf> <./Pics1/3D_Channel/3D_channel_sat_adapt_90.pdf> <./Pics
 1/3D_Channel/3D_channel_sat_adapt_110.pdf> <./Pics1/3D_Channel/3D_channel_sat_a
 dapt_150.pdf> <./Pics1/3D_Channel/3D_channel_sat_adapt_288.pdf>]
-<./Pics1/3D_Channel/3D_channel_sat_end.pdf, id=1445, 554.82281pt x 471.26062pt>
+<./Pics1/3D_Channel/3D_channel_sat_end.pdf, id=1446, 554.82281pt x 471.26062pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_end.pdf Graphic file (type pdf)
 <use ./Pics1/3D_Channel/3D_channel_sat_end.pdf>
 Package pdftex.def Info: ./Pics1/3D_Channel/3D_channel_sat_end.pdf used on inpu
 t line 478.
 (pdftex.def)             Requested size: 292.5pt x 248.44382pt.
 
-<./Pics1/3D_Channel/3D_channel_sat_adapt_end.pdf, id=1446, 432.11438pt x 505.13
+<./Pics1/3D_Channel/3D_channel_sat_adapt_end.pdf, id=1447, 432.11438pt x 505.13
 719pt>
 File: ./Pics1/3D_Channel/3D_channel_sat_adapt_end.pdf Graphic file (type pdf)
  <use ./Pics1/3D_Channel/3D_channel_sat_adapt_end.pdf>
@@ -1537,7 +1537,7 @@ pdfTeX warning: pdflatex (file ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288
 _Mesh_b.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
  allowed
 
-<./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_Mesh_b.pdf, id=1459, 443.6575
+<./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_Mesh_b.pdf, id=1460, 443.6575
 pt x 289.76254pt>
 File: ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_Mesh_b.pdf Graphic file 
 (type pdf)
@@ -1553,7 +1553,7 @@ _StreamLinesHoriz_b.pdf): PDF inclusion: found PDF version <1.6>, but at most v
 ersion <1.5> allowed
 
 <./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_StreamLinesHoriz_b.pdf, id=14
-60, 290.20119pt x 111.89705pt>
+61, 290.20119pt x 111.89705pt>
 File: ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_StreamLinesHoriz_b.pdf G
 raphic file (type pdf)
 
@@ -1567,7 +1567,7 @@ pdfTeX warning: pdflatex (file ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288
 _Isosurface_b.pdf): PDF inclusion: found PDF version <1.6>, but at most version
  <1.5> allowed
 
-<./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_Isosurface_b.pdf, id=1461, 40
+<./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_Isosurface_b.pdf, id=1462, 40
 9.84116pt x 159.08333pt>
 File: ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_Isosurface_b.pdf Graphic
  file (type pdf)
@@ -1588,7 +1588,7 @@ pdfTeX warning: pdflatex (file ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_0_C
 ontourPlotSlice_b.pdf): PDF inclusion: found PDF version <1.6>, but at most ver
 sion <1.5> allowed
 
-<./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_0_ContourPlotSlice_b.pdf, id=1478
+<./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_0_ContourPlotSlice_b.pdf, id=1479
 , 561.09625pt x 296.14641pt>
 File: ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_0_ContourPlotSlice_b.pdf Gra
 phic file (type pdf)
@@ -1603,8 +1603,8 @@ pdfTeX warning: pdflatex (file ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_20_
 ContourPlotSlice_b.pdf): PDF inclusion: found PDF version <1.6>, but at most ve
 rsion <1.5> allowed
 
-<./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_20_ContourPlotSlice_b.pdf, id=147
-9, 490.27065pt x 208.516pt>
+<./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_20_ContourPlotSlice_b.pdf, id=148
+0, 490.27065pt x 208.516pt>
 File: ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_20_ContourPlotSlice_b.pdf Gr
 aphic file (type pdf)
 
@@ -1619,7 +1619,7 @@ ContourPlotSlice_b.pdf): PDF inclusion: found PDF version <1.6>, but at most ve
 rsion <1.5> allowed
 
 <./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_60_ContourPlotSlice_b.pdf, id=148
-0, 478.14836pt x 205.81894pt>
+1, 478.14836pt x 205.81894pt>
 File: ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_60_ContourPlotSlice_b.pdf Gr
 aphic file (type pdf)
 
@@ -1634,7 +1634,7 @@ _ContourPlotSlice_b.pdf): PDF inclusion: found PDF version <1.6>, but at most v
 ersion <1.5> allowed
 
 <./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_120_ContourPlotSlice_b.pdf, id=14
-81, 480.84404pt x 204.4709pt>
+82, 480.84404pt x 204.4709pt>
 File: ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_120_ContourPlotSlice_b.pdf G
 raphic file (type pdf)
 
@@ -1649,7 +1649,7 @@ _ContourPlotSlice_b.pdf): PDF inclusion: found PDF version <1.6>, but at most v
 ersion <1.5> allowed
 
 <./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_200_ContourPlotSlice_b.pdf, id=14
-82, 479.0467pt x 203.57254pt>
+83, 479.0467pt x 203.57254pt>
 File: ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_200_ContourPlotSlice_b.pdf G
 raphic file (type pdf)
 
@@ -1664,7 +1664,7 @@ _ContourPlotSlice_b.pdf): PDF inclusion: found PDF version <1.6>, but at most v
 ersion <1.5> allowed
 
 <./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_ContourPlotSlice_b.pdf, id=14
-83, 543.75816pt x 212.11044pt>
+84, 543.75816pt x 212.11044pt>
 File: ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_ContourPlotSlice_b.pdf G
 raphic file (type pdf)
 
@@ -1673,28 +1673,12 @@ Package pdftex.def Info: ./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_Conto
 urPlotSlice_b.pdf used on input line 529.
 (pdftex.def)             Requested size: 272.99881pt x 106.49188pt.
 
-[56
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_0_ContourPlotSlice_b.pdf> <./Pic
-s1/3D_ChannelAdaptive/Test_SlowNewAdapt_20_ContourPlotSlice_b.pdf> <./Pics1/3D_
-ChannelAdaptive/Test_SlowNewAdapt_60_ContourPlotSlice_b.pdf> <./Pics1/3D_Channe
-lAdaptive/Test_SlowNewAdapt_120_ContourPlotSlice_b.pdf> <./Pics1/3D_ChannelAdap
-tive/Test_SlowNewAdapt_200_ContourPlotSlice_b.pdf> <./Pics1/3D_ChannelAdaptive/
-Test_SlowNewAdapt_288_ContourPlotSlice_b.pdf>])
+[56 <./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_0_ContourPlotSlice_b.pdf> <./
+Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_20_ContourPlotSlice_b.pdf> <./Pics1/
+3D_ChannelAdaptive/Test_SlowNewAdapt_60_ContourPlotSlice_b.pdf> <./Pics1/3D_Cha
+nnelAdaptive/Test_SlowNewAdapt_120_ContourPlotSlice_b.pdf> <./Pics1/3D_ChannelA
+daptive/Test_SlowNewAdapt_200_ContourPlotSlice_b.pdf> <./Pics1/3D_ChannelAdapti
+ve/Test_SlowNewAdapt_288_ContourPlotSlice_b.pdf>])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 615.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 615.
 
@@ -1745,10 +1729,10 @@ rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/kchristou
 /cm/cmti12.pfb><C:/Users/kchristou/AppData/Local/Programs/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmti7.pfb><C:/Users/kchristou/AppData/Local/Programs/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Manuscript_ViscousInstabilities_KC.pdf (56 pages, 37720987 by
+Output written on Manuscript_ViscousInstabilities_KC.pdf (56 pages, 37720981 by
 tes).
 PDF statistics:
- 1619 PDF objects out of 1728 (max. 8388607)
+ 1620 PDF objects out of 1728 (max. 8388607)
  174 named destinations out of 1000 (max. 500000)
  640 words of extra memory for PDF output out of 10000 (max. 10000000)
 

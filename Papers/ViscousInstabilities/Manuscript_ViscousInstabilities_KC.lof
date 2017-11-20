@@ -21,4 +21,4 @@
 \contentsline {figure}{\numberline {21}{\ignorespaces For the same time steps as these are shown in figure \ref {fig:3DChannel_sat} there is a description of the same flow path but now using an adaptive and unstructured mesh. The aim was to describe in greater detail the finger patterns, as the flow develops but also address the importance of a resolution, in this case the type of mesh that is used to capture these phenomena.}}{53}{figure.21}
 \contentsline {figure}{\numberline {22}{\ignorespaces This is a qualitative comparison at t=end of simulation, for bot the fixed and unstructured mesh used in the 3D domain.}}{54}{figure.22}
 \contentsline {figure}{\numberline {23}{\ignorespaces 3D Channel: Text to come}}{55}{figure.23}
-\contentsline {figure}{\numberline {24}{\ignorespaces 3D Channel: Text to come \leavevmode {\color {red}should i mention something here?}}}{56}{figure.24}
+\contentsline {figure}{\numberline {24}{\ignorespaces 3D Channel: Text to come \leavevmode {\color {red}should i mention something here? something qualitative}}}{56}{figure.24}
