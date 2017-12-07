@@ -86,7 +86,7 @@
 \hbox{ \hspace{1.cm} (d) t=8.86s \hspace{3.0cm} (e) t=12.41s   \hspace{4.0cm} (f) t=17.95s}
 \vspace{0.cm}
 }   
-\caption{Simulated flow in a Hele-Shaw cell $\left(\text{{\it VR}=3, {\bf K}=10}^{-10}\text{cm}^{2}\right)$: (a) initial pressure profile $\left(\text{in g.cm}^{-1}\text{.s}^{-2}\right)$ with source and sink regions are explicitly shown along with dimensions (in cm); (b-f) snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
+\caption{Simulated flow in a Hele-Shaw cell $\left(\text{{\it VR}=3, {\bf K}=10}^{-10}\text{cm}^{2}\right)$: (a) initial pressure profile $\left(\text{in g.cm}^{-1}\text{.s}^{-2}\right)$ with source and sink regions explicitly shown along with dimensions (in cm); (b-f) snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
 \label{fig:homoheleshaw_VN3}
 \end{figure}
 \end{landscape}
@@ -126,7 +126,7 @@
 \begin{landscape}
 \begin{figure}[ht] 
 \vbox{\vspace{-1cm}
-\hbox{\includegraphics[width=.9\textwidth, height=0.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D300b.pdf}
+\hbox{\includegraphics[width=.8\textwidth, height=0.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D300b.pdf}
 \hspace{0.5cm}      
       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D1600b.pdf}}
 \vspace{0.cm}
@@ -145,6 +145,27 @@
 \end{figure}
 \end{landscape}
 \clearpage
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{figure}[ht]
+\vbox{
+\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_W2b.pdf}
+       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_W2b.pdf}}
+\hbox{\hspace{0.25cm} (a) {\it VR}=10 (homogeneous) \hspace{1.5cm} (b) {\it VR}=150 (homogeneous) }
+\vspace{0.5cm}
+\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D11000_W2b.pdf}
+       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D6500_W2b.pdf}}
+\hbox{\hspace{0.25cm} (c) {\it VR}=10 (heterogeneous) \hspace{1.5cm} (d) {\it VR}=150 (heterogeneous) }
+}
+\caption{Isosurfaces of simulated flows in Hele-Shaw cells with viscosity ratios of 10 (a and c) and 150 (b and d). Top and bottom rows describe simulations performed with constant \textit{i.e. homogeneous with \textbf{K}}= $10^{-10}$ \textit{${cm}^{2}$} and randomly distributed (i.e. heterogeneous, Fig.~\ref{fig:HeleShawHeter_VR10}a) permeabilities. Width of largest fingers for homogeneous cases are approximately $0.70$ and $0.90$cm (\textit{VR}=$10$ and \textit{VR}=$150$, respectively), whereas for heterogeneous cases are $0.56$ and $0.40$cm. Results for homogeneous cases are in good agreement with values obtained from \citet{guan_2003}'s analytic solution.}
+\label{fig:homoheleshaw_VN10_VN150}
+\end{figure}
+\clearpage
+
+
 
 
 %%%
@@ -211,26 +232,6 @@
 \label{fig:HeleShawHeter_VR150_coarse}
 \end{figure}
 \end{landscape}
-\clearpage
-
-
-
-%%%%
-%%%%  FIGURE
-%%%%
-\begin{figure}[ht]
-\vbox{
-\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_W2b.pdf}
-       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_W2b.pdf}}
-\hbox{\hspace{0.25cm} (a) {\it VR}=10 (homogeneous) \hspace{1.5cm} (b) {\it VR}=150 (homogeneous) }
-\vspace{0.5cm}
-\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D11000_W2b.pdf}
-       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D6500_W2b.pdf}}
-\hbox{\hspace{0.25cm} (c) {\it VR}=10 (heterogeneous) \hspace{1.5cm} (d) {\it VR}=150 (heterogeneous) }
-}
-\caption{Isosurfaces of simulated flows in Hele-Shaw cells with viscosity ratios of 10 (a and c) and 150 (b and d). Top and bottom rows describe simulations performed with constant \textit{i.e. homogeneous with \textbf{K}}= $10^{-10}$ \textit{${cm}^{2}$} and randomly distributed (i.e. heterogeneous, Fig.~\ref{fig:HeleShawHeter_VR10}a) permeabilities. Width of largest fingers for homogeneous cases are approximately $0.70$ and $0.90$cm (\textit{VR}=$10$ and \textit{VR}=$150$, respectively), whereas for heterogeneous cases are $0.56$ and $0.40$cm. Results for homogeneous cases are in good agreement with values obtained from \citet{guan_2003}'s analytic solution.}
-\label{fig:homoheleshaw_VN10_VN150}
-\end{figure}
 \clearpage
 
 
