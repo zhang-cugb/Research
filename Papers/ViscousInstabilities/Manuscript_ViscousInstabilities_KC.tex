@@ -357,7 +357,7 @@ Flow instabilities may be due to pressure gradient along the interface of fluids
 When the driving force of the injected fluid overcomes the capillary force, hydrodynamic instabilities may occur, resulting in the collapse of the interface between fluids and start forming fingers. 
 
 \medskip
-Viscous instabilities (\ie fingering) can become more pronounced due to heterogeneities (\ie natural fractures, different permeability characteristics in different zones) of the porous medium therefore sweep efficiency may be reduced or early breakthrough may occur \citep{riaz_2004, tavassoli_2015}. During immiscible CO$_{2}$ flooding, density of supercritical CO$_{2}$ is usually lower than the \textit{in situ} hydrocarbons, thus viscous fingering and/or channelling may occur.  
+In oil exploration, viscous instabilities (\ie fingering) can become more pronounced due to heterogeneities (\ie natural fractures, different permeability characteristics in different zones) of geological formations, therefore sweep efficiency may be reduced or early breakthrough may occur \citep{riaz_2004, tavassoli_2015}. During immiscible CO$_{2}$ flooding $\left(\text{\eg in CO}_{2}\text{ enhanced oil recovery, CO}_{2}\text{-EOR, processes}\right)$, density of supercritical CO$_{2}$ is usually lower than the \textit{in situ} hydrocarbons, thus viscous fingering and/or channelling may occur.  
 
 \medskip
 As mentioned above viscous flow instabilities can be found across many research areas, disciplines and scales, from chemical and medical separation systems to large scale geological reservoir fields. \citet{muskat_1934} investigated the flow of a fluid injected between two infinite parallel plates and the impact of capillary number ($N_{c}$),
@@ -366,13 +366,12 @@ As mentioned above viscous flow instabilities can be found across many research 
 N_{c} = \frac{\mu U}{\gamma},
 \label{eq:capillary_number}
 \end{equation}
-
-\noindent In Eqn. \ref{eq:capillary_number}, $\mu$ is the viscosity of the fuid that initially fills the Hele-Shaw cell, $\gamma$ is the surface tension and $U$ is a velocity characteristic of the moving interface.
+where $\mu$ is the viscosity of the fuid, $\gamma$ is the surface tension and $U$ is a velocity characteristic of the moving interface.
 
 \medskip
-In the Hele-Shaw cell, a fluid is introduced between two parallel flat plates separated by an infinitesimally small gap. This experimental apparatus allows the predicted instability to be verified qualitatively and simplifies the problem of flow in both porous and non-porous media.   
+In Hele-Shaw cells, a fluid is introduced between two parallel flat plates separated by an infinitesimally small gap. The experimental apparatus allows the predicted instability to be verified qualitatively and simplifies the problem of flow in both porous and non-porous media.   
 %The governing equation of Hele-Shaw flows is identical to that of the inviscid potential flow and to the flow of fluid through a porous medium (Darcy's law) since the Hele-Shaw apparatus may be used for both porous and non-porous media.  
-More recently, \citet{howison_2000} and \citet{praud_2005} gave a comprehensive description of the mathematical formulation of immiscible two-phase flows in Hele-Shaw cell (also know as Saffman $\&$ Taylor problem). For a Hele-Shaw cell of a given size the developing flow only depends on the capillary number. Thus if \textit{$N_{c}$} is too high \citet{saffman_1959}, \citet{homsy_1987}, \citet{tabeling_1987} and others agreed that the flow develops into a single steady-state finger which moves through the cell with constant velocity $U$.
+More recently, \citet{howison_2000} and \citet{praud_2005} gave a comprehensive description of the mathematical formulation of immiscible two-phase flows in Hele-Shaw cells (also know as Saffman $\&$ Taylor problem). For a Hele-Shaw cell of a given size the developing flow only depends on the capillary number. Thus if \textit{$N_{c}$} is too high \citet{saffman_1959}, \citet{homsy_1987} and \citet{tabeling_1987} agreed that the flow develops into a single steady-state finger which moves through the cell with constant velocity $U$.
 
 \medskip
  Under the assumption that fluids remain immiscible along an interface, surface tension plays an important role in determining the shape and progress of the fingers~\citep{howison_2000}. During the displacement of a fluid by a less viscous one, the expected uniform front is perturbed %\citep{(described by the Buckley-Leverett theory of immiscible displacement){buckley_1942,sheldon_1959}} 
@@ -380,13 +379,12 @@ leading to an uneven front with elongations of the outside edge of the fluid int
 
 \medskip 
 In heterogeneous domains, such instability may also be triggered by permeability differences across regions as demonstrated in Section \ref{section:results_homo_hete}. The higher the velocity of the low viscosity fluid, the less wide (tip-splitting behaviour) the finger is. Pressure differences acting on the interface produces a net pressure force,      
-
 \begin{equation} 
 \Delta P= - \gamma \; \nabla \; \cdot \; \hat{n}. 
 \label{eq:pressure_dif} 
 \end{equation}
 
-\noindent This expression is also know as the Young-Laplace equation, a relation describing the capillary pressure across the interface between two fluids. With $\Delta P$ denoting the pressure difference and $\hat{n}$ is the unit normal vector out of the surface. 
+\noindent This expression is also know as the Young-Laplace equation, a relation describing the capillary pressure across the interface between two fluids, with $\Delta P$ denoting the pressure difference and $\hat{n}$ is the unit normal vector out of the surface. 
 
 \medskip
 As demonstrated by \citet{habermann_1960}, \textit{mobility ratio} (MR) is a key-parameter to assess fluid displacement and is defined as the ratio of mobility of the displacing (fluid $i$) to that of the displaced fluid ($j$),
@@ -412,7 +410,7 @@ As demonstrated by \citet{habermann_1960}, \textit{mobility ratio} (MR) is a key
  that will be used in the parametrisation of the numerical simulations conducted in Section \ref{section:results}. Analysis performed in the following sections will make use of this simplified definition as phase saturation is a prognostic field which is calculated along with pressure and velocity.
 
 \medskip
-In immiscible displacements, viscous fingering occurs when the viscosity ratio is greater than unity. As surface tension becomes weak, the interface is stressed and becomes unstable leading to the formation of fingers. The interface collapses and starts splitting into new lobes of fingers. One of the fingers may eventually outgrow the others and then spreads to occupy an increasingly larger width. In the process, the finger reaches a (critical) width that is again unstable and splits again, and the pattern repeats itself. Thus, surface tension plays an essential dual role, it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
+In immiscible displacements, viscous fingering occurs when the viscosity ratio is greater than unity. As surface tension becomes weak, the interface is stressed and becomes unstable leading to the formation of fingers. The interface collapses and starts splitting into new lobes of fingers. One of the fingers may eventually outgrow the others and then spreads to occupy an increasingly larger width. In the process, the finger reaches a critical width that is again unstable and splits again, and the pattern repeats itself. Thus, surface tension plays an essential dual role, it must be weak enough for the tip front to be unstable, but it is also the physical force causing the \textit{spreading} and ensuing repeated branching.
 
 \medskip
 In the next section, multi-fluid simulations are performed to numerically investigate: (a) the impact of heterogeneity (here represented by spatially-dependent permeability) on the onset and propagation of viscous instabilities in Sections \ref{section:results_homo_hete} and \ref{section:results_hete_fix_adapt}; (b) the collapse of fluid interfaces through the use of adaptive mesh grid in Section \ref{section:results_homo_hete}; (c) the impact of viscosity ratios on the formation and progress of fingers in Section \ref{section:results_hete_fix_adapt} and \ref{section:results_dinlet}.
@@ -486,7 +484,7 @@ All test-cases were performed in idealised geometries discretised with unstructu
  
 %%%%%%%%%%%% 
 \subsection{Initial Model Validation}\label{section:results_validation}
-Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrates the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is $4$ $\times$ $2$ unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also include no-flux across upper and lower borders. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a). The spatial discontinuities of permeability distribution will create a rough pressure field, \ie the pressure gradient is discontinuous across the interface between different permeability zones thus the flow will be lead to the high permeability region. This will cause difficulties for numerically solving fluid flows in heterogeneous porous media. 
+Numerical simulations \citep[based on lab experiments due to][]{evans_1994,dawe_2008} were conducted to demonstrate the model capability to capture viscous crossflow in immiscible displacement in heterogeneous porous media. The 2D domain, shown in Fig.~\ref{fem_cv_represent_a}, is $4$ $\times$ $2$ unit-length and fully saturated with fluid 2 ({\it VR}=1). Fluid 1 is injected from the left-hand side of the domain with constant velocity of $u=1$. Boundary conditions also include no-flux across upper and lower borders. The domain consists of four regions in which each quarter is represented by a permeability value, Fig.~\ref{fem_cv_represent_a}(a). The spatial discontinuities of permeability distribution will create a rough pressure field, \ie the pressure gradient is discontinuous across the interface between different permeability zones thus the flow will be lead to the high permeability region. This will cause difficulties for numerically solving fluid flows in heterogeneous porous media. 
 
 \medskip
 Numerical simulation was performed in modified conditions (see Fig.~\ref{fem_cv_represent_a}) to assess model behaviour under larger {\it VR}=10. Initial and boundary conditions remain the same, and flow behaviour qualitatively agree validated against laboratory experiments conducted by \citet{evans_1994}. Figures~\ref{fem_cv_represent_a}(b) and (c) show the continuous displacement of fluid 2 due to the injection of fluid 1. They also show the development of wetting phase through the four subdomains, demonstrating the preferential flow path through high-permeability regions. Such flow behaviour, represented by the crossflow through the four regions, is a good qualitative agreement with experiments conducted by \citet{dawe_2008}.
