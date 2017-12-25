@@ -132,7 +132,8 @@
 %% \address{Address\fnref{label3}}
 %% \fntext[label3]{}
 
-\title{ Numerical Investigation of Viscous Flow Instabilities in Heterogeneous Porous Media}%. Advantages and limitations of unstructured and adaptive meshes in 2D and 3D domains under different mobility scenarios.}
+  \title{ Numerical Investigation of Viscous Flow Instabilities in Heterogeneous Porous Media}%. Advantages and limitations of unstructured and adaptive meshes in 2D and 3D domains under different mobility scenarios.}
+  %% Tittle was too long and 'Advantages and limitations unstructured and adaptive meshes' would mean a full numerical analysis on these 2 issues ... we haven't fully studied flows in either  unstructured / structured or adaptive / fixed meshes ... 
 
 %% use optional labels to link authors explicitly to addresses:
 \author[UoA]{K. Christou} \author[UoA,UFRGS]{W.C. Rad\"unz}  \author[UoA]{B. Lashore} \author[UESC]{F.B.S. de Oliveira}
@@ -284,11 +285,11 @@ The two-phase immiscible and incompressible fluid flow through a porous media do
 \phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  \mathcal{S}_{cty,\alpha},\;\;\; x_{i}\in\Omega, t>0\label{eqn:saturation_eqn}
 \end{eqnarray} 
 
-\noindent respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{\alpha}$ is the saturation-weighted Darcy velocity of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ represents the saturation of the $\alpha$-phase with mass conservation constraints of 
-\begin{displaymath}
-\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1, 
-\end{displaymath}
-where $\mathcal{N}_{p}$ denotes the number of phases.
+\noindent respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{\alpha}$ is the saturation-weighted Darcy velocity of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ represents the saturation of the $\alpha$-phase with mass conservation constraints of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases.
+%\begin{displaymath}
+%\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1, 
+%\end{displaymath}
+%where $\mathcal{N}_{p}$ denotes the number of phases.
 
 %%%%%%%%%%%%%%%
 %\begin{comment}
