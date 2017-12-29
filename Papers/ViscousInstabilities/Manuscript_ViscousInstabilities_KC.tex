@@ -380,21 +380,19 @@ More recently, \citet{howison_2000} and \citet{praud_2005} provided a comprehens
 \medskip 
 In heterogeneous domains, such instability may be triggered by permeability differences across regions as demonstrated in Section~\ref{section:results_homo_hete}. The higher the velocity of the low viscosity fluid, the less wide (tip-splitting behaviour) the finger is. Pressure differences acting on the interface produces a net pressure force,      
 \begin{equation} 
-\Delta P= - \gamma \; \nabla \; \cdot \; \hat{n}. 
+\Delta P= - \gamma \nabla\cdot\hat{n}. 
 \label{eq:pressure_dif} 
 \end{equation}
 
 \noindent This expression is also know as the Young-Laplace equation, a relation describing the capillary pressure across the interface between two fluids, with $\Delta P$ denoting the pressure difference and $\hat{n}$ is the unit normal vector out of the surface. 
 
 \medskip
-As demonstrated by \citet{habermann_1960}, \textit{mobility ratio} (MR) is a key-parameter to assess fluid displacement and is defined as the ratio of mobility of the displacing (fluid $i$) to that of the displaced fluid ($j$),
+As demonstrated by \citet{habermann_1960} \citep[see also][]{budek_2017}, mobility ratio (MR) is a key-parameter to assess fluid displacement and is defined as the ratio of mobility of the displacing (fluid $i$) to that of the displaced fluid ($j$),
 \begin{equation}
- \text{MR} \; = \frac{\mathcal{K}_{ri} \; \mu_{j}}{\mathcal{K}_{rj} \; \mu_{i}}. 
+ \text{MR} \; = \frac{\mathcal{K}_{ri} \mu_{j}}{\mathcal{K}_{rj} \mu_{i}}. 
 \label{eq:MR}
 \end{equation}
-
-\noindent MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of the residual and maximum phase saturation prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
-
+MR is a function not only of fluids' viscosity and saturation, but also of the parameterised relative permeability, $\mathcal{K}_{r\alpha}$, which is often expressed as a function of local, residual and maximum phase saturations prescribed in the pore rock matrix. In the simulations conducted for this work, the modified Brooks-Corey model was used \citep{alpak_1999,brooks_1964},
 \begin{eqnarray}
   \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}}, \label{Eqn:CoreyBrooks1}\\
   \mathcal{K}_{rnw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rnw}\left[\frc{S_{nw}-S_{nw,r}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{nw}}, \label{Eqn:CoreyBrooks2}
