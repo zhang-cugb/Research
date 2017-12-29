@@ -282,7 +282,7 @@ The two-phase immiscible and incompressible fluid flow through a porous media do
 \phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  \mathcal{S}_{cty,\alpha}\hspace{1cm} \text{ with } x_{i}\in\Omega,\; t>0,\label{eqn:saturation_eqn}
 \end{eqnarray} 
 
-\noindent respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{\alpha}$ is the saturation-weighted Darcy velocity of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ represents the saturation of the $\alpha$-phase with mass conservation constraints of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases.
+\noindent respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{\alpha}$ is the saturation-weighted Darcy velocity of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ represents the saturation of the $\alpha$-phase with mass conservation constraints of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases. $\underline{\underline{\sigma}}_{\alpha}$ is an absorption-like term that represents the implicit linearisation of the viscous frictional forces.
 %\begin{displaymath}
 %\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1, 
 %\end{displaymath}
@@ -312,17 +312,30 @@ The two-phase immiscible and incompressible fluid flow through a porous media do
 %\end{comment}
 %%%%%%%%%%%%%%%
 
-\medskip
-Finite element basis functions for velocity and pressure fields are introduced in the discretisation of force-balance equation (Eqn.~\ref{eqn:darcy_eqn}). Hybrid basis functions are also used to allow CV-based velocity to be extrapolated across the entire element. $\underline{\underline{\sigma}}_{\alpha}$ is an absorption-like term that represents the implicit linearisation of the viscous frictional forces, and lies in both CV and FEM spaces.
+The formulation introduced here is applicable to $\mathcal{N}_{p}$ fluid phases and is based on two families of FE-pairs: \PNDG[n]{m} and \PN[n]{m}~\citep{cotter_2009a}, consistent with the dual pressure-velocity representation in CV space. In these families of FE-pairs, velocity is represented by $n^{\text{th}}$-order polynomials that are discontinuous across elements, whereas pressure is represented by $m^{\text{th}}$-order polynomials that may be either continuous or discontinuous (thus the notation \PN[n]{m} and \PNDG[n]{m}, respectively) across elements. Mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin FEM is used to obtain high-order fluxes on CV boundaries, which are limited to yield bounded fields (\eg positive densities, saturations bounded between 0 and 1, etc). Simulations performed for this work were conducted using two types of elements: \PN[1]{1} and \PN[1]{2}.
+
+Finite element basis functions for velocity and pressure fields are introduced in the discretisation of force-balance equations. Hybrid basis functions are also used to allow CV-based velocity to be extrapolated across the entire element. The extended Darcy equation (Eqn.~\ref{eqn:darcy_eqn}) is discretrised using a FE representation of $\mathbf{v}_{\alpha}=\underline{\underline{\sigma}}_{\alpha}\mathbf{u}_{\alpha}$ and $p$ with FE basis functions $Q_{j}$ and $P_{j}$, respectively -- note that $\underline{\underline{\sigma}}_{\alpha}$ lies in both CV and FEM spaces. Each component of the weak form of the extended Darcy equation is tested with the $\mathbf{v}_\alpha$ basis function, $Q_{j}$, to obtain:
+\begin{eqnarray}
+  \sum\limits_{E} \left. \int\limits_{\Omega_E} { {Q}}_{i} \left({\mathbf v}_\alpha + \nabla p  -{\mathbf s}_{u_\alpha} \right) dV \right. + \displaystyle \oint_{\Gamma_{E}} {Q}_i {\mathbf n} \left(p - \tilde{p}\right) d\Gamma + \nonumber \\ 
+  \oint_{\Gamma_{\Omega}} {Q}_i {\mathbf n} \left(p - p_\text{bc}\right) d\Gamma = \bm{0},
+                   \label{force-semi-disc} 
+\end{eqnarray} 
+where $\Omega_E$ and $\Gamma_{E}$ are the volume and boundary of element $E$, respectively, and $\Gamma_{\Omega}$ is the boundary of the computational domain. The numerical pressure $\tilde{p}$ appearing in the jump condition (second term in Eqn.~\ref{force-semi-disc}) is the arithmetic mean of the potentially discontinuous pressure across the element $E$ $\left(\text{consistent with the \PNDG[n]{m} element-pairs}\right)$. This term vanishes when a continuous formulation is used to discretise the pressure field $\left(\text{with \PN[n]{m} element-pairs}\right)$. The last term in Eqn.~\ref{force-semi-disc} is used to weakly enforce the pressure level to $p_\text{bc}$ on a computational domain boundary.
+%Finite element basis functions for velocity and pressure fields are introduced in the discretisation of force-balance equation (Eqn.~\ref{eqn:darcy_eqn}). Hybrid basis functions are also used to allow CV-based velocity to be extrapolated across the entire element. $\underline{\underline{\sigma}}_{\alpha}$ is an absorption-like term that represents the implicit linearisation of the viscous frictional forces, and lies in both CV and FEM spaces.
 %\begin{displaymath}
 %   \underline{\underline{\sigma}}_{\alpha} = \displaystyle\frac{\mu_{\alpha}S_{\alpha}}{{\mathbf K}\mathcal{K}_{r\alpha}}.
 %\end{displaymath}
 
 \medskip
-Whilst saturation (and all saturation-dependent material properties such as relative permeability and capillary pressure) is calculated in CV space, permeability is piecewise constant in FE space. Saturation equations (Eqn.~\ref{eqn:saturation_eqn}) are discretised in space with CV basis function and with the $\theta$-method in time as described by \citet{gomes_book_2012}. Velocities across CV interfaces (within and between elements) are calculated through a directional-weighted flux-limited scheme based on upwind value of $\sigma$ at individual CV as described by \citet{jackson_2013}.
+Whilst saturation (and all saturation-dependent material properties such as relative permeability and capillary pressure) is calculated in CV space, absolute permeability is assumed piecewise constant in FE space. Saturation equations (Eqn.~\ref{eqn:saturation_eqn}) are discretised in space with CV basis function, $M_{i}$, and with the $\theta$-method in time~\citep{gomes_book_2012}. Velocities across CV interfaces (within and between elements) are calculated through a directional-weighted flux-limited scheme based on upwind value of $\sigma$ at individual CV as described by \citet{jackson_2013}. Summing the discretised Eqn.~\ref{eqn:saturation_eqn} over all phases yields the global mass balance equation,
+\begin{eqnarray}
+ && \sum_{\alpha=1}^{N_{p}} \left\{\int\limits_{\Omega_{CVi}} \; M_{i} \; \frac{\phi\left(S_{\alpha i}^{n+1}-S_{\alpha i}^{n}\right)}{\Delta t} dV\right.  + \nonumber\\
+ &&  \oint_{\Gamma_{CVi}} \left[\; \theta^{n+1/2}\; {\mathbf n}\cdot {\mathbf u}_{\alpha}^{n+1}S_{\alpha}^{n+1} \; + \; \left(1-\theta^{n+1/2}\right) \; {\mathbf u}_{\alpha}^{n}S_{\alpha}^{n}\right] d\Gamma \;- \nonumber\\
+ &&  \left.\int_{\Omega_{CVi}} M_{i} \; \mathcal{S}_{cty,\alpha}^{n+\theta} \; dV\;\right\} =0,
+\label{global_mass_balance}
+\end{eqnarray}
 
-\medskip
-This formulation is applicable to $\mathcal{N}_{p}$ fluid phases and is based on two families of  FE-pairs: \PNDG[n]{m} and \PN[n]{m}~\citep{cotter_2009a}, consistent with the dual pressure-velocity representation in control volume (CV). In these families of FE-pairs velocity is represented by $n^{\text{th}}$-order polynomials that are discontinuous across elements, whereas pressure is represented by $m^{\text{th}}$-order polynomials that may be either continuous or discontinuous (thus the notation \PN[n]{m} and \PNDG[n]{m}, respectively) across elements. Mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin FEM is used to obtain high-order fluxes on CV boundaries, which are limited to yield bounded fields. Simulations performed for this work were conducted using two types of elements: \PN[1]{2} and \PN[1]{1}. %Saturation, and all saturation-dependent material properties such as relative permeability and capillary pressure, are represented in CV space. %Hence, each CV (and FE) is associated with a unique set of petrophysical properties, in contrast to most previous methods in which CVs span multiple values of petrophysical properties described FE-wise.
+%This formulation is applicable to $\mathcal{N}_{p}$ fluid phases and is based on two families of  FE-pairs: \PNDG[n]{m} and \PN[n]{m}~\citep{cotter_2009a}, consistent with the dual pressure-velocity representation in control volume (CV). In these families of FE-pairs velocity is represented by $n^{\text{th}}$-order polynomials that are discontinuous across elements, whereas pressure is represented by $m^{\text{th}}$-order polynomials that may be either continuous or discontinuous (thus the notation \PN[n]{m} and \PNDG[n]{m}, respectively) across elements. Mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin FEM is used to obtain high-order fluxes on CV boundaries, which are limited to yield bounded fields. Simulations performed for this work were conducted using two types of elements: \PN[1]{2} and \PN[1]{1}. %Saturation, and all saturation-dependent material properties such as relative permeability and capillary pressure, are represented in CV space. %Hence, each CV (and FE) is associated with a unique set of petrophysical properties, in contrast to most previous methods in which CVs span multiple values of petrophysical properties described FE-wise.
 
 %For the simulations performed in this work, rock and fluids are assumed incompressible thus the mass balance for phase $\alpha$ can be written as
 %\begin{equation}
@@ -336,15 +349,11 @@ This formulation is applicable to $\mathcal{N}_{p}$ fluid phases and is based on
 %\sum  S_{p}-1
 %\label{saturation_constrain}
 %\end{equation}
+\noindent
+where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i respectively, $M_{i}$ are CV basis functions, \textbf{n} is the outward pointing unit normal vector to the surface of $CV_{i}$ and $n$ is the current time level. $\theta$ varies smoothly between $0.5$ (corresponding to Crank-Nicolson method) and $1$ (corresponding to backward-Euler scheme) to avoid the introduction of spurious oscillations for large grid Courant numbers.
 
-\noindent Equation~\ref{eqn:saturation_eqn} is discretised in time and space using the $\theta$-method. Summing over all phases yields the global mass balance equation,
-\begin{eqnarray}
- && \sum_{\alpha=1}^{N_{p}} \left\{\int\limits_{\Omega_{CVi}} \; M_{i} \; \frac{\phi\left(S_{\alpha i}^{n+1}-S_{\alpha i}^{n}\right)}{\Delta t} dV\right.  + \nonumber\\
- &&  \oint_{\Gamma_{CVi}} \left[\; \theta^{n+1/2}\; {\mathbf n}\cdot {\mathbf u}_{\alpha}^{n+1}S_{\alpha}^{n+1} \; + \; \left(1-\theta^{n+1/2}\right) \; {\mathbf u}_{\alpha}^{n}S_{\alpha}^{n}\right] d\Gamma \;- \nonumber\\
- &&  \left.\int_{\Omega_{CVi}} M_{i} \; \mathcal{S}_{cty,\alpha}^{n+\theta} \; dV\;\right\} =0,
-\label{global_mass_balance}
-\end{eqnarray}
-where $\Omega_{CVi}$ and $\Gamma_{CVi}$ are the volume and boundary of CV i respectively, $M_{i}$ are CV basis functions, \textbf{n} is the outward pointing unit normal vector to the surface of $CV_{i}$ and $n$ is the current time level. $\theta$ varies smoothly between $0.5$ (corresponding to Crank-Nicolson method) and $1$ (corresponding to backward-Euler scheme) to avoid the introduction of spurious oscillations for large grid Courant numbers. In addition to the numerical schemes above the discretised global mass and force balance equations are solved using a multigrid-like approach \citep[see][]{pavlidis2016}. This numerical formulation is fully described by \citet{gomes_2017} \citep[see also][]{salinas2015,adam_2016}. 
+\medskip
+The discretised global mass and force balance equations are solved using a multigrid-like approach as described by \citet{pavlidis2016} \citep[see also][]{salinas_2016}. The numerical formulation is fully described by \citet{gomes_2017} \citep[see also][]{salinas2015,adam_2016}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Brief Summary of Viscous Instabilities}\label{section:ViscousInstabilities}
