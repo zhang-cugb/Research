@@ -577,24 +577,15 @@ A numerical simulation of the same problem (\ie same geometry, initial mesh, ini
 
 %%%%%%%%%%%%%
 \section{Conclusions}\label{Section:Conclusion}
-\red{KOSTAS: Conclusions of numerical modelling papers are are often very short and divided into 3 parts: (1) Short (1 paragraph) summary of the paper with focus on the main theoretical aspects that were proved by \underline{your work} in the present manuscript; (2) Summary (1-3 paragraphs) of the main results with the appropriate analysis (\ie how you work has proved the theory); and (3) (optional) 1 paragraph of potential future work. Make sure that (1) and (2) are covered in the present Section.}  
+\red{(1)Short (1 paragraph) summary of the paper with focus on the main theoretical aspects that were proved by our work in the present manuscript;}
+The purpose of this paper is to describe the fluid instabilities, in particular the viscous fingering, and demonstrate a new computational approach used in order to capture the finger development. Starting from validating the development of fingers in a computational domain against experimental setup a series of other computational cases is showed focusing on the details of the flows and the introduction of parameteres by avoiding any upscaling requirements.    
 
-
-%A number of different cases have been illustrated in Section \ref{section:results}. Starting from testing experimental cases and geometrical domains (Hele-shaw domain) to verify that the numerical model is working and set up some initial benchmarks, to more complicated cases where various scenarios were implied. Observations made on various mobility ratios, geometrical domains and permeability zones as well as on the role of interfacial forces and fingering mechanisms on the developement of the flows. 
-
+\red{(2)Summary (1-3 paragraphs) of the main results with the appropriate analysis (\ie how you work has proved the theory);}
 \medskip
-For immiscible displacements upon which only viscous and capillary forces are acting, the expected displacement patterns are either fully developed cross flow displacement or unstable front displacement. In the latter case the instability rises due to viscous fingering depending on capillary number ($N_{c}$) but mainly is a fuction of viscocity ratio (\ie VR). If the mobility ratio is significantly less than $5$, it is expected to find capillary fingering at relatively low flow rate and viscous fingering at relatively high flow rate. On the other hand, when the viscosity ratio is greater than $5$, the two basic forms of immiscible displacement are capillary fingering at relatively low flow rate and stable displacement at relatively high flow rate. Therefore for an \ie water/oil system, the first condition applies as the viscosity of injected water is less than the viscosity of displaced oil. Hence, the displacement front could be either capillary fingering at relatively low injection rates or viscous fingering at higher injection rates. 
+By definition the instability rises due to viscous fingering depending on capillary number ($N_{c}$) but is also a direct fuction of viscocity ratio (\ie VR). If the mobility ratio is significantly less than $5$, it is expected to find capillary fingering at relatively low flow rate and viscous fingering at relatively high flow rate. On the other hand, when the viscosity ratio is greater than $5$, the two basic forms of immiscible displacement are capillary fingering at relatively low flow rate and stable displacement at relatively high flow rate. Therefore for an \ie water/oil system, the first condition applies as the viscosity of injected water is less than the viscosity of displaced oil. Hence, the displacement front could be either capillary fingering at relatively low injection rates or viscous fingering at higher injection rates. The method that has been described in this paper as well as the simulations performed have a number of distinct advantages; (1.) The geological model can be designed from the beginning without any previous reference or geometrical limitations due to both the flexibility of method and because the geological characteristic and parameters can be easily introduced without the need of upscaling while, (2.) computational cost can be reduced, because the complex geometries and surfaces are less expensive to generate (unstructured grid in space and time) and manage using fewer grid cells. The basis of the this argument is the flexibility and variance of the adaptive and unstructured grid in time and space.
 
 \medskip
 As seen for high viscosity contrast, there is a leading finger (\textit{tip splitting mechanism}) that breaks out of the front by suppressing its growth to the point that smaller fingers will break out driven by surface tension. At long times the large finger advances approximately at in a constant flow rate. In order to run all these simulations in detail, the use and benefits of dynamic mesh adaptivity to capture the viscous fingering in reservoir flows was introduced for all the $2D$ and $3D$ cases. Commercial simulators provide the user with option of an unstructured type of mesh, still they are not able to dynamically adapt the mesh where is needed and manage the computational cost more efficient.
-
-\medskip
-In summary, the method that has been described in this paper as well as the simulations performed have a number of distinct advantages: 
-\begin{enumerate}
-\item[1.] The geological model can be designed from the beginning without any previous reference or geometrical limitations due to both the flexibility of method and to the fact that the geological characteristic and parameters can be easily introduced.
-\item[2.] Computational cost can be reduced, because the complex geometries and surfaces are less expensive to generate and manage using fewer grid cells. The basis of the this argument is the flexibility and variance of the adaptive and unstructured grid in time and space.
-\item[3.] Production simulations run directly on the geological model without the need to upscale.\\
-\end{enumerate}
 
 \medskip
 Regarding the flow characteristics and the mechanics of fingering formations,
@@ -605,6 +596,8 @@ Regarding the flow characteristics and the mechanics of fingering formations,
 \item[3.] The increased viscosity ratio increases the computational cost and requires the use of smaller time-step sizes. 
 \item[4.] Properties such as porosity and saturation can be readily up-scaled as they can be included in the element boundaries. The domains used in these test-cases have the ability to describe the fingering mechanism and the development of the flow \ie the latter case clearly describes the linear tip-splitting finger behaviour inside the domain.
 \end{enumerate}
+
+\red{(3)(optional) 1 paragraph of potential future work. Make sure that (1) and (2) are covered in the present Section.}
 
 \section{Acknowledgements}
 Mr William Rad\"unz would like to acknowledge the support from the Brazilian Research Council (CNPq) under the \textit{Science without Borders scholarship programme}. Mr Konstantinos Christou would like to acknowledge the support of the University of Aberdeen - College of Physical Science as well as the Aberdeen Formation Evaluation Society (\textit{AFES} is an SPWLA chapter). 
@@ -628,3 +621,5 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 
 \end{document}
 %% End of tex file.
+
+
