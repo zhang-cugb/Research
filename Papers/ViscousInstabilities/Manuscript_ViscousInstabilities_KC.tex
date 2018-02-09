@@ -177,7 +177,7 @@ Numerical simulations demonstrated that the heterogeneity of the domain triggers
 %\tableofcontents
 %\linenumbers
 
-\clearpage
+%\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Introduction}\label{section:intro}
@@ -580,7 +580,7 @@ In Sections \ref{section:results_homo_hete}-\ref{section:results_hete_fix_adapt}
 \medskip
 A similar numerical simulation (\ie same geometry, initial mesh resolution, initial and boundary conditions) was also performed using dynamically adaptive mesh. During the simulation, mesh resolution ranged from 235k to 643k \PNDG[1]{1} element-pairs (Fig.~\ref{fig:3DChannel_severalfields_adapt}a). Distinct preferable flow pathways and fingers are shown in Fig.~\ref{fig:3DChannel_severalfields_adapt}b-c and~\ref{fig:3DChannel_satvel_XYplanes_adapt}. Saturation of the wetting fluid during the course of the simulation is shown in Fig.~\ref{fig:3DChannel_sat_adapt}. As expected, both simulations (fixed and adaptive mesh, Figs.~\ref{fig:3DChannel_sat} and~\ref{fig:3DChannel_sat_adapt}, respectively) led to similar results, \ie similar flow pathways and fingers development. 
 
-However, due to low-order accuracy of element-pairs -- \PNDG[1]{1} instead of \PN[1]{2} of previous sections \citep[for full investigation on numerical accuracy associated with these element-pairs, see][]{salinas2015,salinas_2016,adam_2016, gomes_2017}, and coarser mesh throughout the computational domain, simulation performed with fixed mesh showed larger smeared fluid saturation. 
+However, due to low-order accuracy of element-pairs -- \PNDG[1]{1} instead of \PN[1]{2} of previous sections \citep[for full investigation on numerical accuracy associated with these element-pairs, see][]{salinas2015,salinas_2016,salinas_2018,adam_2016, gomes_2017}, and coarser mesh throughout the computational domain, simulation performed with fixed mesh showed larger smeared fluid saturation. 
 
 
 
@@ -602,11 +602,11 @@ The numerical formulation was initially validated against laboratory experiments
 
 Determining the early-onset flow instability is critical to accurately simulate formation, growth and coalescence of fingers, and therefore to: (a) predict displacement (sweep) efficiency and (b) design strategies to either mitigate or avoid fingering and preferential flow pathways. Mesh resolution is thus crucial to investigate Saffmann-Taylor instabilities, and adaptive dynamic mesh technology has proved to be an efficient tool to capture initial interface perturbations. Numerical simulations were performed with VR=10 using fixed and adaptive \PN[1]{2} element-pairs. Results (Figs.~\ref{fig:5regions_plottimenodeselements} and~\ref{fig:5regions_AdaptZoom}) demonstrated that by dynamically adapting the mesh to follow saturation gradients (\ie fluids interfaces), early-onset flow instability and further formation of long multi-fluid fingers, which have themselves split into sub-fingers, can be readily captured (see Figs.~\ref{fig:5regions_fixedmesh}i and~\ref{fig:5regions_adaptmesh}i). Overall computational cost of the simulation conducted with dynamically adapting the mesh were significantly smaller than the simulation conducted with fixed mesh as indicated by the number of elements/nodes (Figs.~\ref{fig:5regions_plottimenodeselements}).
 
-Investigation of preferential flow pathways was the focus of Section~\ref{section:results_3D}, where 3D numerical simulations of multi-fluid flow through semi-pervious/impervious channelised domain were performed. Numerical data indicated preferential flow through regions of larger permeability leaving adjacent region (with low permeability) with nearly stagnant fluids (Figs.~\ref{fig:3DChannel_sat}-~\ref{fig:3DChannel_planes}). Order 0f the element-pair and mesh resolution play key-roles to capture directional flow pathways and fingers in 3D simulations.
+Investigation of preferential flow pathways was the focus of Section~\ref{section:results_3D}, where 3D numerical simulations of multi-fluid flow through semi-pervious / impervious channelised domain were performed. Numerical data indicated preferential flow through regions of larger permeability leaving adjacent region (with low permeability) with nearly stagnant fluids (Figs.~\ref{fig:3DChannel_sat}-~\ref{fig:3DChannel_planes}). Order of accuracy of the element-pair and mesh resolution play key-roles to capture directional flow pathways and fingers in 3D simulations.
 \medskip
 
 % (3)(optional) 1 paragraph of potential future work. Make sure that (1) and (2) are covered in the present Section.
-Through 
+This work focuses on complexity associated with flow channelling and instability dynamics in heterogeneous porous media. Methods used to simulate such flows are based in a novel high-order CVFEM formulation that accurately preserves sharp fluid saturation gradients associated with contrasting permeability distribution. Future work will include numerical investigation of (a) crossover from capillary fingering (at low fluid velocity) to viscous fingering for immiscible unstable flows, and (b) coupled viscous and density fingering in miscible fluid flows.
 
   
 \begin{comment}\medskip
