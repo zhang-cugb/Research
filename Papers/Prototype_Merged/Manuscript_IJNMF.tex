@@ -1,0 +1,556 @@
+% flddoc.tex V2.0, 13 May 2010
+
+\documentclass[times]{fldauth}
+
+\usepackage{moreverb}
+
+\usepackage[dvips,colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
+
+\newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\def\volumeyear{2015}
+
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\PN}[2][error]{P$_{#1}$DG-P$_{#2}$}
+\newcommand{\PNDG}[2][error]{P$_{#1}$DG-P$_{#2}$DG}
+
+\begin{document}
+
+\runningheads{J.L.M.A.~ Gomes {\it et al.}}{A Force-Balanced CVFEM for Multiphase Porous Media Flow Modelling}
+
+\title{A Force-Balanced Control Volume Finite Element Method for Multiphase Porous Media Flow Modelling}
+
+%% use optional labels to link authors explicitly to addresses:
+\author{J. L. M. A. Gomes\corrauth$^{1,4}$, D. Pavlidis$^{2,4}$, P. Salinas$^{2,4}$, Z. Xie$^{2,4}$, J. R. Percival$^{2}$, P. Mostaghimi$^{3}$, C. C. Pain$^{2,4}$, M. D. Jackson$^{4}$}
+
+%\cortext[cor1]{Corresponding author.}
+\address{$^{1}$Environmental and Industrial Fluid Mechanics Group, School of Engineering, University of Aberdeen, UK \\
+         $^{2}$Applied Modelling and Computation Group, Department of Earth Science and Engineering, Imperial College London, UK \\
+         $^{3}$School of Petroleum Engineering, University of New South Wales, Australia \\
+         $^{4}$Novel Reservoir Modelling and Simulation Group, Department of Earth Science and Engineering, Imperial College London, UK\\}
+
+\corraddr{University of Aberdeen, AB24~3UE, UK.}
+
+
+\begin{abstract}
+  A novel control volume finite element method for simulating subsurface multiphase flows is presented here. The approach has two major strengths. First, it uses a dual consistent pressure-velocity representation in control volume and finite element spaces which ensures local mass conservation. Second, it uses a family of finite element types that ensure the multiphase Darcy equations can be exactly enforced. The underlying mass conservation equations are solved in control volume space whereas finite elements are used to obtain high-order fluxes on control volume boundaries. The novelty of the method lies in (a) permitting both continuous and discontinuous description of pressures and saturations between elements; (b) the use of arbitrarily high-order polynomial representation for pressure and velocity within the mixed formulation and (c) the use of high-order flux-limited methods to avoid introducing non-physical oscillations while achieving high-order time accuracy where and when possible. The model is initially evaluated and then applied to a series of test cases using structured and unstructured (triangular/ tetrahedral) meshes, as well as heterogeneous problems with large permeability ratios. Numerical results are in good agreement with analytically obtained solutions.
+\end{abstract}
+
+\keywords{CVFEM mixed formulation; Discontinuous Galerkin; Multiphase flows; Porous media}
+
+\maketitle
+
+\vspace{-6pt}
+
+\section{Introduction}
+\vspace{-2pt}
+
+Numerical modelling of multiphase flow in porous media has applications in a wide range of disciplines, including hydrocarbon and groundwater production, safety assessment of deep geological disposal of radioactive waste, and CO$_{\text{2}}$ migration and trapping in carbon capture and storage ~\cite{chen_2006, aiea_1999, pruess_1990c,jiang_2011}. Such geological and geophysical applications often include complex rock geometries with irregular (and often internal) boundaries between rock types with contrasting porosity and permeability.  Accurately capturing these complex geometries is a key challenge when simulating such flows.
+
+Finite difference methods (FDM) have been extensively used in modelling and simulation of fluid flows in porous media~\cite{aziz_1986, chen_1997, chen_2005}.  However, they are strongly dependent on mesh quality and orientation, and cannot easily represent complex geometries. In addition, FDM can produce excessive numerical dispersion in heterogeneous porous media~\cite{chavent_1986}. The geometrical flexibility of finite element methods (FEM) has been shown to overcome these deficiencies. Among FEM-based formulations for porous media, the control volume finite element method (CVFEM) has become increasingly popular as it can guarantee local mass conservation and high-order numerical accuracy, as well as being able to use tetrahedral, geometry-conforming elements~\cite{forsyth_1990,cordazzo_2004, geiger_2004, hurtado_2007}. \cite{huber_2000} demonstrated that the vertex-centred, finite volume-finite element method (or Box scheme) can achieve similar goals (see also \cite{helmig_1997}).
+
+\cite{durlofsky_1993,durlofsky_1994} compared the performance of a mixed FEM formulation (i.e. piece-wise constant in pressure and piece-wise linear in velocity) and the classical CVFEM for single phase Darcy flows. He concluded that the latter is more computationally efficient and numerically accurate than the former for problems involving a (relatively) small number of degrees of freedom. Moreover, for complex heterogeneous problems with sharp changes in material properties, mixed FEM formulations often lead to physically unrealistic solutions.  \cite{cumming_2011} demonstrated that a CVFEM-based discretisation could be used to solve the Richards equation (coupled mass conservation and Darcy equations) in heterogeneous porous media with relatively small computational overhead, compared with traditional, coupled velocity-pressure based formulations.  Mass balance was enforced as described by \cite{kirkland_1992} (see also \cite{forsyth_1990,cumming_phd2012}).  The efficiency and accuracy of CVFEM for porous media flows has motivated our development of a CVFEM-based discretisation here.  However, CVFEM often requires high resolution meshes in regions where material properties vary abruptly, such as permeability contrasts at (for example) fracture-matrix interfaces, or boundaries between different rock types. Control volume (CV) boundaries span finite elements where material properties are defined; therefore, some average value of the permeability must be calculated across CV interfaces. This often leads to excessive numerical dispersion, especially in highly heterogeneous media \cite{nick_2011b, nick_2011a}.
+
+Discontinuity-capturing schemes (e.g. shock waves, contact surface or material discontinuities -- see~\cite{brooks_1982,tezduyar_1986}) were originally developed to resolve sharp changes in solution fields such as velocity or saturation. Related discontinuity-capturing schemes include the discontinuous-Galerkin FEM (DGFEM) scheme in which continuity of the solution is not explicitly enforced, allowing sharp changes in the solution fields to be captured. The DG formulation is a stabilised finite element method that is locally conservative and designed to achieve high-order accuracy. DGFEM solution fields are allowed to be discontinuous at the element faces; thus, the solution is able to handle discontinuities in material properties at internal boundaries. In addition, DGFEM is well-suited to deal with interface problems by incorporating specially-designed interface fluxes. These properties have attracted the attention of the porous media flow community over the past 15 years~\cite{riviere_2000,riviere_2002,bastian_2002} and are utilised here.
+
+In this paper, a novel CVFEM formulation which is conservative and consistent is presented. The continuity equations are embedded into the pressure equation to enforce mass conservation and the exact force balance. The formulation employs an implicit algorithm with respect to time that is less restrictive than the implicit-pressure-explicit-saturation (IMPES) scheme often adopted in porous media flow problems (see \cite{aziz_1986,geiger_2004}). There are two key novel aspects in our approach. The first is that it uses a dual consistent CVFEM representation that is embedded in the \PN[n]{m}[DG] family of triangular and tetrahedral finite element pairs \cite{kaisu}. For this element type, the velocity field is represented by $n^{\rm th}$-order polynomials that are discontinuous across elements, while the pressure field is represented by $m^{\rm th}$-order polynomials that may be continuous (termed P$_n$DG-P$_m$) or discontinuous (termed P$_n$DG-P$_m$DG) across elements. In particular, here the P$_n$DG-P$_{n+1}$ element pair, which allows the velocity to exactly represent the pressure gradients in the flow solution for homogeneous material properties, is demonstrated. The \PNDG[n+1]{n} element pair, which has similar properties to the \PN[n]{n+1} element pair, but allows a representation in which pressure, saturation and other solution variables are discontinuous across finite element boundaries, is also demonstrated.  This solves the long-standing problem described above with respect to the use of traditional CVFEM methods to capture sharp changes in material properties. The second key novelty is the velocity representation that is described in detail in Section~\ref{overlapping_method_section} and can achieve an exact representation of the multiphase Darcy force balance equations.
+
+The remainder of this paper is organised as follows. The governing equations and numerical methods employed to solve them are presented in Section~\ref{overlapping_method_section}. Model set-up and results including comparison against reference data for a series of benchmark problems are given in Sections~\ref{setup} and \ref{res}, respectively. Finally, some concluding remarks are presented in Section~\ref{conc}.
+
+\bigskip
+
+
+
+
+
+
+
+
+
+
+
+Many authors submitting to research journals use \LaTeXe\ to
+prepare their papers. This paper describes the
+\textsf{\journalclass} class file which can be used to convert
+articles produced with other \LaTeXe\ class files into the correct
+form for publication in the \emph{\journalnamelc}.
+
+The \textsf{\journalclass} class file preserves much of the
+standard \LaTeXe\ interface so that any document which was
+produced using the standard \LaTeXe\ \textsf{article} style can
+easily be converted to work with the \textsf{\journalclassshort}
+style. However, the width of text and typesize will vary from that
+of \textsf{article.cls}; therefore, \emph{line breaks will change}
+and it is likely that displayed mathematics and tabular material
+will need re-setting.
+
+In the following sections we describe how to lay out your code to
+use \textsf{\journalclass} to reproduce the typographical look of
+the \emph{\journalnamelc}. However, this paper is not a guide to
+using \LaTeXe\ and we would refer you to any of the many books
+available (see, for example, \cite{R1,R2,R3}).
+
+\vspace{-6pt}
+
+\section{The Three Golden Rules}
+\vspace{-2pt}
+
+Before we proceed, we would like to stress \emph{three golden
+rules} that need to be followed to enable the most efficient use
+of your code at the typesetting stage:
+\begin{enumerate}
+\item[(i)] keep your own macros to an absolute minimum;
+
+\item[(ii)] as \TeX\ is designed to make sensible spacing
+decisions by itself, do \emph{not} use explicit horizontal or
+vertical spacing commands, except in a few accepted (mostly
+mathematical) situations, such as \verb"\," before a
+differential~d, or \verb"\quad" to separate an equation from its
+qualifier;
+
+\item[(iii)] follow the \emph{\journalnamelc} reference style.
+\end{enumerate}
+
+\pagebreak
+
+\section{Getting Started} The \textsf{\journalclassshort} class file should run
+on any standard \LaTeXe\ installation. If any of the fonts, style
+files or packages it requires are missing from your installation,
+they can be found on the \emph{\TeX\ Collection} DVDs or from
+CTAN.
+
+\emph{\journalnamelc} is published using Times fonts and this is
+achieved by using the \verb"times"
+option as\\
+\verb"\documentclass[times]{fldauth}".
+
+\noindent If for any reason you have a problem using Times you can
+easily resort to Computer Modern fonts by removing the
+\verb"times" option.
+
+\begin{figure}
+\setlength{\fboxsep}{0pt}%
+\setlength{\fboxrule}{0pt}%
+\begin{center}
+\begin{boxedverbatim}
+\documentclass[times]{fldauth}
+%\documentclass[times,doublespace]{fldauth}%For paper submission
+
+\begin{document}
+
+\runningheads{<Initials and Surnames>}{<Short title>}
+
+\title{<Initial cap, lower case>}
+
+\author{<An Author\affil{1},
+Someone Else\affil{2}\corrauth\ and Perhaps Another\affil{1}>}
+
+\address{<\affilnum{1}First author's address
+(in this example it is the same as the third author)\break
+\affilnum{2}Second author's address>}
+
+\corraddr{<Corresponding author's address (the second author in
+this example)>. E-mail: <corresponding author's email address>}
+
+%\cgs{<Contract/grant sponsor name (no number)>}
+%\cgsn{<Contract/grant sponsor name>}{<number>}
+
+\begin{abstract}
+<Text>
+\end{abstract}
+
+\keywords{<List keywords>}
+
+\maketitle
+
+\section{Introduction}
+.
+.
+.
+\end{boxedverbatim}
+\end{center}
+%\vspace{-12pt}
+\caption{Example header text.\label{F1}}
+\end{figure}
+
+
+\section{The Article Header Information}
+The heading for any file using \textsf{\journalclass} is shown in
+Figure~\ref{F1}.
+
+\subsection{Remarks}
+\begin{enumerate}
+\item[(i)] In \verb"\runningheads" use `\emph{et~al.}' if there
+are three or more authors.
+
+\item[(ii)] Note the use of \verb"\affil" and \verb"\affilnum" to
+link names and addresses. The author for correspondence is marked
+by \verb"\corrauth" and \verb"\corraddr" is used to give that
+author's address, which will be printed as a footnote, prefaced by
+`Correspondence to:'.
+
+\item[(iii)] For submitting a double-spaced manuscript, add
+\verb"doublespace" as an option to the documentclass line.
+
+\item[(iv)] Use \verb"\cgs" for giving details of financial
+sponsors; alternatively use \verb"\cgsn" if the grant number is
+also to be included. These details will be printed as a footnote,
+with `Contract/grant sponsor:' and `contract/grant number:'
+inserted in the appropriate places.
+
+\item[(v)] The abstract should be capable of standing by itself,
+in the absence of the body of the article and of the bibliography.
+Therefore, it must not contain any reference citations.
+
+\item[(vi)] Keywords are separated by semicolons.
+\end{enumerate}
+
+\begin{figure}
+\setlength{\fboxsep}{0pt}%
+\setlength{\fboxrule}{0pt}%
+\begin{center}
+\begin{boxedverbatim}
+\begin{table}
+\caption{<Table caption>}
+\centering
+\tabsize
+\begin{tabular}{<table alignment>}
+\toprule
+<column headings>\\
+\midrule
+<table entries
+(separated by & as usual)>\\
+<table entries>\\
+.
+.
+.\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{boxedverbatim}
+\end{center}
+\vspace{-6pt}
+\caption{Example table layout.\label{F2}}
+\vspace{-6pt}
+\end{figure}
+
+\section{The Body of the Article}
+
+\subsection{Mathematics} \textsf{\journalclass} makes the full
+functionality of \AmS\/\TeX\ available. We encourage the use of
+the \verb"align", \verb"gather" and \verb"multline" environments
+for displayed mathematics. \textsf{amsthm} is used for setting
+theorem-like and proof environments. The usual \verb"\newtheorem"
+command needs to be used to set up the environments for your
+particular document.
+
+\subsection{Figures and Tables} \textsf{\journalclass} includes the
+\textsf{graphicx} package for handling figures.
+
+Figures are called in as follows:
+\begin{verbatim}
+\begin{figure}
+\centering
+\includegraphics{<figure name>}
+\caption{<Figure caption>}
+\end{figure}
+\end{verbatim}
+
+For further details on how to size figures, etc., with the
+\textsf{graphicx} package see, for example, \cite{R1}
+or \cite{R3}. If figures are available in an
+acceptable format (for example, .eps, .ps) they will be used but a
+printed version should always be provided. \medbreak
+
+The standard coding for a table is shown in Figure~\ref{F2}.
+
+\subsection{Cross-referencing}
+The use of the \LaTeX\ cross-reference system
+for figures, tables, equations, etc., is encouraged
+(using \verb"\ref{<name>}" and \verb"\label{<name>}").
+
+\subsection{Acknowledgements} An Acknowledgements section is started with \verb"\ack" or
+\verb"\acks" for \textit{Acknowledgement} or
+\textit{Acknowledgements}, respectively. It must be placed just
+before the References.
+
+\subsection{Bibliography}
+The normal commands for producing the reference list are:
+\begin{verbatim}
+\begin{thebibliography}{99}
+\bibitem{<x-ref label>}
+         <Reference details>
+.
+.
+.
+\end{thebibliography}
+\end{verbatim}
+where \verb"\bibitem{x-ref label}"
+corresponds to \verb"\cite{x-ref label}" in the body of the article
+and \verb"{99}" is the widest such number expected and determines
+the width of the number column in the reference list.
+
+Please note that the file \textsf{wileyj.bst} is available from
+the same download page for those authors using \BibTeX.
+
+\subsection{Double Spacing}
+If you need to double space your document for submission please
+use the \verb+doublespace+ option as shown in the sample layout in
+Figure~\ref{F1}.
+
+\section{Support for \textsf{\journalclass}}
+We offer on-line support to participating authors. Please contact
+us via e-mail at\\
+\href{mailto:fldauth-cls@wiley.co.uk}{\texttt{fldauth-cls@wiley.co.uk}}.
+
+We would welcome any feedback, positive or otherwise, on your
+experiences of using \textsf{\journalclass}.
+
+\section{Copyright Statement}
+Please  be  aware that the use of  this \LaTeXe\ class file is
+governed by the following conditions.
+
+\subsection{Copyright}
+Copyright \copyright\ \volumeyear\ John Wiley \& Sons, Ltd, The
+Atrium, Southern Gate, Chichester, West Sussex, PO19~8SQ, UK. All
+rights reserved.
+
+\subsection{Rules of Use}
+This class file is made available for use by authors who wish to
+prepare an article for publication in the \emph{\journalnamelc}
+published by John Wiley \& Sons, Ltd. The user may not exploit any
+part of the class file commercially.
+
+This class file is provided on an \emph{as is}  basis, without
+warranties of any kind, either express or implied, including but
+not limited to warranties of title, or implied  warranties of
+merchantablility or fitness for a particular purpose. There will
+be no duty on the author[s] of the software or  John Wiley \&
+Sons, Ltd to correct any errors or defects in the software. Any
+statutory  rights you may have remain unaffected by your
+acceptance of these rules of use.
+
+\ack This class file was developed by Sunrise Setting Ltd,
+Torquay, Devon, UK. Website:\\
+\href{http://www.sunrise-setting.co.uk}{\texttt{www.sunrise-setting.co.uk}}
+
+\begin{thebibliography}{9}
+%
+
+\bibitem{aiea_1999}
+AIEA, 1999. Use of natural analogues to support radionuclide transport models
+  for deep geological repositories for long-lived radioactive wastes. Tech.
+  rep., AIEA, iAEA-TECDOC-1109.
+
+\bibitem{aziz_1986}
+Aziz, K., Settari, A., 1986. Fundamentals of reservoir simulation. Elsevier
+  Applied Science Publishers, New York.
+
+\bibitem{bastian_2002}
+Bastian, P., 2002. Challenges in Scientific Computing - CISC 2002. Lecture
+  Notes in Computational Science and Engineering. Springer, Ch. Higher Order
+  Discontinuous Galerkin Methods for Flow and Transport in Porous Media.
+
+\bibitem{Brandt}
+Brandt, A., 1977. Multi–level adaptive solutions to boundary-value problems.
+  Mathematics of Computation 31, 333 -- 390.
+
+\bibitem{brooks_1982}
+Brooks, A., Hughes, T., 1982. Streamline upwind {P}etrov-{G}alerkin
+  formulations for convection dominated flows with particular emphasis on the
+  incompressible {N}avier-{S}tokes equations. Comput. Methods Appl. Mech.
+  Engrg. 32, 199--259.
+
+\bibitem{brooks_1964}
+Brooks, R., Corey, A., 1964. Hydrology Papers. Vol.~3. Colorado State
+  University, Ch. Hydraulic properties of porous media.
+
+\bibitem{buckley1942}
+Buckley, S., Leverett, M., 1942. Mechanism of fluid displacements in sands.
+  Transactions of the AIME~(146), 107--116.
+
+\bibitem{chavent_1986}
+Chavent, G., Jaffr\'e, J., 1986. Mathematical Models and Finite Elements for
+  Reservoir Simulation. Vol.~17 of Studies in Mathematics and Its Applications.
+  North Holland.
+
+\bibitem{chen_1997}
+Chen, Z., Ewing, R., 1997. Comparison of various formulations of three-phase
+  flow in porous media. Journal of Computational Physics 132~(2), 362--373.
+
+\bibitem{chen_2006}
+Chen, Z., Huan, G., Ma, Y., 2006. Computational Methods for Multiphase Flows in
+  Porous Media. SIAM.
+
+\bibitem{chen_2005}
+Chen, Z., Huan, G., Wang, H., 2005. Simulation of a compositional model for
+  multiphase flow in porous media. Numerical Methods for Partial Differential
+  Equations 21~(4), 726--741.
+
+\bibitem{cordazzo_2004} 
+Cordazzo, J., Maliska, C., da~Silva, A., Hurtado, F., November 2004. The
+  negative transmissibility issue when using {CVFEM} in petroleum reservoir
+  simulation -- 1. {T}heory. In: Proceedings of the 10th Brazilian Congress of
+  Thermal Sciences and Engineering -- ENCIT 2004. Brazilian Society of
+  Mechanical Engineering -- ABCM, Rio de Janeiro, Brazil.
+
+\bibitem{cumming_phd2012}
+Cumming, B., 2012. Modelling sea water intrusion in coastal aquifers using
+  heterogeneous computing. Ph.D. thesis, Queensland University of Technology,
+  Australia.
+
+\bibitem{cumming_2011}
+Cumming, B., Moroney, T., Turner, I., 2011. A mass-conservative control
+  volume-finite element method for solving {R}ichards' equation in
+  heterogeneous porous media. BIT Numerical Mathematics 51~(4), 845--864.
+
+\bibitem{dawe_2008}
+Dawe, R.~A., Grattoni, C.~A., 2008. Experimental displacement patterns in a
+  2$\times$2 quadrant block with permeability and wettability
+  heterogeneities—problems for numerical modelling. Transport in Porous Media
+  71, 5--22.
+
+\bibitem{durlofsky_1993}
+Durlofsky, L., 1993. A triangle based mixed finite element finite volume
+  technique for modelling two-phase flow through porous media. Journal
+  Computational Physics 105, 252--266.
+
+\bibitem{durlofsky_1994}
+Durlofsky, L., 1994. Accuracy of mixed and control volume finite element
+  approximations to {D}arcy velocity and related quantities. Water Resources
+  Research 30, 965--973.
+
+\bibitem{forsyth_1990}
+Forsyth, P., 1990. A control volume, finite element method for local mesh
+  refinement in thermal reservoir simulation. SPE Resevoir Engineering 5~(4),
+  561--566.
+
+\bibitem{geiger_2004}
+Geiger, S., Roberts, S., Matth{\"a}i, S., Zoppou, C., A.~Burri, A., 2004.
+  Combining finite element and finite volume methods for efficient multiphase
+  flow simulations in highly heterogeneous and structurally complex geologic
+  media. Geofluids 4~(4), 284--299.
+
+\bibitem{helmig_1997}
+Helmig, R., 1997. Multiphase flow and transport processes in the subsurface.
+  Springer-Verlag, Berlin.
+
+\bibitem{Hoteit}
+Hoteit, H., Firoozabadi, A., 2008. Numerical modeling of two-phase flow in
+  heterogeneous permeable media with different capillarity pressures. Advances
+  in Water Resources 31~(1), 56 -- 73.
+
+\bibitem{huber_2000}
+Huber, H., Helmig, R., 2000. Node-centered finite volume discretizations for
+  the numerical simulation of multiphase flow in heterogeneous porous media.
+  Comput. Geosci. 4, 141--164.
+
+\bibitem{hurtado_2007}
+Hurtado, F., Maliska, C., Silva, A., Cordazzo, J., 2007. A quadrilateral finite
+  element-based finite-volume formulation for the simulation of complex
+  reservoirs. SPE 107444.
+
+\bibitem{jackson_2013}
+Jackson, M., Gomes, J., Mostaghimi, P., Percival, J., Tollit, B., Pavlidis, D.,
+  Pain, C., A.H. El-Sheikh, S.~P., Muggeridge, A., Blunt, M., 2013. Reservoir
+  modeling for flow simulation using surfaces, adaptive unstructured meshes,
+  and control-volume-finite-element methods. In: SPE Reservoir Simulation
+  Symposium, DOI: 10.2118/163633-PA.
+
+\bibitem{jiang_2011} 
+Jiang, X., 2011. A review of physical modelling and numerical simulation of
+  long-term geological storage of carbon dioxide. Applied Energy 88,
+  3557--3566.
+
+\bibitem{kirkland_1992}
+Kirkland, M., Hills, R., Wierenga, P., 1992. Algorithms for solving {R}ichards'
+  equation for variably-saturated soils. Water Resources Research 28,
+  2049--2058.
+
+\bibitem{mostaghimi_2015}
+Mostaghimi, P., Percival, J., Pavlidis, D., Ferrier, R., Gomes, J., Gorman, G.,
+  Jackson, M., Neethling, S., Pain, C., 2015. Anisotropic mesh adaptivity and
+  control volume finite element methods for nucmerical simulation of multiphase
+  flow in porous media. Mathematical Geoscience 347, 673--676.
+
+\bibitem{nick_2011b}
+Nick, H., Matthai, S., 2011a. Comparison of three fe-fv numerical
+  schemes for single- and tw-phase flow simulation of fractured porous media.
+  Transp. Porous Med 90, 421--444.
+
+\bibitem{nick_2011a}
+Nick, H., Matthai, S., 2011b. A hybrid finite-element
+  finite-volume method with embedded discontinuities for solute transport in
+  heterogeneous media. Vadose Zone Journal 10, 299--312.
+
+\bibitem{pavlidis_2013b}
+Pavlidis, D., Gomes, J., Xie, Z., Percival, J., Pain, C., Matar, O., 2015.
+  Compressive-advection and multi-component methods for interface-capturing.
+  International Journal for Numerical Methods in Fluids\;(Accepted).
+
+\bibitem{pavlidis_2014}
+Pavlidis, D., Xie, Z., Percival, J., Gomes, J., Pain, C., Matar, O., 2014. Two-
+  and three-phase horizontal slug flow modelling using an interface-capturing
+  compositional approach. International Journal for Multiphase Flow 67, 85--91.
+
+\bibitem{percival_2014}
+Percival, J., Pavlidis, D., Xie, Z., Gomes, J., Matar, O., Sakai, M.,
+  Takahashi, H., Pain, C., 2014. Transport and segregation of sand and granular
+  flows in fluidized beds. International Journal for Multiphase Flow 67,
+  191--199.
+
+\bibitem{pruess_1990c}
+Pruess, K., 1990. Numerical modeling of gas migration at a proposed repository
+  for low and intermediate level nuclear wastes. Tech. Rep. Report LBL-25413,
+  Lawrence Berkeley Laboratory, Berkeley, USA.
+
+\bibitem{riviere_2002}
+Rivi\`ere, B., Wheeler, M., 2002. Discontinuous {G}alerkin methods for flow and
+  transport problems in porous media. Communications in Numerical Methods in
+  Engineering 18, 63--68.
+
+\bibitem{riviere_2000}
+Rivi\`ere, B., Wheeler, M., Banas, K., 2000. Part 2: Discontinuous {G}alerkin
+  method applied to a single phase flow in porous media. Comp. Geosci. 4,
+  337--349.
+
+\bibitem{Salinas}
+Salinas, P., Percival, J.~R., Pavlidis, D., Xie, Z., Gomes, J., Pain, C.~C.,
+  Jackson, M.~D., 2015. A discontinuous overlapping control volume finite
+  element method for multi-phase porous media flow using dynamic unstructured
+  mesh optimization. In: SPE 173279.
+
+\bibitem{Schmid}
+Schmid, K., Geiger, S., Sorbie, K., 2013. Higher order fe–fv method on
+  unstructured grids for transport and two-phase flow with variable viscosity
+  in heterogeneous porous media. Journal of Computational Physics 241~(0), 416
+  -- 444.
+
+\bibitem{kaisu}
+Su, K., Latham, J.-P., Pavlidis, D., Xiang, J., Fang, F., Mostaghimi, P.,
+  Percival, J.~R., Pain, C.~C., Jackson, M.~D., 2015. Multiphase flow
+  simulation through porous media with explicitly resolved fractures.
+  Geofluids, n/a--n/a.
+% \newline\urlprefix\url{http://dx.doi.org/10.1111/gfl.12129}
+
+\bibitem{tezduyar_1986}
+Tezduyar, T., Park, Y., 1986. Discontinuity-capturing finite element
+  formulations for nonlinear convection-diffusion-reaction equations. Computer
+  Methods in Applied Mechanics and Engineering 59, 307--325.
+
+\bibitem{xie_2014}
+Xie, Z., Pavlidis, D., Percival, J., Gomes, J., Pain, C., Matar, O., 2014.
+  Adaptive unstructured mesh modelling of multiphase flows. International
+  Journal for Multiphase Flow 67, 104--110.
+%
+\bibitem{R1} Kopka~H, Daly~PW. 2003. \emph{A Guide to \LaTeX} (4th~edn).
+Addison-Wesley.
+
+\bibitem{R2} Lamport~L. 1994. \emph{\LaTeX: a Document Preparation System} (2nd~edn).
+Addison-Wesley.
+
+\bibitem{R3} Mittelbach~F, Goossens~M. 2004. \emph{The \LaTeX\ Companion}
+(2nd~edn). Addison-Wesley.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,1062 @@
+%%
+%% Copyright 2007, 2008, 2009 Elsevier Ltd
+%%
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%%
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later c.
+%%
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%%
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+%% SP 2008/03/01
+%%
+%%
+%%
+%% $Id: elsarticle-template-harv.tex 4 2009-10-24 08:22:58Z rishi $
+%%
+%%
+\documentclass[preprint,authoryear,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,authoryear,1p,times]{elsarticle}
+%% \documentclass[final,authoryear,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,authoryear,3p,times]{elsarticle}
+%% \documentclass[final,authoryear,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,authoryear,5p,times]{elsarticle}
+%% \documentclass[final,authoryear,5p,times,twocolumn]{elsarticle}
+
+%% if you use PostScript figures in your article
+%% use the graphics package for simple commands
+%% \usepackage{graphics}
+%\usepackage{cases}
+%% or use the graphicx package for more complicated commands
+\usepackage{graphicx}
+%% or use the epsfig package if you prefer to use the old commands
+\usepackage{epsfig}
+
+\usepackage{comment}
+
+\usepackage{epstopdf}
+
+
+\usepackage{subfig}
+
+\usepackage{bm}
+\usepackage{hyperref,url}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=red}
+
+%\usepackage[obeyFinal]{todonotes}
+\usepackage{todonotes}
+\newcommand{\jrp}[1]{\todo[color=blue!30, size=\small]{JRP: #1}}
+\newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{ \color{blue} JG: #1}}}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb,amsmath,array}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%% \usepackage{lineno}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon (default)
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   authoryear - selects author-year citations (default)
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%   longnamesfirst  -  makes first citation full author list
+%%
+%% \biboptions{longnamesfirst,comma}
+
+% \biboptions{}
+
+%\journal{Computer Methods in Applied Mechanics and Engineering}
+\journal{Comput Meth Appl Mech Eng}
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\PN}[2][error]{P$_{#1}$DG-P$_{#2}$}
+\newcommand{\PNDG}[2][error]{P$_{#1}$DG-P$_{#2}$DG}
+
+\begin{document}
+
+
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\title{A Force-Balanced Control Volume Finite Element Method for Multiphase Porous Media Flow Modelling}
+
+%% use optional labels to link authors explicitly to addresses:
+\author[UoA,NORMS]{J. L. M. A. Gomes}\corref{cor1}\ead{jefferson.gomes@abdn.ac.uk} \author[IC,NORMS]{D. Pavlidis} 
+\author[IC,NORMS]{P. Salinas} \author[IC,NORMS]{Z. Xie}
+\author[IC]{J. R. Percival} \author[NSW]{P. Mostaghimi} 
+\author[IC,NORMS]{C. C. Pain} \author[NORMS]{M. D. Jackson}
+%\author[IC]{M. Blunt}
+
+\cortext[cor1]{Corresponding author.}
+\address[UoA]{Environmental and Industrial Fluid Mechanics Group, School of Engineering, University of Aberdeen, UK}
+\address[IC]{Applied Modelling and Computation Group, Department of Earth Science and Engineering, Imperial College London, UK}
+\address[NSW]{School of Petroleum Engineering, University of New South Wales, Australia}
+\address[NORMS]{Novel Reservoir Modelling and Simulation Group, Department of Earth Science and Engineering, Imperial College London, UK}
+
+\begin{abstract}
+  A novel control volume finite element method for simulating
+  subsurface multiphase flows is presented here. The approach has two
+  major strengths. First, it uses a dual consistent pressure-velocity
+  representation in control volume and finite element spaces which
+  ensures local mass conservation. Second, it uses a family of
+  finite element types that ensure the multiphase Darcy equations can be
+  exactly enforced. The underlying mass conservation equations are
+  solved in control volume space whereas finite elements are used to
+  obtain high-order fluxes on control volume boundaries. The novelty
+  of the method lies in (a) permitting both continuous and
+  discontinuous description of pressures and saturations between
+  elements; (b) the use of arbitrarily high-order polynomial
+  representation for pressure and velocity within the mixed
+  formulation and (c) the use of high-order flux-limited methods to
+  avoid introducing non-physical oscillations while achieving
+  high-order time accuracy where and when possible. The model is
+  initially evaluated and then applied to a series of test cases using
+  structured and unstructured (triangular/ tetrahedral) meshes, as
+  well as heterogeneous problems with large permeability
+  ratios. Numerical results are in good agreement with analytically
+  obtained solutions.
+\end{abstract}
+
+\begin{keyword} %% keywords here, in the form: keyword \sep keyword
+CVFEM mixed formulation \sep Discontinuous Galerkin  \sep Multiphase flows \sep Porous media.
+
+
+\end{keyword}
+
+\end{frontmatter}
+
+
+\section{Introduction}
+Numerical modelling of multiphase flow in porous media has
+applications in a wide range of disciplines, including hydrocarbon and
+groundwater production, safety assessment of deep geological disposal
+of radioactive waste, and CO$_{\text{2}}$ migration and trapping in
+carbon capture and storage ~\citep{chen_2006, aiea_1999, pruess_1990c,
+  jiang_2011}. Such geological and geophysical applications often
+include complex rock geometries with irregular (and often internal)
+boundaries between rock types with contrasting porosity and
+permeability.  Accurately capturing these complex geometries is a key
+challenge when simulating such flows.
+
+Finite difference methods (FDM) have been extensively used in
+modelling and simulation of fluid flows in porous media
+\citep{aziz_1986, chen_1997, chen_2005}.  However, they are strongly
+dependent on mesh quality and orientation, and cannot easily represent
+complex geometries. In addition, FDM can produce excessive numerical
+dispersion in heterogeneous porous media \citep{chavent_1986}. The
+geometrical flexibility of finite element methods (FEM) has been shown
+to overcome these deficiencies. Among FEM-based formulations for
+porous media, the control volume finite element method (CVFEM) has
+become increasingly popular as it can guarantee local mass
+conservation and high-order numerical accuracy, as well as being able
+to use tetrahedral, geometry-conforming elements \citep{forsyth_1990,
+  cordazzo_2004, geiger_2004, hurtado_2007}. \citet{huber_2000}
+demonstrated that the vertex-centred, finite volume-finite element
+method (or Box scheme) can achieve similar goals \citep[see
+  also][]{helmig_1997}.
+
+\citet{durlofsky_1993,durlofsky_1994} compared the performance of a
+mixed FEM formulation (i.e. piece-wise constant in pressure and
+piece-wise linear in velocity) and the classical CVFEM for single
+phase Darcy flows. He concluded that the latter is more
+computationally efficient and numerically accurate than the former for
+problems involving a (relatively) small number of degrees of
+freedom. Moreover, for complex heterogeneous problems with sharp
+changes in material properties, mixed FEM formulations often lead to
+physically unrealistic solutions.  \citet{cumming_2011} demonstrated
+that a CVFEM-based discretisation could be used to solve the Richards
+equation (coupled mass conservation and Darcy equations) in
+heterogeneous porous media with relatively small computational
+overhead, compared with traditional, coupled velocity-pressure based
+formulations.  Mass balance was enforced as described by
+\citet{kirkland_1992}~\citep[see
+  also][]{forsyth_1990,cumming_phd2012}.  The efficiency and accuracy
+of CVFEM for porous media flows has motivated our development of a
+CVFEM-based discretisation here.  However, CVFEM often requires high
+resolution meshes in regions where material properties vary abruptly,
+such as permeability contrasts at (for example) fracture-matrix
+interfaces, or boundaries between different rock types. Control volume
+(CV) boundaries span finite elements where material properties are
+defined; therefore, some average value of the permeability must be
+calculated across CV interfaces. This often leads to excessive
+numerical dispersion, especially in highly heterogeneous media
+\citep{nick_2011b, nick_2011a}.
+
+Discontinuity-capturing schemes~\citep[e.g. shock waves, contact
+  surface or material discontinuities --
+  see][]{brooks_1982,tezduyar_1986} were originally developed to
+resolve sharp changes in solution fields such as velocity or
+saturation. Related discontinuity-capturing schemes include the
+discontinuous-Galerkin FEM (DGFEM) scheme in which continuity of the
+solution is not explicitly enforced, allowing sharp changes in the
+solution fields to be captured. The DG formulation is a stabilised
+finite element method that is locally conservative and designed to
+achieve high-order accuracy. DGFEM solution fields are allowed to be
+discontinuous at the element faces; thus, the solution is able to
+handle discontinuities in material properties at internal
+boundaries. In addition, DGFEM is well-suited to deal with interface
+problems by incorporating specially-designed interface fluxes. These
+properties have attracted the attention of the porous media flow
+community over the past 15 years
+\citep[see][]{riviere_2000,riviere_2002,bastian_2002} and are utilised
+here.
+
+In this paper, a novel CVFEM formulation which is conservative and
+consistent is presented. The continuity equations are embedded into
+the pressure equation to enforce mass conservation and the exact force
+balance. The formulation employs an implicit algorithm with respect to
+time that is less restrictive than the
+implicit-pressure-explicit-saturation (IMPES) scheme often adopted in
+porous media flow problems \citep[e.g. see][]{aziz_1986,
+  geiger_2004}. There are two key novel aspects in our approach. The
+first is that it uses a dual consistent CVFEM representation that is
+embedded in the \PN[n]{m}[DG] family of triangular and tetrahedral
+finite element pairs \citep[see][]{kaisu}. For this element type, the
+velocity field is represented by $n^{\rm th}$-order polynomials that
+are discontinuous across elements, while the pressure field is
+represented by $m^{\rm th}$-order polynomials that may be continuous
+(termed P$_n$DG-P$_m$) or discontinuous (termed P$_n$DG-P$_m$DG)
+across elements. In particular, here the P$_n$DG-P$_{n+1}$ element
+pair, which allows the velocity to exactly represent the pressure
+gradients in the flow solution for homogeneous material properties, is
+demonstrated. The \PNDG[n+1]{n} element pair, which has similar
+properties to the \PN[n]{n+1} element pair, but allows a
+representation in which pressure, saturation and other solution
+variables are discontinuous across finite element boundaries, is also
+demonstrated.  This solves the long-standing problem described above
+with respect to the use of traditional CVFEM methods to capture sharp
+changes in material properties. The second key novelty is the velocity
+representation that is described in detail in
+Section~\ref{overlapping_method_section} and can achieve an exact
+representation of the multiphase Darcy force balance equations.
+
+The remainder of this paper is organised as follows. The governing
+equations and numerical methods employed to solve them are presented
+in Section~\ref{overlapping_method_section}. Model set-up and results
+including comparison against reference data for a series of benchmark
+problems are given in Sections~\ref{setup} and \ref{res},
+respectively. Finally, some concluding remarks are presented in
+Section~\ref{conc}.
+
+
+\section{Governing equations and Numerical Method}
+\label{overlapping_method_section}
+
+\subsection{A Novel Representation of Multiphase Darcy Flows}
+Darcy's law for immiscible multiphase flow may be written in the form:
+\begin{equation}\label{e:darcy_eqn}
+  \mathbf{q}_{\alpha} =
+  -\frac{\mathcal{K}_{{r}_\alpha}\mathbf{K}}{\mu_{\alpha}}\left(
+  \nabla p_{\alpha} - {\mathbf{s}_{u}}_{\alpha} \right),
+\end{equation}
+where $\mathbf{q}_{\alpha}$ is the $\alpha$-th phase Darcy velocity,
+$\mathbf{K}$ is the absolute permeability tensor of the porous medium,
+$\mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right)$ is the phase
+relative permeability, which is a function of the phase saturation
+$S_{\alpha}\left(\mathbf{r},t\right)$. $\mu_{\alpha}$, $p_{\alpha}$
+and $\mathbf{s}_{{u}_\alpha}$ are the phase dynamic viscosity,
+pressure and source term, which may include gravity and capillary
+pressure, respectively.
+
+Introducing a saturation-weighted Darcy velocity defined as
+$\mathbf{u}_\alpha= \mathbf{q}_\alpha/S_\alpha$, then
+Eqn.~\ref{e:darcy_eqn} may be rewritten as:
+\begin{equation}
+  \mathbf{v}_\alpha={\underline {\underline \sigma}}_{\alpha}
+  \mathbf{u}_{\alpha} = - \nabla p_{\alpha} +
+         {\mathbf{s}_{u}}_{\alpha},
+  \label{force-bal}
+\end{equation}
+where ${\underline {\underline \sigma}}_{\alpha}=\mu_\alpha S_\alpha
+\left(\mathcal{K}_{{r}_\alpha}\mathbf{K}\right)^{-1}$ represents the
+implicit linearisation of the viscous frictional forces. The force per
+unit volume $\mathbf{v}_\alpha$, defined as ${\underline {\underline
+    \sigma}}_{\alpha} \mathbf{u}_\alpha$, is used as a prognostic
+variable in this approach, as explained in
+Section~\ref{Section:Force_density}.
+
+In order to discretise Eqn.~\ref{force-bal}, a finite element
+representation for $\mathbf{v}_\alpha$ and $p$ is assumed, expressed
+in terms of their FE basis functions $Q_{j}$ and $P_{j}$,
+respectively, as:
+\begin{equation}
+  \mathbf{v}_\alpha(\bm{r},t) = \sum\limits_{j=1}^{\mathcal{N}_u}
+  Q_{j}(\bm{r})\mathbf{v}_{\alpha,j}(t) \;\;\;\;\text{ and } \;\;\;\;
+  p(\bm{r},t) = \sum\limits_{j=1}^{\mathcal{N}_p}
+  P_{j}(\bm{r})p_{j}(t).
+\end{equation} 
+Here $\mathcal{N}_{u}$ and $\mathcal{N}_{p}$ are the total number of
+degrees of freedom for the FE force and pressure representations. Each
+component of the weak form of the force balance (Eqn.~\ref{force-bal})
+is tested with the $\mathbf{v}_\alpha$ basis function space to obtain:
+\begin{eqnarray}
+  \sum\limits_{E} \left. \int\limits_{\Omega_E} { {Q}}_i \left (
+             {\mathbf v}_\alpha + \nabla p -{\mathbf s}_{u_\alpha}
+             \right) dV \right. + \displaystyle \oint_{\Gamma_{E}}
+                   {Q}_i {\mathbf n} \left(p - \tilde{p}\right)
+                   d\Gamma + \nonumber \\ \oint_{\Gamma_{\Omega}} {
+                     Q}_i {\mathbf n} \left(p - p_\text{bc}\right) d\Gamma
+                   = \bm{0},
+                   \label{force-semi-disc} 
+\end{eqnarray} 
+where $\Omega_E$ and $\Gamma_{E}$ are the volume and boundary of
+element $E$, respectively, and $\Gamma_{\Omega}$ is the boundary of
+the computational domain. The numerical pressure $\tilde{p}$ appearing
+in the jump condition (second term in Eqn.~\ref{force-semi-disc}) is
+the arithmetic mean of the potentially discontinuous pressure across
+the element $E$. This term vanishes when a continuous formulation is
+used to discretise the pressure field. The last term in
+Eqn.~\ref{force-semi-disc} is used to weakly enforce the pressure
+level to $p_\text{bc}$ on a computational domain boundary.
+
+In matrix form, Eqn.~\ref{force-semi-disc} is:
+\begin{equation}
+  {\mathbf M} \underline {\mathbf v} = -{\mathbf C} \underline
+  {\mathbf p} + \underline {\mathbf
+    s}_{u}, \label{force-balance-matrix-form}
+\end{equation}
+where $\underline{\bf v}$ and $\underline{\bf p}$ solution-vectors are
+defined as:
+\begin{eqnarray}
+  &&\underline{{\bf v}} = \left( 
+  \left( {v_x},{v_y},{v_z} \right)  _{1,1},
+  \left( {v_x},{v_y},{v_z} \right)  _{2,1},\ldots,
+  \left( {v_x},{v_y},{v_z} \right)  _{\mathcal{N}_\alpha,\mathcal{N}_u}
+  \right)^{T}
+  \;\text{and} \nonumber \\ &&
+  \underline{{\bf p}} = \left(p_1, p_2, p_3, ...,
+  p_{\mathcal{N}_p}\right)^T. \nonumber \nonumber
+\end{eqnarray}
+$\mathcal{N}_{\alpha}$ is the number of phases and $v_x$, $v_y$ and
+$v_z$ are the components associated with the $x$, $y$ and $z$
+dimensions, respectively. Finally, the mass matrix ${\mathbf M}$,
+gradient matrix ${\mathbf C}$ and source vector $\underline {\mathbf
+  s}_{u}$ are defined as:
+\begin{eqnarray}
+  && \left[{\mathbf M}^{(i,j)}\right]_{k,l} = \int_{\Omega} Q_{k}
+  \left[\underline{\underline{\sigma}}_{\alpha}\right]_{i,j} {Q}_{l}
+  dV, \nonumber \\ && {\left[\bm{C}^{(i,i)}\right]_{k,l} =
+    \int_{\Omega} Q_{k} \frac{\partial P_{l}}{\partial r_i} dV -
+    \oint_{\Gamma_{E}} \displaystyle\frac{1}{2} Q_{k} n_i^{(E,l)}
+    P_{l} d\Gamma - \oint_{\Gamma_{\Omega}} \displaystyle Q_{k} n_i
+    P_{l} d\Gamma}, \nonumber \\ &&
+  {\left[\bm{s}_{u}^{(i,i)}\right]_{k} = \int_{\Omega} Q_k}
+  \left[{\mathbf s}_{u_\alpha} \right]_i dV -
+  \oint_{\Gamma_{\Omega}}\displaystyle Q_{k} n_i p_\text{bc} d\Gamma,
+  \nonumber
+\end{eqnarray}
+where $i$ and $j$ are dimensions and $k$ and $l$ are the degrees of
+freedom of element $E$. Here, $\bm{n} = \left(n_{1}, n_{2},
+n_{3}\right)^{T}$ is the outward-pointing normal vector of the domain
+$\Omega$. $\bm{n}^{(E,l)}$ is the normal to the boundary of element
+$E$ and is outward-pointing if $P_{l}$ takes support on $E$, and
+inward-pointing otherwise.
+
+The saturations are computed in CV space, whereas the permeability
+tensor $\left(\mathbf{K}\right)$ is assumed piece-wise constant in FE
+space. Thus the viscous-friction damping tensor $ {\underline
+  {\underline \sigma}}_{\alpha}$ is piece-wise constant within the
+sub-control volumes defined through intersections between the elements
+and control volumes (see Fig.~\ref{fem_cv_represent_a}).
+
+
+
+\subsection{Control-Volume Finite element types}
+In the formulation presented here, pressure, velocity, permeability
+and porosity are represented FE-wise, but saturation, relative
+permeability and fluid properties such as viscosity and density are
+represented CV-wise. Fig.~\ref{fem_cv_represent_a} displays the two
+families of element types presented in this
+paper. Fig.~\ref{fem_cv_represent_a} (a) shows the P$_{n}$DG-P$_{n+1}$
+element type, with $n = 1$, in two dimensions (2D). Here the velocity
+field is linear, discontinuous (between elements), the pressure field
+has a quadratic, continuous (between elements), representation and the
+CV's span various elements. Fig.~\ref{fem_cv_represent_a} (b) shows
+the P$_{n+1}$DG-P$_{n}$DG element type, with $n = 1$, also in 2D. Here
+the velocity field is quadratic, discontinuous (between elements), the
+pressure field has a linear, discontinuous (between elements),
+representation and the CV's do not span elements. Note that in the
+latter element pair, CV's have piece-wise constant permeability and
+porosity values.
+
+\begin{figure}[h!]
+\subfloat[P$_1$DG-P$_2$]{\includegraphics[width=.5\textwidth]{diagrams/p1dgp2-cont-sat}}
+\subfloat[P$_2$DG-P$_1$DG]{\includegraphics[width=.5\textwidth]{diagrams/p2dgp1-dg-sat}}
+\caption{2D representation of the element pairs presented in this
+  work. Shaded areas denote control volumes (in which saturation is
+  stored), black points represent the pressure nodes and white points
+  the velocity nodes.}
+    \label{fem_cv_represent_a}
+\end{figure} 
+
+\subsection{Finite element representation of velocity} \label{Section:Force_density}
+From Eqn.~\ref{e:darcy_eqn}, it can be seen that the velocity field
+depends, among other fields, on the absolute permeability, which is
+FE-wise, and the relative permeability, which is CV-wise. This means
+that the velocity representation is different in each CV. However, the
+quantity $\mathbf{v}_\alpha$ is homogeneous within an element and this
+is what is stored using FE. To obtain the velocity
+$\mathbf{u}_{\alpha}$ in a particular CV within a FE,
+Eqn.~\ref{force-bal} is used.
+
+
+\subsection{Saturation and Global Mass Conservative Equations} \label{Section:Saturation_Global}
+Here, the saturation conservation equations are discretised and the
+global mass balance equation is derived. In this work, fluids are
+assumed incompressible. The saturation equation can be written as:
+\begin{equation}
+  \phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} + \nabla
+  \cdot \left( {\mathbf u}_{\alpha} S_{\alpha}\right) =
+  s_{cty,\alpha},
+  \label{saturation_equation}
+\end{equation}
+where $\phi$ is the porosity and $s_{cty}$ is a source
+term. Eqn.~\ref{saturation_equation} is discretised in space by
+testing with CV basis functions $M_{i}$ and with the $\theta$-method
+in time:
+\begin{eqnarray}
+  \int_{\Omega} M_{i} \displaystyle\frac{\phi \left({S_{\alpha
+        i}^{n+1}}-{S_{\alpha i}^{n}}\right)}{\Delta t} dV + \nonumber
+  \\ \oint_{\Gamma_{CV_{i}}} \left[\theta^{n+\frac{1}{2}} {\mathbf n}
+    \cdot {\mathbf u}_{\alpha}^{n+1} S_{\alpha}^{n+1} +
+    \left(1-\theta^{n+\frac{1}{2}}\right) {\mathbf n} \cdot {\mathbf
+      u}_{\alpha}^{n} S_{\alpha}^{n} \right]d\Gamma = \int_{\Omega}
+  M_{i} {s_{cty,\alpha}^{n+\theta}} dV,
+  \label{detail-sat-eqn-k}
+\end{eqnarray}
+where $\mathbf{n}$ is the outward-pointing unit normal vector to the
+surface ($\Gamma_{CV_{i}}$) of the control volume $i$ and $n$ is the
+current time level. More details on the numerical methods used to
+solve Eqn.~\ref{detail-sat-eqn-k} can be found in
+\citet{pavlidis_2013b}.
+
+The global continuity equation is obtained by summing
+Eqn.~\ref{detail-sat-eqn-k} over all phases:
+\begin{eqnarray}
+  \sum\limits_{\alpha=1}^{\mathcal{N}_{\alpha}} \left\lbrace
+  \int_{\Omega} M_{i} \displaystyle\frac{\phi\left({S_{\alpha
+        i}^{n+1}}-{S_{\alpha i}^{n}}\right) } {\Delta t} dV +
+  \right. \nonumber \\ \left. \displaystyle\oint_{{\Gamma_{CV}}_{i}}
+  \left[\theta^{n+\frac{1}{2}} {\mathbf n} \cdot {\mathbf
+      u}_{\alpha}^{n+1} S_{\alpha}^{n+1} +
+    \left(1-\theta^{n+\frac{1}{2}}\right) {\mathbf n} \cdot {\mathbf
+      u}_{\alpha}^{n} S_{\alpha}^{n} \right] \,d\Gamma -
+  \right. \nonumber \\ \left. \displaystyle\int_{\Omega} M_{i}
+  s_{cty,\alpha}^{n+\theta}\, dV \right\rbrace = 0.
+           \label{detail-sat-eqn-k-sum}
+\end{eqnarray}
+Eq.~\ref{detail-sat-eqn-k-sum} is also bounded by the constraint:
+\begin{equation}
+  \sum\limits_{\alpha=1}^{\mathcal{N}_{\alpha}} {S_{\alpha}^{n}}_{i} =
+  1, \quad \forall n,
+\end{equation}
+Solving for ${\mathbf u}^{n+1}$ in matrix form,
+Eqn.~\ref{detail-sat-eqn-k-sum} becomes:
+\begin{equation}
+  {\mathbf B}^T \underline{\bf v}^{n+1} = \underline{\bf s}_{p}.
+  \label{glob-cty-matrix}
+\end{equation}
+
+
+\subsection{Velocity at Control Volume Interfaces} \label{opt-up} 
+The velocity to be used at the interface between CV's in the
+saturation conservation (Eqn.~\ref{detail-sat-eqn-k}) and global
+continuity (Eqn.~\ref{detail-sat-eqn-k-sum}) equations needs to be
+determined. On the CV faces, there is no information about the flow
+direction as the velocity is discontinuous at the CV boundaries. The
+discontinuities occur between (a) control volumes within each FE and
+(b) between elements when using the P$_{n+1}$DG-P$_{n}$DG pair.
+
+To calculate the velocity across CV's within a FE, an average velocity
+at the interface of control volumes {\it i} and {\it j} is defined as:
+\begin{equation}
+  {\tilde{\bf u}}_\alpha = \frac{1}{2} \left[ {{\bf u}_\alpha}_i +
+    {{\bf u}_\alpha}_j \right].
+\end{equation} 
+From this, the interface velocities at either side of the interface
+can be obtained from:
+\begin{equation}
+  {\tilde{\bf u}}_{\alpha k} = \underline{\underline{\sigma}}_{\alpha
+    k}^{-1}{\tilde{{\bf u}}}_{\alpha}, \;\;\;\; k=\{i,j\}.
+  \label{two-vels}
+\end{equation} 
+These velocities have the same direction and 
+differ only in magnitude, so using them to define an upwind
+direction is not ambiguous.
+
+If an upwind method for calculating the interface velocity is applied
+then the interface velocity becomes:
+\begin{equation}
+  {\tilde{\bf u}}_{\alpha} = \tilde{\bf u}_{\alpha k},
+\end{equation}
+where $k=i$, if ${\bf n}\cdot{\bf u}_{\alpha}>0$ (CV {\it i} outgoing
+information) and $k=j$, if ${\bf n}\cdot{\bf u}_{\alpha}<0$ (CV {\it
+  i} incoming information). However, upwind methods yield dissipative
+solutions. In order to obtain a high-order approximation of the
+velocity at the interface, the saturation at the interface
+$\tilde{S}_{\alpha}$ is calculated using a finite element
+representation of the saturation following the upwind direction.
+$\tilde \sigma_{\alpha}$ can then be calculated using second-order
+Taylor series:
+\begin{small}
+\begin{equation}
+  \underline{\underline{\tilde{\sigma}}}_{\alpha} =
+  \underline{\underline{\sigma}}_{\alpha k} +
+  \left(\tilde{S}_{\alpha}-S_{\alpha k}\right) \left(\frc{\partial
+    \underline{\underline{\sigma}}_{\alpha}}{\partial
+    S_{\alpha}}\right)_{k} +
+  \frc{1}{2}\left(\tilde{S}_{\alpha}-S_{\alpha k}\right)^{2} \left[
+    \frc{ \left(\frc{\partial
+        \underline{\underline{\sigma}}_{\alpha}}{\partial
+        S_{\alpha}}\right)_{k} - \left(\frc{\partial
+        \underline{\underline{\sigma}}_{\alpha}}{\partial
+        S_{\alpha}}\right)_{l} } { \left(S_{\alpha k}-S_{\alpha
+        l}\right) } \right],
+  \label{sigma-out}
+\end{equation}
+\end{small}
+where $k=i$ and $l=j$, if ${\bf n}\cdot{\bf u}_{\alpha}>0$ and $k=j$
+and $l=i$, if ${\bf n}\cdot{\bf u}_{\alpha}<0$. The final interface
+velocity is obtained from:
+\begin{equation}
+  {\tilde{\bf u}_{\alpha}} =
+  \underline{\underline{\tilde{\sigma}}}_{\alpha}^{-1}
+  \left[\displaystyle\frac{1}{2} \left( {{\bf u}_\alpha}_i + {{\bf
+        u}_\alpha}_j \right)\right],
+  \label{mean_int_vel}  
+\end{equation} 
+which is bounded to ensure that its normal component ${\tilde{\bf
+    u}_\alpha}\cdot {\bf n}$ lies between ${\tilde{\bf u}_{\alpha
+    i}}\cdot {\bf n}$ and ${\tilde{\bf u}_{\alpha j}}\cdot {\bf
+  n}$. The result of this is also bounded between the velocities
+${{\bf u}_\alpha}_i\cdot {\bf n}$ and ${{\bf u}_\alpha}_j\cdot {\bf
+  n}$.
+
+In order to calculate the velocity between elements when using
+P$_{n+1}$DG-P$_{n}$DG elements one first needs to consider that it is
+also necessary to obtain the discretised non-symmetric pressure
+equation which has elliptic-like properties. These properties mean it
+is necessary to propagate information in all directions across the
+domain, therefore taking the upwind velocity, as commonly done within
+an element, is not the best strategy.
+ 
+For two neighbouring CV's $i$ and $j$ with common FE interface,
+$\tilde{\bf u}_\alpha$ can be calculated by using a volume-weighted
+harmonic mean. However, the volume $\mathcal{V}$ of the control volume
+and $\underline{\underline{\sigma}}_{\alpha}$ act on the velocity in a
+very similar way. Hence, the velocity at the interface is expressed
+as:
+\begin{equation} 
+  {\tilde{\bf u}_\alpha} = \frc{ \mathcal{V}_{j} {\bf n}^T \cdot
+    \underline{\underline{\sigma}}_{\alpha j}\cdot{\bf n} \, {\bf
+      u}_{\alpha i} + \mathcal{V}_{i} {\bf n}^T
+    \cdot\underline{\underline{\sigma}}_{\alpha i}\cdot{\bf n}\, {\bf
+      u}_{\alpha j}} { \mathcal{V}_{i} {\bf n}^T
+    \cdot\underline{\underline{\sigma}}_{\alpha i}\cdot{\bf n} +
+    \mathcal{V}_{j} {\bf n}^T
+    \cdot\underline{\underline{\sigma}}_{\alpha j}\cdot{\bf n} }.
+\end{equation} 
+
+
+\subsection{Weak Enforcement of Boundary Conditions}\label{bcs-rel-perm} 
+Suitable boundary conditions for velocity can be applied by the
+discontinuous formulation above as well as by the upwinding in the
+continuous formulation. In fact, exactly the same boundary condition
+implementations, as used in the discontinuous formulation, can be
+applied across the boundaries of the domain by taking information from
+just outside the domain rather than from the neighbouring elements.
+
+Saturation boundary conditions are relatively straightforward. One
+typically takes the saturation from just outside the domain
+($S_{\alpha, \text{bc}}$) and the flux becomes $\left({\bf n}\cdot
+{\bf u}_{\alpha}\right)S_{\alpha,\text{bc}}$, if ${\bf n}\cdot {\bf
+  u}_{\alpha} < 0$. If the velocity is also specified (${\bf
+  u}_{\alpha,\text{bc}}$) then this becomes part of the incoming flux
+$\left({\bf n}\cdot {\bf
+  u}_{\alpha,\text{bc}}\right)S_{\alpha,\text{bc}}$.
+
+In case of specified pressure for outflow boundaries
+$\left(\right.{\bf n}\cdot {\bf u}_\alpha>0\left.\right)$ the flux is
+${\bf n}\cdot {\bf u}_\alpha {S_\alpha}$, in which neither ${\bf
+  u}_\alpha$ nor ${S_\alpha}$ are specified.
+
+However, for inflow boundaries with specified pressure
+$\left(\right.{\bf n}\cdot {\bf u}_\alpha<0\left.\right)$ the flux is
+${\bf n}\cdot {\bf u}_{\alpha,\text{bc}} S_{\alpha,\text{bc}}$, in
+which ${\bf u}_{\alpha,\text{bc}}$ is calculated using:
+\begin{equation}
+  {\bf u}_{\alpha,\text{bc}} = 
+    \underline{\underline{\sigma}}_{\alpha,\text{bc}} ^{-1}
+    \underline{\underline{\sigma}}_{\alpha}  
+              {\bf u}_{\alpha},
+\end{equation}
+where $\underline{\underline{\sigma}}_{\alpha,\text{bc}}$ is
+calculated using $S_{\alpha,\text{bc}}$.
+
+It should be noted that this flux condition must be used in both the
+discretised saturation and global continuity equations, since the
+latter is a summation of the former. The specified pressure condition
+becomes a surface flux condition in the force balance equation
+(Eqn.~\ref{force-semi-disc}), which effectively relaxes the pressure
+$p$ to its face value counterpart $p_\text{bc}$ at the boundaries.
+
+
+\subsection{Solving the Linear Equations}\label{Section:SolvingLinearEqns}
+The global mass balance equation (Eqn.~\ref{glob-cty-matrix}) and
+force balance equations (Eqn.~\ref{force-balance-matrix-form}) are
+solved by substituting $\underline{\mathbf v}$ and solving the system
+of equations for pressure. At time level $n+1$,
+Eqns.~\ref{force-balance-matrix-form} and ~\ref{glob-cty-matrix} can
+be rewritten as:
+\begin{displaymath}
+  \begin{cases}
+    \mathbf{M} \underline{\bf v}^{n+1} = \mathbf{C}\underline{\bf
+      p}^{n+1} + \underline{\bf s}_{u}^{n+1} \\ \mathbf{B}^{T}
+    \underline{\bf v}^{n+1} = \underline{\bf s}_{p}^{n+1},
+  \end{cases}
+\end{displaymath}
+respectively. Application of a discontinuous FEM for
+$\mathbf{v}$ leads to a block-diagonal $\mathbf{M}$ matrix that
+can be readily inverted, each block being local to an
+element. Multiplying Eqn.~\ref{force-balance-matrix-form} by
+$\mathbf{B}^{T}\mathbf{M}^{-1}$ and summing up with
+Eqn.~\ref{glob-cty-matrix}, $\underline{\mathbf v}^{n+1}$
+vanishes and the pressure equation is obtained:
+\begin{equation}
+  \mathbf{B}^{T}\mathbf{M}^{-1} \mathbf{C} \underline{\bf p}^{n+1} =
+  \underline{\bf s}_{p}^{n+1} - \mathbf{B}^{T} \mathbf{M}^{-1}
+  \underline{\bf s}_{u}^{n+1}.
+  \label{final_projection}
+\end{equation}
+Eqn.~\ref{final_projection} is solved for pressure and then the
+velocity is obtained via Eqn.~\ref{force-balance-matrix-form}. The
+computationally demanding effort to solve the pressure matrix equation
+arising from the fully discontinuous FEM formulation is achieved using
+a multigrid-like approach \citep[see][]{Brandt}. In this case the
+`fine' mesh is the one obtained by the discontinuous system, whereas
+the `coarse' mesh is obtained by creating a continuous system (from
+the discontinuous system) by collapsing the pressure nodes. As in
+multigrid, the coarse mesh solution is used to accelerate the
+convergence of the fine mesh solution by calculating the error of the
+current approximation.
+
+
+
+\section{Model set-up}\label{setup}
+The numerical method is evaluated using four test cases (\ref{classical_BL} --
+\ref{res4}). All simulate two-phase flow. The Brooks-Corey model
+\citep{brooks_1964}: 
+\begin{eqnarray}
+k_{rw}\left ( S_{w} \right ) &=& \left ( \frac{S_w-S_{wirr}}{1-S_{wirr}-S_{nwr}} \right )^{n_w}, \\
+k_{rw}\left ( S_{w} \right ) &=& \left ( \frac{S_{nw}-S_{nwr}}{1-S_{wirr}-S_{nwr}} \right)^{n_{nw}}, 
+\end{eqnarray}
+where $S_w$ and $S_{nw}$ are the wetting and non-wetting phase
+saturations, respectively, is used to calculate the relative
+permeabilities for all test cases. The length of all computational
+domains is 1 non-dimensional length unit. Computational domain height,
+boundary conditions, exponents for the wetting $n_w$ and non-wetting
+$n_{nw}$ phases in the Brooks-Corey model, along with the irreducible
+wetting phase saturation $S_{wirr}$, residual non-wetting phase
+saturation $S_{nwr}$ and mobility $M^0$ for each test case are shown
+in Table~\ref{tab:1}.
+
+\begin{table}[h!]
+  \centering
+  \small{
+    \caption{Model set-up for test cases \ref{classical_BL} --
+      \ref{res4}.\label{tab:1}}
+    \begin{tabular}{c c c c c c c c c c c c c c c c } 
+      \hline
+      & $M^0$ & $\phi$ & $\mathbf{K}_\text{1}$ & $\mathbf{K}_\text{2}$ & $S_{wirr}$ & $S_{nwr}$ & $n_{w}$ & $n_{nw}$ & $u_{\mathrm{in}}$ & $\Delta p$ & height \\ \hline
+      M1 & 10 & 0.2 & 1.0 & N/A    & 0.2 & 0.3 & 2 & 2 & 0.2 & N/A & N/A\\ 
+      M2 & 10 & 0.4 & 1.0 & 2.5    & 0.1 & 0.2 & 2 & 2 & 1.0 & N/A & 1.0\\ 
+      M3 & 10 & 0.5 & 0.5 & 10$^4$ & 0.1 & 0.3 & 2 & 2 & 1.0 & N/A & 1.0\\ 
+      M4 & 10 & 0.5 & 1.0 & 10$^2$ & 0.0 & 0.0 & 2 & 2 & N/A & 1.0 & 0.1\\ \hline
+    \end{tabular}
+  }
+\end{table}
+
+In all test cases, the domain is initially saturated with the
+non-wetting phase at $(1- S_{wirr}).$ The wetting phase is then
+injected through the left boundary, displacing the non-wetting phase
+towards the opposite boundary. The wetting phase is injected at a
+uniform, constant velocity ($u_{\mathrm{in}}$) from the left boundary
+for test cases \ref{res2} -- \ref{res3}. In test case \ref{res2} the
+inlet velocity is weighted by the permeability. For the last test case
+(\ref{res4}), the flow is driven by a pressure difference ($\Delta p$)
+between the inflow (left) and outflow (right) boundaries of the
+computational domain. The pressure level at the outflow boundary is
+set to 0 for all test cases.
+
+For the test cases considered here, the porosity $\phi$ is assumed
+uniform and for case \ref{classical_BL}, $\mathbf{K}$ is also
+uniform. However, for cases \ref{res2} -- \ref{res4}, $\mathbf{K}$ is
+non-uniform and regions of constant $\mathbf{K}$ are used. For all
+cases, $\mathbf{K}$ is isotropic. The subscript in $\mathbf{K}$
+denotes region identities (see Figs.~\ref{fig:4reg_BL_schematic},
+\ref{fig:square_permeability} and \ref{fig:wedge_permeability}).
+
+
+
+\section{Results}\label{res}
+\subsection{The Buckley-Leverett test case}\label{classical_BL}
+
+The Buckley-Leverett problem \citep[non-wetting phase displaced by a
+  wetting phase,][]{buckley1942} is simulated here.  Despite the
+one-dimensional (1D) nature of the problem, 2D and three-dimensional
+(3D) simulations are performed to evaluate the multi-dimensional
+capabilities of the model (see Fig.~\ref{fig:maps2d_3d}). The
+\PN[1]{1}, \PN[1]{2} and \PN[2]{1}DG element pairs are used for these
+simulations.
+
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{BL_3D_merged}
+    \caption{Wetting phase volume fraction for the Buckley-Leverett
+      test case using the \PN[1]{2} element pair in 2D (a) and 3D
+      (b). \label{fig:maps2d_3d}}
+  \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+  \begin{center}
+    \vbox{\hbox{
+        \hspace{0.25cm}\includegraphics[width=0.45\textwidth]{P1DGP1_M10.eps} 
+        \hspace{0.25cm}\includegraphics[width=0.45\textwidth]{P1DGP2_M10.eps}}
+      \hbox{
+        \vspace{-0.cm}\hbox{\hspace{2.5cm}(a)} 
+        \vspace{-0.cm}\hbox{\hspace{6.5cm}(b)}}
+      \vspace{0.0cm}\hbox{
+        \hspace{0.5cm}\includegraphics[width=0.45\textwidth]{P2DGP1DG_M10.eps}
+        \hspace{0.5cm}\includegraphics[width=0.45\textwidth]{3D_three_elements.eps}}
+      \hbox{
+        \vspace{-0.cm}\hbox{\hspace{2.5cm}(c)} 
+        \vspace{-0.cm}\hbox{\hspace{6.5cm}(d)}}}
+    \caption{Wetting phase volume fraction along at the geometry
+      centre-line at non-dimensional time $t=0.2$ for the
+      Buckley-Leverett test case.  2D results with the \PN[1]{1},
+      \PN[1]{2} and \PN[2]{1}DG element pairs are shown in (a), (b)
+      and (c), respectively.  3D results for an unstructured mesh are
+      shown in (d). The 1D analytic solution is shown for comparison
+      in all plots.\label{fig:BL_tests}}
+  \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=0.70\textwidth]{BL_2D_Errors.eps}
+    \caption{Error metrics versus number of elements for the
+      Buckley-Leverett test case for element pairs \PN[1]{1},
+      \PN[1]{2} and \PN[2]{1}DG in 2D. \label{fig:errors_BL_2D}}
+  \end{center}
+\end{figure}
+
+Fig.~\ref{fig:BL_tests} (a), (b) and (c) shows phase volume fraction
+profiles of the wetting phase for three meshes in 2D at
+non-dimensional time $t=0.2$. All meshes are structured and have 4
+elements perpendicular to the flow and 120, 240 or 480 elements
+parallel to the flow (see Fig.~\ref{fig:maps2d_3d}, a). The geometry
+centre-line is used to plot these profiles. All element pairs
+satisfactorily capture the discontinuity in the phase volume fraction
+and as the number of elements is increased the error is reduced. Due
+to this discontinuity in the solution variables, a first-order
+convergence rate is achieved even when the high-order element pair is
+used (Fig.~\ref{fig:errors_BL_2D}). This is because high-order methods
+switch to simple upwinding at the discontinuity.
+
+Fig.~\ref{fig:BL_tests} (d) shows results obtained for a
+Buckley-Leverett test case in 3D. A 1207-element fully unstructured
+mesh is used for these simulations. The geometry centre-line is used
+to plot these profiles. All the element pairs are again capable of
+accurately capturing the discontinuity in the phase volume fraction.
+
+
+\subsection{Immiscible Displacement in Heterogeneous Porous Media}\label{res2}
+
+This test case is designed to demonstrate the numerical robustness of
+the method for modelling heterogeneous porous media and it is loosely
+based on the physical experiment presented in \cite{dawe_2008}. As
+shown in Fig.~\ref{fig:4reg_BL_schematic} the permeability field is
+non-uniform.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{4Rregion_BLv2}
+    \caption{Schematic of the computational domain along with the
+      material properties and boundary conditions for the
+      heterogeneous permeability test case. Darker areas
+      ($\mathbf{K}_\text{1}$) represent regions with high
+      permeability. \label{fig:4reg_BL_schematic}}
+  \end{center}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \vbox{\hbox{
+      \hspace{-1.8cm}\includegraphics[width=0.6\textwidth]{CG_coarse083.png}
+      \hspace{-0.2cm}\includegraphics[width=0.6\textwidth]{CG_fine083.png}}
+    \vspace{1.cm}\hbox{
+      \hspace{-1.8cm}\includegraphics[width=0.6\textwidth]{DG_coarse083.png}
+      \hspace{-0.2cm}\includegraphics[width=0.6\textwidth]{DG_fine083.png}}}
+  \caption{Wetting phase volume fraction maps at time $t=0.16$ for the
+    heterogeneous permeability test case. Top row: \PN[1]{2}
+    elements. Bottom row: \PN[2]{1}DG elements. Left column: coarse
+    mesh. Right column: fine mesh. The meshes used for these
+    simulations are also shown here.\label{fig:4reg_maps}}
+\end{figure}
+
+Two sets of simulations are performed using coarse (402 elements) and
+fine (3714 elements) meshes; in the first set the \PN[1]{2} element
+pair is used, while in the second one the \PN[2]{1}DG element pair is
+used. The time step sizes for the coarse and fine mesh simulations are
+5$\times$10$^{-3}$ and 1$\times$10$^{-3}$ non-dimensional time units,
+respectively.
+
+Fig.~\ref{fig:4reg_maps} shows the wetting phase volume fraction
+maps (at time $t=0.16$) for all four simulations. The results yielded
+by the experiment (a) are depicted in the top left, coarse mesh, and
+top right, fine mesh. The results obtained from experiment (b) located
+on the bottom left, coarse mesh, and bottom right, fine mesh.
+
+Fig.~\ref{fig:4reg_maps} shows the wetting phase volume fraction maps
+(at time $t=0.16$) for all four simulations. Results from the
+\PN[1]{2} element pair set of simulations is shown in the top row.
+Results from the \PN[2]{1}DG element pair set of simulations is shown
+in the bottom row.
+
+A physical experiment with similar set-up was performed by
+\citet{dawe_2008} to investigate miscible and immiscible displacement
+in heterogeneous permeability and wettability cases. For immiscible
+displacement, the wetting phase was uniformly injected at rate of
+$\approx 1$ml/min in a domain of 20cm$\times$10cm$\times$0.6cm. Glass
+ballotini beads produced porosity of 0.4. The permeability ratio was
+2.5.
+
+Snapshots in Fig.~\ref{fig:4reg_maps} show the wetting phase flood
+`fingering' across the four region intersection, demonstrating the
+preferential flow through highly permeable matrix. This is in good
+qualitative agreement with experimental results from \cite{dawe_2008}
+\citep[see Fig.~\ref{fig:dawe_real} taken from ][]{dawe_2008}.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{Real_quadrant}
+    \caption{Wetting phase volume fraction maps from the experiments
+      of \cite{dawe_2008}. \label{fig:dawe_real}}
+  \end{center}
+\end{figure}
+
+\subsection{Underground Caisson}\label{res3}
+
+This test case is similar to that in Section~\ref{res2}, however, the
+permeability ratio is considerably higher at $10^4$. The computational
+domain considered here is characterised by a low-permeability square
+region of length 0.5 non-dimensional units, which is embedded in a
+high-permeability square domain.
+
+\begin{figure}[h!]
+  \vbox{
+    \hbox{
+      \hspace{3.5cm} \includegraphics[width=0.45\textwidth]{square_permeability_lowv2}}
+    \vspace{0.25cm}
+    \hbox{
+      \hspace{0.4cm}\includegraphics[width=0.45\textwidth]{cg_square_015_low}
+      \hspace{0.4cm}\includegraphics[width=0.45\textwidth]{cg_square_05_low}}
+    \vspace{0.25cm}
+    \hbox{
+      \hspace{0.4cm}\includegraphics[width=0.45\textwidth]{dg_square_015_low}
+      \hspace{0.4cm}\includegraphics[width=0.45\textwidth]{dg_square_05_low}}}
+  \caption{Schematic of the computational domain along with the
+    permeability map and mesh used for the underground caisson test
+    case (top).  Wetting phase volume fraction maps at non-dimensional
+    times $t=0.15$ (left) and $t=0.5$ (right). \PN[1]{2} element pair
+    results are shown in the middle row. \PN[2]{1}DG element pair
+    results are shown in the bottom row.
+    \label{fig:square_permeability}}
+\end{figure}
+
+Two numerical simulations are performed. The first one uses the
+\PN[1]{2} element pair and a time step size of 5$\times$10$^{-3}$
+non-dimensional time units and the second one uses the \PN[2]{1}DG
+element pair and a time step size of 1$\times$10$^{-4}$. The mesh and
+permeability map for these simulations is shown in
+Fig.~\ref{fig:square_permeability} (top).
+
+Fig.~\ref{fig:square_permeability} shows snapshots of the wetting
+phase volume fraction field at non-dimensional times $t = 0.15$ and
+0.5 for both simulations.  Numerical dispersion can be seen in the
+solution of the \PN[1]{2} element pair simulation. This is because
+CV's span material property interfaces. However, this is not the case
+for the \PN[2]{1}DG element pair and the wetting phase here does not
+diffuse into the low-permeability region of the computational domain.
+Despite this small difference, both simulations are in good agreement
+and provide satisfactory results with respect to dispersing the
+wetting phase into the low-permeability region.
+
+\subsection{High-Permeability high-aspect ratio region}\label{res4}
+
+Fractures and cracks in porous media are ubiquitous, however, they are
+not easy to model due to their high aspect ratio and small size
+compared to the reservoir domain. Nonetheless, cracks may have a
+dramatic impact in the overall behaviour of the flow as they can
+channelise the flow through them. Usually, they are characterised by a
+thin tip and a high permeability. A simplified 2D wedge-shaped
+high-permeability region embedded in a rectangular low-permeability
+domain is considered here. The permeability map is shown in
+Fig.~\ref{fig:wedge_permeability}. The wedge aspect ratio is $1/30$
+and its maximum height is 0.025.
+ 
+
+\begin{figure}[h!]
+  \vbox{
+    \hbox{
+      \hspace{-0.cm}\includegraphics[width=1.0\textwidth]{wedge_permeabilityv2}}
+    \vspace{-1.cm}\hbox{\hspace{4cm}(a)}
+    \vspace{.5cm}
+    \hbox{
+      \hspace{-0.cm}\includegraphics[width=1.0\textwidth]{wedge_0011}}
+    \vspace{-0.cm}\hbox{\hspace{4cm}(b)}
+    \vspace{.5cm}
+    \hbox{
+      \hspace{-.cm}\includegraphics[width=1.0\textwidth]{wedge_0014}}
+    \vspace{-0.cm}\hbox{\hspace{4cm}(c)}
+  }
+  \caption{Schematic of the computational domain along with the
+    permeability map for the high-permeability wedge-shaped region
+    test case (a). Snapshots of the wetting phase volume fraction
+    field for a fine mesh \PN[1]{2} simulation (top), coarse mesh
+    \PN[1]{2} simulation (middle) and coarse mesh \PN[2]{1}DG
+    simulation (bottom) at non-dimensional times $t = 0.011$ (b) and
+    $t=0.0014$ (c). The meshes used for these simulations are also
+    shown in (b) and (c).
+    \label{fig:wedge_permeability}}
+\end{figure}
+
+
+Three numerical simulations are performed in total. Two use the
+\PN[1]{2} element pair and one uses the \PN[2]{1}DG element pair.
+\PN[1]{2} element pair simulations are performed using a coarse (672
+elements) and a fine (56902 elements) mesh. The coarse mesh is used
+for the \PN[2]{1}DG element pair simulation.
+
+Fig.~\ref{fig:wedge_permeability} shows wetting phase volume fraction
+maps at non-dimensional times $t=0.011$ and 0.014. The \PN[1]{2}-based
+solutions disperse the wetting phase into the low-permeability
+matrix. This is more pronounced for the coarse mesh simulation. It can
+be seen how the front of the wetting phase is considerably delayed
+compared with the other two simulations. On the other hand, the
+\PN[2]{1}DG solution does not disperse the wetting phase into the
+matrix and even a very coarse mesh is sufficient to accurately capture
+the flow.
+
+
+
+\section{Concluding Remarks}\label{conc}
+A novel, high-order, control-volume-finite-element (CVFE) method with
+$n^{\rm th}$-order representation for velocity and $m^{\rm th}$-order
+for pressure is presented. The method conserves mass and ensures that
+the extended Darcy equations for multiphase flow are exactly
+enforced. Moreover, for \PN[n+1]{n}DG element pairs control volumes
+do not span elements; this resolves a long-standing problem associated
+with the use of classical CVFE methods in highly heterogeneous porous
+media flow modelling. In addition, the use of force per unit volume
+instead of Darcy velocity significantly improves the computational
+cost and memory usage.
+
+The new formulation is evaluated using the classical Buckley-Leverett
+benchmark and first-order convergence rates are achieved, which is not
+common in the literature \citep[see][]{Schmid,Hoteit}. More numerical
+simulations are performed to demonstrate the capabilities of the
+methods presented under heterogeneous and high aspect ratio
+computational domains, showing that this method is able to resolve
+successfully the flow under those circumstances. Furthermore, the
+\PN[n+1]{n}DG element pair shows that it completely removes numerical
+dispersion induced by heterogeneous permeabilities.
+
+The formulation presented here is implemented in the open-source
+software framework
+\href{http://www3.imperial.ac.uk/earthscienceandengineering/research/amcg/fluidity}{Fluidity}
+for multiphase flows and it has been extended to include/model
+multi-component, interface-capturing
+\citep{pavlidis_2013b,pavlidis_2014,xie_2014}, segregation in granular
+flows~\citep{percival_2014} and oil reservoirs
+\citep{jackson_2013,mostaghimi_2015, Salinas}.
+
+
+\ack Dr D. Pavlidis would like to acknowledge the support from the
+following research grants: EPSRC ($\lq$Computational Modelling for
+Advanced Nuclear Power Plants') and EU/FP7 THINS. Funding for Dr
+P. Salinas from ExxonMobil is gratefully acknowledged. Dr Z. Xie is
+supported by EPSRC ($\lq$Multi-Scale Exploration of Multiphase Physics
+in Flows' -- MEMPHIS). Part funding for Prof Jackson under the TOTAL
+Chairs programme at Imperial College is also acknowledged.
+
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%% \appendix
+
+%% \section{}
+%% \label{}
+
+%% References with bibTeX database:
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+
+
+\end{document}
+
+%%
+%% End of tex file.

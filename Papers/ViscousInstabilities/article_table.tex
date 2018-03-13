@@ -1,0 +1,43 @@
+%%%
+%%%   TABLE 1
+%%%
+\begin{landscape}
+\begin{table}
+  \begin{tabular}{c | c c  c  c  c  c  c  c  c  c   c}
+    \hline
+      {\bf Section} & $\phi$ & VR  & $S^{0}_{w}$ & $S^{0}_{nw}$ & $\mathbf{K}_{1}$ & $\mathbf{K}_{2}$ & $\mathbf{K}_{3}$ & $\mathbf{K}_{4}$ & $S_{w,irr}$ & $S_{nw,r}$ & $u^{\circ}_{w}$ \\ 
+    \hline
+     \ref{section:results_initial_model_validation} & 0.2 & 1.0 & 0.0 & 1.0 & 2.5 & 1.0 & N/A & N/A & 0.2 & 0.3 & 1.0 \\
+     \ref{section:results_homo_hete}(homogenous)  & 0.2 & 10.0 & 0.0 & 1.0 & 1.e-10 & N/A & N/A & N/A & 0.2 & 0.3 & 0.5  \\
+     \ref{section:results_homo_hete}(heterogenous) & 0.2 & 1.0 & 0.0 & 1.0 & 1.e-11 -- & 1.e-12 -- & 1.e-12 -- & 1.e-10 & 0.2  & 0.3 & 1.0 \\
+      &   &  &  &  & 5.e-10 & 5.e-10 & 1.e-10  &  &  &  & \\
+     \ref{section:results_hete_fix_adapt}  & 0.2 & 1.0 & 0.0 & 1.0  & 3.0 & 2.0 & 5.0 & 1.0 & 0.2 & 0.3 & 0.5  \\
+     \ref{section:results_3D}  & 0.2 & 1.0 & 0.0 & 1.0 & 3.0 & 2.0 & 5.0 & 1.0 & 0.2  & 0.3 & 0.5  \\
+     \hline
+   \end{tabular}
+   \caption{Sumary of model set-up used in the numerical simulations. Superscript $\circ$ denotes initial condition. $\mathbf{K}_{i}$ is in $cm^{2}$ and $u^{\circ}_{w}$ is in m/sec. $S_{w,irr}$ and $S_{nw,r}$ are the same for all simulations. }
+\label{table:setup}
+\end{table}
+\end{landscape}
+\clearpage
+
+
+%%%
+%%%   TABLE 2
+%%%
+\begin{landscape}
+\begin{table}
+  \begin{tabular}{c | c c c c}
+    \hline\hline
+                                  & {\bf K}                                  & {\it VR}  & $\lambda_{f}^{\text{(calc,max)}}$ (cm) & $\lambda_{f}^{\text{(simul,max)}}$ (cm) \\
+                                  & $\left(\text{cm}^{2}\right)$              &           &  (Eqn.~\ref{eqn:guaneqn})  &                    \\
+    \hline\hline
+    {\bf Case 1} (homogeneous)    &  1$\times$10$^{-10}$                      &    10      &  0.13-0.75                 &   0.45-0.70       \\
+    {\bf Case 2} (homogeneous)    &  1$\times$10$^{-10}$                      &    150     &  0.30-0.75                 &   0.50-0.90       \\
+    {\bf Case 3} (heterogeneous)  &  1$\times$10$^{-12}$-5$\times$10$^{-10}$   &    10      &  0.25-4.50                 &   0.44-0.56       \\
+    {\bf Case 4} (heterogeneous)  &  1$\times$10$^{-12}$-5$\times$10$^{-10}$   &    150     &  0.88-3.00                 &   0.24-0.40       
+  \end{tabular}
+   \caption{Flow simulations in Heleshaw cells (Section~\ref{section:results_homo_hete}): summary of finger width calculations using Eqn.~\ref{eqn:guaneqn} and obtained through numerical simualtions. $\lambda_{f}^{\text{calc}}$ was calculated based on fingers' tip velocities and outflow rate. Calculations were based on simulation data obtained from snapshots shown in Fig.~\ref{fig:homoheleshaw_VN10_VN150}.}\label{table:Heleshaw}
+\end{table}
+\end{landscape}
+\clearpage
