@@ -135,8 +135,8 @@
 %% \address{Address\fnref{label3}} 
 %% \fntext[label3]{}
 
-  \title{ Numerical Investigation of Stochastic and Determininstic Upscaling Methods for Permeability Fields; Using SVD}
-\author[UoA]{Babatunde Lashore} \author[UoA]{J.L.M.A. Gomes}
+\title{A Reduced Order Model for Permeability Fields Using Singular Value Decomposition, SVD, by Interpolating in the Principal Component Spaces}
+\author[UoA]{B. Lashore\corref{cor1}}\ead{lashorebabatunde@yahoo.com} \author[UoA]{J.L.M.A. Gomes} \author[UoA]{K. Christou}
 \cortext[cor1]{Corresponding author.}
 \address[UoA]{Mechanics of Fluids, Soils \& Structures Group, School of Engineering, University of Aberdeen, UK}
 
@@ -165,12 +165,29 @@ This work couples stochastic and deterministic upscaling representations of the 
 
 Four upscaling techniques are investigated in this research. The arithmetic and harmonic mean are used to obtain the first two upscaled representation and these two are classed as deterministic techniques. The third is a randomly generated permeability field with a Guassian distribution, prescribed by a probability density function (PDF) which was obtained from a base case ({\it i.e.}, high-resolution mesh with known permeability distribution). The four upscaling technique is the crux of this research, it introduces singular value decomposition (SVD) as a method of upscaling using interpolation within the concept of principal component space to reduce the order of the permeability field.
 
-In section 2, the basic mathematical explanation of SVD and its associated linear algebra properties are presented. The the concept of spaces is explained from the engineer's perspective and also from the mathematician's perspective. The objective of this explanation is to assist both parties in visualizing the relevant spaces and performing the necessary transformation within those spaces. Finally, the section describes model order space reduction for the permeability field within the principal component space. Section 3, starts by describing the high resolution base case on which the four upscaling techniques are modelled. The the simulation run which is similar for all the cases/models is described. A brief summary of the pre-processing step for each of the models is also presented. Section 4 provides the results of for the simulations, Section 5 discusses the results of the simulations and gives further intepretation to the result obtained from the SVD upscaling techniques; and section 6 provides the conclusion.
+In section 2, the basic mathematical explanation of SVD and its associated linear algebra properties are presented. The the concept of spaces is explained from the engineer's perspective and also from the mathematician's perspective. The objective of this explanation is to assist both parties in visualizing the relevant spaces and performing the necessary transformation within those spaces. Finally, the section describes model order space reduction for the permeability field within the principal component space. Section 3, starts by describing the high resolution base case on which the four upscaling techniques are modelled. The the simulation run which is similar for all the cases/models is described. A brief summary of the pre-processing step for each of the models is also presented. Section 4 provides the results and some discussion on the results of the simulations. It als gives further intepretation to the result obtained from the SVD upscaling technique. Finally, section 5 provides the conclusion.
 
 
-\section{Singular Value Decomposition, SVD, and its application for reducing the order of a permeability field}
+\section{Singular Value Decomposition, SVD, and its application for reducing the order of a permeability field}\label{section:svd}
+\subsection{A Brief Introduction to SVD}\label{subsection:svd_brief}
 
+Singular Value Decomposition, SVD, exists within the linear algebra branch of mathematics as one of the most exciting means of factorizing a matrix, $\mathbf{A}$, into three parts $\mathbf{U}$, $\Sigma$ and $\mathbf{V}$. Where $\mathbf{U}$ and $\mathbf{V}$ are orthonormal, and $\Sigma$ is a diagonal matrix. If $\mathbf{A}$, is a square matrix then $\mathbf{U}$, $\Sigma$ and $\mathbf{V}$ are square matrix and $\mathbf{U}^{\intercal}\mathbf{U} = \mathbf{V}^{\intercal}\mathbf{V} = \mathbf{I}$. But if $\mathbf{A}$ is an $m * n$ matrix, $\mathbf{U}$ and $\mathbf{V}$ still remain as square matrices, albeit with different matricial sizes. $\mathbf{U}$ is an $m * m$ while $\mathbf{V}$ is an $n * n$. Another interesting property of $\mathbf{U}$ and $\mathbf{V}$ since they are square (irrespective of whether A is square or rectangular) is that $\mathbf{U}^{-1} = \mathbf{U}^{\intercal}$ and $\mathbf{V}^{-1} = \mathbf{V}^{\intercal}$. When $\mathbf{A}$ is an $m * n$ matrix, $\Sigma$ is a diagonal $m x n$ matrix. The diagonal entries of $\Sigma$ (in both the case of square and rectangular matrices) are referred to as the singular values of $\mathbf{A}$, and are usually denoted by sigma ($\sigma_{1}, \sigma_{2},..., \sigma_{r}$). For a rectangular matrix, the singular values fill the first $r$ places on the main diagonal of $\Sigma$, where $r$ is the rank of A. Additionally, the $i$th singular value, $\sigma_{i}$ is ordered such that $\sigma_{1} \geq \sigma_{2} \geq ...\geq \sigma_{r}$. A huge benefit of the SVD is the orthogonality of the columns in $\mathbf{U}$ and $\mathbf{V}$. The columns of $\mathbf{U}$ are known as the left singular vectors while the columns in $\mathbf{V}$ are known as the right singular vectors. A simple consideration of the benefit of this, is the ease with which it allows the inverse of square matrix $\mathbf{A}$ to be calculated. This example is presented thus:
 
+\begin{equation}
+ \mathbf{A}x = b
+\end{equation}
+\begin{equation}
+ \mathbf{U} \Sigma \mathbf{V}^{\intercal} x = b
+\end{equation}
+\begin{equation}
+ x = \mathbf{V} \Sigma^{-1} \mathbf{U}^{\intercal} b
+\end{equation}
+
+\section{Simulation Setup}\label{section:simulation_setup}
+
+\section{Results and Discussion}\label{section:results_discussion}
+
+\section{Conclusion}\label{section:conclusion}
 
 
 
