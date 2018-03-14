@@ -183,15 +183,176 @@ Singular Value Decomposition, SVD, exists within the linear algebra branch of ma
  x = \mathbf{V} \Sigma^{-1} \mathbf{U}^{\intercal} b
 \end{equation}
 
-\section{Simulation Setup}\label{section:simulation_setup}
+\subsection{Principal Component Spaces and Model Order Reduction for the permeability field}\label{subsection:pcspaces}
+
+Blah blah visualizing the spaces blah
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\section{Model Description and Simulation Setup}\label{section:model_simulation}
+blah blah about geology
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+
+\subsection{Model Description}\label{subsection:model}
+The model for the permeabiliy field builds on the $2 * 2$ block, $4$ quadrant model used by 
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\ 
+
+Four upscaled models were obtained from a base case which is a high-resolution permeability field with a known permeability distribution. The base case consists of four regions, where each region is uniformly randomly generated within a specified range. 
 
 
-Four upscaled models were obtained from a base case which is a high-resolution permeability field with a known permeability distribution. The base case consists of four regions, where each region is uniformly randomly generated within a specified range. For the simulations, each of the model's domain is initially fully saturated with a fluid (Phase 2), and a wetting phase (1) fluid is driven into the domain from the left hand side at a constant mass flow rate. Newmann ({\it i.e.} no flux) boundary conditions were imposed on the upper and lower borders of each domain, while mixed fluids are recovered from the right-hand face. Fig (...........)a shows the permeability field of the base case while fig
+\subsubsection{BaseCase Pre-processing Algorithm}\label{subsubsection:basecase_preprocess_algorithm}
+\begin{enumerate}[1]
+  \item A function is used to randomly generate uniform ({\it i.e.} Gaussian) data for each block. The range for each block is as below:
+  \begin{enumerate}[a]
+    \item \textbf{K1} :
+    \item \textbf{K2} :
+    \item \textbf{K3} :
+    \item \textbf{K4} : 
+  \end{enumerate}                                                    
+  \item The number of data generated for each block is $1600$ and the data is randomly position within each block in a structured pattern. Albeit, the simulation grid ({\it i.e.} mesh) is unstructured.
+  \item Merge data from different blocks into a single file retaining the original ``structured pattern'' (in step 1 above) for the randomly positioned data in each block. This file will be used by the Control Volume Finite Element Method (CVFEM) simulator to prescribe the permeability field for the base case.
+\end{enumerate}
+
+
+\subsubsection{PDFCase Pre-processing Algorithm}\label{subsubsection:pdfcase_preprocess_algorithm}
+\begin{enumerate}[1]
+  \item Data from step one of the pre-processing algorithm for the base case is used to calculate the mean and standard deviation for each block of the permeability field.
+  \item A function which generates a Gaussian data set using arithmetic mean and standard deviation is used to stochastically produce a quater of the number of data in the base case for each of the four blocks.
+  \item The number of data generated for each block is $400$ and the data is randomly position within each block in a structured pattern. As in the base case, the simulation grid ({\it i.e.} mesh) is unstructured.
+  \item Finally, the structured data from each block is combined into a single file and then provided to the CVFEM simulator.
+\end{enumerate}
+
+
+\subsubsection{SVDCase Pre-processing Algorithm}\label{subsubsection:svdcase_preprocess_algorithm}
+\begin{enumerate}[1]
+  \item The permeability field obtained in step 3 of the pre-processing algorithm for the base case is factorized using SVD to obtain $\mathbf{U}, \Sigma,$ and $\mathbf{V}$.
+  \item A selected number, $z$, of singular values are retained in decreasing order of magnitude to form a new diagonal matrix, $\Sigma_{new}$.
+  \item The first $z$ columns of $\mathbf{U}$ and $\mathbf{V}$ are selected to form new truncated matrices call $\mathbf{U_{new}}$ and $\mathbf{V_{new}}$ respectively.
+  \item Within each column of $\mathbf{U}$ and $\mathbf{V}$ a linear interpolation is performed to form a new column with the number of data in each column reduced to a half of the original column. And, these new columns are recombined to form $\mathbf{U_{new2}}$ and $\mathbf{V_{new2}}$.
+  \item The permeability field used for the SVD case is the matrix, $\mathbf{A_{new2}}$ which is defined as $\mathbf{U_{new2}} \mathbf{\Sigma_{new}} \mathbf{V_{new2}^{\intercal}}$. It is a permeability field with a quater of the data in the base cased and therefore a permeability field with a reduced order.  
+\end{enumerate}
+
+\subsection{Simulations}\label{subsection:simulations}
+For the simulations, each of the model's domain is initially fully saturated with a fluid (Phase 2), and a wetting phase (1) fluid is driven into the domain from the left hand side at a constant mass flow rate. Newmann ({\it i.e.} no flux) boundary conditions were imposed on the upper and lower borders of each domain, while mixed fluids are recovered from the right-hand face. Fig (...........)a shows the permeability field of the base case while fig (....... - ........) shows the phase saturation field during fluid injection for time, $t = 0.15s, 0.30s, 0.50s, 1.15s, 1.75s$ and $2.95s$.
 
 \section{Results and Discussion}\label{section:results_discussion}
 
+Where are them beautiful screenshots!\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+
 \section{Conclusion}\label{section:conclusion}
 
+Conclude man!\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
 
 
 
