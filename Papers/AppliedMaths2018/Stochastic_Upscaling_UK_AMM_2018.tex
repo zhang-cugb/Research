@@ -142,7 +142,7 @@
 
 
 \begin{abstract}
-  BlaBlaBla
+  BlaBlaBlah Nice Abstract 
 \end{abstract}
 
 
@@ -185,55 +185,21 @@ Singular Value Decomposition, SVD, exists within the linear algebra branch of ma
 
 \subsection{Principal Component Spaces and Model Order Reduction for the permeability field}\label{subsection:pcspaces}
 
-Blah blah visualizing the spaces blah
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
+\subsubsection{Visualizing the permeability space}\label{subsubsection:visualization_permspace}
+In real-life ({\it i.e.}, a 3D geometry), permeability is a tensor quantity, but for the purpose of the following explanation (and the remaining part of this paper), a 2D geometry is assumed where permeability is a scalar quantity. Furthermore, the simulator prescribes the permeability field using $P0DG$ element type, which means that permeability values are assigned in the middle node of the triangular unstructured mesh used for discretizing the 2D simulation geometry. And the value assigned in the middle node of the triangle represents the permeability value for the whole triangular element. But for simplicity, in the remaining part of this section, we will imagine or assume the $2D$ geometry is discritized by a square grid with the value for each square element assigned in the middle of the element. This explanation allow one to easily visualize this permeability space because it is defined by the $x,y$ co-ordinates  system which most people are already familiar with. The model order reduction for the permeability field discussed here is concerned with reducing the volume of permeability data within the permeability space. Consider for instance a small square which is discretized to contain four squares such that $4$ data values are defined in the middle of the four squares. The permeability space of $4$ can be reduced to a smaller value of $1$ through an averaging process such as arithmetic, harmonic or geometric mean. This type of reduction is the focus of this paper, albeit the main focus of this paper is achieving this reduction through singular value decomposition in the principal component spaces. 
+
+\subsubsection{Visualizing the principal component spaces}\label{subsubsection:visualization_pcspaces}
+Essentially, the existing permeability space is transformed through SVD to principal component spaces where usually, traditional principal component analysis is performed before interpolation is used to implement further data reduction in the principal component spaces. This reduced data in the principal component space is then transformed back into the permeability space to obtain a reduced permeability space.
+
+The principal component space is a bit more challenging to visualize because it usually consists of more than $3$ dimensions. $3D$ ({\it i.e.}, $x, y$ and $z$ in the cartesian plane) being the natural dimension which humans exist, is easy to visualize. Many engineers are also able to visualize 4D with time as the fourth dimension, albeit only few scientists and engineers are able to visualize and work in the abstract dimension where the number of dimensions exceed four. An aid for visualizing the PC space is to write out the $\mathbf{U}$, $\mathbf{\Sigma}$ and $\mathbf{V^{\intercal}}$ matrices (or imagine the matrices written out) and consider the singular vectors ({\it i.e.},columns in $\mathbf{U}$ and rows in $\mathbf{U}$) as separate principal component spaces.
+
+\subsubsection{Model Order Reduction/Principal Component Space Reduction}\label{subsubsection:svdcase_preprocess_algorithm}
+ For the SVD model order reduction of the permeability field, all the work is done in the principal component spaces. This can be completed in two steps. The first step is optional and it is the well known principal component analysis (PCA). Here, the singular values are examined and based on a pre-defined criteria, z singular values are selected, starting from $\sigma_{1}$ and in a decreasing order. $z \leq r$, where in the case $z = r$, it can be assumed that step 1 has been ignored. In the case where $z < r$, the first z columns of $\mathbf{U}$ and the first z rows of $\mathbf{V^{\intercal}}$ are extracted from $\mathbf{U}$ and $\mathbf{V^{\intercal}}$ to form new matrices $\mathbf{U_{new}}$ and $\mathbf{V^{\intercal}_{new}}$ respectively. The selected z singular values also for a new diagonal matrix ({\it i.e.}, where $z < r$).
+
+The second step involves interpolation within each singular vector (column in $\mathbf{U}$ and row in $\mathbf{V^{\intercal}}$), to reduce the number of data in each column of  $\mathbf{U}$ and in $\mathbf{V^{\intercal}}$. From this step,  $\mathbf{U_{new2}}$ and $\mathbf{V^{\intercal}_{new2}}$ are obtained. The reduced permeability field is calculated by multiplying  $\mathbf{U_{new2}}$ $\mathbf{\Sigma_{new}}$ and $\mathbf{V^{\intercal}_{new2}}$. 
+
 \section{Model Description and Simulation Setup}\label{section:model_simulation}
 blah blah about geology
-\\
-\\
 \\
 \\
 \\
@@ -374,8 +340,7 @@ Conclude man!\\
 \clearpage  
 \listoffigures
 \clearpage
-\input{article_figure1}
-%\input{article_figure2} 
+\input{article_figure1} 
 
 \end{document}
 %% End of tex file.
