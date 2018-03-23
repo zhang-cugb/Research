@@ -1,15 +1,51 @@
 
+
 %%%%
-%%%%  FIGURE 
+%%%%  FIGURE
 %%%%
-\begin{figure}[h!]
-   \vbox{
-     \hbox{\includegraphics[width=\columnwidth,clip]{./Pics/PermField_Saturation.png}}
-     \hbox{\hspace{4cm}(a)\hspace{7.8cm}(b)}}
-        \caption{(a) Permeability distribution and (b) phase saturation showing preferential flow pathways.}
-        \label{fig:PermField_Saturation}  
+%\begin{landscape}
+\begin{figure}[ht] 
+\vbox{\vspace{-1cm}
+\hbox{\includegraphics[width=.56\textwidth]{./Pics/BaseCase/BaseCase_MeshOnly.png}
+      \includegraphics[width=.56\textwidth]{./Pics/ArithMeanCase/ArithMeanCase_MeshOnly.png}}
+\vspace{0.cm}
+\hbox{\hspace{0.25cm} (a) High Resolution Grid(BaseCase) \hspace{0.75cm} (b) Low Resolution Grid(Upscaled Cases) \hspace{3.0cm}}
+\vspace{0.5cm}
+}   
+\caption{Simulation grid for the high resolution case and the upscaled cases}
+\label{fig:HiRes_LowRes_Mesh}
 \end{figure}
+%\end{landscape}
 \clearpage
+
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\vbox{\vspace{-1cm}
+\hbox{\includegraphics[width=.56\textwidth]{./Pics/BaseCase/BaseCase_PermField_withMesh.png}
+      \includegraphics[width=.56\textwidth]{./Pics/BaseCase/BaseCase_PermField_withoutMesh2.png}
+      \includegraphics[width=.56\textwidth]{./Pics/ArithMeanCase/ArithMeanCase_PermField_withoutMesh2.png}}
+\vspace{0.cm}
+\hbox{\hspace{0.5cm} (a) BaseCase(with mesh) \hspace{3.75cm} (b) BaseCase(without Mesh) \hspace{3.0cm} (c) ArithMean Case}
+\vspace{0.5cm}
+\hbox{
+      \includegraphics[width=.56\textwidth]{./Pics/HarmMeanCase/HarmMeanCase_PermField_withoutMesh2.png}
+      \includegraphics[width=.56\textwidth]{./Pics/PDFCase/PDFCase_PermField_withoutMesh2.png} 
+      \includegraphics[width=.56\textwidth]{./Pics/SVDCase/SVDCase_PermField_withoutMesh2.png}}
+\vspace{0.cm}
+\hbox{ \hspace{1.5cm} (d) HarmMean Case \hspace{4.75cm} (e) PDFCase  \hspace{5.0cm} (f) SVDCase}
+\vspace{0.cm}
+}   
+\caption{Permeability field for the base case as well as the upscaled case}
+\label{fig:PermFields}
+\end{figure}
+\end{landscape}
+\clearpage
+
 
 %%%%
 %%%%  FIGURE
@@ -21,18 +57,132 @@
       \includegraphics[width=.56\textwidth]{./Pics/BaseCase/BaseCase_Saturation_t_dot30.png}
       \includegraphics[width=.56\textwidth]{./Pics/BaseCase/BaseCase_Saturation_t_dot50.png}}
 \vspace{0.cm}
-\hbox{\hspace{0.5cm} (a) Phase 1 Saturation at t=0.15s \hspace{4.cm} (b) t=0.30s \hspace{3.75cm} (c) t=0.50s}
+\hbox{\hspace{0.5cm} (a) Phase 1 Saturation at t=0.15s \hspace{3.75cm} (b) t=0.30s \hspace{5.0cm} (c) t=0.50s}
 \vspace{0.5cm}
 \hbox{
       \includegraphics[width=.56\textwidth]{./Pics/BaseCase/BaseCase_Saturation_t_1dot15.png}
       \includegraphics[width=.56\textwidth]{./Pics/BaseCase/BaseCase_Saturation_t_1dot75.png} 
       \includegraphics[width=.56\textwidth]{./Pics/BaseCase/BaseCase_Saturation_t_2dot95.png}}
 \vspace{0.cm}
-\hbox{ \hspace{1.cm} (d) t=1.15s \hspace{3.0cm} (e) t=1.75s   \hspace{4.0cm} (f) t=2.95s}
+\hbox{ \hspace{2.5cm} (d) t=1.15s \hspace{5.5cm} (e) t=1.75s   \hspace{5.5cm} (f) t=2.95s}
 \vspace{0.cm}
 }   
-\caption{Simulated flow in a Hele-Shaw cell $\left(\text{{\it VR}=3, {\bf K}=10}^{-10}\text{cm}^{2}\right)$: (a) initial pressure profile $\left(\text{in g.cm}^{-1}\text{.s}^{-2}\right)$ with source and sink regions are explicitly shown along with dimensions (in cm); (b-f) snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
-\label{fig:homoheleshaw_VN3}
+\caption{Simulations for the BaseCase}
+\label{fig:BaseCase_Saturation}
+\end{figure}
+\end{landscape}
+\clearpage
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\vbox{\vspace{-1cm}
+\hbox{\includegraphics[width=.56\textwidth]{./Pics/ArithMeanCase/ArithMeanCase_Saturation_t_dot15.png}
+      \includegraphics[width=.56\textwidth]{./Pics/ArithMeanCase/ArithMeanCase_Saturation_t_dot30.png}
+      \includegraphics[width=.56\textwidth]{./Pics/ArithMeanCase/ArithMeanCase_Saturation_t_dot50.png}}
+\vspace{0.cm}
+\hbox{\hspace{0.5cm} (a) Phase 1 Saturation at t=0.15s \hspace{3.75cm} (b) t=0.30s \hspace{5.0cm} (c) t=0.50s}
+\vspace{0.5cm}
+\hbox{
+      \includegraphics[width=.56\textwidth]{./Pics/ArithMeanCase/ArithMeanCase_Saturation_t_1dot15.png}
+      \includegraphics[width=.56\textwidth]{./Pics/ArithMeanCase/ArithMeanCase_Saturation_t_1dot75.png} 
+      \includegraphics[width=.56\textwidth]{./Pics/ArithMeanCase/ArithMeanCase_Saturation_t_2dot95.png}}
+\vspace{0.cm}
+\hbox{ \hspace{2.5cm} (d) t=1.15s \hspace{5.5cm} (e) t=1.75s   \hspace{5.5cm} (f) t=2.95s}
+\vspace{0.cm}
+}   
+\caption{Simulations for the ArithMean Case}
+\label{fig:ArithMeanCase_Saturation}
+\end{figure}
+\end{landscape}
+\clearpage
+
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\vbox{\vspace{-1cm}
+\hbox{\includegraphics[width=.56\textwidth]{./Pics/HarmMeanCase/HarmMeanCase_Saturation_t_dot15.png}
+      \includegraphics[width=.56\textwidth]{./Pics/HarmMeanCase/HarmMeanCase_Saturation_t_dot30.png}
+      \includegraphics[width=.56\textwidth]{./Pics/HarmMeanCase/HarmMeanCase_Saturation_t_dot50.png}}
+\vspace{0.cm}
+\hbox{\hspace{0.5cm} (a) Phase 1 Saturation at t=0.15s \hspace{3.75cm} (b) t=0.30s \hspace{5.0cm} (c) t=0.50s}
+\vspace{0.5cm}
+\hbox{
+      \includegraphics[width=.56\textwidth]{./Pics/HarmMeanCase/HarmMeanCase_Saturation_t_1dot15.png}
+      \includegraphics[width=.56\textwidth]{./Pics/HarmMeanCase/HarmMeanCase_Saturation_t_1dot75.png} 
+      \includegraphics[width=.56\textwidth]{./Pics/HarmMeanCase/HarmMeanCase_Saturation_t_2dot95.png}}
+\vspace{0.cm}
+\hbox{ \hspace{2.5cm} (d) t=1.15s \hspace{5.5cm} (e) t=1.75s   \hspace{5.5cm} (f) t=2.95s}
+\vspace{0.cm}
+}   
+\caption{Simulations for the HarmMean Case}
+\label{fig:HarmMeanCase_Saturation}
+\end{figure}
+\end{landscape}
+\clearpage
+
+
+
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\vbox{\vspace{-1cm}
+\hbox{\includegraphics[width=.56\textwidth]{./Pics/PDFCase/PDFCase_Saturation_t_dot15.png}
+      \includegraphics[width=.56\textwidth]{./Pics/PDFCase/PDFCase_Saturation_t_dot30.png}
+      \includegraphics[width=.56\textwidth]{./Pics/PDFCase/PDFCase_Saturation_t_dot50.png}}
+\vspace{0.cm}
+\hbox{\hspace{0.5cm} (a) Phase 1 Saturation at t=0.15s \hspace{3.75cm} (b) t=0.30s \hspace{5.0cm} (c) t=0.50s}
+\vspace{0.5cm}
+\hbox{
+      \includegraphics[width=.56\textwidth]{./Pics/PDFCase/PDFCase_Saturation_t_1dot15.png}
+      \includegraphics[width=.56\textwidth]{./Pics/PDFCase/PDFCase_Saturation_t_1dot75.png} 
+      \includegraphics[width=.56\textwidth]{./Pics/PDFCase/PDFCase_Saturation_t_2dot95.png}}
+\vspace{0.cm}
+\hbox{ \hspace{2.5cm} (d) t=1.15s \hspace{5.5cm} (e) t=1.75s   \hspace{5.5cm} (f) t=2.95s}
+\vspace{0.cm}
+}   
+\caption{Simulations for the PDFCase}
+\label{fig:PDFCase_Saturation}
+\end{figure}
+\end{landscape}
+\clearpage
+
+
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+\begin{figure}[ht] 
+\vbox{\vspace{-1cm}
+\hbox{\includegraphics[width=.56\textwidth]{./Pics/SVDCase/SVDCase_Saturation_t_dot15.png}
+      \includegraphics[width=.56\textwidth]{./Pics/SVDCase/SVDCase_Saturation_t_dot30.png}
+      \includegraphics[width=.56\textwidth]{./Pics/SVDCase/SVDCase_Saturation_t_dot50.png}}
+\vspace{0.cm}
+\hbox{\hspace{0.5cm} (a) Phase 1 Saturation at t=0.15s \hspace{3.75cm} (b) t=0.30s \hspace{5.0cm} (c) t=0.50s}
+\vspace{0.5cm}
+\hbox{
+      \includegraphics[width=.56\textwidth]{./Pics/SVDCase/SVDCase_Saturation_t_1dot15.png}
+      \includegraphics[width=.56\textwidth]{./Pics/SVDCase/SVDCase_Saturation_t_1dot75.png} 
+      \includegraphics[width=.56\textwidth]{./Pics/SVDCase/SVDCase_Saturation_t_2dot95.png}}
+\vspace{0.cm}
+\hbox{ \hspace{2.5cm} (d) t=1.15s \hspace{5.5cm} (e) t=1.75s   \hspace{5.5cm} (f) t=2.95s}
+\vspace{0.cm}
+}   
+\caption{Simulation for the SVDCase}
+\label{fig:SVDCase_Saturation}
 \end{figure}
 \end{landscape}
 \clearpage

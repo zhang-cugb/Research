@@ -98,7 +98,7 @@
 % \biboptions{}
 
 \newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{ \color{red} JG Note $\Rightarrow$ #1}}}
-\newcommand{\KCnote}[1]{\fbox{\parbox{\textwidth}{ \color{black} KC Note $\Rightarrow$ #1}}}
+\newcommand{\BLnote}[1]{\fbox{\parbox{\textwidth}{ \color{green} BL Note $\Rightarrow$ #1}}}
 \newcommand{\red}{\textcolor{red}}
 \newcommand{\blue}{\textcolor{blue}}
 \newcommand{\green}{\textcolor{green}}
@@ -142,7 +142,13 @@
 
 
 \begin{abstract}
-  BlaBlaBlah Nice Abstract 
+Nice Abstract - Short, punchy
+\\
+\\
+\\
+\\
+\\
+\\ 
 \end{abstract}
 
 
@@ -198,42 +204,16 @@ The principal component space is a bit more challenging to visualize because it 
 
 The second step involves interpolation within each singular vector (column in $\mathbf{U}$ and row in $\mathbf{V^{\intercal}}$), to reduce the number of data in each column of  $\mathbf{U}$ and in $\mathbf{V^{\intercal}}$. From this step,  $\mathbf{U_{new2}}$ and $\mathbf{V^{\intercal}_{new2}}$ are obtained. The reduced permeability field is calculated by multiplying  $\mathbf{U_{new2}}$ $\mathbf{\Sigma_{new}}$ and $\mathbf{V^{\intercal}_{new2}}$. 
 
+\section{Brief Overview of Upscaling}\label{section:overview_upscaling}
+
+The first section briefly introduced the rational behind upscaling. This is a subject which has interested the academic community for over $7$ decades.  \citet{Cardwell_1945} investigated arithmetic and weighted averages as upscaling techniques for calculating a single equivalent permeability for an oil reservoir with varying permeabilities. \citet{King1996} investigated the use of renormalization for upscaling. And \citet{Yeo2001} discussed the accuracy of renormalization method for upscaling 2 dimension hydraulic conductivity fields.  \citet{Renard_1997} provided a comprehensive review of the various techniques for upscaling in \citeyear{Renard_1997}. \citet{Christie_2001SPE10Model} provided $2$ sets of problems to compare the upscaling and upgridding techniques of different simulators.
+
 \section{Model Description and Simulation Setup}\label{section:model_simulation}
-blah blah about geology
-\\
-\\
-\\
-\\
-\\
-\\
 
 \subsection{Model Description}\label{subsection:model}
-The model for the permeabiliy field builds on the $2 * 2$ block, $4$ quadrant model used by 
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\ 
+The BaseCase  ({\it i.e.} fine resolution) model for the permeabiliy field builds on the $2 * 2$ block, $4$ quadrant model used initially by \citet{Cardwell_1945} and later by \citet{Yeo2001} and \citet{dawe_2008}. These authors designed the permeability field for the quadrants in a checkerboard style which means that diagonally opposite blocks retained the same permeability values with one set of diagonally opposite blocks having a higher permeability value compared to the other se. So that, one set of diagonally opposite blocks are referred to as high permeability blocks while the other set is referred to as low permeability blocks. The BaseCase permeability model used in this manuscript retains the checkerboard desgined used by the recently named authors. Albeit, the permeability data for each block in the set of diagonally opposite blocks have similar value ({\it i.e.} not exactly the same as in the papers referred to), although one set can still be referred to as a set of high permeability blocks while the other set is referred to as a set of low permeability blocks. Futhermore, within each block, the permeability field varies within a predefined range and consists of $1600$ permeability values. More details on the design of the permeability field for the BaseCase is available in section~\ref{subsubsection:basecase_preprocess_algorithm}. And Fig.~\ref{fig:PermFields}a and~\ref{fig:PermFields}b give a pictorial representation of the permeability field for the base case with the mesh discretization visible and invisible respectively. Using the labelling scheme used by \citet{dawe_2008}, the quadrant model block $K1, K2, K3$ and $K4$ are top left, bottom left, top right and bottom right respectively.
 
-Four upscaled models were obtained from a base case which is a high-resolution permeability field with a known permeability distribution. The base case consists of four regions, where each region is uniformly randomly generated within a specified range. 
-
+Four upscaled permeability field models were obtained from the high-resolution ({\it i.e.} the BaseCase) permeability field. And compared to the BaseCase model, all the upscaled models were upgridded to reduce the resolution of the permeability field. Specifically, for the simulation domain, the high resolution ({\it i.e.} BaseCase) model had 4112 triangular elements while the upscaled models had 728 triangular elements. The first two upscaled models are referred to as the ArithMean and the HarmMean Case, and this is because they are based on the arithmetic and the harmonic averaging methods, respectively. In both the ArithMean and HarmMean Cases, averages are calculated for each block using the $1600$ data points from the blocks of the BaseCase to obtain a permeability value for each block in the upscaled models. This effectively homogenizes the permeability field in each block. The upscaled permeability field for the third and fourth cases are referred to as PDFCase and SVDCase, respectively. And, as can be deduced from the names, these cases are based on probability density function (PDF) and singular value decomposition (SVD). The description for these permeability field models are more involved and are presented in section ~\ref{subsubsection:pdfcase_preprocess_algorithm} and ~\ref{subsubsection:svdcase_preprocess_algorithm} respectively. It is appropriate to note that although these models (PDFCase and SVDCase) are upscaled, they retain heterogeneity within the blocks.
 
 \subsubsection{BaseCase Pre-processing Algorithm}\label{subsubsection:basecase_preprocess_algorithm}
 \begin{enumerate}[1]
@@ -272,7 +252,7 @@ For the simulations, each of the model's domain is initially fully saturated wit
 
 \section{Results and Discussion}\label{section:results_discussion}
 
-Where are them beautiful screenshots!\\
+Talk about those beautiful screenshots!\\
 \\
 \\
 \\
