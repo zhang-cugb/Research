@@ -102,6 +102,7 @@
 \newcommand{\red}{\textcolor{red}}
 \newcommand{\blue}{\textcolor{blue}}
 \newcommand{\green}{\textcolor{green}}
+\newcommand{\yellow}{\textcolor{yellow}}
 \newcommand{\frc}{\displaystyle\frac}
 \newcommand{\PN}[2][error]{P$_{#1}$DG-P$_{#2}$}
 \newcommand{\PNDG}[2][error]{P$_{#1}$DG-P$_{#2}$DG}
@@ -136,20 +137,16 @@
 %% \address{Address\fnref{label3}} 
 %% \fntext[label3]{}
 
-\title{A Reduced Order Model for Permeability Fields Using Singular Value Decomposition, SVD, by Interpolating in the Principal Component Spaces \red{(Maybe you should consider a shorter and punchier title ...)}}
+\title{A Reduced Order Model for Permeability Fields Using Singular Value Decomposition, SVD}
 \author[UoA]{B. Lashore\corref{cor1}}\ead{lashorebabatunde@yahoo.com} \author[UoA]{K. Christou} \author[UoA]{J.L.M.A. Gomes} 
 \cortext[cor1]{Corresponding author.}
 \address[UoA]{Mechanics of Fluids, Soils \& Structures Research Group \\ School of Engineering University of Aberdeen, UK}
 
 
 \begin{abstract}
-Nice Abstract - Short, punchy
-\\
-\\
-\\
-\\
-\\
-\\ 
+
+In this paper, a method for applying SVD to reduced the order of (\ie upscale) the permeability field (of a BaseCase) was introduced. This method was compared to arithmetic and harmonic averaging (\ie upscaling) technique as well as a stochastic probability density function (PDF) method of upscaling, to highlight its benefits. It was shown that the SVD upscaling technique retained the heterogenous nature of the BaseCase. Additionally, the SVD upscaling technique did not require a priori understanding of similar permeability blocks within the existing domain (\ie the BaseCase).
+
 \end{abstract}
 
 
@@ -162,22 +159,41 @@ Singular Value Decomposition, SVD\sep Upscaling\sep Model Order Reduction, MOD \
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Introduction}\label{section:intro}
-Naturally occuring rock formations are inherently heterogeneous, which means that rock properties such as permeability, pore spaces ({\it i.e.}, porosity) and pore throat vary spatially at different length scales. The heterogeneity of rock formations (\ie porous media) is relevant in calculations of transport and storage of fluids in porous media. Therefore, the representation of these heterogeneous properties is of great importance to oil and gas (\ie reservoir management), carbon capture and storage (CCS, \ie CO$_2$ transportation and storage in subsurface rocks) and waste management (\ie remediation of contaminated soil).
+Naturally occuring rock formations are inherently heterogeneous, which means that rock properties such as permeability, pore spaces ({\it i.e.}, porosity) and pore throat vary spatially at different length scales. The heterogeneity of rock formations (\ie porous media) is relevant in calculations of transport and storage of fluids in porous media (\ie Multiphase flow in subsurface rocks). Therefore, the representation of these heterogeneous properties is of great importance to oil and gas (\ie reservoir management), carbon capture and storage (CCS, \ie CO$_2$ transportation and storage in subsurface rocks) and waste management (\ie remediation of contaminated soil).
 
-\JGnote{You need to ensure that the paragraphs are somehow linked ... \eg how is the first sentence of the following paragraph linked with the previous paragraph? }
+In essence, heterogeneity makes it impossible to obtain reliable and accurate spatial information about geological properties throughout the domain ({\it i.e.}, uncertainty problems). Additionally, due to limitations in computing resources, it is neither efficient nor possible to use exact values of geological properties at all spatial coordinates of the domain for running fine-grid simulations (\ie scale problems) \cite{chen_2006,miller_1998,Renard_1997}. This is particularly true for large geological domains which span several kilometres. It is possible to overcome these challenges by upscaling. Upscaling techniques solve both problems by replacing discrete geological and fluid properties of detailed high resolution domains with coarse descriptions (low resolution) of these properties \cite{Vereecken_2007}.
 
-Furthermore, due to limitations in computing resources, for simulations with very fine grids it is neither efficient nor possible to obtain exact values of geological properties at all spatial coordinates of the domain (\ie scale problems) \cite{chen_2006,miller_1998,Renard_1997}. This is particularly true for large geological domains which span several kilometres. Additionally, it is not possible to obtain reliable and accurate spatial information about geological properties throughout the domain ({\it i.e.}, uncertainty problems) \red{(Isn't this sentence a repetition of the first one?)}. It is possible to overcome these challenges by upscaling. Upscaling techniques solve both problems by replacing discrete geological and fluid properties of detailed high resolution domains with coarse descriptions (low resolution) of these properties \cite{Vereecken_2007}.
+Upscaling techniques which best preserve the statistical properties and flow dynamics behaviour of the high resolution domain give the best representation of the heterogeneous property. There are several upscaling techniques which fall under different categories \cite{Hasting_2001, Renard_1997, Szymkiewicz_2013}. Traditionally, the techniques were deterministic, however over the last decade, techniques classed as stochastic have received great attention from academic and industrial porous media communities worldwide \cite{Guilleminot_2012, Ravalec-Dupin_2010, Verwoerd_2009}. One of the reasons for this is because stochastic upscaling techniques are robust enough to handle multiphase flow in porous media, and they address scale and uncertainity problems which were previously mentioned.
 
-Upscaling techniques which best preserve the statistical properties and flow dynamics behaviour of the high resolution domain give the best representation of the heterogeneous property. There are several upscaling techniques which fall under different categories \cite{Hasting_2001, Renard_1997, Szymkiewicz_2013}, however over the last decade, techniques classed as stochastic have received great attention from academic and industrial porous media communities worldwide \cite{Guilleminot_2012, Ravalec-Dupin_2010, Verwoerd_2009}. One of the reasons for this is because stochastic techniques are robust enough to handle multiphase flow in porous media, and they address scale and uncertainity problems which were previously mentioned.
+Upscaling is a term used in a few industries, some of which were mentioned in the first paragraph. It is more popularly known in the larger science and engineering community as a form of Model Order Reduction (MOR), or the output (\ie Reduced Order Model, ROM). Depending on the context in which MOR is being used, it can simply be referred to as dimensionality reduction. The definition of MOR also depends on the context it is being used \cite{Schilders2008}, but it suffices to state that MOR captures the essential features of a system, structure or parameter. This implies that an original system, structure or parameter exists with more detailed information. Fig.~\ref{fig:IllustrationMOR} presents a graphical intepretation of the MOR concept. It shows that even with the reduced number of facets, the graphic on the right of this illustration is recognized as that of a rabbit. 
 
-\JGnote{The technique we are using/advocating here is not stochastic, though it would be good to develop it further, \ie brief lit review. Maybe you should add a few sentences/paragraphs on: ROM and the use of SVD for upscalling ... }
-\medskip
+\citet{Schilders2008} provides a historical perspective on the development of Model Order Reduction, from the work of Fourier in 1807 which approximated a function with a few trigonometric term, to the work of \citet{Odabasioglu_1998} in 1998 which introduced PRIMA - Passive Reduced-order Interconnect Marcromodeling Algorithm. Truncated Balanced Realization \cite{Moore_1981} is one of the MOR methods, published in 1981, it called attention to principal component analysis \cite{Hotelling_1933} and \citeauthor{Golub1970}'s \cite{Golub1970} algorithm for solving singular value decomposition (SVD). Hankel-norm reduction \cite{Glover_1984} and Proper Orthogonal Decomposition \cite{Sirovich_1987} are also MOR methods published in 1984 and 1987 respectively. In 1990, Asymptotic Waveform Evaluation \cite{Pillage_1990} the first MOR method related to the Krylov was born, this was followed by Pade Via Lanczos \cite{Feldmann_1995} in 1995 and then PRIMA. In this work, upscaling is performed by SVD in the principal component spaces.
 
-This work couples stochastic and deterministic upscaling representations of the permeability field to a novel high-order accurate control volume finite element method (CVFEM) (see \cite{Gomes_2017} for further details of the model formulation) so as to investigate statistical properties and multiphase flow behaviour in highly heterogeneous porous media. \red{(Try to split this really long sentence ...)} 
+The research focuses on reducing the order of the permeability field. Section~\ref{section:mathematical_model} presents the mathematical model used to describe the relevant physics for multi-fluid flow through porous media and highlights the relevance of the permeability field. The mathematical model is discretized by a novel high-order accurate control volume finite element method (CVFEM) (see \cite{Gomes_2017} for further details of the model formulation) which couples both the fine resolution and upscaled representation of the permeability field. Pre-processing statistical properties and post-simulation multiphase flow behaviour are investigated to analyse the various upscaling techniques used.
 
-Four upscaling techniques are investigated in this work. Arithmetic and harmonic means are used to obtain the first two upscaled representation and these two are classed as deterministic techniques. The third is a randomly generated permeability field with a Gaussian distribution, prescribed by a probability density function (PDF) which was obtained from a domain discretised with high-resolution mesh with known permeability distribution (\ie  base case). The fourth upscaling technique is the crux of this research, it introduces singular value decomposition (SVD) as a method of upscaling using interpolation within the concept of principal component space to reduce the order of the permeability field \red{(Sentence is quite confusing and does not say much ...)}.
+Four upscaling techniques are investigated in this work. Arithmetic and harmonic means are used to obtain the first two upscaled representation and these two are classed as deterministic techniques. The third is a randomly generated permeability field with a Gaussian distribution, prescribed by a probability density function (PDF) which was obtained from a domain discretised with high-resolution mesh with known permeability distribution (\ie  base case). The fourth upscaling technique is the crux of this research, it introduces singular value decomposition (SVD) as a method of upscaling using the concept of principal component space to reduce the order of the permeability field.
 
-In Section 2, the basic mathematical explanation of SVD and its associated properties are presented. Then, the concept of spaces\red{(spaces ... could you be more specific?)} is explained from the engineer's perspective and also from the mathematician's perspective \red{(Please do rephrase this sentence ... engineers/mathematician perspective is not appropriate for a scientific journal ...)}. The objective of this explanation is to assist both parties in \green{visualizing} the relevant spaces and performing the necessary transformation within those spaces. Finally, the section \red{(which section?)} describes model order space reduction for the permeability field within the principal component space. Section 3, starts by describing the high resolution base case on which the four upscaling techniques are modelled. The the simulation run which is similar for all the cases/models is described. A brief summary of the pre-processing step for each of the models is also presented. Section 4 provides the results and some discussion on the results of the simulations. It als gives further intepretation to the result obtained from the SVD upscaling technique. Finally, section 5 provides the conclusion.
+In Section~\ref{section:svd}, the basic mathematical explanation of SVD and its associated properties are presented. Then, the concept of spaces is explained to give the reader the understanding necessary to appreciate the transformations and projections involved in this work. Finally, the Section~\ref{section:svd} describes model order space reduction for the permeability field within the principal component space. Section~\ref{section:model_simulation}, starts by describing the high resolution base case on which the four upscaling techniques are modelled. The the simulation run which is similar for all the cases/models is described. A brief summary of the pre-processing step for each of the models is also presented. Section~\ref{section:results_discussion} provides the results and some discussion on the results of the simulations. It also gives further intepretation to the result obtained from the SVD upscaling technique. Finally, Section~\ref{section:conclusion} provides the conclusion.
+
+\section{Mathematical Model}\label{section:mathematical_model}
+
+\citet{Gomes_2017} provides details on the governing equations and numerical formulation which forms the mathematical model for the multi-flow flow in this work. Albeit, it suffices to introduce only the representation of Darcy's law for immiscible multi-phase flow for the following discussion. This is written in the form:
+\begin{equation}\label{e:darcy_eqn}
+  \mathbf{q}_{\alpha} =
+  -\frac{\mathcal{K}_{{r}_\alpha}\mathbf{K}}{\mu_{\alpha}}\left(
+  \nabla p_{\alpha} - {\mathbf{s}_{u}}_{\alpha} \right),
+\end{equation}
+where $\alpha$ designates a phase and $\mathbf{q}_{\alpha}$ is the $\alpha$-th phase Darcy velocity. $\mu_{\alpha}$, $p_{\alpha}$, $\rho_{\alpha}$, and $\mathbf{s}_{{u}_\alpha}$ are the phase dynamic viscosity, pressure, density and source term, which may include gravity and/or capillarity, respectively. $\mathcal{K}_{{r}_\alpha}\left(S_{\alpha}\right)$ is the phase relative permeability, which is a function of the phase saturation $S_{\alpha}\left(\mathbf{r},t\right)$, which in turn is a function of the vector position $\mathbf{r}$, and time, $t$. Finally, $\mathbf{K}\left(\mathbf{r}\right)$, the focus of this work, is the absolute permeability tensor of the porous medium and it is a function of the vector position $\mathbf{r}$.
+
+In this work, $\mathbf{K}$ is prescribed in the system of governing equations used to model multi-phase flow in porous media, this means it is an input/independent variable. Since $\mathbf{K}$ varies with position, it is impossible to determine at every point and even if it is available at every point it would require immense computer resources to utilize all the available information in a simulation. This is the reason upscaling is required for the permeability field. Upscaling can be performed from the continuum scale, across the micro scale ($mm$), local scale and meso scale ($m$) to the field scale ($Km$)\cite{ECMI_2004}. The upscaling discussed here is from the micro scale also known as the Darcy scale.
+
+\section{Brief Overview of Upscaling}\label{section:overview_upscaling}
+
+Section~\ref{section:intro} briefly introduced the rational behind upscaling. Upscaling methods replace discrete geological and fluid properties of detailed high resolution domains with coarse descriptions (low resolution) of these properties \cite{Vereecken_2007}. This is a subject which has interested the academic community for over $7$ decades.  \citet{Cardwell_1945} investigated arithmetic and weighted averages as upscaling techniques for calculating a single equivalent permeability for an oil reservoir with varying permeabilities. \citet{King1996} investigated the use of renormalization for upscaling. And \citet{Yeo2001} discussed the accuracy of renormalization method for upscaling 2D hydraulic conductivity fields. \citet{Renard_1997} provided a comprehensive review of the various techniques for upscaling. \citet{Christie_2001SPE10Model} provided $2$ sets of problems to compare the upscaling and upgridding techniques of different simulators. \red{(And what are the main conclusions/contributions of these papers?)}
+
+\JGnote{You should consider writing a more detailed section on upscaling as this is part of the core of your work here ...}
+
+\BLnote{I will do this before submitting, please let me know if you will be able to review again on Thursday or Friday}
 
 
 \section{Singular Value Decomposition, SVD, and its application for reducing the order of a permeability field}\label{section:svd}
@@ -194,60 +210,59 @@ where $\mathbf{I}$ is an identity matrix. However, if $\mathbf{A}$ is an $m\time
 \begin{equation}
   \mathbf{U}^{-1} = \mathbf{U}^{\intercal} \;\;\;\text{ and }\;\;\; \mathbf{V}^{-1} = \mathbf{V}^{\intercal},
 \end{equation}
-and if $\mathbf{A}$ is an $m \times n$ matrix thus $\Sigma$ is a diagonal $m \times n$ matrix. For a rectangular matrix, the singular values fill the first $r$ places on the main diagonal of $\Sigma$. A benefit of the SVD is the orthogonality of the columns in $\mathbf{U}$ and $\mathbf{V}$. The columns of $\mathbf{U}$ are known as the left singular vectors while the columns in $\mathbf{V}$ are known as the right singular vectors. A simple consideration of the benefit of this is the ease with which it allows the inverse of square matrix $\mathbf{A}$ to be calculated. This example is presented thus:
-\begin{equation}
+and if $\mathbf{A}$ is an $m \times n$ matrix thus $\Sigma$ is a diagonal $m \times n$ matrix. For a rectangular matrix, the singular values fill the first $r$ places on the main diagonal of $\Sigma$. The SVD benefits from the orthogonality of the columns in $\mathbf{U}$ and $\mathbf{V}$. The columns of $\mathbf{U}$ are known as the left singular vectors while the columns in $\mathbf{V}$ are known as the right singular vectors. A simple consideration of the benefit of the orthogonal factors, $\mathbf{U}$ and $\mathbf{V}$, is the ease with which they allow the inverse of the square matrix $\mathbf{A}$ to be calculated. This in turn makes it easy to solve the linear Equ.~\ref{e:Ax=b} for $x$. Equ.~\ref{e:SVD_factorization} show the SVD factorization already discussed, and with benefit of the orthogonal property also already discussed, the solution for $x$ is simply presented as in Equ.~\ref{e:x_solution}.
+\begin{equation}\label{e:Ax=b}
  \mathbf{A}x = b
 \end{equation}
-\begin{equation}
+\begin{equation}\label{e:SVD_factorization}
  \mathbf{U} \Sigma \mathbf{V}^{\intercal} x = b
 \end{equation}
-\begin{equation}
+\begin{equation}\label{e:x_solution}
  x = \mathbf{V} \Sigma^{-1} \mathbf{U}^{\intercal} b
 \end{equation}
 \red{(I guess we have talked about this on Friday ... make it clear that matrix inversion is an (useful?) example of SVD ... also explain step-by-step this matricial equations above ... remember ... every single equation must be explained ...)}
+
+\BLnote{The equations are now explained in the last 3 sentences of this section.}
 
 
 
 \subsection{Principal Component Spaces and Model Order Reduction for the permeability field}\label{subsection:pcspaces}
 \JGnote{As we talked on Friday: (a)make sure you explain what permeability is before starting to operating on it; (b) $P0DG$ could be easily replaced by saying that the quantity of interest is allocated in the centre of the element/cell -- this make it more general; (c) Just reading it through, we can summarise the {\it procedure} as (i) SVD of matrix of permeability scalar quantities (\ie upscaling) and (ii) linear interpolation of the upscaled/homogeneised quantities upon a new mesh grid resolution (\ie upgriding). Whereas the first is the object of the interest for this study, the second gives an overall motivation for the work ... thus, make sure this is clear within the text, \ie upscaling $\rightarrow$ upgriding.}
-  
-\subsubsection{Visualizing the permeability space}\label{subsubsection:visualization_permspace}
-In 3D geometry, permeability is a tensor quantity, but for the purpose of the following explanation (and the remaining part of this paper), a 2D geometry is assumed where permeability is a scalar quantity. Furthermore, the simulator prescribes the permeability field using $P0DG$ element type, which means that permeability values are assigned in the middle node of the triangular unstructured mesh used for discretizing the 2D simulation geometry. And the value assigned in the middle node of the triangle represents the permeability value for the whole triangular element. But for simplicity, in the remaining part of this section, we will imagine or assume the $2D$ geometry is discritized by a square grid with the value for each square element assigned in the middle of the element. This explanation allow one to easily visualize this permeability space because it is defined by the $x,y$ co-ordinates  system which most people are already familiar with. The model order reduction for the permeability field discussed here is concerned with reducing the volume of permeability data within the permeability space. Consider for instance a small square which is discretized to contain four squares such that $4$ data values are defined in the middle of the four squares. The permeability space of $4$ can be reduced to a smaller value of $1$ through an averaging process such as arithmetic, harmonic or geometric mean. This type of reduction is the focus of this paper, albeit the main focus of this paper is achieving this reduction through singular value decomposition in the principal component spaces. 
 
-\subsubsection{Visualizing the principal component spaces}\label{subsubsection:visualization_pcspaces}
+\BLnote{(a)Permeability is now introduced in Section~\ref{section:mathematical_model}; (b) $P0DG$ now replaced with centre of element/cell (c) I thought we agreed that upscaling cannot be separated from upgridding. Actually, you convinced me that upscaling cannot be seperated from upgridding. Upscaling is not completed in the SVDCase until the interpolation is completed. Strictly speaking, interpolation only defines the level of upgridding. I will mention this in the results section (Section~\ref{section:results_discussion})}
+  
+\subsubsection{Understanding the permeability space}\label{subsubsection:visualization_permspace}
+In 3D geometry, permeability is a tensor quantity, but for the purpose of the following explanation (and the remaining part of this paper), a 2D geometry is assumed where permeability is a scalar quantity. Furthermore, the simulator prescribes the permeability field by assigning permeability values in the centre of the elements/cells which discretizing the 2D simulation domain. The permeability value assigned in the centre of the element/cell represents the permeability value for that element/cell. For simplicity, in the remaining part of this section, it will be assumed that the $2D$ geometry is discritized by a square grid with the value for each square element assigned in the centre of the element. This explanation allow one to easily visualize this permeability space because it is defined by the cartesian coordinates  system which most people are already familiar with. The model order reduction for the permeability field discussed here is concerned with reducing the volume of permeability data within the permeability space. Consider for instance a small square which is discretized to contain four squares such that $4$ data values are defined in the middle of the four squares. The permeability space of $4$ can be reduced to a smaller value of $1$ through an averaging process such as arithmetic, harmonic or geometric mean. This type of reduction is the focus of this paper, albeit the main focus of this paper is achieving this reduction through singular value decomposition in the principal component spaces. 
+
+\subsubsection{Understanding the principal component spaces}\label{subsubsection:visualization_pcspaces}
 Essentially, the existing permeability space is transformed through SVD to principal component spaces where usually, traditional principal component analysis is performed before interpolation is used to implement further data reduction in the principal component spaces. This reduced data in the principal component space is then transformed back into the permeability space to obtain a reduced permeability space.
 
-The principal component space is a bit more challenging to visualize because it usually consists of more than $3$ dimensions. $3D$ ({\it i.e.}, $x, y$ and $z$ in the cartesian plane) being the natural dimension which humans exist, is easy to visualize. Many engineers are also able to visualize 4D with time as the fourth dimension, albeit only few scientists and engineers are able to visualize and work in the abstract dimension where the number of dimensions exceed four. An aid for visualizing the PC space is to write out the $\mathbf{U}$, $\mathbf{\Sigma}$ and $\mathbf{V^{\intercal}}$ matrices (or imagine the matrices written out) and consider the singular vectors ({\it i.e.},columns in $\mathbf{U}$ and rows in $\mathbf{U}$) as separate principal component spaces.
+The principal component space is more challenging to visualize because it usually consists of more than $3$ dimensions. $3-D$ ({\it i.e.}, $x, y$ and $z$ in the cartesian plane) being the natural dimension which humans exist, is easy to visualize. Many individuals are also able to understand the concept of 4D with time as the fourth dimension, albeit only few scientists and engineers are able to visualize and work in the abstract dimension where the number of dimensions exceed four. An aid for visualizing the PC space is to write out the $\mathbf{U}$, $\mathbf{\Sigma}$ and $\mathbf{V^{\intercal}}$ matrices (or imagine the matrices written out) and consider the singular vectors ({\it i.e.},columns in $\mathbf{U}$ and rows in $\mathbf{U}$) as separate principal component spaces.
 
 \subsubsection{Model Order Reduction/Principal Component Space Reduction}\label{subsubsection:svdcase_preprocess_algorithm}
- For the SVD model order reduction of the permeability field, all the work is done in the principal component spaces. This can be completed in two steps. The first step is optional and it is the well known principal component analysis (PCA). Here, the singular values are examined and based on a pre-defined criteria, z singular values are selected, starting from $\sigma_{1}$ and in a decreasing order. $z \leq r$, where in the case $z = r$, it can be assumed that step 1 has been ignored. In the case where $z < r$, the first z columns of $\mathbf{U}$ and the first z rows of $\mathbf{V^{\intercal}}$ are extracted from $\mathbf{U}$ and $\mathbf{V^{\intercal}}$ to form new matrices $\mathbf{U_{new}}$ and $\mathbf{V^{\intercal}_{new}}$ respectively. The selected z singular values also for a new diagonal matrix ({\it i.e.}, where $z < r$).
+ For the SVD model order reduction of the permeability field, all the work is done in the principal component spaces. This can be completed in two steps. The first step is optional and it is the well known principal component analysis (PCA) \cite{Hotelling_1933}. Here, the singular values are examined and based on a pre-defined criteria, $z$ singular values are selected, starting from $\sigma_{1}$ and in a decreasing order, where $z \leq r$. In the case with $z = r$, it can be assumed that step 1 has been ignored. However, when $z < r$, the first $z$ columns of $\mathbf{U}$ and the first $z$ rows of $\mathbf{V^{\intercal}}$ are extracted from $\mathbf{U}$ and $\mathbf{V^{\intercal}}$ to form new matrices $\mathbf{U_{new}}$ and $\mathbf{V^{\intercal}_{new}}$ respectively. The selected $z$ singular values also form a new diagonal matrix, $\mathbf{\Sigma_{new}}$ .
 
-The second step involves interpolation within each singular vector (column in $\mathbf{U}$ and row in $\mathbf{V^{\intercal}}$), to reduce the number of data in each column of  $\mathbf{U}$ and in $\mathbf{V^{\intercal}}$. From this step,  $\mathbf{U_{new2}}$ and $\mathbf{V^{\intercal}_{new2}}$ are obtained. The reduced permeability field is calculated by multiplying  $\mathbf{U_{new2}}$ $\mathbf{\Sigma_{new}}$ and $\mathbf{V^{\intercal}_{new2}}$. 
+The second step involves interpolation within each singular vector (column in $\mathbf{U}$ and row in $\mathbf{V^{\intercal}}$), to reduce the number of data in each column of  $\mathbf{U}$ and in $\mathbf{V^{\intercal}}$. From this step,  $\mathbf{U_{new2}}$ and $\mathbf{V^{\intercal}_{new2}}$ are obtained. The reduced permeability field is calculated by multiplying  $\mathbf{U_{new2}}$, $\mathbf{\Sigma_{new}}$ and $\mathbf{V^{\intercal}_{new2}}$. 
 
 \JGnote{Maybe you should consider describing the procedure above as pseudocode within a table.}
 
-
-\section{Brief Overview of Upscaling}\label{section:overview_upscaling}
-
-The first section \red{(Are you referring to Section 1 -- Intro or Section 2?)} briefly introduced the rational behind upscaling. Upscaling methods replace discrete geological and fluid properties of detailed high resolution domains with coarse descriptions (low resolution) of these properties \cite{Vereecken_2007}. This is a subject which has interested the academic community for over $7$ decades.  \citet{Cardwell_1945} investigated arithmetic and weighted averages as upscaling techniques for calculating a single equivalent permeability for an oil reservoir with varying permeabilities. \citet{King1996} investigated the use of renormalization for upscaling. And \citet{Yeo2001} discussed the accuracy of renormalization method for upscaling 2D hydraulic conductivity fields.  \citet{Renard_1997} provided a comprehensive review of the various techniques for upscaling. \citet{Christie_2001SPE10Model} provided $2$ sets of problems to compare the upscaling and upgridding techniques of different simulators. \red{(And what are the main conclusions/contributions of these papers?)}
-
-\JGnote{You should consider writing a more detailed section on upscaling as this is part of the core of your work here ...}
+\BLnote{I have an algorithm in Section~\ref{subsubsection:svdcase_preprocess_algorithm} which itemizes the procedure in a sort of psuedocode}
 
 \section{Model Description and Simulation Setup}\label{section:model_simulation}
 
 \subsection{Model Description}\label{subsection:model}
-The BaseCase  ({\it i.e.} fine resolution) model for the permeabiliy field builds on the $2 * 2$ block, $4$ quadrant model used initially by \citet{Cardwell_1945} and later by \citet{Yeo2001} and \citet{dawe_2008}. These authors designed the permeability field for the quadrants in a checkerboard style which means that diagonally opposite blocks retained the same permeability values with one set of diagonally opposite blocks having a higher permeability value compared to the other se. So that, one set of diagonally opposite blocks are referred to as high permeability blocks while the other set is referred to as low permeability blocks. The BaseCase permeability model used in this manuscript retains the checkerboard desgined used by the recently named authors. Albeit, the permeability data for each block in the set of diagonally opposite blocks have similar value ({\it i.e.} not exactly the same as in the papers referred to), although one set can still be referred to as a set of high permeability blocks while the other set is referred to as a set of low permeability blocks. Futhermore, within each block, the permeability field varies within a predefined range and consists of $1600$ permeability values. More details on the design of the permeability field for the BaseCase is available in section~\ref{subsubsection:basecase_preprocess_algorithm}. And Fig.~\ref{fig:PermFields}a and~\ref{fig:PermFields}b give a pictorial representation of the permeability field for the base case with the mesh discretization visible and invisible respectively. Using the labelling scheme used by \citet{dawe_2008}, the quadrant model block $K1, K2, K3$ and $K4$ are top left, bottom left, top right and bottom right respectively.
+The BaseCase  ({\it i.e.} fine resolution) model for the permeabiliy field builds on the $2 * 2$ block, $4$ quadrant model used initially by \citet{Cardwell_1945} and later by \citet{Yeo2001} and \citet{dawe_2008}. These authors designed the permeability field for the quadrants in a checkerboard style which means that diagonally opposite blocks retained the same permeability values with one set of diagonally opposite blocks having a higher permeability value compared to the other set. Hence, one set of diagonally opposite blocks are referred to as high permeability blocks while the other set is referred to as low permeability blocks. The BaseCase permeability model used in this manuscript retains the checkerboard desgined used by the recently named authors. Albeit, the permeability data for each block in the set of diagonally opposite blocks have similar value ({\it i.e.} not exactly the same as in the papers referred to), although one set can still be referred to as a set of high permeability blocks while the other set is referred to as a set of low permeability blocks. Furthermore, within each block, the permeability field varies within a pre-defined range and consists of $1600$ permeability values. More details on the design of the permeability field for the BaseCase is available in section~\ref{subsubsection:basecase_preprocess_algorithm}. And Fig.~\ref{fig:PermFields}a and~\ref{fig:PermFields}b give a pictorial representation of the permeability field for the base case with the mesh discretization visible and invisible respectively. Using the labelling scheme used by \citet{dawe_2008}, the quadrant model block $K1,~K2,~K3$ and $K4$ are top left, bottom left, top right and bottom right respectively.
 
-Four upscaled permeability field models were obtained from the high-resolution ({\it i.e.} the BaseCase) permeability field. And compared to the BaseCase model, all the upscaled models were upgridded to reduce the resolution of the permeability field. Specifically, for the simulation domain, the high resolution ({\it i.e.} BaseCase) model had 4112 triangular elements while the upscaled models had 728 triangular elements. The first two upscaled models are referred to as the ArithMean and the HarmMean Case, and this is because they are based on the arithmetic and the harmonic averaging methods, respectively. In both the ArithMean and HarmMean Cases, averages are calculated for each block using the $1600$ data points from the blocks of the BaseCase to obtain a permeability value for each block in the upscaled models. This effectively homogenizes the permeability field in each block. The upscaled permeability field for the third and fourth cases are referred to as PDFCase and SVDCase, respectively. And, as can be deduced from the names, these cases are based on probability density function (PDF) and singular value decomposition (SVD). The description for these permeability field models are more involved and are presented in section ~\ref{subsubsection:pdfcase_preprocess_algorithm} and ~\ref{subsubsection:svdcase_preprocess_algorithm} respectively. It is appropriate to note that although these models (PDFCase and SVDCase) are upscaled, they retain heterogeneity within the blocks.
+As already mentioned, four upscaled permeability field models were obtained from the high-resolution ({\it i.e.} the BaseCase) permeability field. When compared to the BaseCase model, all the upscaled models were upgridded to reduce the resolution of the permeability field (Fig.~\ref{fig:HiRes_LowRes_Mesh}). The first two upscaled models are referred to as the ArithMean and the HarmMean Cases, and this is because they are based on the arithmetic and the harmonic averaging methods, respectively. In both the ArithMean and HarmMean Cases, averages are calculated for each block using the $1600$ data points from the blocks of the BaseCase to obtain a permeability value for each block in the upscaled models. This effectively homogenizes the permeability field in each block. The upscaled permeability field for the third and fourth cases are referred to as PDFCase and SVDCase, respectively. And, as can be deduced from the names, these cases are based on probability density function (PDF) and singular value decomposition (SVD). The description for these permeability field models are more involved and are presented in section ~\ref{subsubsection:pdfcase_preprocess_algorithm} and ~\ref{subsubsection:svdcase_preprocess_algorithm} respectively. It is appropriate to note that although these models (PDFCase and SVDCase) are upscaled, they retain heterogeneity within the blocks.
 
 \subsubsection{BaseCase Pre-processing Algorithm}\label{subsubsection:basecase_preprocess_algorithm}
 \begin{enumerate}[1]
   \item A function is used to randomly generate uniform ({\it i.e.} Gaussian) data for each block. The range for each block is as below:
   \begin{enumerate}[a]
-    \item \textbf{K1} :
-    \item \textbf{K2} :
-    \item \textbf{K3} :
-    \item \textbf{K4} : 
+    \item \textbf{K1} : $700 - 900mD$
+    \item \textbf{K2} : $50 - 150mD$
+    \item \textbf{K3} : $100 - 200mD$
+    \item \textbf{K4} : $1000 - 1200mD$
   \end{enumerate}                                                    
   \item The number of data generated for each block is $1600$ and the data is randomly position within each block in a structured pattern. Albeit, the simulation grid ({\it i.e.} mesh) is unstructured.
   \item Merge data from different blocks into a single file retaining the original ``structured pattern'' (in step 1 above) for the randomly positioned data in each block. This file will be used by the Control Volume Finite Element Method (CVFEM) simulator to prescribe the permeability field for the base case.
@@ -257,7 +272,7 @@ Four upscaled permeability field models were obtained from the high-resolution (
 \subsubsection{PDFCase Pre-processing Algorithm}\label{subsubsection:pdfcase_preprocess_algorithm}
 \begin{enumerate}[1]
   \item Data from step one of the pre-processing algorithm for the base case is used to calculate the mean and standard deviation for each block of the permeability field.
-  \item A function which generates a Gaussian data set using arithmetic mean and standard deviation is used to stochastically produce a quater of the number of data in the base case for each of the four blocks.
+  \item A function which generates a Gaussian data set using arithmetic mean and standard deviation is used to stochastically produce a quater of the number of data in the BaseCase for each of the four blocks.
   \item The number of data generated for each block is $400$ and the data is randomly position within each block in a structured pattern. As in the base case, the simulation grid ({\it i.e.} mesh) is unstructured.
   \item Finally, the structured data from each block is combined into a single file and then provided to the CVFEM simulator.
 \end{enumerate}
@@ -268,63 +283,34 @@ Four upscaled permeability field models were obtained from the high-resolution (
   \item The permeability field obtained in step 3 of the pre-processing algorithm for the base case is factorized using SVD to obtain $\mathbf{U}, \Sigma,$ and $\mathbf{V}$.
   \item A selected number, $z$, of singular values are retained in decreasing order of magnitude to form a new diagonal matrix, $\Sigma_{new}$.
   \item The first $z$ columns of $\mathbf{U}$ and $\mathbf{V}$ are selected to form new truncated matrices call $\mathbf{U_{new}}$ and $\mathbf{V_{new}}$ respectively.
-  \item Within each column of $\mathbf{U}$ and $\mathbf{V}$ a linear interpolation is performed to form a new column with the number of data in each column reduced to a half of the original column. And, these new columns are recombined to form $\mathbf{U_{new2}}$ and $\mathbf{V_{new2}}$.
-  \item The permeability field used for the SVD case is the matrix, $\mathbf{A_{new2}}$ which is defined as $\mathbf{U_{new2}} \mathbf{\Sigma_{new}} \mathbf{V_{new2}^{\intercal}}$. It is a permeability field with a quater of the data in the base cased and therefore a permeability field with a reduced order.  
+  \item Within each column of $\mathbf{U_{new}}$ and $\mathbf{V_{new}}$ a linear interpolation is performed to form a new column with the number of data in each column reduced to a half of the original column. And, these new columns are recombined to form $\mathbf{U_{new2}}$ and $\mathbf{V_{new2}}$.
+  \item The permeability field used for the SVD case is the matrix, $\mathbf{A_{new2}}$ which is defined as the product of $\mathbf{U_{new2}} \mathbf{\Sigma_{new}} \mathbf{V_{new2}^{\intercal}}$. It is a permeability field with a quater of the data in the base cased and therefore a permeability field with a reduced order.  
 \end{enumerate}
 
 \subsection{Simulations}\label{subsection:simulations}
-For the simulations, each of the model's domain is initially fully saturated with a fluid (Phase 2), and a wetting phase (1) fluid is driven into the domain from the left hand side at a constant mass flow rate. Newmann ({\it i.e.} no flux) boundary conditions were imposed on the upper and lower borders of each domain, while mixed fluids are recovered from the right-hand face. Fig (...........)a shows the permeability field of the base case while fig (....... - ........) shows the phase saturation field during fluid injection for time, $t = 0.15s, 0.30s, 0.50s, 1.15s, 1.75s$ and $2.95s$.
+For the simulations, each of the model's domain is initially fully saturated with a fluid (Phase 2), and a wetting phase (1) fluid is driven into the domain from the left hand side at a constant mass flow rate. Newmann ({\it i.e.} no flux) boundary conditions were imposed on the upper and lower borders of each domain, while mixed fluids are recovered from the right-hand face. Fig.~\ref{fig:PermFields} shows the permeability field for all the cases while Fig.~\ref{fig:BaseCase_Saturation} - \ref{fig:SVDCase_Saturation} shows the phase saturation field during fluid injection for time, $t = 0.15s,~0.30s,~0.50s,~1.15s,~1.75s$ and $2.95s$ for all the cases.
 
 \section{Results and Discussion}\label{section:results_discussion}
 
-Talk about those beautiful screenshots!\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
+Fig.~\ref{fig:HiRes_LowRes_Mesh}(a) shows the discretized permeability field for the BaseCase. It has $4112$ triangular elements. Fig.~\ref{fig:HiRes_LowRes_Mesh}(b) shows the discretized permeability field for the four upscaled models. It has $728$ triangular elements, therefore the resolution for the upscaled cases is reduced by a factor of approximately $5.6$.
+
+Fig.~\ref{fig:PermFields} compares the permeability field for all the models. The permeability field legend in Fig.~\ref{fig:PermFields}(a) is representative for all the other figures (\ie Fig.~\ref{fig:PermFields}(b) to (f)). The cases are shown without the edges for elements which discretize the domain in Fig.~\ref{fig:PermFields}(b) to (f). This highlights the fact that the permeability field in  Fig.~\ref{fig:PermFields}(c) and (d)(\ie ArithMean and HarmMean cases, respectively) are homogeneous within each block while Fig.~\ref{fig:PermFields}(e) and (f)(\ie PDFCase and SVDCase, respectively) are heterogeneous. Given that the BaseCase is also heterogeneous, it can be stated that the model for the PDFCase and the SVDCase give a better representation of the BaseCase. An additional consequence of the homogeneity in the ArithMeanCase and the HarmMeanCase is that the upgrid size has no influence on the outcome of their permeability field. Whereas, for the PDFCase and the SVDCase, the permeability field will change if the upgrid resolution changes.
+
+With respect to the PDFCase and for this specific resolution, it is important to note that Fig.~\ref{fig:PermFields}(e) is only one realiztion of infinitely many possible representations of the PDFCase. Meanwhile, the SVDCase will retain this specific (\ie Fig.~\ref{fig:PermFields}(e)) permeability field for this specific resolution (\ie if linear interpolation is used, but this digresses from the main point and will be discussed in future work). Therefore, the permeability value at a specific point in the PDFCase is not directly related to the data value at the same point in the BaseCase but the SVDCase has this direct connection through the interpolation.
+
+Furthermore, prior to the pre-processing required for evaluating the ArithMeanCase, HarmMeanCase and the PDFCase it is necessary to have an understanding of the whole domain and pre-define blocks with similar properties (\ie blocks $K1,~K2,~K3$ and $K4$) in this case. However, with the SVDCase, knowledge of blocks with similar properties is not required prior to the upscaling. Albeit, one has to select the upgrid resolution carefully, if the resolution is too large then there is the risk of losing relevant data in the interpolation (\ie feature elimination). The limits of the techniques used for the SVDCase is discussed in the author's future work.
+
+Fig.~\ref{fig:BaseCase_Saturation} - \ref{fig:SVDCase_Saturation} presents the phase 1 saturation field simulation for all the cases at $t=0.15s,~t=0.30s,~t=0.50s,~t=1.15s,~t=1.75s$ and $t=2.95$. Fig.~\ref{fig:BaseCase_Saturation}, \ref{fig:ArithMeanCase_Saturation}, \ref{fig:HarmMeanCase_Saturation}, \ref{fig:PDFCase_Saturation}, \ref{fig:SVDCase_Saturation} show the simulation for the BaseCase, ArithMeanCase, HarmMeanCase, PDFCase and SVDCase, respectively. In Fig.~\ref{fig:BaseCase_Saturation} - \ref{fig:SVDCase_Saturation}(a) and (b), even though fluid is injected at the same rate across the left face it travels faster in $K1$ compared to $K2$. Fig.~\ref{fig:BaseCase_Saturation} - \ref{fig:SVDCase_Saturation}  (c) shows that fluid experience a resistance to flow at the interface between $K1$ and $K3$ which encourages the flow into $K4$ (Fig.~\ref{fig:BaseCase_Saturation} - \ref{fig:SVDCase_Saturation} (d) and (e)). Fig.~\ref{fig:BaseCase_Saturation} - \ref{fig:SVDCase_Saturation} (f) indicates preferential flow in $K4$ compared to $K3$.
+
+Fig.~\ref{fig:Saturationfield@t=1.15s} compares the phase 1 saturation field for all the cases at $t=1.15s$. Generally, the simulations closely resemble each other with the simulation in Fig.~\ref{fig:Saturationfield@t=1.15s}(b) and (c) being the most identical. Albeit, closer inspection will reveal that there is more injection in Fig.~\ref{fig:Saturationfield@t=1.15s}(b) compared to (c). This is logical giving that the block mean values calculated for arithmetric mean is higher than that for harmonic mean. However, the important feature of the figures (\ie Fig.~\ref{fig:Saturationfield@t=1.15s}(b) and (c)) is that they poorly represent the BaseCase (\ie Fig.~\ref{fig:Saturationfield@t=1.15s}(a)) at the top left hand corner of block $K2$ . Fig.~\ref{fig:Saturationfield@t=1.15s}(d) also shows an inconsistency with the BaseCase (\ie Fig.~\ref{fig:Saturationfield@t=1.15s}(a)) where it shows phase 1 moving from block $K2$ into $K4$. This inconsistence is with respect to this realization of the PDFCase. Hence, by elimination the SVDCase in Fig.~\ref{fig:Saturationfield@t=1.15s}(e) give the best representation of the BaseCase in \ie Fig.~\ref{fig:Saturationfield@t=1.15s}(a)
 
 \section{Conclusion}\label{section:conclusion}
 
-Conclude man!\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
-\\
+Upscaling is a form of model order reduction, and a method of implimenting upscaling using singular value decomposition, SVD, is introduced in this work. The SVD method of upscaling first factorizes the matrix of the permeability field and then performs interpolation within the principal component space. The interpolated data in the principal component space is then recombined to form a reduced matrix of the permeability field.
 
+Results show that the permeability field data reduction can be specifically defined for the PDFCase and the SVDCase but not for the ArithMeanCase and the HarmMeanCase. This is because the latter cases will produce the same permeability field irrespective of the upgrid resolution. The SVDCase is the only technique that does not require a prior knowledge of blocks with similar permeability values before upscaling.
+
+The author's future work will provide a statistical analysis of the technique used for the SVDcase and also presents other implementations of the technique.
 
 
 %\section{Acknowledgements}
@@ -339,8 +325,8 @@ Conclude man!\\
   
 \clearpage 
 
-\listoftables
-\clearpage
+%\listoftables
+%\clearpage
 %\input{article_table}
 \clearpage  
 \listoffigures
