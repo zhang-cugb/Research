@@ -204,7 +204,8 @@ In addition to the extended Darcy equation (Eqn.~\ref{e:darcy_eqn}), saturation 
 are discretised in space with CV basis functions, and in time with the $\theta$-method \cite{pavlidis_2013b}. In Eqn.~\ref{saturation_equation}, $\phi$ is the porosity and $s_{cty}$ is a source term.
 
 \medskip
-The discretised saturation and Darcy equations are solved using a multigrid-like approach as described by \citeauthor{pavlidis2016}~\cite{pavlidis2016}. The numerical formulation is fully described by \citeauthor{Gomes_2017}~\cite{Gomes_2017} (see also \cite{salinas2015,adam_2016}). 
+The discretised saturation and Darcy equations are solved using a multigrid-like approach as described by \citeauthor{pavlidis2016}~\cite{pavlidis2016}. The numerical formulation is fully described by \citeauthor{Gomes_2017}~\cite{Gomes_2017} (see also \cite{salinas2015,adam_2016}). These numerical methods are embedded in the next-generation flow simulator Fluidity/IC-FERST model software\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}} (a full description of the model can be found in \cite{jackson_2013,Gomes_2017}).
+
 
 \medskip
 Finally, $\mathbf{K}\left(\mathbf{r}\right)$, the focus of this work, is the absolute permeability tensor of the porous medium and it is a function of the vector position $\mathbf{r}$. $\mathbf{K}$ is prescribed in the system of governing conservative equations, \ie it is an indepedent input variable. Since $\mathbf{K}$ is petrophysical rock property that varies spatially, it is not possible to determine at every spatial coordinate. And, even if this information is available at every spatial coordinate, it would require immense computer resources to process during flow simulations. This is the reason upscaling is required for processing permeability variables. Upscaling can be performed from the continuum scale, across the micro scale ($mm$), local scale and meso scale ($m$) to the field scale ($km$)\cite{ECMI_2004}. The upscaling discussed here is from the micro scale also known as the Darcy scale.
@@ -283,33 +284,33 @@ The BaseCase permeability model used here retains the checkerboard desgined used
 
 As already mentioned, four upscaled permeability field models were obtained from the high-resolution (\ie the BaseCase) permeability field. When compared to the BaseCase model, all the upscaled models were upgridded to reduce the resolution of the permeability field (Fig.~\ref{fig:HiRes_LowRes_Mesh}). The first two upscaled models are arithmetic and harmonic averaging methods  (referred to as ArithMean and HarmMean, respectively).
 
-In both sets of test-cases, averages are calculated for each block using the $1600$ data points from the blocks of the BaseCase to obtain a permeability value for each block in the upscaled models. This effectively homogenizes the permeability field in each block. The upscaled permeability field for the third and fourth cases are referred to as PDFCase and SVDCase, respectively. And, as can be deduced from the names, these cases are based on probability density function (PDF) and singular value decomposition (SVD). The description for these permeability field models are more involved and are presented in section ~\ref{subsubsection:pdfcase_preprocess_algorithm} and ~\ref{subsubsection:svdcase_preprocess_algorithm} respectively. It is appropriate to note that although these models (PDFCase and SVDCase) are upscaled, they retain heterogeneity within the blocks.
+In both sets of test-cases, averages are calculated for each block using the $1600$ data points from the blocks of the BaseCase to obtain a permeability value for each block in the upscaled models. This effectively homogenizes the permeability field in each block. The upscaled permeability field for the third and fourth cases are referred to as PDFCase and SVDCase, respectively. And, as can be deduced from the names, these cases are based on probability density function (PDF) and SVD, respectively. The description for these permeability field models are presented in Sections~\ref{subsubsection:pdfcase_preprocess_algorithm} and ~\ref{subsubsection:svdcase_preprocess_algorithm} respectively. It is appropriate to note that although these models (PDFCase and SVDCase) are upscaled, they retain heterogeneity within the blocks.
 
 \subsubsection{BaseCase Pre-processing Algorithm}\label{subsubsection:basecase_preprocess_algorithm}
-\begin{enumerate}[1]
-  \item A function is used to randomly generate uniform ({\it i.e.} Gaussian) data for each block. The range for each block is as below:
-  \begin{enumerate}[a]
-    \item \textbf{K1} : $700 - 900mD$
-    \item \textbf{K2} : $50 - 150mD$
-    \item \textbf{K3} : $100 - 200mD$
-    \item \textbf{K4} : $1000 - 1200mD$
+\begin{enumerate}[1.]
+  \item A function is used to randomly generate uniform (\ie Gaussian) data for each block. The range for each block is as below:
+  \begin{enumerate}[a)]
+    \item \textbf{K1} : $700 - 900$ mD
+    \item \textbf{K2} : $50 - 150$ mD
+    \item \textbf{K3} : $100 - 200$ mD
+    \item \textbf{K4} : $1000 - 1200$ mD
   \end{enumerate}                                                    
-  \item The number of data generated for each block is $1600$ and the data is randomly position within each block in a structured pattern. Albeit, the simulation grid ({\it i.e.} mesh) is unstructured.
-  \item Merge data from different blocks into a single file retaining the original ``structured pattern'' (in step 1 above) for the randomly positioned data in each block. This file will be used by the Control Volume Finite Element Method (CVFEM) simulator to prescribe the permeability field for the base case.
+  \item The number of data generated for each block is $1600$ and the data is randomly allocated within each block in a structured pattern. Albeit, the simulation grid ({\it i.e.} mesh) is unstructured.
+  \item Merge data from different blocks into a single file retaining the original ``structured pattern'' (in step 1 above) for the randomly positioned data in each block. This file will be used by the CVFEM-based flow simulator to prescribe the permeability field for the base case.
 \end{enumerate}
 
 
 \subsubsection{PDFCase Pre-processing Algorithm}\label{subsubsection:pdfcase_preprocess_algorithm}
-\begin{enumerate}[1]
+\begin{enumerate}[1.]
   \item Data from step one of the pre-processing algorithm for the base case is used to calculate the mean and standard deviation for each block of the permeability field.
   \item A function which generates a Gaussian data set using arithmetic mean and standard deviation is used to stochastically produce a quater of the number of data in the BaseCase for each of the four blocks.
-  \item The number of data generated for each block is $400$ and the data is randomly position within each block in a structured pattern. As in the base case, the simulation grid ({\it i.e.} mesh) is unstructured.
+  \item The number of data generated for each block is $400$ and the data is randomly position within each block in a structured pattern. As in the base case, the simulation grid is unstructured.
   \item Finally, the structured data from each block is combined into a single file and then provided to the CVFEM simulator.
 \end{enumerate}
 
 
 \subsubsection{SVDCase Pre-processing Algorithm}\label{subsubsection:svdcase_preprocess_algorithm}
-\begin{enumerate}[1]
+\begin{enumerate}[1.]
   \item The permeability field obtained in step 3 of the pre-processing algorithm for the base case is factorized using SVD to obtain $\mathbf{U}, \Sigma,$ and $\mathbf{V}$.
   \item A selected number, $z$, of singular values are retained in decreasing order of magnitude to form a new diagonal matrix, $\Sigma_{new}$.
   \item The first $z$ columns of $\mathbf{U}$ and $\mathbf{V}$ are selected to form new truncated matrices call $\mathbf{U_{new}}$ and $\mathbf{V_{new}}$ respectively.
@@ -318,13 +319,13 @@ In both sets of test-cases, averages are calculated for each block using the $16
 \end{enumerate}
 
 \subsection{Simulations}\label{subsection:simulations}
-For the simulations, each of the model's domain is initially fully saturated with a fluid (Phase 2), and a wetting phase (1) fluid is driven into the domain from the left hand side at a constant mass flow rate. Newmann ({\it i.e.} no flux) boundary conditions were imposed on the upper and lower borders of each domain, while mixed fluids are recovered from the right-hand face. Fig.~\ref{fig:PermFields} shows the permeability field for all the cases while Fig.~\ref{fig:BaseCase_Saturation} - \ref{fig:SVDCase_Saturation} shows the phase saturation field during fluid injection for time, $t = 0.15s,~0.30s,~0.50s,~1.15s,~1.75s$ and $2.95s$ for all the cases.
+For the simulations, each of the model's domain is initially fully saturated with a fluid (Phase 2), and a wetting phase (1) fluid is driven into the domain from the left hand side at a constant mass flow rate. No flux boundary conditions were imposed on the upper and lower borders of each domain, while mixed fluids are recovered from the right-hand face of the domain. Figure~\ref{fig:PermFields} shows the permeability field for all the cases while Figs.~\ref{fig:BaseCase_Saturation}-\ref{fig:SVDCase_Saturation} show phase saturation field during fluid injection for time: $t = 0.15s,~0.30s,~0.50s,~1.15s,~1.75s$ and $2.95s$ for all cases. 
 
 \section{Results and Discussion}\label{section:results_discussion}
 
-Fig.~\ref{fig:HiRes_LowRes_Mesh}(a) shows the discretized permeability field for the BaseCase. It has $4112$ triangular elements. Fig.~\ref{fig:HiRes_LowRes_Mesh}(b) shows the discretized permeability field for the four upscaled models. It has $728$ triangular elements, therefore the resolution for the upscaled cases is reduced by a factor of approximately $5.6$.
+Figure~\ref{fig:HiRes_LowRes_Mesh}(a) shows the discretized permeability field for the BaseCase. It has $4112$ \PNDG[1]{1} \red{(IS THIS TRUE?)} triangular elements. Figure~\ref{fig:HiRes_LowRes_Mesh}(b) shows the discretized permeability field for the four upscaled models. It has $728$ \PNDG[1]{1} \red{(IS THIS TRUE?)} triangular elements, therefore the resolution for the upscaled cases is reduced by a factor of approximately $5.6$.
 
-Fig.~\ref{fig:PermFields} compares the permeability field for all the models. The permeability field legend in Fig.~\ref{fig:PermFields}(a) is representative for all the other figures (\ie Fig.~\ref{fig:PermFields}(b) to (f)). The cases are shown without the edges for elements which discretize the domain in Fig.~\ref{fig:PermFields}(b) to (f). This highlights the fact that the permeability field in  Fig.~\ref{fig:PermFields}(c) and (d)(\ie ArithMean and HarmMean cases, respectively) are homogeneous within each block while Fig.~\ref{fig:PermFields}(e) and (f)(\ie PDFCase and SVDCase, respectively) are heterogeneous. Given that the BaseCase is also heterogeneous, it can be stated that the model for the PDFCase and the SVDCase give a better representation of the BaseCase. An additional consequence of the homogeneity in the ArithMeanCase and the HarmMeanCase is that the upgrid size has no influence on the outcome of their permeability field. Whereas, for the PDFCase and the SVDCase, the permeability field will change if the upgrid resolution changes.
+Figure~\ref{fig:PermFields} compares the permeability field for all the models. The permeability field legend in Fig.~\ref{fig:PermFields}(a) is representative for all the other figures (\ie Fig.~\ref{fig:PermFields}(b) to (f)). The cases are shown without the edges for elements which discretize the domain in Fig.~\ref{fig:PermFields}(b) to (f). This highlights the fact that the permeability field in  Fig.~\ref{fig:PermFields}(c) and (d)(\ie ArithMean and HarmMean cases, respectively) are homogeneous within each block while Fig.~\ref{fig:PermFields}(e) and (f)(\ie PDFCase and SVDCase, respectively) are heterogeneous. Given that the BaseCase is also heterogeneous, it can be stated that the model for the PDFCase and the SVDCase give a better representation of the BaseCase. An additional consequence of the homogeneity in the ArithMeanCase and the HarmMeanCase is that the upgrid size has no influence on the outcome of their permeability field. Whereas, for the PDFCase and the SVDCase, the permeability field will change if the upgrid resolution changes.
 
 With respect to the PDFCase and for this specific resolution, it is important to note that Fig.~\ref{fig:PermFields}(e) is only one realiztion of infinitely many possible representations of the PDFCase. Meanwhile, the SVDCase will retain this specific (\ie Fig.~\ref{fig:PermFields}(e)) permeability field for this specific resolution (\ie if linear interpolation is used, but this digresses from the main point and will be discussed in future work). Therefore, the permeability value at a specific point in the PDFCase is not directly related to the data value at the same point in the BaseCase but the SVDCase has this direct connection through the interpolation.
 
