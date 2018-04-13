@@ -230,7 +230,11 @@ Given a matrix $\mathbf{A}\in\mathcal{R}^{m\times n}$, the singular value decomp
 \begin{equation}
   \mathbf{A} = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^{\intercal}.
 \end{equation}
-where $\mathbf{U}=\left[\underline{u}_{1},\underline{u}_{2},\cdots,\underline{u}_{m}\right]\in\mathcal{R}^{m\times n}$ and $\mathbf{V}=\left[\underline{v}_{1},\underline{v}_{2},\cdots,\underline{v}_{n}\right]\in\mathcal{R}^{m\times n}$ are orthogonal but not necessarily the same. $\Sigma$ is a diagonal matrix, \ie $\Sigma=\text{diag}\left(\sigma_{1},\sigma_{2},\cdots,\sigma_{r}\right)\in\mathcal{R}^{m\times n}$ and $r=\min\left\{m,n\right\}$ is the rank of $\mathbf{A}$, with $\sigma_{1}\ge\sigma_{2}\ge\cdots\sigma_{r}\ge 0$. The diagonal entries of $\Sigma$ $\left(\ie \sigma_{i}, i=1,r\right)$ are called singular values of $\mathbf{A}$. If $\mathbf{A}$ is a square matrix then $\mathbf{U}$, $\Sigma$ and $\mathbf{V}$ are also square matrices. Also, as $\mathbf{U}$ and $\mathbf{V}$ are orthogonals and unitary, 
+where $\mathbf{U}=\left[\underline{u}_{1},\underline{u}_{2},\cdots,\underline{u}_{m}\right]\in\mathcal{R}^{m\times n}$ and $\mathbf{V}=\left[\underline{v}_{1},\underline{v}_{2},\cdots,\underline{v}_{n}\right]\in\mathcal{R}^{m\times n}$ are orthogonal but not necessarily the same. $\Sigma$ is a diagonal matrix, \ie
+\begin{displaymath}
+  \Sigma=\text{diag}\left(\sigma_{1},\sigma_{2},\cdots,\sigma_{r}\right)\in\mathcal{R}^{m\times n},
+\end{displaymath}
+and $r=\min\left\{m,n\right\}$ is the rank of $\mathbf{A}$, with $\sigma_{1}\ge\sigma_{2}\ge\cdots\sigma_{r}\ge 0$. The diagonal entries of $\Sigma$ $\left(\text{\ie} \sigma_{i}, i=1,r\right)$ are called singular values of $\mathbf{A}$. If $\mathbf{A}$ is a square matrix then $\mathbf{U}$, $\Sigma$ and $\mathbf{V}$ are also square matrices. Also, as $\mathbf{U}$ and $\mathbf{V}$ are orthogonals and unitary, 
 \begin{equation}
   \mathbf{U}^{\intercal}\mathbf{U} = \mathbf{V}^{\intercal}\mathbf{V} = \mathbf{I},
 \end{equation}
@@ -238,22 +242,22 @@ where $\mathbf{I}$ is an identity matrix. However, if $\mathbf{A}$ is an $m\time
 \begin{equation}
   \mathbf{U}^{-1} = \mathbf{U}^{\intercal} \;\;\;\text{ and }\;\;\; \mathbf{V}^{-1} = \mathbf{V}^{\intercal},
 \end{equation}
-and if $\mathbf{A}$ is an $m \times n$ matrix thus $\Sigma$ is a diagonal $m \times n$ matrix. For a rectangular matrix, the singular values fill the first $r$ places on the main diagonal of $\Sigma$. The SVD benefits from the orthogonality of the columns in $\mathbf{U}$ and $\mathbf{V}$. The columns of $\mathbf{U}$ are known as the left singular vectors while the columns in $\mathbf{V}$ are known as the right singular vectors. A simple consideration of the benefit of the orthogonal factors, $\mathbf{U}$ and $\mathbf{V}$, is the ease with which they allow the inverse of the square matrix $\mathbf{A}$ to be calculated. This in turn makes it easy to solve the linear Equ.~\ref{e:Ax=b} for $x$. Equ.~\ref{e:SVD_factorization} show the SVD factorization already discussed, and with benefit of the orthogonal property also already discussed, the solution for $x$ is simply presented as in Equ.~\ref{e:x_solution}.
-\begin{equation}\label{e:Ax=b}
- \mathbf{A}x = b
-\end{equation}
+and if $\mathbf{A}$ is an $m \times n$ matrix thus $\Sigma$ is a diagonal $m \times n$ matrix.
+
+\medskip
+For a rectangular matrix, the singular values fill the first $r$ places on the main diagonal of $\Sigma$. The SVD benefits from the orthogonality of the columns in $\mathbf{U}$ and $\mathbf{V}$. The columns of $\mathbf{U}$ are known as the left singular vectors while the columns in $\mathbf{V}$ are known as the right singular vectors. A simple consideration of the benefit of the orthogonal factors, $\mathbf{U}$ and $\mathbf{V}$, is the ease with which they allow the inverse of the square matrix $\mathbf{A}$ to be calculated. This in turn makes it easy to solve the linear equations, $\mathbf{A}x = b$ with the SVD factorization,
 \begin{equation}\label{e:SVD_factorization}
- \mathbf{U} \Sigma \mathbf{V}^{\intercal} x = b
-\end{equation}
-\begin{equation}\label{e:x_solution}
- x = \mathbf{V} \Sigma^{-1} \mathbf{U}^{\intercal} b
-\end{equation}
+ \mathbf{U} \Sigma \mathbf{V}^{\intercal} x = b \;\;\Longrightarrow\;\; x = \mathbf{V} \Sigma^{-1} \mathbf{U}^{\intercal} b,
+\end{equation} 
+with benefit of the orthogonal property already discussed.
 
 
 \subsection{Principal Component Spaces and Model Order Reduction for the permeability field}\label{subsection:pcspaces}
   
 \subsubsection{Understanding the permeability space}\label{subsubsection:visualization_permspace}
-In 3D geometry, permeability is a tensor quantity, but for the purpose of the following explanation (and the remaining part of this paper), a 2D geometry is assumed where permeability is a scalar quantity. Furthermore, the simulator prescribes the permeability field by assigning permeability values in the centre of the elements/cells which discretizing the 2D simulation domain. The permeability value assigned in the centre of the element/cell represents the permeability value for that element/cell. For simplicity, in the remaining part of this section, it will be assumed that the $2D$ geometry is discritized by a square grid with the value for each square element assigned in the centre of the element. This explanation allow one to easily visualize this permeability space because it is defined by the cartesian coordinates  system which most people are already familiar with. The model order reduction for the permeability field discussed here is concerned with reducing the volume of permeability data within the permeability space. Consider for instance a small square which is discretized to contain four squares such that $4$ data values are defined in the middle of the four squares. The permeability space of $4$ can be reduced to a smaller value of $1$ through an averaging process such as arithmetic, harmonic or geometric mean. This type of reduction is the focus of this paper, albeit the main focus of this paper is achieving this reduction through singular value decomposition in the principal component spaces. 
+In 3D geometry, permeability is a tensor quantity, but for the purpose of the following explanation (and the remaining of this paper), a 2D geometry is assumed where permeability is a scalar quantity. Furthermore, the simulator prescribes the permeability field by assigning permeability values to the centre of element-pairs \cite{Christou_2018} which discretises the 2D simulation domain.
+
+Permeability values assigned in the centre of the element/cell represents values of permeability for the associated element $\left(\text{\ie P}_{0}\text{DG element-pair}\right)$. For simplicity, in the remaining part of this section, it will be assumed that the $2D$ geometry is discritized by a square grid with the value for each square element assigned in the centre of the element. This explanation allow one to easily visualize this permeability space because it is defined by the cartesian coordinates system. The model order reduction for the permeability field discussed here is concerned with reducing the volume of permeability data within the permeability space. Consider for instance a small square which is discretized to contain four squares such that $4$ data values are defined in the middle of the four squares. The permeability space of $4$ can be reduced to a smaller value of $1$ through an averaging process such as arithmetic, harmonic or geometric mean. This type of reduction is the focus of this paper, albeit the main focus of this paper is achieving this reduction through singular value decomposition in the principal component spaces. 
 
 \subsubsection{Understanding the principal component spaces}\label{subsubsection:visualization_pcspaces}
 Essentially, the existing permeability space is transformed through SVD to principal component spaces where usually, traditional principal component analysis is performed before interpolation is used to implement further data reduction in the principal component spaces. This reduced data in the principal component space is then transformed back into the permeability space to obtain a reduced permeability space.
