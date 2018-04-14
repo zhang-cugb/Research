@@ -302,9 +302,9 @@ In both sets of test-cases, averages are calculated for each block using the $16
 \subsubsection{PDFCase Pre-processing Algorithm}\label{subsubsection:pdfcase_preprocess_algorithm}
 \begin{enumerate}[1.]
   \item Data from step one of the pre-processing algorithm for the base case (Section~\ref{subsubsection:basecase_preprocess_algorithm}) is used to calculate mean and standard deviation for each block of the permeability field.
-  \item A function which generates a Gaussian data set using arithmetic mean and standard deviation is used to stochastically produce a quarter of data from the BaseCase for each of the four blocks.
-  \item The amount of data \red{(PREVIOUSLY, IT WAS ``THE NUMBER OF DATA'' ... HOWEVER DATA IS NOT AN ACCOUNTABLE NOUM, THEREFORE YOU MAY USE EITHER ``AMOUNT OF DATA'' OR ``NUMBER OF DATA POINTS'' ... I REPLACED MOST OF ENTRIES -RE DATA AS AN ACCOUNTABLE NOUM ... PLEASE REVISE THE MANUSCRIPT ACCORDINGLY.)} generated for each block is $400$ and the data is randomly position within each block in a structured pattern. As in the base case, the simulation grid is unstructured.
-  \item Finally, the structured data from each block is combined into a single file and then provided to the CVFEM simulator.
+  \item A function which generates a Gaussian data set using arithmetic mean and standard deviation is used to stochastically produce a quarter of data points from the BaseCase for each of the four blocks.
+  \item The number of data points \red{(PREVIOUSLY, IT WAS ``THE NUMBER OF DATA'' ... HOWEVER DATA IS NOT AN ACCOUNTABLE NOUM, THEREFORE YOU MAY USE EITHER ``AMOUNT OF DATA'' OR ``NUMBER OF DATA POINTS'' ... I REPLACED MOST OF ENTRIES -RE DATA AS AN ACCOUNTABLE NOUM ... PLEASE REVISE THE MANUSCRIPT ACCORDINGLY.)} generated for each block is $400$ and the data is randomly positioned within each block in a structured pattern. As in the base case, the simulation grid is unstructured.
+  \item Finally, the structured data from each block is combined into a single file and then used by the flow simulator, which merge the permeability mapping to the mesh with the appropriate element-pairs.
 \end{enumerate}
 
 
