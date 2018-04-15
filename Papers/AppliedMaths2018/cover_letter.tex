@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plain Cover Letter
+% LaTeX Template
+% Version 1.0 (28/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Rensselaer Polytechnic Institute 
+% http://www.rpi.edu/dept/arc/training/latex/resumes/
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt]{letter} % Default font size of the document, change to 10pt to fit more text
+
+\usepackage{newcent} % Default font is the New Century Schoolbook PostScript font 
+%\usepackage{helvet} % Uncomment this (while commenting the above line) to use the Helvetica font
+
+% Margins
+\topmargin=-1in % Moves the top of the document 1 inch above the default
+\textheight=8.5in % Total height of the text on the page before text goes on to the next page, this can be increased in a longer letter
+\oddsidemargin=-10pt % Position of the left margin, can be negative or positive if you want more or less room
+\textwidth=6.5in % Total width of the text, increase this if the left margin was decreased and vice-versa
+
+\let\raggedleft\raggedright % Pushes the date (at the top) to the left, comment this line to have the date on the right
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{letter}{Dr Masoud Jabbari \\
+CEng MIMechE PMSAMPE AMACerS MInterPore \\
+Lead Guest Editor for Special Issue: \\
+Applied Mathematical Modelling \\
+WMG, University of Warwick \\
+Coventry, CV4 7AL}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	YOUR NAME & ADDRESS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{center}
+\large\bf Mr. Babatunde Lashore \\ % Your name
+%\vspace{20pt} \hrule height 1pt % If you would like a horizontal line separating the name from the address, uncomment the line to the left of this text
+Room 207, Fraser Noble Building \\ University of Aberdeen, Aberdeen AB24 3UE. \\ email: lashorebabatunde@yahoo.com % Your address and phone number
+\end{center} 
+\vfill
+
+\signature{B. Lashore} % Your name for the signature at the bottom
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT SECTION
+%----------------------------------------------------------------------------------------
+
+\opening{Dear Dr. Jabbari,} 
+ 
+I am submitting a manuscript to be considered for publication in the special issue of "Applied Mathematical Modelling" on "Transport in Porous Media" in relation to the $3^{rd}$ UK InterPore Conference on Porous Media and the $1^{st}$ Monash-Warwick PREFRAC Workshop on Hydraulic Fracturing. The abstract and presentation I made at that conference has progressed since then, and the title of my submission has changed from "A Numerical Investigation of Stochastic and Deterministic Upscaling Methods for Permeability Fields" to "A Reduced Order Model for Permeability Fields Using Singular Value Decomposition (SVD)".
+ 
+
+I hereby confirm that the research in this work has not been published elsewhere and it has not been submitted simultaneously for publication elsewhere.
+ 
+The manuscript presents a model for representing an upscaled permeability field using singular value decomposition. It compares the benefits/performance of this model to well known deterministc methods such as arithmetic and harmonic averaging techniques. The model is also compared with a stochastic probability density function (PDF) model. Then a novel control volume finite element method (CVFEM) multiphase flow simulator is used to compare simulation results from the aforementioned models. The manuscript presents and discusses the results before drawing conclusions.
+
+I hope you find the manuscript satisfactory and accept it for publication in the journal. I thank you for your time and I look forward to further correspondence from you.
+
+\closing{Sincerely yours,}
+
+
+\encl{Cover Letter, Highlight.tex, Manuscript(Makefile, Stochastic\_Upscaling\_UK\_AMM\_2018.tex, article\_/figure1.tex, Pics Folder, references.bib, elsarticle.cls, elsarticle-harv.bst)} % List your enclosed documents here, comment this out to get rid of the "encl:"
+
+%----------------------------------------------------------------------------------------
+
+\end{letter}
+
+\end{document}
