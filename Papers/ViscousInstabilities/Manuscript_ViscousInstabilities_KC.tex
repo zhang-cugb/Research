@@ -335,11 +335,13 @@ The two-phase immiscible and incompressible fluid flow through a porous media do
 %\end{comment}
 %%%%%%%%%%%%%%%
 
+\medskip
 The formulation introduced here is applicable to $\mathcal{N}_{p}$ fluid phases and is based on two families of FE-pairs: \PNDG[n]{m} and \PN[n]{m}~\citep{cotter_2009a}, consistent with the dual pressure-velocity representation in CV space. In these families of FE-pairs, velocity is represented by $n^{\text{th}}$-order polynomials that are discontinuous across elements, whereas pressure is represented by $m^{\text{th}}$-order polynomials that may be either continuous or discontinuous (thus the notation \PN[n]{m} and \PNDG[n]{m}, respectively) across elements. Mass balance (continuity) equations are solved in CV space and a Petrov-Galerkin FEM is used to obtain high-order fluxes on CV boundaries, which are limited to yield bounded fields (\eg positive densities, saturations bounded between 0 and 1, etc). Simulations performed for this work were conducted using two types of elements: \PN[1]{1} and \PN[1]{2}.
 
+\medskip
 Finite element basis functions for velocity and pressure fields are introduced in the discretisation of force-balance equations. Hybrid basis functions are also used to allow CV-based velocity to be extrapolated across the entire element. The extended Darcy equation (Eqn.~\ref{eqn:darcy_eqn}) is discretrised using a FE representation of $\mathbf{v}_{\alpha}=\underline{\underline{\sigma}}_{\alpha}\mathbf{u}_{\alpha}$ and $p$ with FE basis functions $Q_{j}$ and $P_{j}$, respectively -- note that $\underline{\underline{\sigma}}_{\alpha}$ lies in both CV and FEM spaces. Each component of the weak form of the extended Darcy equation is tested with the $\mathbf{v}_\alpha$ basis function, $Q_{j}$, to obtain:
 \begin{eqnarray}
-  \sum\limits_{E} \left. \int\limits_{\Omega_E} { {Q}}_{i} \left({\mathbf v}_\alpha + \nabla p  -{\mathbf s}_{u_\alpha} \right) dV \right. + \displaystyle \oint_{\Gamma_{E}} {Q}_i {\mathbf n} \left(p - \tilde{p}\right) d\Gamma + \nonumber \\ 
+  \sum\limits_{E} \left. \int\limits_{\Omega_E} { {Q}}_{i} \left({\mathbf v}_\alpha + \nabla p  - \mathcal{S}_{u_\alpha} \right) dV \right. + \displaystyle \oint_{\Gamma_{E}} {Q}_i {\mathbf n} \left(p - \tilde{p}\right) d\Gamma + \nonumber \\ 
   \oint_{\Gamma_{\Omega}} {Q}_i {\mathbf n} \left(p - p_\text{bc}\right) d\Gamma = \bm{0},
                    \label{force-semi-disc} 
 \end{eqnarray} 
