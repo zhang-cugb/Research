@@ -225,7 +225,7 @@ Since geometries are captured by finite elements, constructed control volumes ty
 %\KCnote{in our case only - In conventional reservoirs the principal forces that affect fluid flow include, viscous forces, effects of gravity and permeability diffrences while in unconventional gas reservoirs flow simulation models take into account the phenomena of adsorption and diffusion \citep{abdus_2015}. Even though the mechanisms of the instabilities may vary, however it is still a function of relative mobility, gravity, viscous forces and permeability differences. All these parameters are represented under one term in the global mass balance equation.}
 
 \medskip 
-In this work, a novel CVFEM formulation, previously introduced by \citet{gomes_2017} \citep[see also][]{jackson_2015,salinas2015}, is used to numerically investigate formation and growth of viscous fingers in heterogeneous porous media. The continuity equation is embedded into the pressure equation to enforce mass conservation whilst ensuring that the force balance is preserved. A hybrid family of \PN[n]{m} triangular and tetrahedral FE pairs is used to discretise velocity and pressure. %, in which velocity is represented by $n$ th-order polynomials that are discontinuous across elements whereas pressure is represented by $m$ th-order polynomials that are continuous across the elements.
+In this work, a novel CVFEM formulation, previously introduced by \citet{gomes_2017} (see also \citet{jackson_2015,salinas2015}), is used to numerically investigate formation and growth of viscous fingers in heterogeneous porous media. The continuity equation is embedded into the pressure equation to enforce mass conservation whilst ensuring that the force balance is preserved. A hybrid family of \PN[n]{m} triangular and tetrahedral FE pairs is used to discretise velocity and pressure. %, in which velocity is represented by $n$ th-order polynomials that are discontinuous across elements whereas pressure is represented by $m$ th-order polynomials that are continuous across the elements.
 A sketch of the \PN[1]{2} FE-pair is shown in Fig.~\ref{fig:fem_cv}, in which velocity is represented by discontinuous and piecewise linear basis functions whereas pressure is interpolated through continuous and piecewise quadratic basis functions. Scalar fields are stored in CV space (Fig.~\ref{fig:fem_elem}). The dual pressure and velocity fields are represented simultaneously (through non-linear projections) in FE and CV spaces. 
  
 \medskip
@@ -651,5 +651,4 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 
 \end{document}
 %% End of tex file.
-
 
