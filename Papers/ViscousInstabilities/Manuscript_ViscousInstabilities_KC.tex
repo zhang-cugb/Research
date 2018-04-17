@@ -571,17 +571,22 @@ In geological formations, preferential pathways flows may result in fast polutan
 %\medskip
 %As outlined in Section \ref{section:ViscousInstabilities}, viscous flow instabilities are characterised by spontaneous formation and growth of fluid elongations, called viscous fingers. Geometrical evolution in time and space of these elongations provides good indication of instabilities at the fluid front interface. 
 
+\medskip
 The computational domain with permeability distribution of 10$^{-4}\le\mathbf{K}\le$10$^{5}$  milidarcy (Fig.~\ref{fig:3DChannel_PermMesh})  was designed to naturally capture preferential flow pathways through channels of large absolute permeability. Pure (wetting) fluid is added into the domain with uniform velocity of 2.5 cm.s$^{-1}$ from the left-hand side face. No-flux boundary conditions are applied to all borders, except at the inlet (left-hand side) and outflow (right-hand side) faces. Initially, the domain was partially saturated with non-wetting fluid, \ie $S_{nw}(t=0)=0.80$, which was continuously displaced by the wetting fluid as the simulation progress. The domain was discretised with 235k tetrahedral \PNDG[1]{1} element-pairs.
 
+\medskip
 As demonstrated in the preliminary model validation (Section~\ref{section:results_initial_model_validation}), crossflow towards the upper region of the initial part of the domain is due to boundary pressures and diffusivities (both at different vertical layers), \ie caused by large permeability gradients (Fig.~\ref{fig:3DChannel_sat}). As the simulation progresses, non-wetting fluid is driven from regions with lower fluid resistance (central channel), although adjacent region (with low permeability) remains stagnant.
 
+\medskip
 Such preferential flow pathways are clearly indicated in Fig.~\ref{fig:3DChannel_planes}, where Darcy velocity vectors overlapped with wetting phase fluid saturation are shown. Fluid displacement occurs mainly in regions of relatively larger permeability, leaving other parts of the domain (\ie regions with low permeability distribution) with little or no momentum, indicating that at these regions the non-wetting fluid (\ie fluid 2) is not effectively displaced. 
-   
+
+\medskip
 In Sections \ref{section:results_homo_hete}-\ref{section:results_hete_fix_adapt}, finger's formation, growth and branching were triggered by domain heterogeneity represented by permeability differences. The progress of the saturation front and formation and growth of fingers in time and space can be seen in more details in isosurfaces (Fig.~\ref{fig:3DChannel_Isosurf}).
 
 \medskip
 A similar numerical simulation (\ie same geometry, initial mesh resolution, initial and boundary conditions) was also performed using dynamically adaptive mesh. During the simulation, mesh resolution ranged from 235k to 643k \PNDG[1]{1} element-pairs (Fig.~\ref{fig:3DChannel_severalfields_adapt}a). Distinct preferable flow pathways and fingers are shown in Fig.~\ref{fig:3DChannel_severalfields_adapt}b-c and~\ref{fig:3DChannel_satvel_XYplanes_adapt}. Saturation of the wetting fluid during the course of the simulation is shown in Fig.~\ref{fig:3DChannel_sat_adapt}. As expected, both simulations (fixed and adaptive mesh, Figs.~\ref{fig:3DChannel_sat} and~\ref{fig:3DChannel_sat_adapt}, respectively) led to similar results, \ie similar flow pathways and fingers development. 
 
+\medskip
 However, due to low-order accuracy of element-pairs -- \PNDG[1]{1} instead of \PN[1]{2} of previous sections \citep[for full investigation on numerical accuracy associated with these element-pairs, see][]{salinas2015,salinas_2016,salinas_2018,adam_2016, gomes_2017}, and coarser mesh throughout the computational domain, simulation performed with fixed mesh showed larger smeared fluid saturation. 
 
 
@@ -597,16 +602,20 @@ However, due to low-order accuracy of element-pairs -- \PNDG[1]{1} instead of \P
 % Short (1 paragraph) summary of the paper with focus on the main theoretical aspects that were proved by our work in the present manuscript;
 During immiscible multi-fluid flow displacements, the expected uniform front becomes unstable due to: (a) density ratio; (b) viscosity ratio, and; (c) heterogeneity. If viscosity ratio is relatively large (VR$\ge$3), surface tension becomes weak and the interface between two fluids is unstable in the presence of tangential velocity discontinuities, leading to the formation of fingers \citep{saffman_1986}. Heterogeneity in the porous media domain  also leads to solution instabilities in the hyperbolic Buckley-Leverett problem \citep{langtangen_1992}. This paper aims to numerically investigate the dynamics of viscous flow instabilities in porous media triggered by permeability heterogeneity. 
 
+\medskip
 Simulations involving formation and growth of viscous fingers were conducted with the CVFEM-based multi-fluid flow simulator Fluidity/IC-FERST model. The model is based upon a dual consistent pressure-velocity representation in CV and FEM spaces and a novel family of FE-pairs, \PN[n]{m} and \PNDG[n]{m}. Saturation and other scalar fields are discretised in CV space and may be fully discontinuous across finite element boundaries. In order to strongly enforce discretised Darcy equations at the boundaries between elements and control volumes, a directional-weighted flux-limited was introduced to take into account discontinuities risen from both, numerical formulation (based on discontinuous-Galerkin finite element method, DGFEM) and control volumes within finite elements.
 
+\medskip
 %(2)Summary (1-3 paragraphs) of the main results with the appropriate analysis (\ie how you work has proved the theory);
 The numerical formulation was initially validated against laboratory experiments \citep{dawe_2008} to qualitatively assess model functionality to simulate crossflow (\ie preferential flow pathways) in a chequerboard permeability domain. Formation and development of viscous fingers in Hele-Shaw cells (homogeneous domain) were investigated to demonstrate that the onset of interface flow instability occur when VR$\ge$3. Maximum dendritic finger widths obtained from numerical simulations performed with VR=10 and VR=150 largely agree with expected parametric analytic solutions \citep{mclean_1981,guan_2003}. However, when perturbations are imposed into the domain's geophysical properties, \ie spatial variability of absolute permeability, numerical solutions partially agree with analytic solutions (Table~\ref{table:Heleshaw}). This may be due to the domain homogeneity assumption in the analytic solution (Eqns.~\ref {eqn:guaneqn}).
 
+\medskip
 Determining the early-onset flow instability is critical to accurately simulate formation, growth and coalescence of fingers, and therefore to: (a) predict displacement (sweep) efficiency and (b) design strategies to either mitigate or avoid fingering and preferential flow pathways. Mesh resolution is thus crucial to investigate Saffmann-Taylor instabilities, and adaptive dynamic mesh technology has proved to be an efficient tool to capture initial interface perturbations. Numerical simulations were performed with VR=10 using fixed and adaptive \PN[1]{2} element-pairs. Results (Figs.~\ref{fig:5regions_plottimenodeselements} and~\ref{fig:5regions_AdaptZoom}) demonstrated that by dynamically adapting the mesh to follow saturation gradients (\ie fluids interfaces), early-onset flow instability and further formation of long multi-fluid fingers, which have themselves split into sub-fingers, can be readily captured (see Figs.~\ref{fig:5regions_fixedmesh}i and~\ref{fig:5regions_adaptmesh}i). Overall computational cost of the simulation conducted with dynamically adapting the mesh were significantly smaller than the simulation conducted with fixed mesh as indicated by the number of elements/nodes (Figs.~\ref{fig:5regions_plottimenodeselements}).
 
-Investigation of preferential flow pathways was the focus of Section~\ref{section:results_3D}, where 3D numerical simulations of multi-fluid flow through semi-pervious / impervious channelised domain were performed. Numerical data indicated preferential flow through regions of larger permeability leaving adjacent region (with low permeability) with nearly stagnant fluids (Figs.~\ref{fig:3DChannel_sat}-~\ref{fig:3DChannel_planes}). Order of accuracy of the element-pair and mesh resolution play key-roles to capture directional flow pathways and fingers in 3D simulations.
 \medskip
+Investigation of preferential flow pathways was the focus of Section~\ref{section:results_3D}, where 3D numerical simulations of multi-fluid flow through semi-pervious / impervious channelised domain were performed. Numerical data indicated preferential flow through regions of larger permeability leaving adjacent region (with low permeability) with nearly stagnant fluids (Figs.~\ref{fig:3DChannel_sat}-~\ref{fig:3DChannel_planes}). Order of accuracy of the element-pair and mesh resolution play key-roles to capture directional flow pathways and fingers in 3D simulations.
 
+\medskip
 % (3)(optional) 1 paragraph of potential future work. Make sure that (1) and (2) are covered in the present Section.
 This work focuses on complexity associated with flow channelling and instability dynamics in heterogeneous porous media. Methods used to simulate such flows are based in a novel high-order CVFEM formulation that accurately preserves sharp fluid saturation gradients associated with contrasting permeability distribution. Future work will include numerical investigation of (a) crossover from capillary fingering (at low fluid velocity) to viscous fingering for immiscible unstable flows, and (b) coupled viscous and density fingering in miscible fluid flows.
 
@@ -651,4 +660,5 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 
 \end{document}
 %% End of tex file.
+
 
