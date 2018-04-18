@@ -305,7 +305,8 @@ The two-phase immiscible and incompressible fluid flow through a porous media do
 \phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  \mathcal{S}_{u,\alpha}\hspace{1cm} \text{ with } x_{i}\in\Omega,\; t>0,\label{eqn:saturation_eqn}
 \end{eqnarray} 
 
-\noindent respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{\alpha}$ is the saturation-weighted Darcy velocity of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S_{ua})}$ is the source term associated with the Darcy and continuity equations. $S_{\alpha}$ represents the saturation of the $\alpha$-phase with mass conservation constraints of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases. $\underline{\underline{\sigma}}_{\alpha}$ is an absorption-like term that represents the implicit linearisation of the viscous frictional forces.
+\noindent respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{\alpha}$ is the saturation-weighted Darcy velocity of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S_{u,{\alpha}}}$ is the source term %associated with the Darcy and continuity equations.
+which may include gravity and/or capillarity, respectively. $S_{\alpha}$ represents the saturation of the $\alpha$-phase with mass conservation constraints of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases. $\underline{\underline{\sigma}}_{\alpha}$ is an absorption-like term that represents the implicit linearisation of the viscous frictional forces.
 %\begin{displaymath}
 %\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1, 
 %\end{displaymath}
@@ -660,5 +661,4 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 
 \end{document}
 %% End of tex file.
-
 
