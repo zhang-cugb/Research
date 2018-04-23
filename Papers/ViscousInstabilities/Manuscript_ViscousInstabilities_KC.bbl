@@ -1,4 +1,4 @@
-\begin{thebibliography}{65}
+\begin{thebibliography}{71}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -12,35 +12,33 @@ Adam, A., Pavlidis, D., Percival, J., Salinas, P., Xie, Z., Fang, F.,
   problems with dynamic mesh adaptivity. Journal of Computational Physics 321,
   512--531.
 
-\bibitem[{Adler and Brenner(1988)}]{adler_1988}
-Adler, P.~M., Brenner, H., 1988. Multiphase flow in porous media. Ann. Rev.
-  Fluid Mechanics 20, 35--59.
-
 \bibitem[{Alpak et~al.(1999)Alpak, Lake, and Embid}]{alpak_1999}
 Alpak, F., Lake, L., Embid, S., 1999. Validation of a modified carman-kozeny
   equation to model two-phase relative permeabilities. In: SPE Annual Technical
   Conference and Exhibition. SPE, Texas, {SPE}56479.
 
-\bibitem[{AMCG(2010)}]{fluidity_manual}
-AMCG, July 2010. A User's Guide for the Fluidity Model. Applied Modelling and
-  Computation Group -- AMCG.
-
-\bibitem[{AMCG(2012)}]{porosity_documentation}
-AMCG, April 2012. {POROSITY}: A new state-of-art unstructured adaptive-mesh
-  reservoir model -- developers' documentation. Tech. rep., internal
-  Communication.
-
 \bibitem[{Aziz and Settari(1986)}]{aziz_1986}
 Aziz, K., Settari, A., 1986. Fundamentals of reservoir simulation. Elsevier
   Applied Science Publishers, New York.
 
-\bibitem[{Bottoni and Sengpiel(1992)}]{bottoni_1992}
-Bottoni, M., Sengpiel, W., 1992. Review of mathematical and physical basis of
-  two-phase flow modeling. NASA STI $/$ Recon Technical Report 94.
-
-\bibitem[{Brooks and Corey(1964)}]{brooks_1964}
+\bibitem[{Brooks and Corey(1964)}]{Brooks_1964}
 Brooks, R., Corey, A., 1964. Hydrology Papers. Vol.~3. Colorado State
-  University, Ch. Hydraulic properties of porous media.
+  University Press, Ch. Hydraulic properties of porous media.
+
+\bibitem[{Buckley and Leverett(1942)}]{buckley_1942}
+Buckley, S., Leverett, M., 1942. Mechanism of fluid displacement in sands.
+  Transactions of the American Institute of Mining 146, 107--116.
+
+\bibitem[{Budek et~al.(2017)Budek, Kwiatkiwski, and Szymczak}]{budek_2017}
+Budek, A., Kwiatkiwski, K., Szymczak, P., 2017. Effect of mobility ratio on
+  interaction between teh fingers in unstable growth processes. Physical Review
+  E 96, 042218.
+
+\bibitem[{Carvalho et~al.(2013)Carvalho, Miranda, and
+  Gad\^elha}]{carvalho_2013}
+Carvalho, G.~D., Miranda, J.~A., Gad\^elha, H., Nov 2013. Interfacial elastic
+  fingering in {H}ele-{S}haw cells: A weakly nonlinear study. Phys. Rev. E 88,
+  053006.
 
 \bibitem[{Chang et~al.(1990)Chang, Pope, and K.Seperhnoori}]{chang_1990}
 Chang, Y., Pope, G., K.Seperhnoori, 1990. A higher-order finite difference
@@ -111,7 +109,7 @@ Gomes, J., Tollit, B., Milles, B., Pain, C., 2012. Fluidization Engineering --
   Multi-Physics Flow Modelling for Nuclear Applications.
 
 \bibitem[{Guan and Pitchumani(2003)}]{guan_2003}
-Guan, X., Pitchumani, R., 2003. Viscous fingering in a hele-shaw cell with
+Guan, X., Pitchumani, R., 2003. Viscous fingering in a {H}ele-{S}haw cell with
   finite viscosity ratio and interfacial tension. Transactions of the ASME 125,
   354--364.
 
@@ -130,7 +128,7 @@ Homsy, G., 1987. Viscous fingering in porous media. Ann. Rev. Fluid Mechanics
   19, 271--311.
 
 \bibitem[{Howison(2000)}]{howison_2000}
-Howison, S.~D., 2000. A note on the two-phase hele-shaw problem. Journal of
+Howison, S.~D., 2000. A note on the two-phase {H}ele-{S}haw problem. Journal of
   Fluid Mechanics 409, 243--249.
 
 \bibitem[{Jackson et~al.(2013)Jackson, Gomes, Mostaghimi, Percival, Tollit,
@@ -141,13 +139,20 @@ Jackson, M., Gomes, J., Mostaghimi, P., Percival, J., Tollit, B., Pavlidis, D.,
   control-volume-finite-element methods. In: SPE Reservoir Simulation
   Symposium.
 
-\bibitem[{Jackson et~al.(2014)Jackson, Percival, Mostaghimi, Tollit, Pavlidis,
+\bibitem[{Jackson et~al.(2015)Jackson, Percival, Mostaghimi, Tollit, Pavlidis,
   Pain, Gomes, ElSheikh, Salinas, Muggeridge, and Blunt}]{jackson_2015}
 Jackson, M., Percival, J., Mostaghimi, P., Tollit, B., Pavlidis, D., Pain, C.,
-  Gomes, J., ElSheikh, A., Salinas, P., Muggeridge, A., Blunt, M., 2014.
+  Gomes, J., ElSheikh, A., Salinas, P., Muggeridge, A., Blunt, M., 2015.
   Reservoir modeling for flow simulation by use of surfaces, adaptive
   unstructured meshes, and an overlapping-control-volume finite-element method.
   SPE Reservoir Evaluation $\&$ Engineering 18~(2), SPE--163633--PA.
+
+\bibitem[{Jackson et~al.(2017)Jackson, Power, Giddings, and
+  Stevens}]{jackson_2017}
+Jackson, S., Power, H., Giddings, D., Stevens, D., 2017. The stability of
+  immiscible viscous fingering in {H}ele-{S}haw cells with spatially varying
+  permeability. Computer Methods in Applied Mechanics and Engineering 320, 606
+  -- 632.
 
 \bibitem[{Jiang(2011)}]{jiang_2011}
 Jiang, X., 2011. A review of physical modelling and numerical simulation of
@@ -163,6 +168,12 @@ Kirkland, M., Hills, R., Wierenga, P., 1992. Algorithms for solving {R}ichards'
   equation for variably-saturated soils. Water Resources Research 28,
   2049--2058.
 
+\bibitem[{Langtangen et~al.(1992)Langtangen, Tveito, and
+  Winther}]{langtangen_1992}
+Langtangen, H., Tveito, A., Winther, R., 1992. Instability of
+  {B}uckley-{L}everett flow in a heterogeneous medium. Transport in Porous
+  Media 9, 165--185.
+
 \bibitem[{Lo(2015)}]{lo_book}
 Lo, S., 2015. Finite Element Mesh Generation. CRC Press.
 
@@ -173,7 +184,7 @@ Lux, J., Anguy, Y., 2012. A study of the behavior of implicit pressure explicit
 
 \bibitem[{McLean and Saffman(1981)}]{mclean_1981}
 McLean, J., Saffman, P., 1981. The effect of surface tension on the shape of
-  fingers in a hele-shaw cell. J. Fluid Mechanics 102, 455--469.
+  fingers in a {H}ele-{S}haw cell. J. Fluid Mechanics 102, 455--469.
 
 \bibitem[{Melnikova et~al.(2016)Melnikova, Jacquemyn, Osman, Salinas, Gorman,
   Hampson, and Jackson}]{melnikova_2016}
@@ -197,14 +208,20 @@ Muskat, M., 1934. Two fluid systems in porous media. the encroachment of water
   into an oil sand. Journal of Applied Physics 5, 250--264.
 
 \bibitem[{Nick and Matthai(2011{\natexlab{a}})}]{nick_2011b}
-Nick, H., Matthai, S., 2011{\natexlab{a}}. Comparison of three fe-fv numerical
-  schemes for single- and tw-phase flow simulation of fractured porous media.
-  Transp. Porous Med 90, 421--444.
+Nick, H., Matthai, S., 2011{\natexlab{a}}. Comparison of three {FE}-{FV}
+  numerical schemes for single- and tw-phase flow simulation of fractured
+  porous media. Transp. Porous Med 90, 421--444.
 
 \bibitem[{Nick and Matthai(2011{\natexlab{b}})}]{nick_2011a}
 Nick, H., Matthai, S., 2011{\natexlab{b}}. A hybrid finite-element
   finite-volume method with embedded discontinuities for solute transport in
   heterogeneous media. Vadose Zone Journal 10, 299--312.
+
+\bibitem[{Nicolaides et~al.(2015)Nicolaides, Jha, Cueto-Felgueroso, and
+  Juanes}]{nicolaides_2015}
+Nicolaides, C., Jha, B., Cueto-Felgueroso, L., Juanes, R., 2015. Impact of
+  viscous fingering and permeability heterogeneity on fluid mixing porous
+  media. Water Resources Research 51, WR015811.
 
 \bibitem[{Pain et~al.(2001)Pain, Umpleby, de~Oliveira, and Goddard}]{pain_2001}
 Pain, C., Umpleby, A., de~Oliveira, C., Goddard, A., 2001. Tetrahedral mesh
@@ -267,13 +284,26 @@ Saffman, P., 1959. Theory of dispersion in porous medium. J. Fluid Mechanics 6,
   321--349.
 
 \bibitem[{Saffman(1986)}]{saffman_1986}
-Saffman, P., 1986. Viscous fingering in hele-shaw cells. J. Fluid Mechanics
+Saffman, P., 1986. Viscous fingering in {H}ele-{S}haw cells. J. Fluid Mechanics
   173, 73--94.
 
 \bibitem[{Saffman and Taylor(1958)}]{saffman_1958}
 Saffman, P., Taylor, G.~I., 1958. The penetration of a fluid into a porous
-  medium or hele-shaw cell containing a more viscous liquid. Proc. R. Soc.
+  medium or {H}ele-{S}haw cell containing a more viscous liquid. Proc. R. Soc.
   London A 245, 321--329.
+
+\bibitem[{Salinas et~al.(2016)Salinas, Pavlidis, Xie, Adam, Pain, and
+  Jackson}]{salinas_2016}
+Salinas, P., Pavlidis, D., Xie, Z., Adam, A., Pain, C., Jackson, M., 2016.
+  Improving the convergence behaviour of a fixed-point-iteration solver for
+  multiphase flow in porous media. International Journal for Numerical Methods
+  in Fluids 84, 466--476.
+
+\bibitem[{Salinas et~al.(2018)Salinas, Pavlidis, Xie, Osman, Pain, and
+  Jackson}]{salinas_2018}
+Salinas, P., Pavlidis, D., Xie, Z., Osman, H., Pain, C., Jackson, M., 2018. A
+  discontinuous control volume finite element method for multiphase flow in
+  heterogeneous porous media. Journal of Computational Physics 352, 602--614.
 
 \bibitem[{Salinas et~al.(2015)Salinas, Percival, Pavlidis, Xie, Gomes, Pain,
   Jackson, et~al.}]{salinas2015}
@@ -288,11 +318,15 @@ Self, S., Reddy, B., Rosen, M., 2012. Review of underground coal gasification
   technologies and carbon capture. International Journal of Energy and
   Environmental Engineering 3, 16--24.
 
+\bibitem[{Sheldon and Cardwell(1959)}]{sheldon_1959}
+Sheldon, J., Cardwell, W., 1959. One-dimensional, incompressible, noncapillary
+  two-phase fluid flow in a porous media. Petroleum Transactions, AIME 216.
+
 \bibitem[{Spycher et~al.(2003)Spycher, Pruess, and Ennis-King}]{spycher_2003}
-Spycher, N., Pruess, K., Ennis-King, J., 2003. {CO2}-{H2O} mixtures in the
-  geological sequestration of {CO2}. {II}. {A}ssessment and calculation of
-  mutual solubilities from 12 to 100$^o${C} and up to 600 bar. Geochim.
-  Cosmochim. Acta 67~(16), 2015--3031.
+Spycher, N., Pruess, K., Ennis-King, J., 2003. {CO}$_{2}$-{H}$_{2}${O} mixtures
+  in the geological sequestration of {CO}$_{2}$. {II}. {A}ssessment and
+  calculation of mutual solubilities from 12 to 100$^\circ${C} and up to 600
+  bar. Geochim. Cosmochim. Acta 67~(16), 2015--3031.
 
 \bibitem[{Su et~al.(2016)Su, Latham, Pavlidis, Xiang, Fang, Mostaghimi,
   Percival, Pain, and Jackson}]{su_2016}
@@ -302,7 +336,11 @@ Su, K., Latham, J., Pavlidis, D., Xiang, J., Fang, F., Mostaghimi, P.,
 
 \bibitem[{Tabeling et~al.(1987)Tabeling, Zocchi, and Libchaber}]{tabeling_1987}
 Tabeling, P., Zocchi, G., Libchaber, A., 1987. An experimental study of the
-  saffman-taylor instability. Journal of Fluid Mechanics 177, 67–82.
+  {S}affman-{T}aylor instability. Journal of Fluid Mechanics 177, 67--82.
+
+\bibitem[{Tan and Homsy(1988)}]{tan_1988}
+Tan, C., Homsy, G., 1988. Simulation of nonlinear viscous fingering in miscible
+  displacement. Physics of Fluids 31, 1330--1338.
 
 \bibitem[{Tavassoli et~al.(2015)Tavassoli, Pope, Sepehrnoori,
   et~al.}]{tavassoli_2015}
@@ -311,7 +349,8 @@ Tavassoli, S., Pope, G.~A., Sepehrnoori, K., et~al., 2015. Frontal-stability
 
 \bibitem[{Tchelepi and Jr(1994)}]{tchelepi_1994}
 Tchelepi, H., Jr, F.~O., 1994. Interaction of viscous fingering, permeability
-  heterogeneity and gravity segregation in three dimensions. SPE.
+  heterogeneity and gravity segregation in three dimensions. SPE 25235,
+  266--271.
 
 \bibitem[{Voller(2009)}]{voller_2009}
 Voller, V., 2009. Basic Control Volume Finite Element Methods for Fluids and
@@ -331,6 +370,6 @@ Wing, R., Russel, T., Young, L., 1989. An anisotropic coarse-grid dispersion
 
 \bibitem[{Wooding and Morel-Seytoux(1976)}]{wooding_1976}
 Wooding, R.~A., Morel-Seytoux, 1976. Multiphase fluid flow through porous
-  media. Ann. Rev. Fluid Mechanics 8, 233--2741.
+  media. Ann. Rev. Fluid Mechanics 8, 233--274.
 
 \end{thebibliography}

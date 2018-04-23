@@ -16,8 +16,8 @@
 %%%%
 \begin{figure}[h]
 \centering
-\vbox{\includegraphics[width=.75\textwidth]{./Pics/element_n_1.pdf}}
-\caption{This is a graphical representation of two different element types. Triangle {\it A} is a representation of the \PN[1]{2} element-pair, whereas triangle {\it B} represents the \PN[1]{1} element-pair. Porosity $\phi_{i}$, permeability {\bf K}$_{i}$, velocity and pressure are primarily represented in FE space whereas scalar fields (such as saturation, density, viscosity etc) are represented in CV space.}
+\vbox{\includegraphics[width=.75\textwidth]{./Pics/element_n_2.pdf}}
+\caption{This is a graphical representation of two different element types. Triangle on the left ({\it A}) is a representation of the \PN[1]{2} element-pair, whereas triangle on the right ({\it B}) represents the \PN[1]{1} element-pair. Porosity $\phi_{i}$, permeability {\bf K}$_{i}$, velocity and pressure are primarily represented in FE space whereas scalar fields (such as saturation, density, viscosity etc) are represented in CV space.}
 \label{fig:fem_elem}
 \end{figure}
 \clearpage
@@ -27,7 +27,7 @@
 %%%%
 \begin{figure}[h]
 \centering
-\vbox{\includegraphics[width=0.75\textwidth]{./Pics/phase_vol_frac_uni_perm_1.pdf}}
+\vbox{\includegraphics[width=0.75\textwidth]{./Pics/phase_vol_frac_uni_perm_2.pdf}}
 \caption{Schematics of formation of flow instabilities during injection of a pure low viscosity fluid (red) into a domain saturated with a second fluid (dark blue). The viscocity ratio of the two fluids is VR=$5$. In this case, the initially piston shape front collapses leading to the formation of several fingers.}
 \label{fig:simple_case}
 \end{figure}
@@ -40,17 +40,17 @@
 \begin{figure}[ht] 
 \vbox{
 \hbox{\hspace{-0.3cm}
-\includegraphics[width=.8\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf} 
+\includegraphics[width=.8\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_2.pdf} 
 }
 \vspace{0.0cm}
-\hbox{\hspace{3.5cm} (a) Schematics of the domain with permeability ($\mathbf{K}$) distribution
+\hbox{\hspace{0.25cm} (a) Schematics of the domain with permeability ($\mathbf{K}$) distribution
 }
 \vspace{0.25cm}
 \hbox{\hspace{1.5cm}
 \includegraphics[width=.85\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf}
 }
 \vspace{0.0cm}
-\hbox{\hspace{4.5cm} (b) flow at t=250 
+\hbox{\hspace{4.0cm} (b) flow at t=25
 }
 \vspace{0.25cm}
 \hbox{\hspace{1.5cm}
@@ -59,7 +59,7 @@
 \vspace{0.0cm}
 \hbox{\hspace{4.0cm} (c) flow at t=3000   
 }}     
-\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): (a) the domain is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=1$ and $\mathbf{K}_{2}=2.5$; (b-c) snapshots of saturation (displacing fluid) field at t=$25$s and t=$300$ sec. The domain is discretised with $5960$ \PN[1]{2} elements. }
+\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): (a) the domain is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=1$ and $\mathbf{K}_{2}=2.5$; (b-c) snapshots of saturation (displacing fluid) field at t=$25$ and t=$300$. The domain is discretised with $5960$ \PN[1]{2} elements. }
 \label{fem_cv_represent_a}
 \end{figure}
 \clearpage
@@ -86,7 +86,7 @@
 \hbox{ \hspace{1.cm} (d) t=8.86s \hspace{3.0cm} (e) t=12.41s   \hspace{4.0cm} (f) t=17.95s}
 \vspace{0.cm}
 }   
-\caption{Simulated flow in a Hele-Shaw cell $\left(\text{{\it VR}=3, {\bf K}=10}^{-10}\text{cm}^{2}\right)$: (a) initial pressure profile $\left(\text{in g.cm}^{-1}\text{.s}^{-2}\right)$ with source and sink regions are explicitly shown along with dimensions (in cm); (b-f) snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
+\caption{Simulated flow in a Hele-Shaw cell $\left(\text{{\it VR}=3, {\bf K}=10}^{-10}\text{cm}^{2}\right)$: (a) initial pressure profile $\left(\text{in g.cm}^{-1}\text{.s}^{-2}\right)$ with source and sink regions explicitly shown along with dimensions (in cm); (b-f) snapshots of wetting phase saturation showing flow profile as the simulation evolves. The domain contains $26313$ \PN[1]{2} triangular elements.}
 \label{fig:homoheleshaw_VN3}
 \end{figure}
 \end{landscape}
@@ -126,7 +126,7 @@
 \begin{landscape}
 \begin{figure}[ht] 
 \vbox{\vspace{-1cm}
-\hbox{\includegraphics[width=.9\textwidth, height=0.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D300b.pdf}
+\hbox{\includegraphics[width=.8\textwidth, height=0.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D300b.pdf}
 \hspace{0.5cm}      
       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D1600b.pdf}}
 \vspace{0.cm}
@@ -145,6 +145,27 @@
 \end{figure}
 \end{landscape}
 \clearpage
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{figure}[ht]
+\vbox{
+\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_W2b.pdf}
+       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_W2b.pdf}}
+\hbox{\hspace{0.25cm} (a) {\it VR}=10 (homogeneous) \hspace{1.5cm} (b) {\it VR}=150 (homogeneous) }
+\vspace{0.5cm}
+\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D11000_W2b.pdf}
+       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D6500_W2b.pdf}}
+\hbox{\hspace{0.25cm} (c) {\it VR}=10 (heterogeneous) \hspace{1.5cm} (d) {\it VR}=150 (heterogeneous) }
+}
+\caption{Isosurfaces of simulated flows in Hele-Shaw cells with viscosity ratios of 10 (a and c) and 150 (b and d). Top and bottom rows describe simulations performed with constant \textit{i.e. homogeneous with \textbf{K}}= $10^{-10}$ \textit{${cm}^{2}$} and randomly distributed (i.e. heterogeneous, Fig.~\ref{fig:HeleShawHeter_VR10}a) permeabilities. Width of largest fingers for homogeneous cases are approximately $0.70$ and $0.90$cm (\textit{VR}=$10$ and \textit{VR}=$150$, respectively), whereas for heterogeneous cases are $0.56$ and $0.40$cm. Results for homogeneous cases are in good agreement with values obtained from \citet{guan_2003}'s analytic solution.}
+\label{fig:homoheleshaw_VN10_VN150}
+\end{figure}
+\clearpage
+
+
 
 
 %%%
@@ -218,26 +239,6 @@
 %%%%
 %%%%  FIGURE
 %%%%
-\begin{figure}[ht]
-\vbox{
-\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR10/ST_Homog_VR10_D2201_W2b.pdf}
-       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_homogeneous_VR150/ST_Homog_VR150_D5003_W2b.pdf}}
-\hbox{\hspace{0.25cm} (a) {\it VR}=10 (homogeneous) \hspace{1.5cm} (b) {\it VR}=150 (homogeneous) }
-\vspace{0.5cm}
-\hbox{\includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous_VR10/ST_Heterog_VR10_D11000_W2b.pdf}
-       \includegraphics[width=.5\textwidth]{./Pics1/Saffman_heterogeneous_VR150/ST_Heterog_VR150_D6500_W2b.pdf}}
-\hbox{\hspace{0.25cm} (c) {\it VR}=10 (heterogeneous) \hspace{1.5cm} (d) {\it VR}=150 (heterogeneous) }
-}
-\caption{Isosurfaces of simulated flows in Hele-Shaw cells with viscosity ratios of 10 (a and c) and 150 (b and d). Top and bottom rows describe simulations performed with constant \textit{i.e. homogeneous with \textbf{K}}= $10^{-10}$ \textit{${cm}^{2}$} and randomly distributed (i.e. heterogeneous, Fig.~\ref{fig:HeleShawHeter_VR10}a) permeabilities. Width of largest fingers for homogeneous cases are approximately $0.70$ and $0.90$cm (\textit{VR}=$10$ and \textit{VR}=$150$, respectively), whereas for heterogeneous cases are $0.56$ and $0.40$cm. Results for homogeneous cases are in good agreement with values obtained from \citet{guan_2003}'s analytic solution.}
-\label{fig:homoheleshaw_VN10_VN150}
-\end{figure}
-\clearpage
-
-
-
-%%%%
-%%%%  FIGURE
-%%%%
 \begin{figure}[ht] 
 \vbox{
 %\hbox{\hspace{4.0cm}
@@ -276,7 +277,7 @@
   \begin{figure}[ht]
   \vbox{\vspace{-1.cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D0b.pdf} 
-            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D350b.pdf}}
+            \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D250b.pdf}}
       \vspace{-.1cm}\hbox{\hspace{2.cm}(a) t=0.00s \hspace{4cm} (f) t= 0.35s}\vspace{-.1cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D100b.pdf} 
             \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D700b.pdf}}
@@ -287,7 +288,7 @@
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D200b.pdf} 
             \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D1500b.pdf}}
       \vspace{-.1cm}\hbox{\hspace{2.cm}(d) t=0.20s \hspace{4cm} (i) t= 1.50s}\vspace{-.1cm}
-      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D250b.pdf}}
+      \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D350b.pdf}}
       \vspace{-.1cm}\hbox{\hspace{2.cm}(e) t=0.25s}\vspace{-.1cm}}
 \caption{Impact of mesh resolution on capturing flow instabilities: snapshots of saturation field through 1.50 seconds of numerical simulation performed with fixed mesh (of 13068 elements) and {\it VR}=10.}
 \label{fig:5regions_fixedmesh}
@@ -365,7 +366,7 @@
 \begin{figure}[ht]
 \vbox{\vspace{-.5cm}
       \hbox{\includegraphics[width=\textwidth]{./Pics1/3D_Channel/Test_SlowNew_MeshPermeability.pdf} }}
-\caption{3D channel flow: permeability distribution. The domain contains 243056 \PN[1]{1} element-pairs.}
+\caption{3D channel flow (fixed mesh): permeability distribution. The domain contains 243056 \PN[1]{1} element-pairs.}
 \label{fig:3DChannel_PermMesh}
 \end{figure}
 \clearpage
@@ -391,7 +392,7 @@
 \hbox{\hspace{6.0cm} (b)      
 }
 }     
-\caption{3D channel flow: XY and YZ planes showing wetting fluid phase Darcy velocity vectors overlapped with wetting fluid saturation at (a) t=$0.29$s and (b)t=$4.3$s.}
+\caption{3D channel flow (fixed mesh): XY and YZ planes showing wetting fluid phase Darcy velocity vectors overlapped with wetting fluid saturation at (a) t=$0.29$s and (b)t=$4.3$s.}
 \label{fig:3DChannel_planes}
 \end{figure}
 %\end{landscape}
@@ -415,7 +416,7 @@
             \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_150.pdf}
             \includegraphics[width=.5\textwidth]{./Pics1/3D_Channel/3D_channel_sat_490.pdf} }
       \hbox{\hspace{2.cm} (d) t=1.00s \hspace{5.cm} (e) t=1.35s\hspace{4.cm} (f) t=3.50s  } }
-\caption{3D channel flow: saturation front evolving in time and space with preferential flow pathways through 3.50 seconds of numerical simulations. Preferential flow pathway can be readily noticed in these frames, mirroring permeability distribution. The domain contains 368513 \PN[1]{1} elements.}
+\caption{3D channel flow (fixed mesh): saturation front evolving in time and space with preferential flow pathways through 3.50 seconds of numerical simulations. Preferential flow pathway can be readily noticed in these frames, mirroring permeability distribution. The domain contains 368513 \PN[1]{1} elements.}
 \label{fig:3DChannel_sat}
 \end{figure}
 \end{landscape}
@@ -438,7 +439,7 @@
             \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D150c.pdf}
             \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_Channel_Saturation1Isosurface_D400c.pdf} }
       \hbox{\hspace{3.cm} (d) t=1.00s \hspace{3.cm} (e) t=1.35s\hspace{4.cm} (f) t=3.50s }}
-\caption{3D channel flow: Isosurfaces for wetted phase saturatioh ranging from 0.45 and 0.60 at the same instants of time of Fig.~\ref{fig:3DChannel_sat}. Preferential flow pathway can be readily noticed in (b) and (f). Fingers' formation and growth can be clearly noticed in (b)-(e). The domain contains 368513 \PN[1]{1} elements.}
+\caption{3D channel flow (fixed mesh): Isosurfaces for wetted phase saturatioh ranging from 0.45 and 0.60 at the same instants of time of Fig.~\ref{fig:3DChannel_sat}. Preferential flow pathway can be readily noticed in (b) and (f). Fingers' formation and growth can be clearly noticed in (b)-(e). The domain contains 368513 \PN[1]{1} elements.}
 \label{fig:3DChannel_Isosurf}
 \end{figure}
 \end{landscape}
@@ -460,14 +461,14 @@
             \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_150.pdf}
             \includegraphics[width=.45\textwidth]{./Pics1/3D_Channel/3D_channel_sat_adapt_288.pdf} }
       \hbox{\hspace{3.cm} (d) t=1.00s \hspace{3.cm} (e) t=1.35s\hspace{4.cm} (f) t=3.50s }}
-\caption{For the same time steps as these are shown in figure \ref{fig:3DChannel_sat} there is a description of the same flow path but now using an adaptive and unstructured mesh. The aim was to describe in greater detail the finger patterns, as the flow develops but also address the importance of a resolution, in this case the type of mesh that is used to capture these phenomena.}
+\caption{3D channel flow (adaptive mesh): numerical simulation was performed with the smae boundary and initial conditions as in Figs.~\ref{fig:3DChannel_PermMesh}-\ref{fig:3DChannel_Isosurf} with an adaptive mesh. Flow pathway is very similar to the one shown in Fig.~\ref{fig:3DChannel_sat}.}
 \label{fig:3DChannel_sat_adapt}
 \end{figure}
 \end{landscape}
 \clearpage
 
 
-
+\begin{comment}
 %%%%
 %%%%  FIGURE
 %%%%
@@ -491,8 +492,34 @@
 \end{figure}
 %\end{landscape}
 \clearpage
+\end{comment}
 
+%%%%
+%%%%  FIGURE
+%%%%
+%\begin{landscape}
+  \begin{figure}[ht] 
+    \vbox{\vspace{0.cm}
+        \hbox{\hspace{-3.cm}
+            \includegraphics[width=.75\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_0_ContourPlotSlice_b} \hspace{-.5cm}
+            \includegraphics[width=.70\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_20_ContourPlotSlice_b}}
+        \hbox{\hspace{2cm}(a)\hspace{9cm}(b)}
+        \hbox{\hspace{-3.cm}
+            \includegraphics[width=.70\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_60_ContourPlotSlice_b}
+            \includegraphics[width=.70\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_120_ContourPlotSlice_b}}
+        \hbox{\hspace{2cm}(c)\hspace{9cm}(d)}
+        \hbox{\hspace{-3.cm}
+            \includegraphics[width=.70\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_200_ContourPlotSlice_b}
+            \includegraphics[width=.70\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_ContourPlotSlice_b}}
+        \hbox{\hspace{2cm}(e)\hspace{9cm}(f)}
+}
+    \caption{3D Channel (adaptive mesh):  XY and YZ planes showing wetting fluid saturation overlapped with Darcy velocity vectors at  (a) 0.00, (b) 0.09, (c) 0.71, (d) 1.75, (e) 2.47 and (f) 3.78s. Colour scheme for saturation profile is the same as used in Fig.~\ref{fig:3DChannel_sat_adapt}.}
+\label{fig:3DChannel_satvel_XYplanes_adapt}
+\end{figure}
+%\end{landscape}
+  \clearpage
 
+  
 %%%%
 %%%%  FIGURE
 %%%%
@@ -508,29 +535,10 @@
              \includegraphics[width=0.75\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_Isosurface_b} 
             }}
 \caption{3D Channel: Text to come}
+\label{fig:3DChannel_satvel_XYplanes_adapt}
 \end{figure}
 \end{landscape}
 \clearpage
 
-%%%%
-%%%%  FIGURE
-%%%%
-%\begin{landscape}
-  \begin{figure}[ht] 
-    \vbox{\vspace{0.cm}
-        \hbox{\hspace{-3.cm}
-            \includegraphics[width=.75\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_0_ContourPlotSlice_b} \hspace{-.5cm}
-            \includegraphics[width=.70\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_20_ContourPlotSlice_b}}
-        \hbox{\hspace{-3.cm}
-            \includegraphics[width=.70\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_60_ContourPlotSlice_b}
-            \includegraphics[width=.70\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_120_ContourPlotSlice_b}}
-        \hbox{\hspace{-3.cm}
-            \includegraphics[width=.70\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_200_ContourPlotSlice_b}
-            \includegraphics[width=.70\textwidth]{./Pics1/3D_ChannelAdaptive/Test_SlowNewAdapt_288_ContourPlotSlice_b}}
-}
-\caption{3D Channel: Text to come \red{should i mention something here? something qualitative}}
-\end{figure}
-%\end{landscape}
-\clearpage
 
 
