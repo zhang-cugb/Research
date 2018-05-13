@@ -1,6 +1,7 @@
-default:	Manuscript_ViscousInstabilities_KC.pdf
+default:	Manuscript_ViscousInstabilities_KC.pdf Manuscript_ViscousInstabilities_KC_Feb.pdf
 
 Manuscript_ViscousInstabilities_KC.pdf:	Manuscript_ViscousInstabilities_KC.tex
+Manuscript_ViscousInstabilities_KC_Feb.pdf: Manuscript_ViscousInstabilities_KC_Feb.tex
 
 %.pdf:	%.tex
 	rm -f $*.pdf
