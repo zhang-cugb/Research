@@ -180,17 +180,14 @@ Numerical simulations demonstrated that the heterogeneity of the domain triggers
 %\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\begin{comment}
+
 \section{Introduction}\label{section:intro}
 Numerical investigation of multiphase flows in porous media have attracted the attention of the scientific community over the past 40 years. Characterisation of such fluid flows serves as the foundation of reservoir engineering and groundwater studies \citep{white_1981}. %Oil and gas migration in reservoirs and transport of contaminants in groundwater are some of important physical problems in which porous media flows play a crucial role. 
 %Reservoir engineers and hydro-geologists are dealing with complex geometries, irregular boundaries and heterogeneous geological formations.
 Underground coal gasification is another important field of interest and, more recently, due to the role of green house gases (GHG) emissions in the global climate change, several research work have focused on CO$_{2}$ migration and trapping mechanisms in carbon capture utilisation and storage (CCUS) operations \citep{spycher_2003, self_2012, jiang_2011}.
 
 \medskip
-Description of physics and mechanisms of multiphase porous media flows were reported by \citet{wooding_1976} with focus on capillary pressure and flow regimes. A comprehensive review of force balances at the interface between immiscible fluids and resulting mechanisms for flow instabilities can be found in \citet{homsy_1987}. Flow instabilities can be classified as macroscopic and microscopic, the former is due to imposed boundary conditions, whereas the later is associated to local phenomena at the fluids interface \citep[\eg Kelvin-Helmholtz and Saffman-Taylor instabilities,][]{saffman_1959}. This work focuses on flow instabilities in two-phase systems due to viscous and stress forces (often referred as viscous instabilities or viscous fingering, Section \ref{section:ViscousInstabilities}).
-%Description of physics and mechanisms of multiphase flows were reported by \citet{wooding_1976} with focus on capillary pressure and flow regimes. A comprehensive review of mechanisms of fluid instabilities (\ie fingering) and forces acting on the interface between two immiscible fluids can be found in \citet{homsy_1987}. \citet{adler_1988} described both microscopic and macroscopic scale Darcy-equations.
-% Nevertheless we should refer to the area of flow instabilities  as these, first described by \citet{saffman_1958} \red{(IS THIS TRUE? SAFFMANN MAY HAVE BEEN THE FIRST TO THROUGHLY DISCUSS VISCOUS INSTABILITIES, BUT THERE WERE OTHER SCIENTISTS THAT DESCRIBED FLUID INSTABILITIES BEFORE, E.G., RAYLEIGH(1896), TAYLOR (1955) ETC)}. 
-%The first distinction should be made between microscopic and macroscopic instabilities. Microscopic instabilities describe phenomena occurring locally, for example, Kelvin-Helmholtz and Saffman-Taylor instabilities \citep{saffman_1959}. On the other hand, macroscopic instabilities involve two-phase flow system \citep{bottoni_1992}. This paper focuses on microscopic instabilities in two-phase systems that occurs due to viscous and stress forces, often referred as viscous instabilities or \textit{viscous fingering} (see section \ref{section:ViscousInstabilities}).
+Description of physics and mechanisms of multiphase porous media flows were reported by \citet{wooding_1976} with focus on capillary pressure and flow regimes. A comprehensive review of force balances at the interface between immiscible fluids and resulting mechanisms for flow instabilities can be found in \citet{homsy_1987}. Flow instabilities can be classified as macroscopic and microscopic, the former is due to imposed boundary conditions, whereas the later is associated to local phenomena at the fluids interface \citep[\eg Kelvin-Helmholtz and Saffman-Taylor instabilities,][]{saffman_1959}. \blue{This work focuses on flow instabilities in two-phase systems due to viscous and stress forces (often referred as viscous instabilities or viscous fingering, Section \ref{section:ViscousInstabilities})}.
 
 \medskip
 In oil and gas reservoir exploration, viscous and density instabilities are relatively common during water-injection processes. As water and oil interacts, the interface between these fluids moves creating an uneven or fingered flow profile (see Fig.~\ref{fig:simple_case}). Viscous fingering results in inefficient flow sweeping which can bypass significant quantities of recoverable oil and may lead to early breakthrough of water into neighbour production wells. Viscous instabilities are mainly controlled by the mobility ratio (MR) between displacing and displaced fluids. Other conditions that may also influence the severity of viscous fingering are: heterogeneity (\ie wide spatial porosity and/or permeability distribution), gravitational forces, anisotropic dispersion, non-monotonic viscosity profile etc \citep{budek_2017,nicolaides_2015}.
@@ -233,11 +230,12 @@ A sketch of the \PN[1]{2} FE-pair is shown in Fig.~\ref{fig:fem_cv}, in which ve
  
 \medskip
 A brief description of the numerical formulation and viscous fluid instabilities are introduced in Sections~\ref{equations_scheme} and~\ref{section:ViscousInstabilities}, respectively. Model set up and results including initial model-benchmark are presented in Section~\ref{section:results}. Impact of mobility ratio on the fingers formation is also included in this section. Finally, concluding remarks are presented in Section~\ref{Section:Conclusion}.
-\end{comment}
+
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
 \blue{\section{Alternative Introduction}}
 \blue{- - - - - - - - - - - - - - - - - - - - - - - - - - - -}
 
@@ -311,7 +309,7 @@ A brief description of the numerical formulation and viscous fluid instabilities
 
 \medskip
 \blue{- - - - - - - - - - - - - - - - - - - - - - - - - - - -}
-
+\end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Model Formulation}\label{equations_scheme}      
@@ -384,11 +382,11 @@ The two-phase immiscible and incompressible fluid flow through a porous media do
 
 \begin{eqnarray}
 \left(\displaystyle\frac{\mu_{\alpha}S_{\alpha}}{{\mathbf K}\mathcal{K}_{r\alpha}}\right) {\mathbf u}_{\alpha} = \underline{\underline{\sigma}}_{\alpha} {\mathbf u}_{\alpha} = -\nabla p + \mathcal{S}_{u,\alpha}\hspace{1cm} \label{eqn:darcy_eqn} \\ %\text{ with } x_{i}\in\Omega,\; t>0, \label{eqn:darcy_eqn} \\
-\phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  \mathcal{S}_{u,\alpha}\hspace{1cm} \text{ with } x_{i}\in\Omega,\; t>0,\label{eqn:saturation_eqn}
+\phi\displaystyle\frac{\partial S_{\alpha} }{\partial t} +   \nabla \cdot \left( {\mathbf u}_{\alpha}  S_{\alpha}\right) =  \mathcal{S}_{cty,\alpha}\hspace{1cm} \text{ with } x_{i}\in\Omega,\; t>0,\label{eqn:saturation_eqn}
 \end{eqnarray} 
 
-\noindent respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute permeability, pressure and porosity, respectively. ${\mathbf u}_{\alpha}$ is the saturation-weighted Darcy velocity of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S_{u,{\alpha}}}$ is the source term %associated with the Darcy and continuity equations.
-which may include gravity and/or capillarity, respectively. $S_{\alpha}$ represents the saturation of the $\alpha$-phase with mass conservation constraints of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases. $\underline{\underline{\sigma}}_{\alpha}$ is an absorption-like term that represents the implicit linearisation of the viscous frictional forces.
+\noindent respectively, where $\mu$, ${\bf K}$, $p$ and $\phi$ are viscosity, absolute permeability, pressure and porosity, respectively. $\mathcal{S}_{u,\alpha}$ and $\mathcal{S}_{cty,\alpha}$ are source terms of the $\alpha$-phase and $\mathcal{K}_{r,\alpha}$ is the relative permeability. $\mathcal{S}_{u, \alpha}$ is the source term 
+which may include gravity and/or capillarity and is related with momentum while the $\mathcal{S}_{cty,\alpha}$ is the source term related with mass (continuity equation). $S_{u, \alpha}$ is the source term for momentum while the saturation of the $\alpha$-phase with mass conservation constraints of $\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1$, where $\mathcal{N}_{p}$ denotes the number of phases. $\underline{\underline{\sigma}}_{\alpha}$ is an absorption-like term that represents the implicit linearisation of the viscous frictional forces.
 %\begin{displaymath}
 %\sum\limits_{\alpha=1}^{\mathcal{N}_{p}} S_{\alpha} = 1, 
 %\end{displaymath}
@@ -755,5 +753,3 @@ Mr William Rad\"unz would like to acknowledge the support from the Brazilian Res
 
 \end{document}
 %% End of tex file.
-
-
