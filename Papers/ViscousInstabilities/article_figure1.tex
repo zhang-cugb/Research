@@ -62,7 +62,7 @@
 \vspace{0.0cm}
 \hbox{\hspace{4.0cm} (c) flow at t=3000   
 }}     
-\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): (a) the domain is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=1$ and $\mathbf{K}_{2}=2.5$; (b-c) snapshots of saturation (displacing fluid) field at t=$25$ and t=$300$. The domain is discretised with $5960$ \PN[1]{2} elements. }
+\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): (a) the domain is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=2.5$ and $\mathbf{K}_{2}=1$; (b-c) snapshots of saturation (displacing fluid) field at t=$25$ and t=$300$. The domain is discretised with $5960$ \PN[1]{2} elements. }
 \label{fem_cv_represent_a}
 \end{figure}
 \clearpage
@@ -272,7 +272,7 @@
 %\hbox{\hspace{4cm} (b) Permeability distribution for coarse mesh simulation     
 %}
 %}     
-\caption{Impact of mesh resolution on capturing flow instabilities: (a) sketch of the computational domain (dimensions in cm); (b) permeability $\left(\text{cm}^{2}\right)$, and; (c) initial saturation and  mesh resolution used in the simulations performed in Section~\ref{section:results_hete_fix_adapt}. There are 13068 \PN[1]{2} element-pairs in the domain.}
+\caption{Impact of mesh resolution on capturing flow instabilities: (a) sketch of the computational domain (dimensions in unit-length); (b) permeability, and; (c) initial saturation and  mesh resolution used in the simulations performed in Section~\ref{section:results_hete_fix_adapt}. There are 13068 \PN[1]{2} element-pairs in the domain.}
 \label{fig:testcase_heter_domain}
 \end{figure}
 \clearpage
@@ -287,20 +287,20 @@
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D0b.pdf}
             \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D250b.pdf}} 
             %\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D350b.pdf}}
-      \vspace{-.1cm}\hbox{\hspace{2.cm}(a) t=0.00s \hspace{4cm} (f) t= 0.35s}\vspace{-.1cm}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(a) t=0.00 \hspace{4cm} (f) t= 0.35}\vspace{-.1cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D100b.pdf} 
             \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D700b.pdf}}
-      \vspace{-.1cm}\hbox{\hspace{2.cm}(b) t=0.10s \hspace{4cm} (g) t= 0.70s}\vspace{-.1cm}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(b) t=0.10 \hspace{4cm} (g) t= 0.70}\vspace{-.1cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D150b.pdf} 
             \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D1000b.pdf}}
-      \vspace{-.1cm}\hbox{\hspace{2.cm}(c) t=0.15s \hspace{4cm} (h) t= 1.00s}\vspace{-.1cm}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(c) t=0.15 \hspace{4cm} (h) t= 1.00}\vspace{-.1cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D200b.pdf} 
             \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D1500b.pdf}}
-      \vspace{-.1cm}\hbox{\hspace{2.cm}(d) t=0.20s \hspace{4cm} (i) t= 1.50s}\vspace{-.1cm}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(d) t=0.20 \hspace{4cm} (i) t= 1.50}\vspace{-.1cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D350b.pdf}}
       %\hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_D250b.pdf}}
-      \vspace{-.1cm}\hbox{\hspace{2.cm}(e) t=0.25s}\vspace{-.1cm}}
-\caption{Impact of mesh resolution on capturing flow instabilities: snapshots of saturation field through 1.50 seconds of numerical simulation performed with fixed mesh (of 13068 elements) and {\it VR}=10.}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(e) t=0.25}\vspace{-.1cm}}
+\caption{Impact of mesh resolution on capturing flow instabilities: snapshots of saturation field through 1.50 unit-time of numerical simulation performed with fixed mesh (of 13068 elements) and {\it VR}=10.}
 \label{fig:5regions_fixedmesh}
 \end{figure}
 \clearpage
@@ -314,19 +314,19 @@
   \vbox{\vspace{-2.cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D0b.pdf} 
             \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D350b.pdf}}
-      \vspace{-.1cm}\hbox{\hspace{2.cm}(a) t=0.00s \hspace{4cm} (f) t= 0.35s}\vspace{-.1cm}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(a) t=0.00 \hspace{4cm} (f) t= 0.35}\vspace{-.1cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D100b.pdf} 
             \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D700b.pdf}}
-      \vspace{-.1cm}\hbox{\hspace{2.cm}(b) t=0.10s \hspace{4cm} (g) t= 0.70s}\vspace{-.1cm}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(b) t=0.10 \hspace{4cm} (g) t= 0.70}\vspace{-.1cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D150b.pdf} 
             \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D1000b.pdf}}
-      \vspace{-.1cm}\hbox{\hspace{2.cm}(c) t=0.15s \hspace{4cm} (h) t= 1.00s}\vspace{-.1cm}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(c) t=0.15 \hspace{4cm} (h) t= 1.00}\vspace{-.1cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D200b.pdf} 
             \includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D1500b.pdf}}
-      \vspace{-.1cm}\hbox{\hspace{2.cm}(d) t=0.20s \hspace{4cm} (i) t= 1.50s}\vspace{-.1cm}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(d) t=0.20 \hspace{4cm} (i) t= 1.50}\vspace{-.1cm}
       \hbox{\includegraphics[width=.45\textwidth]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D250b.pdf}}
-      \vspace{-.1cm}\hbox{\hspace{2.cm}(e) t=0.25s}\vspace{-.1cm}}
-\caption{Impact of mesh resolution on capturing flow instabilities: snapshots of saturation field through 1.50 seconds of numerical simulation performed with adaptive mesh and {\it VR}=10.}
+      \vspace{-.1cm}\hbox{\hspace{2.cm}(e) t=0.25}\vspace{-.1cm}}
+\caption{Impact of mesh resolution on capturing flow instabilities: snapshots of saturation field through 1.50 unit-time of numerical simulation performed with adaptive mesh and {\it VR}=10.}
 \label{fig:5regions_adaptmesh}
 \end{figure}
 \clearpage
@@ -362,7 +362,7 @@
       \hbox{ \includegraphics[width=.5\textwidth, height=0.3\textwidth,clip]{./Pics1/Section4_4/5r_po_left_inlet_D251_Zoom2b.pdf}
              \includegraphics[width=.5\textwidth, height=0.3\textwidth,clip]{./Pics1/Section4_4/5r_po_left_inlet_adapt_D251_Zoom2b.pdf}}
       \vspace{-0.cm}\hbox{\hspace{4.5cm}(c) Zoom on region {\it B}  }\vspace{-0.cm}}
-\caption{Impact of mesh resolution on flow instabilities: capturing formation and growth of flow instabilities at fluid interfaces (t = 0.20 s) in two regions of the computational domain, {\it A} and {\it B}. Simulations were conducted with fixed (left-hand side) and adaptive meshes. }
+\caption{Impact of mesh resolution on flow instabilities: capturing formation and growth of flow instabilities at fluid interfaces (t = 0.20) in two regions of the computational domain, {\it A} and {\it B}. Simulations were conducted with fixed (left-hand side) and adaptive meshes. }
 \label{fig:5regions_AdaptZoom}
 \end{figure}
 %\end{landscape}
