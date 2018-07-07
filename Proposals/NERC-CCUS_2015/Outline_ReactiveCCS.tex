@@ -331,18 +331,26 @@
 %%%
 \section{Track Record (3 pages)}
 
-\begin{enumerate}[(a)]
+%\begin{enumerate}[(a)]
 %
-\item {\bf University of Aberdeen (UoA), School of Engineering - Environmental and Industrial Fluid Mechanics Group (EnIFluG)\footnote{\href{http://www.abdn.ac.uk/engineering/research/environmental-industrial-fluid-mechanics-122.php}{http://www.abdn.ac.uk/engineering/research/environmental-industrial-fluid-mechanics-122.php}}:} The Group specialises in combined computational methods, laboratory experimentation, and field work on permeable/porous media flows, sediment transport, coastal monitoring, turbulent buoyant jets and large-scale environmental flows. The Group has outstanding experimental facilities, including a range of large water. The latest addition is the petroleum engineering laboratory which represents a \pounds 200k investment in new equipment. The laboratory comprises four independent core-flood rigs with custom-made Hassler cells, an Anton Paar density meter and glass capillary viscometers with thermal bath. In May, UoA was awarded a further \pounds 950k (under the framework of Oil $\&$ Gas Academy of Scotland) for the purchase of equipment related to O$\&$G training. Among the equipment that will be purchased is an X-ray micro-computed tomography (microCT) system for in-situ imaging of fluids in rock samples. \red{make it more general}. \\
+%\item 
+{\bf University of Aberdeen (UoA), School of Engineering - Environmental and Industrial Fluid Mechanics Group (EnIFluG)\footnote{\href{http://www.abdn.ac.uk/engineering/research/environmental-industrial-fluid-mechanics-122.php}{http://www.abdn.ac.uk/engineering/research/environmental-industrial-fluid-mechanics-122.php}}:} The Group specialises in combined computational methods, laboratory experimentation, and field work on permeable/porous media flows, sediment transport, coastal monitoring, turbulent buoyant jets and large-scale environmental flows. The Group has outstanding experimental facilities, including a range of large water. The latest addition is the petroleum engineering laboratory which represents a \pounds 200k investment in new equipment. The laboratory comprises four independent core-flood rigs with custom-made Hassler cells, an Anton Paar density meter and glass capillary viscometers with thermal bath. In May, UoA was awarded a further \pounds 950k (under the framework of Oil $\&$ Gas Academy of Scotland) for the purchase of equipment related to O$\&$G training. Among the equipment that will be purchased is an X-ray micro-computed tomography (microCT) system for in-situ imaging of fluids in rock samples. \red{make it more general}. \\
+
+\medskip
 {\bf Dr Jefferson Gomes (JG)} leads the development of the computational multi-physics models within Fluidity. He published >25 journal papers on CFD, porous media flows, fluid phase equilibria, nuclear criticality and computational optimisation.\\
-{\bf Dr Yukie Tanino (YT)} research combines theory and laboratory experiment to model flow and mass transport in obstructed and/or confined systems, including geological reservoirs, inclined pipes, and artificial wetlands for wastewater treatment. She manages the recently established petroleum engineering laboratory in the School.
+
+\medskip
+{\bf Dr Yukie Tanino (YT)} research combines theory and laboratory experiment to model flow and mass transport in obstructed and/or confined systems, including geological reservoirs, inclined pipes, and artificial wetlands for wastewater treatment. She manages the recently established petroleum engineering laboratory in the School.\\
+
+\medskip
+{\bf Dr XXXXXX (XX)} ...
 
 
 %
-\item {\bf Imperial College London (IC), Department of Earth Science and Engineering – Applied Modelling and Computation Group (AMCG)\footnote{\href{http://www.imperial.ac.uk/engineering/departments/earth-science/research/research-groups/amcg}{http://www.imperial.ac.uk/engineering/departments/earth-science/research/research-groups/amcg}}:} The Group is is a multi-disciplinary team of 60 scientists and engineers with backgrounds in engineering, mathematics, physics, earth and computational sciences. It specialises in the development of world-class numerical methods for modelling multi-scale multi-physical processes, with application to fracture and fragmentation, porous media and turbulent flows, nuclear criticality safety, industrial and environmental flows, ocean modelling, impact cratering and air pollution. \\
-{\bf Prof. Christopher C. Pain (CCP)} is head of AMCG. He has a diverse range of modelling/physics interests including: general CFD (which comprises multiphase flow and geophysical fluid dynamics), nuclear safety, optimisation, numerical research (including parallel solution techniques, error measures and mesh adaptivity) and discretisation techniques10-14. He is the original author of the general-purpose parallel CFD model Fluidity, with mesh adaptivity, multiphase and ocean modelling features and has published 125 journal papers and graduated 33 PhD students. 
+%\item {\bf Imperial College London (IC), Department of Earth Science and Engineering – Applied Modelling and Computation Group (AMCG)\footnote{\href{http://www.imperial.ac.uk/engineering/departments/earth-science/research/research-groups/amcg}{http://www.imperial.ac.uk/engineering/departments/earth-science/research/research-groups/amcg}}:} The Group is is a multi-disciplinary team of 60 scientists and engineers with backgrounds in engineering, mathematics, physics, earth and computational sciences. It specialises in the development of world-class numerical methods for modelling multi-scale multi-physical processes, with application to fracture and fragmentation, porous media and turbulent flows, nuclear criticality safety, industrial and environmental flows, ocean modelling, impact cratering and air pollution. \\
+%{\bf Prof. Christopher C. Pain (CCP)} is head of AMCG. He has a diverse range of modelling/physics interests including: general CFD (which comprises multiphase flow and geophysical fluid dynamics), nuclear safety, optimisation, numerical research (including parallel solution techniques, error measures and mesh adaptivity) and discretisation techniques10-14. He is the original author of the general-purpose parallel CFD model Fluidity, with mesh adaptivity, multiphase and ocean modelling features and has published 125 journal papers and graduated 33 PhD students. 
 %
-\end{enumerate}
+%\end{enumerate}
 
 
 \clearpage
@@ -393,30 +401,68 @@ This has helped to prove that geological \CO\; storage is a viable engineering a
  
 Although the main focus of this proposal is to assess potential \CO\; leakage (\ref{Motivation:d}), the technology developed here can also be applied to assess the storage feasibility of new and existing geological sites (\ref{Motivation:b},~\ref{Motivation:c}).  Risk assessment based on detailed numerical simulations can identify specific risk features and processes (e.g., leaky faults and wellbores, unexpected injection pressure rise, residual saturation trapping) which may help prevent unintended \CO\; migration. Our model framework may also be used during the continuous site monitoring stage (\ref{Motivation:e}) to assess potential risks during injection and storage as the model can use data from field sensors (data assimilation) to help predict the likelihood of \CO\; leakage.
 
-The main objectives of this proposal are: 
+The main objectives of this proposal are \red{(big picture here ...)}: 
 \begin{enumerate}[(a)]
 %
    \item Investigation of \CO\; plume dynamics (migration and leakage);
 %
    \item \red{Investigation of multi-fluid flows through zones of potential rheological weakness in the overburden (e.g., faults and chimneys): solid-fluid interactions and stress-induced fractures formation;}
 %
-   \item \red{Model uncertainty quantification: sensor network (data assimilation) and ROM};
+%   \item \red{Model uncertainty quantification: sensor network (data assimilation) and ROM};
 %
    \item Model quality assurance (monitoring $\&$ verification for risk assessment and environmental impact).
 %
 \end{enumerate}
 
-{\bf The novelty of this project is in addressing in an integrated way: detailed modelling of \CO\; flows under reservoir conditions (plume migration $\&$ leakage); changes on petrophysical properties (permeability/porosity spatial- and time-variability); solid-fluid interactions (integrity of repositories); and monitoring $\&$ verification technologies.} 
+{\bf The novelty of this project is in addressing in an integrated way: detailed multiphase flow transport modelling under reservoir conditions (\CO plume migration $\&$ leakage); changes on petrophysical properties (permeability/porosity spatial- and time-variability); solid-fluid interactions (integrity of repositories); and monitoring $\&$ verification technologies.} \red{add here science question(s) we want to address and the relevance to both applications and the call itself!.}
 
 \medskip
 We shall consider two integrated length-scales in the CCUS problem: 
 \begin{enumerate}[(a)]
   \item \red{flow mechanisms and structures in pore-scale} -- {\bf YT};
-  \item flow detachment in field scale \blue{(develop this as a backbone for phase change and flow instability)} -- {\bf JG}.
+  \item flow detachment in field-scale \blue{(develop this as a backbone for phase change (multi-physics) and flow instability)} -- {\bf JG}.
 \end{enumerate}
 
 
-both the polydispersity and the closure problems by resorting to a self-consistent multiscale modelling approach. We shall consider two (length) scales: a microscopic scale, comparable with the characteristic size of the discrete particles, and a macroscopic scale, comparable with the characteristic length of the gradients that the modeller wishes to capture in the system analysed. We shall employ Lagrangian modelling at the microscale and Eulerian modelling at the macroscale. With the information provided by the Lagrangian simulations, we shall develop constitutive equations that we shall implement in the Eulerian model, experimentally validated for different types of flow by means of advanced imaging techniques (Fig.1). The ultimate goal is to develop a self-standing Eulerian (that is, continuum) model for dense fluid-particle flows, able to correctly describe polydispersity and solvable by means of CFD codes.
+%%%
+%%% SUBSECTION
+%%%
+\subsection{Programme and Methodology}
+
+\begin{description}%[{WP.}1]
+%
+\item[WP-1 Investigation of \CO Plume Dynamics: Migration and in Porous Media:] \red{Topics that may be covered here - JG}
+%
+\begin{enumerate}[{WP-1.}1]
+%
+\item Extend current multi-component and multiphase model formulations for:
+\begin{enumerate}
+ \item parametrised chemical reactions and phase change to take into account `simple' precipitation, dissolution and exsolution processes;
+ \item non-isothermal process
+\end{enumerate}
+%
+\item Include time- and spatial-variability of porosity and permeability
+%
+\item Large-scale simulations (parallel)
+%
+\end{enumerate}
+
+%
+\item[WP-2 Monitoring $\&$ Verification for Risk Assessment and Environmental Impact] bla
+%
+\begin{enumerate}[{WP-2.}1]
+%
+\item Model and software quality assurance
+%
+\item \blue{anything here from lab ??}
+%
+\item \blue{Field validation?}
+%
+\end{enumerate}
+%
+\item[WP-3 YT] bla
+%
+\end{description}
 
 \begin{comment}
 This proposal comes at a time when the UK nuclear sector is resurgent. It is now widely accepted that one of the ways in which the UK can meet its commitments to reducing CO2 emissions, as well as dealing with its over-reliance on imported fuel supplies, is to replace the current fleet of ageing nuclear reactors. 
