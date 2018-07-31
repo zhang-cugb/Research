@@ -48,32 +48,72 @@
 %%%%
 %%%%  FIGURE 
 %%%%
-\begin{figure}[ht] 
-\vbox{
-\hbox{\hspace{-0.3cm}
+%\begin{figure}[ht] 
+%\vbox{
+%\hbox{\hspace{-0.3cm}
 %\includegraphics[width=.8\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_1.pdf} 
-\includegraphics[width=.8\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_2.pdf} 
-}
-\vspace{0.0cm}
-\hbox{\hspace{3.5cm} (a) Schematics of the domain with permeability ($\mathbf{K}$) distribution
-}
-\vspace{0.25cm}
-\hbox{\hspace{1.5cm}
-\includegraphics[width=.85\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.5cm} (b) flow at t=25
-}
-\vspace{0.25cm}
-\hbox{\hspace{1.5cm}
-\includegraphics[width=.65\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_2.pdf}
-}
-\vspace{0.0cm}
-\hbox{\hspace{4.0cm} (c) flow at t=3000   
-}}     
-\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): (a) the domain is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=2.5$ and $\mathbf{K}_{2}=1$; (b-c) snapshots of saturation (displacing fluid) field at t=$25$ and t=$300$. The domain is discretised with $5960$ \PN[1]{2} elements. }
-\label{fem_cv_represent_a}
+%\includegraphics[width=.8\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_2.pdf} 
+%}
+%\vspace{0.0cm}
+%\hbox{\hspace{3.5cm} (a) Schematics of the domain with permeability ($\mathbf{K}$) distribution
+%}
+%\vspace{0.25cm}
+%\hbox{\hspace{1.5cm}
+%\includegraphics[width=.85\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_250_2.pdf}
+%}
+%\vspace{0.0cm}
+%\hbox{\hspace{4.5cm} (b) flow at t=25
+%}
+%\vspace{0.25cm}
+%\hbox{\hspace{1.5cm}
+%\includegraphics[width=.65\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_3000_2.pdf}
+%}
+%\vspace{0.0cm}
+%\hbox{\hspace{4.0cm} (c) flow at t=3000   
+%}}     
+%\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): (a) the domain is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=2.5$ and $\mathbf{K}_{2}=1$; (b-c) snapshots of saturation (displacing fluid) field at t=$25$ and t=$300$. The domain is discretised with $5960$ \PN[1]{2} elements. }
+%\label{DaweGrattoniExperiment_a}
+%\end{figure}
+%\clearpage
+%\end{comments}
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{figure}[ht] 
+    \vbox{
+       \hbox{\hspace{1.cm}\includegraphics[width=\textwidth]{./Pics1/2b2_wi_fine/2b2_whole_in_fine_perm_2}}
+       \vspace{0.cm}
+       \hbox{\hspace{7cm}(a)}
+       \vspace{0.cm}
+       \hbox{\hspace{1.cm}\includegraphics[width=\textwidth]{./Pics1/DaweGrattoni_Experiment/1pageb}}
+       \vspace{0.cm}
+       \hbox{\hspace{7cm}(b)}
+    }   
+\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): (a) sketch of the the domain which is divided into four subdomains with prescribed synthetic permeability, $\mathbf{K}_{1}=2.5$ and $\mathbf{K}_{2}=1$; (b) fluid displacement with permeability ratio of 2.5, exttracted from \citet{dawe_2008}. }
+\label{DaweGrattoniExperiment_a}
 \end{figure}
+\clearpage
+
+
+
+
+%%%%
+%%%%  FIGURE
+%%%%
+\begin{landscape}
+  \begin{figure}[ht] 
+    \vbox{\vspace{0.cm}
+       \hbox{\hspace{1cm}\includegraphics[width=.50\textwidth]{./Pics1/DaweGrattoni_Experiment/CrossFlow_d61b}  \includegraphics[width=.50\textwidth]{./Pics1/DaweGrattoni_Experiment/CrossFlow_d125b}  \includegraphics[width=.50\textwidth]{./Pics1/DaweGrattoni_Experiment/CrossFlow_d145b} }
+       \hbox{\hspace{1cm}\includegraphics[width=.50\textwidth]{./Pics1/DaweGrattoni_Experiment/CrossFlow_d152b}  \includegraphics[width=.50\textwidth]{./Pics1/DaweGrattoni_Experiment/CrossFlow_d180b}  \includegraphics[width=.50\textwidth]{./Pics1/DaweGrattoni_Experiment/CrossFlow_d250b} }
+       \hbox{\hspace{1cm}\includegraphics[width=.50\textwidth]{./Pics1/DaweGrattoni_Experiment/CrossFlow_d260b}  \includegraphics[width=.50\textwidth]{./Pics1/DaweGrattoni_Experiment/CrossFlow_d275b} \includegraphics[width=.50\textwidth]{./Pics1/DaweGrattoni_Experiment/legendb} }
+       \vspace{0.cm}
+    }  
+\caption{Model validation of fluid displacement in heterogeneous porous media ({\it VR}=1): Snapshots of wetting fluid saturation overlapped with Darcy velocity over t=39.70 time-units. The domain is divided in four subdomains with permeabilities of $\mathbf{K}_{1}=2.5$ and $\mathbf{K}_{2}=1$. The domain is discretised with 37872 \PN[1]{2} triangular elements. }
+\label{DaweGrattoniExperiment_b}
+  \end{figure}
+\end{landscape}
 \clearpage
 
 
