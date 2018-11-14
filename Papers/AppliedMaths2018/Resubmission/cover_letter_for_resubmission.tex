@@ -20,9 +20,33 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[11pt]{letter} % Default font size of the document, change to 10pt to fit more text
-
-\usepackage{newcent} % Default font is the New Century Schoolbook PostScript font 
+\usepackage{hyperref,url}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=red}
+%\usepackage{newcent} % Default font is the New Century Schoolbook PostScript font 
 %\usepackage{helvet} % Uncomment this (while commenting the above line) to use the Helvetica font
+%% The amssymb package provides various useful mathematical symbols
+
+\usepackage{amssymb,amsmath,array}
+%The amsthm package provides extended theorem environments
+
+\usepackage{amsthm}
+\usepackage{graphicx}
+%\usepackage{subfigure}
+
+\newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{ \color{red} JG Note $\Rightarrow$ #1}}}
+\newcommand{\BLnote}[1]{\fbox{\parbox{\textwidth}{ \color{green} BL Note $\Rightarrow$ #1}}}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\yellow}{\textcolor{yellow}}
+\newcommand{\frc}{\displaystyle\frac}
+\newcommand{\PN}[2][error]{P$_{#1}$DG-P$_{#2}$}
+\newcommand{\PNDG}[2][error]{P$_{#1}$DG-P$_{#2}$DG}
+\newcommand{\eg}{{\it e.g., }} 
+\newcommand{\ie}{{\it i.e., }}
+\newcommand{\st}{{\it s.t., }}
+
+
 
 % Margins
 \topmargin=-1in % Moves the top of the document 1 inch above the default
@@ -30,56 +54,61 @@
 \oddsidemargin=-10pt % Position of the left margin, can be negative or positive if you want more or less room
 \textwidth=6.5in % Total width of the text, increase this if the left margin was decreased and vice-versa
 
-\let\raggedleft\raggedright % Pushes the date (at the top) to the left, comment this line to have the date on the right
-
-\begin{document}
-
-%----------------------------------------------------------------------------------------
-%	ADDRESSEE SECTION
-%----------------------------------------------------------------------------------------
-
-\begin{letter}{Dr. Masoud Jabbari \\
-CEng MIMechE PMSAMPE AMACerS MInterPore \\
-Lead Guest Editor for Special Issue: \\
-Applied Mathematical Modelling \\
-WMG, University of Warwick \\
-Coventry, CV4 7AL}
-
-
+%\let\raggedleft\raggedright % Pushes the date (at the top) to the left, comment this line to have the date on the right
 
 
 %----------------------------------------------------------------------------------------
 %	YOUR NAME & ADDRESS SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{center}
-\large\bf Mr. Babatunde Lashore \\ % Your name
-%\vspace{20pt} \hrule height 1pt % If you would like a horizontal line separating the name from the address, uncomment the line to the left of this text
-Room 207, Fraser Noble Building \\ University of Aberdeen, Aberdeen AB24 3UE. \\ email: lashorebabatunde@yahoo.com % Your address and phone number
-\end{center} 
-\vfill
+%\begin{center}
+\address {Room 354, \\Fraser Noble Building \\ University of Aberdeen,\\ Aberdeen AB24 3UE. \\
+  email: lashorebabatunde@yahoo.com} % Your address and phone number
+%\end{center} 
+%\vfill
 
 \signature{B. Lashore} % Your name for the signature at the bottom
+\longindentation=290pt
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{letter}{Professor Johann Sienz, \\CEng FIMechE, FRAeS, CMath, \\Editor-in-Chief of the International Journal: \\Applied Mathematical Modelling \\Deputy Head of College and, \\Director of Innovation and Engagement, \\
+Swansea University, UK.}
+
+
+
+
 
 %----------------------------------------------------------------------------------------
 %	LETTER CONTENT SECTION
 %----------------------------------------------------------------------------------------
 
-\opening{Dear Dr. Jabbari,} 
+\opening{Dear Professor Sienz,} 
  
-I am submitting a manuscript to be considered for publication in the special issue of "Applied Mathematical Modelling" on "Transport in Porous Media" in relation to the $3^{rd}$ UK InterPore Conference on Porous Media and the $1^{st}$ Monash-Warwick PREFRAC Workshop on Hydraulic Fracturing. The abstract and presentation I made at that conference has progressed since then, and the title of my submission has changed from "A Numerical Investigation of Stochastic and Deterministic Upscaling Methods for Permeability Fields" to "A Reduced Order Model for Permeability Fields Using Singular Value Decomposition (SVD)".
- 
+The authors appreciate the reviewer's comments and have worked very hard to address all suggestions and comments.
 
-I hereby confirm that the research in this work has not been published elsewhere and it has not been submitted simultaneously for publication elsewhere.
- 
-The manuscript presents a model for representing an upscaled permeability field using singular value decomposition. It compares the benefits/performance of this model to well known deterministc methods such as arithmetic and harmonic averaging techniques. The model is also compared with a stochastic probability density function (PDF) model. Then a novel control volume finite element method (CVFEM) multiphase flow simulator is used to compare simulation results from the aforementioned models. The manuscript presents and discusses the results before drawing conclusions.
-
-I hope you find the manuscript satisfactory and accept it for publication in the journal. I thank you for your time and I look forward to further correspondence from you.
+The revised manuscript was just submitted to the journal's portal. Also, please find below the response to the reviewer's comments , highlighting the main changes in the manuscript.
 
 \closing{Sincerely yours,}
 
 
-\encl{Cover Letter, Highlight.tex, Manuscript(Makefile, Stochastic\_Upscaling\_UK\_AMM\_2018.tex, article\_/figure1.tex, Pics Folder, references.bib, elsarticle.cls, elsarticle-harv.bst)} % List your enclosed documents here, comment this out to get rid of the "encl:"
+\ps{
+Editor: \\
+The bibliography is not in the required format for Applied Mathematical Modelling. Please follow the author guide.
+\url{https://www.elsevier.com/journals/applied-mathematical-modelling/0307-904x/guide-for-authors}}
+
+Reviewer \#1: \\
+The authors aim at reducing the computational cost of reservoir simulation by parameterizing the permeability field using SVD and they compare with the classical upscaling techniques. This very same topic has been investigated by several authors before and I do not see anything new in this presentation. It uses a very simplistic approach and many important questions are left in this paper. Moreover, the authors missed many of the important developments done in SVD-based and other forms of permeability  parameterization in recent years. The authors are referred to many publications listed here.\\
+The paper also lacks comparison in computational effort, which is the main objective of such parameterization. For all of these reasons I am rejecting this paper for further publication.\\
+$[1]$ Insuasty, E., Van den Hof, P. M. J., Weiland, S., \& Jansen, J. D. (2017, February 20). Low-Dimensional Tensor Representations for the Estimation of Petrophysical Reservoir Parameters. Society of Petroleum Engineers. doi:10.2118/182707-MS\\
+$[2]$ Jafarpour, B., \& McLaughlin, D. B. (2009, March 1). Reservoir Characterization With the Discrete Cosine Transform. Society of Petroleum Engineers. doi:10.2118/106453-PA\\
+$[3]$ Sardar Afra, Eduardo Gildin, Tensor based geology preserving reservoir parameterization with Higher Order Singular Value Decomposition (HOSVD), Computers \& Geosciences, Volume 94, 2016, Pages 110-120,\\
+$[4]$  Tavakoli, R., \& Reynolds, A. C. (2010, June 1). History Matching With Parametrization Based on the SVD of a Dimensionless Sensitivity Matrix. Society of Petroleum Engineers. doi:10.2118/118952-PA\\
+
+\encl{Cover\_letter\_for\_resubmission.pdf, Highlight\_revised.pdf, Manuscript\_sourceFiles(Makefile, Stochastic\_Upscaling\_UK\_AMM\_2018\_revised.tex, article\_/figure1.tex, Pics Folder, references.bib, elsarticle.cls, elsarticle-harv.bst)} % List your enclosed documents here, comment this out to get rid of the "encl:"
 
 %----------------------------------------------------------------------------------------
 
