@@ -96,40 +96,96 @@ The revised manuscript was just submitted to the journal's portal. Also, please 
 
 \ps{
   \begin{enumerate}
-  \item Editor: \\  
+  \item Editor:   
     \begin{enumerate}
-    \item The bibliography is not in the required format for Applied Mathematical Modelling. Please follow the author guide.\url{https://www.elsevier.com/journals/applied-mathematical-modelling/0307-904x/guide-for-authors}\\
-      \BLnote{I do not understand/I cannot see the issue the editor is referring to}
-      \end{enumerate}
-
-  \item Reviewer \#1: \\
-    \begin{enumerate}
-    \item The authors aim at reducing the computational cost of reservoir simulation by parameterizing the permeability field using SVD and they compare with the classical upscaling techniques. This very same topic has been investigated by several authors before and I do not see anything new in this presentation.\\
-      \blue {We are thankful for the reviewer's comments and we acknowledge that the topic as well as the content of the initial presentation primarily highlights only SVD for the permeability parameterization. In the updated manuscript, the topic has been reprased to differentiate the work from related topics and to help clarify the novelty in the research. Additionally, more information has been provided in the introduction section and the sub-sections titled ``Model Order Reduction/Principal Component Space Reduction''. The amendments made to deal with this issue make the following contribution to the manuscript}
+    \item \label{R_E} The bibliography is not in the required format for Applied Mathematical Modelling. Please follow the author guide.\url{https://www.elsevier.com/journals/applied-mathematical-modelling/0307-904x/guide-for-authors}
       \begin{enumerate}
-      \item \blue{It introduces ``Upscaling'' in the topic, acknowledges ``Upscaling'' as a method of MOR in the body of the manuscript and goes on to differenciate between upscaling a ``single'' realization of a permeability field from other existing parameterisation techniques which apply SVD to multiple realization of of a statistical representation using feature selection or elimination. Essentially, the authors present a case that all ``upscaling'' cases are a form of MOR (and therefore parameterization), however not all parameterization cases are upscaling. Crucially, the uniqueness of the work is in the manner in which the SVD (or HOSVD) is combined with linear regression to obtain a reduction in the permeability field (Please see \ref{R_R1_Novelty_P2}, ....... and ........), it is different from existing related works which impliment a selection or elimination concept with respect to SVD.}
-        \item \label{R_R1_Novelty_P2} \blue {next item in the list}
+      \item \label{R_E_P1} \blue{....................}
+        \end{enumerate}
+      \BLnote{I do not understand/I cannot see the issue the editor is referring to here}
+      \end{enumerate}    
+  \item Reviewer \#1: 
+    \begin{enumerate}
+    \item \label{R_R1_Novelty} The authors aim at reducing the computational cost of reservoir simulation by parameterizing the permeability field using SVD and they compare with the classical upscaling techniques. This very same topic has been investigated by several authors before and I do not see anything new in this presentation.\\
+      \blue {We are thankful for the reviewer's comments and we acknowledge that the topic as well as the content of the initial presentation primarily highlights only SVD for the permeability parameterization. In the updated manuscript, the manuscript title has been reprased to differentiate the work from related topics and to help clarify the novelty in the research. Additionally, more information has been provided in the introduction section and the sub-sections titled ``Model Order Reduction/Principal Component Space Reduction''. The amendments made to deal with this issue make the following contribution to the manuscript}
+      \begin{enumerate}
+      \item \label{R_R1_Novelty_P1} \blue{It introduces ``Upscaling'' in the manuscript title, acknowledges ``Upscaling'' as a method of MOR in the body of the manuscript and goes on to differenciate between upscaling a ``single'' realization of a permeability field from other existing parameterisation techniques which apply SVD to multiple realization of of a statistical representation using feature selection or elimination. Essentially, the authors present a case that all ``upscaling'' cases are a form of MOR (and therefore parameterization), however not all parameterization cases are upscaling. Crucially, the uniqueness of the work is in the manner in which the SVD (or HOSVD) is combined with linear regression to obtain a reduction in the permeability field (Please see \ref{R_R1_Novelty_P2}, ....... and ........), it is different from existing related works which impliment a selection or elimination concept, with respect to SVD.}
+      \item \label{R_R1_Novelty_P2} \blue {The amendment introduces ``linear regression'' in the manuscript title and substitudes interpolation for linear regression in the body of the manuscript. Importantly, the authors give more details on how linear regression/interpolation is used in the principal component analysis (PCA) space to achieve dimensionality reduction.}
+      \item \label{R_R1_Novelty_P3} \blue{The amendment introduces ``Principal Component Analysis Spaces'' in the manuscript title and gives it a higher level of relevance in the body of the manuscript, particularly in the introduction section. Additionally, the update to the manuscript highlights the fact that two techniques exist for obtaining PCA (\ie {the covariane matrix method and the SVD method}) and gives the rational for selecting the SVD method.}
+        \item \label{R_R1_Novelty_P4} \blue{The amendment to the manuscript draws a distinction between SVD and linear regression (which is simply implimented here by interpolation) in the context of parameterization}\\
       \end{enumerate}
-    \item It uses a very simplistic approach and many important questions are left in this paper.
-    \item Moreover, the authors missed many of the important developments done in SVD-based and other forms of permeability  parameterization in recent years. The authors are referred to many publications listed here.\\
+      \blue{\bf{Manuscript Title before Amendment:}}
+      \begin{center}
+        \blue{A Reduced Order Model for Permeability Fields Using Singular Value Decomposition (SVD)}
+        \end{center}
+      \blue{\bf{Manuscript Title after Amendment:}}
+      \begin{center}
+        \blue{A Reduced Order Model for Upscaling Permeability Fields with Linear Regression in Principal Component Analysis (PCA) space using Singular Value Decomposition (SVD) or Higer Order Singular Value Decomposition (HOSVD)}
+      \end{center}
+      \blue{\bf{Manuscript body before Amendment:}}\\
+      \\
+      \\
+      \blue{\bf{Manuscript body after Amendment:}}\\
+      \\
+      \\
+    \item \label{R_R1_OverSimplification} It uses a very simplistic approach and many important questions are left in this paper.
+      \begin{enumerate}
+      \item \label{R_R1_OverSimplification_P1} \blue{The authors thank the reviewer for the comment and acknowledges that the work may be interpreted as over-simplified from the initial manuscript presented. A simplistic approach for presenting the work was initially favoured by the authors to avoid distraction from the main work and to simplify the findings. In satisfying the reviewer, more details were provided as detailed in the response to \ref{R_R1_Novelty}. Additionally, a set of 3-D simulations were added to the amended manuscript. These changes remove the simplification and the authors also hope they answered the important questions that the reviewer implied remained unanswered. The authors remain willing to provide a direct answer to any unanswered questions which are explicitly stated.}
+        \end{enumerate}
+    \item \label{R_R1_MissedNewDev}Moreover, the authors missed many of the important developments done in SVD-based and other forms of permeability  parameterization in recent years. The authors are referred to many publications listed here.\\
 $[1]$ Insuasty, E., Van den Hof, P. M. J., Weiland, S., \& Jansen, J. D. (2017, February 20). Low-Dimensional Tensor Representations for the Estimation of Petrophysical Reservoir Parameters. Society of Petroleum Engineers. doi:10.2118/182707-MS\\
 $[2]$ Jafarpour, B., \& McLaughlin, D. B. (2009, March 1). Reservoir Characterization With the Discrete Cosine Transform. Society of Petroleum Engineers. doi:10.2118/106453-PA\\
 $[3]$ Sardar Afra, Eduardo Gildin, Tensor based geology preserving reservoir parameterization with Higher Order Singular Value Decomposition (HOSVD), Computers \& Geosciences, Volume 94, 2016, Pages 110-120,\\
-$[4]$  Tavakoli, R., \& Reynolds, A. C. (2010, June 1). History Matching With Parametrization Based on the SVD of a Dimensionless Sensitivity Matrix. Society of Petroleum Engineers. doi:10.2118/118952-PA\\
-\item The paper also lacks comparison in computational effort, which is the main objective of such parameterization. For all of these reasons I am rejecting this paper for further publication.\\
+      $[4]$  Tavakoli, R., \& Reynolds, A. C. (2010, June 1). History Matching With Parametrization Based on the SVD of a Dimensionless Sensitivity Matrix. Society of Petroleum Engineers. doi:10.2118/118952-PA
+      \begin{enumerate}
+      \item \label{R_R1_MissedNewDev_P1} \blue{The authors thank the reviewers for the comment, references to the papers mentioned by the reviwer have now been included in the amended manuscript. Some of these papers were originally excluded from the manuscript initially because they were not related to upscaling. In line with the author's response at \ref{R_R1_Novelty}, the difference between the work in those papers and the authors' work are highlighted to draw out the uniqueness of the current work}
+        \end{enumerate}
+    \item \label{R_R1_CompEffort} The paper also lacks comparison in computational effort, which is the main objective of such parameterization. For all of these reasons I am rejecting this paper for further publication.
+      \begin{enumerate}
+      \item \label{R_R1_CompEffort} \blue{..........}
+        \end{enumerate}
     \end{enumerate}
 
 \item Reviewer \#2: \\
-  The manuscript looks at the problem of upscaling in flow in porous media. The heterogeneous properties of interest are characterised by the permeability of the porous media and a SVD-based method is used to prove that the proposed method outperforms, in terms of computational saving, other existing industry techniques. This topic is currently of high interest in the groundwater flow community and I think the audience of Applied Mathematical Modelling would be interested in learning about the results in the manuscript.\\
+  The manuscript looks at the problem of upscaling in flow in porous media. The heterogeneous properties of interest are characterised by the permeability of the porous media and a SVD-based method is used to prove that the proposed method outperforms, in terms of computational saving, other existing industry techniques. This topic is currently of high interest in the groundwater flow community and I think the audience of Applied Mathematical Modelling would be interested in learning about the results in the manuscript.
   \begin{enumerate}
-    \item I might be overlooking something but my overall impression is that the novelty is claimed to be on the control volume finite element simulator, although later in the Introduction the authors refer the reader to an already published work [16]. My belief is that the paper reports on an application of some already existing methodologies such as the SVD technique. So that, this paper does not contain any advances in model reduction methodology. Said that, in the spirit of reproducible research it offers an independent assessment of traditional algorithm developments such as model order reduction. If this is not the case and I am wrong, then, I would suggest to clarify and discuss the novelty of this research where appropriate.\\
-    \item In general, I find the manuscript well written although in some parts (e.g., in the Abstract, Introduction and Section 3) it is perhaps too general and descriptive for a journal of applied mathematical modelling. This latter along with the lack of novelty are my main concerns. I would recommend to go deeper in the technical side and bring the material into a more scientific form of presentation.
-      \item I find unbalanced the battery of figures and plots provided in the manuscript with the degree of analysis of results given in the result section. I would select just the most relevant plots and would focus on comment those in more details in the result section.\\
-Based on this assessment, I recommend to invite the authors to review their material and bring it into a more suitable form of presentation for a journal of applied mathematics.\\
-\item Introduction: The last part motivating what is going to be done in the following sections is too extensive. This latter is supposed to be a summary.\\
-\item Section 2: This needs a more deep explanation of the numerical formulation which was claimed earlier to be novel and how the equations are coupled and the permeability modelled.\\
-\item Section 3: I find this section too descriptive, it could be part of the Introduction.\\
-\item Section 4: The SVD technique is broadly known by mathematicians. I would bring that part to an appendix or just remove it. Section 4.2.1 has to be edited properly. The permeability is a tensor if one decides to model it as a tensor. This is misleading. If you are going to use a 2D geometry, I recommend to start the description from a 2D setup directly. The same for the rest of points, 4.2.2 and 4.2.3. These are known techniques, I would be better (in my opinion) to provide an algorithm (or steps) with the procedure and giving the references accordingly for the SVD and principal component spaces as done in Section 5.
+  \item \label{R_R2_Novelty} I might be overlooking something but my overall impression is that the novelty is claimed to be on the control volume finite element simulator, although later in the Introduction the authors refer the reader to an already published work [16]. My belief is that the paper reports on an application of some already existing methodologies such as the SVD technique. So that, this paper does not contain any advances in model reduction methodology. Said that, in the spirit of reproducible research it offers an independent assessment of traditional algorithm developments such as model order reduction. If this is not the case and I am wrong, then, I would suggest to clarify and discuss the novelty of this research where appropriate.
+    \begin{enumerate}
+      \item \label{R_R2_Novelty_1} \blue{..........}
+        \end{enumerate}
+\item \label{R_R2_TooDesc} In general, I find the manuscript well written although in some parts (e.g., in the Abstract, Introduction and Section 3) it is perhaps too general and descriptive for a journal of applied mathematical modelling. This latter along with the lack of novelty are my main concerns. I would recommend to go deeper in the technical side and bring the material into a more scientific form of presentation.
+   \begin{enumerate}
+      \item \label{R_R2_TooDesc_1} \blue{..........}
+        \end{enumerate}
+      \item \label{R_R2_TooMuchFig} I find unbalanced the battery of figures and plots provided in the manuscript with the degree of analysis of results given in the result section. I would select just the most relevant plots and would focus on comment those in more details in the result section.\\
+        Based on this assessment, I recommend to invite the authors to review their material and bring it into a more suitable form of presentation for a journal of applied mathematics.
+         \begin{enumerate}
+      \item \label{R_R2_TooMuchFig_1} \blue{..........}
+        \end{enumerate}
+\item \label{R_R2_TooMuchSum} Introduction: The last part motivating what is going to be done in the following sections is too extensive. This latter is supposed to be a summary.
+   \begin{enumerate}
+      \item \label{R_R2_TooMuchSum_1} \blue{..........}
+        \end{enumerate}
+\item \label{R_R2_NumFormulation} Section 2: This needs a more deep explanation of the numerical formulation which was claimed earlier to be novel and how the equations are coupled and the permeability modelled.
+   \begin{enumerate}
+      \item \label{R_R2_NumFormulation_1} \blue{..........}
+        \end{enumerate}
+\item \label{R_R2_TooDesc} Section 3: I find this section too descriptive, it could be part of the Introduction.
+ \begin{enumerate}
+      \item \label{R_R2_TooDesc_1} \blue{..........}
+    \end{enumerate}
+\item \label{R_R2_SVDWellKnown} Section 4: The SVD technique is broadly known by mathematicians. I would bring that part to an appendix or just remove it.
+  \begin{enumerate}
+      \item \label{R_R2_SVDWellKnown_1} \blue{The authors thank the reviewer for the comment, as suggested this section will be moved to the appendix}
+        \end{enumerate}
+\item \label{R_R2_TensorCorrection}Section 4.2.1 has to be edited properly. The permeability is a tensor if one decides to model it as a tensor. This is misleading.
+  \begin{enumerate}
+      \item \label{R_R2_TensorCorrection_1} \blue{The authors appreciate the reviewer's correction and apologizes for the oversight. Section 4.2.1 has now been properly edited}
+        \end{enumerate}
+  \item \label{R_R2_GeomSetupAlgorithm} If you are going to use a 2D geometry, I recommend to start the description from a 2D setup directly. The same for the rest of points, 4.2.2 and 4.2.3. These are known techniques, I would be better (in my opinion) to provide an algorithm (or steps) with the procedure and giving the references accordingly for the SVD and principal component spaces as done in Section 5.
+ \begin{enumerate}
+      \item \label{R_R2_GeomSetupAlgorithm_1} \blue{The authors thank the review for the feedback, starting the section directly on 2D simulation if only a 2D simulation is presented in the work. The recommended changes have been made and for completeness, some work on 3D simulations have now been included in the manuscript} \red{................response to creating algorimthm required.........}
+        \end{enumerate}
 \end{enumerate}
 \end{enumerate}
 }
