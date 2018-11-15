@@ -21,7 +21,7 @@
 
 \documentclass[11pt]{letter} % Default font size of the document, change to 10pt to fit more text
 \usepackage{hyperref,url}
-\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=red}
+\hypersetup{colorlinks=true, urlcolor=cyan, linkcolor=blue, citecolor=red}
 %\usepackage{newcent} % Default font is the New Century Schoolbook PostScript font 
 %\usepackage{helvet} % Uncomment this (while commenting the above line) to use the Helvetica font
 %% The amssymb package provides various useful mathematical symbols
@@ -33,8 +33,16 @@
 \usepackage{graphicx}
 %\usepackage{subfigure}
 
-\newcommand{\JGnote}[1]{\fbox{\parbox{\textwidth}{ \color{red} JG Note $\Rightarrow$ #1}}}
-\newcommand{\BLnote}[1]{\fbox{\parbox{\textwidth}{ \color{green} BL Note $\Rightarrow$ #1}}}
+% Margins
+\topmargin=-1in % Moves the top of the document 1 inch above the default
+\textheight=8.5in % Total height of the text on the page before text goes on to the next page, this can be increased in a longer letter
+\oddsidemargin=-10pt % Position of the left margin, can be negative or positive if you want more or less room
+\textwidth=6.5in % Total width of the text, increase this if the left margin was decreased and vice-versa
+
+%\let\raggedleft\raggedright % Pushes the date (at the top) to the left, comment this line to have the date on the right
+
+\newcommand{\JGnote}[1]{\fbox{\parbox{\linewidth}{ \color{red} JG Note $\Rightarrow$ #1}}}
+\newcommand{\BLnote}[1]{\fbox{\parbox{\linewidth}{ \color{green} BL Note $\Rightarrow$ #1}}}
 \newcommand{\red}{\textcolor{red}}
 \newcommand{\blue}{\textcolor{blue}}
 \newcommand{\green}{\textcolor{green}}
@@ -46,15 +54,6 @@
 \newcommand{\ie}{{\it i.e., }}
 \newcommand{\st}{{\it s.t., }}
 
-
-
-% Margins
-\topmargin=-1in % Moves the top of the document 1 inch above the default
-\textheight=8.5in % Total height of the text on the page before text goes on to the next page, this can be increased in a longer letter
-\oddsidemargin=-10pt % Position of the left margin, can be negative or positive if you want more or less room
-\textwidth=6.5in % Total width of the text, increase this if the left margin was decreased and vice-versa
-
-%\let\raggedleft\raggedright % Pushes the date (at the top) to the left, comment this line to have the date on the right
 
 
 %----------------------------------------------------------------------------------------
@@ -96,17 +95,44 @@ The revised manuscript was just submitted to the journal's portal. Also, please 
 
 
 \ps{
-Editor: \\
-The bibliography is not in the required format for Applied Mathematical Modelling. Please follow the author guide.
-\url{https://www.elsevier.com/journals/applied-mathematical-modelling/0307-904x/guide-for-authors}}
+  \begin{enumerate}
+  \item Editor: \\  
+    \begin{enumerate}
+    \item The bibliography is not in the required format for Applied Mathematical Modelling. Please follow the author guide.\url{https://www.elsevier.com/journals/applied-mathematical-modelling/0307-904x/guide-for-authors}\\
+      \BLnote{I do not understand/I cannot see the issue the editor is referring to}
+      \end{enumerate}
 
-Reviewer \#1: \\
-The authors aim at reducing the computational cost of reservoir simulation by parameterizing the permeability field using SVD and they compare with the classical upscaling techniques. This very same topic has been investigated by several authors before and I do not see anything new in this presentation. It uses a very simplistic approach and many important questions are left in this paper. Moreover, the authors missed many of the important developments done in SVD-based and other forms of permeability  parameterization in recent years. The authors are referred to many publications listed here.\\
-The paper also lacks comparison in computational effort, which is the main objective of such parameterization. For all of these reasons I am rejecting this paper for further publication.\\
+  \item Reviewer \#1: \\
+    \begin{enumerate}
+    \item The authors aim at reducing the computational cost of reservoir simulation by parameterizing the permeability field using SVD and they compare with the classical upscaling techniques. This very same topic has been investigated by several authors before and I do not see anything new in this presentation.\\
+      \blue {We are thankful for the reviewer's comments and we acknowledge that the topic as well as the content of the initial presentation primarily highlights only SVD for the permeability parameterization. In the updated manuscript, the topic has been reprased to differentiate the work from related topics and to help clarify the novelty in the research. Additionally, more information has been provided in the introduction section and the sub-sections titled ``Model Order Reduction/Principal Component Space Reduction''. The amendments made to deal with this issue make the following contribution to the manuscript}
+      \begin{enumerate}
+      \item \blue{It introduces ``Upscaling'' in the topic, acknowledges ``Upscaling'' as a method of MOR in the body of the manuscript and goes on to differenciate between upscaling a ``single'' realization of a permeability field from other existing parameterisation techniques which apply SVD to multiple realization of of a statistical representation using feature selection or elimination. Essentially, the authors present a case that all ``upscaling'' cases are a form of MOR (and therefore parameterization), however not all parameterization cases are upscaling. Crucially, the uniqueness of the work is in the manner in which the SVD (or HOSVD) is combined with linear regression to obtain a reduction in the permeability field (Please see \ref{R_R1_Novelty_P2}, ....... and ........), it is different from existing related works which impliment a selection or elimination concept with respect to SVD.}
+        \item \label{R_R1_Novelty_P2} \blue {next item in the list}
+      \end{enumerate}
+    \item It uses a very simplistic approach and many important questions are left in this paper.
+    \item Moreover, the authors missed many of the important developments done in SVD-based and other forms of permeability  parameterization in recent years. The authors are referred to many publications listed here.\\
 $[1]$ Insuasty, E., Van den Hof, P. M. J., Weiland, S., \& Jansen, J. D. (2017, February 20). Low-Dimensional Tensor Representations for the Estimation of Petrophysical Reservoir Parameters. Society of Petroleum Engineers. doi:10.2118/182707-MS\\
 $[2]$ Jafarpour, B., \& McLaughlin, D. B. (2009, March 1). Reservoir Characterization With the Discrete Cosine Transform. Society of Petroleum Engineers. doi:10.2118/106453-PA\\
 $[3]$ Sardar Afra, Eduardo Gildin, Tensor based geology preserving reservoir parameterization with Higher Order Singular Value Decomposition (HOSVD), Computers \& Geosciences, Volume 94, 2016, Pages 110-120,\\
 $[4]$  Tavakoli, R., \& Reynolds, A. C. (2010, June 1). History Matching With Parametrization Based on the SVD of a Dimensionless Sensitivity Matrix. Society of Petroleum Engineers. doi:10.2118/118952-PA\\
+\item The paper also lacks comparison in computational effort, which is the main objective of such parameterization. For all of these reasons I am rejecting this paper for further publication.\\
+    \end{enumerate}
+
+\item Reviewer \#2: \\
+  The manuscript looks at the problem of upscaling in flow in porous media. The heterogeneous properties of interest are characterised by the permeability of the porous media and a SVD-based method is used to prove that the proposed method outperforms, in terms of computational saving, other existing industry techniques. This topic is currently of high interest in the groundwater flow community and I think the audience of Applied Mathematical Modelling would be interested in learning about the results in the manuscript.\\
+  \begin{enumerate}
+    \item I might be overlooking something but my overall impression is that the novelty is claimed to be on the control volume finite element simulator, although later in the Introduction the authors refer the reader to an already published work [16]. My belief is that the paper reports on an application of some already existing methodologies such as the SVD technique. So that, this paper does not contain any advances in model reduction methodology. Said that, in the spirit of reproducible research it offers an independent assessment of traditional algorithm developments such as model order reduction. If this is not the case and I am wrong, then, I would suggest to clarify and discuss the novelty of this research where appropriate.\\
+    \item In general, I find the manuscript well written although in some parts (e.g., in the Abstract, Introduction and Section 3) it is perhaps too general and descriptive for a journal of applied mathematical modelling. This latter along with the lack of novelty are my main concerns. I would recommend to go deeper in the technical side and bring the material into a more scientific form of presentation.
+      \item I find unbalanced the battery of figures and plots provided in the manuscript with the degree of analysis of results given in the result section. I would select just the most relevant plots and would focus on comment those in more details in the result section.\\
+Based on this assessment, I recommend to invite the authors to review their material and bring it into a more suitable form of presentation for a journal of applied mathematics.\\
+\item Introduction: The last part motivating what is going to be done in the following sections is too extensive. This latter is supposed to be a summary.\\
+\item Section 2: This needs a more deep explanation of the numerical formulation which was claimed earlier to be novel and how the equations are coupled and the permeability modelled.\\
+\item Section 3: I find this section too descriptive, it could be part of the Introduction.\\
+\item Section 4: The SVD technique is broadly known by mathematicians. I would bring that part to an appendix or just remove it. Section 4.2.1 has to be edited properly. The permeability is a tensor if one decides to model it as a tensor. This is misleading. If you are going to use a 2D geometry, I recommend to start the description from a 2D setup directly. The same for the rest of points, 4.2.2 and 4.2.3. These are known techniques, I would be better (in my opinion) to provide an algorithm (or steps) with the procedure and giving the references accordingly for the SVD and principal component spaces as done in Section 5.
+\end{enumerate}
+\end{enumerate}
+}
 
 \encl{Cover\_letter\_for\_resubmission.pdf, Highlight\_revised.pdf, Manuscript\_sourceFiles(Makefile, Stochastic\_Upscaling\_UK\_AMM\_2018\_revised.tex, article\_/figure1.tex, Pics Folder, references.bib, elsarticle.cls, elsarticle-harv.bst)} % List your enclosed documents here, comment this out to get rid of the "encl:"
 
