@@ -1,0 +1,22 @@
+\documentclass[a4paper,11pt]{article}
+
+\newcommand{\ie}{{\it i.e., }}
+% define the title
+\author{B.~Lashore}
+\title{Highlights}
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+%\tableofcontents
+%\section{Some Interesting Words}
+
+\begin{enumerate}
+  \item Implemented a reduced order model (\ie{upscale}) of a permeability field by coupling linear regression with Principal Component Analysis, PCA (where PCA is obtained with singular value decomposition, SVD, for 2D cases and Higher Order Singular Value Decomposition, HOSVD, for 3D cases)
+  \item For the 2D Case, benchmarked the coupled PCA (using SVD) and linear regression method by comparing with Arithmetric mean, Harmonic mean, and Probability Density Function (PDF) models, as well as the BaseCase (which is the fine grid model for the 2D case)
+  \item For the 3D case, benchmarked the coupled PCA (using HOSVD) and linear regression method by comparing with the BaseCase (also known as the fine grid model for the 3D case)
+  \item A high-order accurate control volume FEM multiphase flow simulator was used to perform a qualitative comparision of the simulation results from the models for both the 2D and the 3D cases
+  \item The coupled PCA and linear regression model model presented a better representation compared to the other models 
+\end{enumerate}
+\end{document}
+
