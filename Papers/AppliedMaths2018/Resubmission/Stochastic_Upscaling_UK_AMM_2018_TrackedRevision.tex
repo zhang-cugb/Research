@@ -150,16 +150,16 @@
 
 Representation of heterogeneous properties (\ie permeability in this case) within a large system, is a challenge that cuts across many industries that deal with flows in porous media. This is because it is impossible to obtain the value of permeability at every point in realistic domains. And, even if this was possible, it would be extremely challenging to get the computing resources to make use of all available data values. This challenge gave birth to upscaling, a model order reduction method.
 
-In this paper, a single realization of a permeability field was upscaled by first projecting the permeability field into a principal component analysis space (using SVD for 2D field and HOSVD for 3D fields). Then linear regression was employed within each of the principal component spaces to obtain approximate representations of the initial principal component. The new principal components are then recombined to for a new permeability field with a reduced order. This PCA-linear regression method was compared to traditional industry-standard upscaling techniques (\eg arithmetic and harmonic averaging) and to a stochastic-based (probability density function, PDF) method of upscaling, to highlight its benefits/performance.
+In this paper,\red{\sout{a SVD-based method was developed to reduce the order of porous media permeability field (\ie{upscale})}} \blue{a single realization of a permeability field was upscaled by first projecting the permeability field into a principal component analysis space (using SVD for 2D field and HOSVD for 3D fields). Then linear regression was employed within each of the principal component spaces to obtain approximate representations of the initial principal component. The new principal components are then recombined to for a new permeability field with a reduced order.} This \blue{PCA-linear regression} method was compared to traditional industry-standard upscaling techniques (\eg arithmetic and harmonic averaging) and to a stochastic-based (probability density function, PDF) method of upscaling, to highlight its benefits/performance.
 
-It was shown that the new upscaling technique retained the heterogenous nature of the BaseCase (\ie high-resolution configuration). Additionally, the upscaling technique did not require {\it a priori} understanding of similar permeability blocks within the existing domain.  
+It was shown that the \red{\sout{SVD}} new upscaling technique retained the heterogenous nature of the BaseCase (\ie high-resolution configuration). Additionally, the \red{\sout{SVD}} upscaling technique did not require {\it a priori} understanding of similar permeability blocks within the existing domain.  
 
 \end{abstract}
 
 
 
 \begin{keyword} %% keywords here, in the form: keyword \sep keyword
-Principal Component Analysis (PCA) \sep Linear Regression \sep Higher-Order Singular Value Decomposition (HOSVD) \sep Upscaling \sep Reduced Order Models (ROM) \sep Permeability.  
+\blue{Principal Component Analysis (PCA)} \sep \blue{Linear Regression} \sep \blue{Higher-Order Singular Value Decomposition (HOSVD)} \sep Upscaling \sep Reduced Order Models (ROM) \sep Permeability.  
 \end{keyword}
  
 \end{frontmatter}
