@@ -139,7 +139,7 @@
 %% \fntext[label3]{}
 
 %\title{A Reduced Order Model for Porous Media Flows which Couples Linear Regression with Principal Component Analysis (PCA) using SVD or HOSVD: Upscaling the Permeability Field for Multiphase Reservoir Flow Simulation}
-\title{A Reduced Order Model for Porous Media Flows: Coupling Linear Regression with Principal Component Analysis (PCA) using High-Order Singular Value Decomposition (HOSVD) in Upscaling Calculations for Permeability in Reservoir Simulations}
+\title{A Reduced Order Model for Porous Media Flows: Coupling Linear Regression with Principal Component Analysis (PCA) using SVD or High-Order Singular Value Decomposition (HOSVD) in Upscaling Calculations for Permeability in Reservoir Simulations}
 \author[UoA]{B. Lashore\corref{cor1}}\ead{lashorebabatunde@yahoo.com} \author[UoA]{K. Christou} \author[UoA]{J.L.M.A. Gomes}
 \cortext[cor1]{Corresponding author.}
 \address[UoA]{Mechanics of Fluids, Soils \& Structures Research Group \\ School of Engineering, University of Aberdeen, UK}
@@ -270,7 +270,7 @@ Finally on the PCS, it is worth noting that two methods exist for obtaining PCA 
 
 \subsection{Principal Component Analysis Versus Linear Regression}\label{subsection:pcs_vs_linreg}
 
-\citet{AndrewNg_2018} was quoted to have said ``PCA is not linear regression, and despite some cosmetic similarity, these are actually totally different algorithms''. The main differences between these two mathematical methods is summarised in the Table~\ref{table:pca_vs_linreg} and can also be deduced from Figure XXX.
+\citet{AndrewNg_2018} was quoted to have said ``PCA is not linear regression, and despite some cosmetic similarity, these are actually totally different algorithms''. The main differences between these two mathematical methods is summarised in the Table~\ref{table:pca_vs_linreg} and can also be deduced from Figure~\ref{fig:PCA_is_not_LinReg}.
 
 \begin{table}[h!]
 \centering
@@ -288,10 +288,6 @@ Finally on the PCS, it is worth noting that two methods exist for obtaining PCA 
 \caption{Table comparing PCA with Linear Regression.}
 \label{table:pca_vs_linreg}
 \end{table}
-
-
-\red{I need to plot a figure here.}
-
 
 
 \section{Model Description and Simulation Setup}\label{section:model_simulation}
@@ -353,9 +349,9 @@ In all performed numerical simulations, the domain is initially fully saturated 
 \end{eqnarray}
 where subscripts $w$ and $nw$ stand for wetting and non-wetting phases, respectively. $\mathcal{K}^{\circ}_{rw}$ and $\mathcal{K}^{\circ}_{rnw}$ are end-point relative permeability to wetting and non-wetting phases, $S_{w,irr}$ and $S_{nw,r}$ are irreducible wetting and residual non-wetting phase saturations, respectively. Exponents $n_{w}$ and $n_{nw}$ are both set to 2.
 
-Figure~\ref{fig:PermFields} shows permeability mapping for all cases, whereas Figs.~\ref{fig:BaseCase_Saturation}-\ref{fig:SVDCase_Saturation} show phase saturation distribution during fluid injection for time,
+Figure~\ref{fig:PermFields} shows permeability mapping for all the 2-D cases, whereas Figs.~\ref{fig:BaseCase_Saturation}-\ref{fig:SVDCase_Saturation} show phase saturation distribution during fluid injection for time,
 \begin{displaymath}
-  t = 0.15,~0.30,~0.50,~1.15,~1.75\text{ and } 2.95 \text{ s for all cases.} 
+  t = 0.15,~0.30,~0.50,~1.15,~1.75\text{ and } 2.95 \text{ s for all the 2-D cases.} 
 \end{displaymath}
 
 Additionally, the number of \PN[1]{2} triangular element-pairs mesh resolution was reduced from $4112$ (BaseCase, Fig,~\ref{fig:HiRes_LowRes_Mesh}a) to $728$ (upscaled cases, Fig,~\ref{fig:HiRes_LowRes_Mesh}b), a reduction by a factor of approximately $5.6$.
@@ -363,7 +359,8 @@ Additionally, the number of \PN[1]{2} triangular element-pairs mesh resolution w
 \section{Results and Discussion}\label{section:results_discussion}
 After reduction of dimensionality of the permeability dataset using the methods described in Sections~\ref{subsection:pcspaces} and \ref{subsection:model}), numerical simulations were performed with Fluidity/IC-FERST model (see Section~\ref{section:mathematical_model} and \cite{Gomes_2017, jackson_2013,salinas_2018}).
 
-Figure~\ref{fig:PermFields} shows permeability distribution for all cases and highlights homogeneous representation resulting from arithmetic and harmonic averaged, Figs.~\ref{fig:PermFields}c-d, whereas PDFCase and PCA-LinReg cases (Figs.~\ref{fig:PermFields}e-f) are inherently heterogeneous. Given that the BaseCase is also heterogeneous, it can be stated that models for the PDFCase and PCA-LinReg Case give a qualitatively better representation of the permeability dataset within the BaseCase. An additional consequence of the homogeneity in the ArithMeanCase and the HarmMeanCase is that the coarsening has no influence on the resulting permeability distribution. However, in both, PDFCase and PCA-LinReg Case, permeability distribution will change as mesh resolution is reduced.
+\subsection{2-D Models and Simulations}\label{subsection:results_discussion_2d}
+Figure~\ref{fig:PermFields} shows permeability distribution for all the 2-D cases and highlights homogeneous representation resulting from arithmetic and harmonic averaged, Figs.~\ref{fig:PermFields}c-d, whereas PDFCase and PCA-LinReg cases (Figs.~\ref{fig:PermFields}e-f) are inherently heterogeneous. Given that the BaseCase is also heterogeneous, it can be stated that models for the PDFCase and PCA-LinReg Case give a qualitatively better representation of the permeability dataset within the BaseCase. An additional consequence of the homogeneity in the ArithMeanCase and the HarmMeanCase is that the coarsening has no influence on the resulting permeability distribution. However, in both, PDFCase and PCA-LinReg Case, permeability distribution will change as mesh resolution is reduced.
 
 \medskip
 With respect to the PDFCase and for this specific resolution, it is important to note that Fig.~\ref{fig:PermFields}(e) is only one realiztion of infinitely many possible representations of the PDFCase. Meanwhile, the PCA-LinReg Case will retain this specific permeability distribution (\ie Fig.~\ref{fig:PermFields}(e)) for such mesh resolution (\ie if linear interpolation is used, but this digresses from the aim of this work and it will be discussed in future publications). Therefore, the permeability value at a specific point in the PDFCase is not directly related to the data value at the nearest point in the BaseCase because the randomly generated PDF dataset is also randomly arranged within each block. However, the data value at a point in the PCA-LinReg Case is directly related to the nearest data values with respect to the same point in the BaseCase, throught the interpolation which takes place in the PCS.
@@ -380,17 +377,40 @@ Before discuss flow simulation results with permeability distribution resulted f
 
 Figures~\ref{fig:BaseCase_Saturation}-\ref{fig:SVDCase_Saturation} show snapshots of phase 1 (\ie injected or displacing fluid) saturation field for all studied cases. In Figs.~\ref{fig:BaseCase_Saturation}-\ref{fig:SVDCase_Saturation}a-b, even though fluid is injected at the same rate across the left face it travels faster in $K1$ compared to $K2$. Figures~\ref{fig:BaseCase_Saturation}-\ref{fig:SVDCase_Saturation}c show that the fluid experiences a resistance to flow at the interface between $K1$ and $K3$ (due to lower permeability at $K2$ and $K3$) which encourages the flow into $K4$ (\ie bottom-right block, Figs.~\ref{fig:BaseCase_Saturation}-\ref{fig:SVDCase_Saturation}d-e). Figures~\ref{fig:BaseCase_Saturation}-\ref{fig:SVDCase_Saturation} (f) indicates preferential flow in $K4$ compared to $K3$.
 
-Figure~\ref{fig:Saturationfield@t=1.15s} compares phase 1 saturation distribution for all cases at $t=1.15s$. Generally, saturation distribution for all cases closely resemble each other with arithmetic and harmonic mean (Figs.~\ref{fig:Saturationfield@t=1.15s}b-c) being nearly identical. Albeit, closer inspection will reveal that there is more displacement in Fig.~\ref{fig:Saturationfield@t=1.15s}b compared to Fig.~\ref{fig:Saturationfield@t=1.15s}c. This is logical giving that the block mean values calculated for arithmetic mean is higher than that for harmonic mean. However, the important feature of Figs.~\ref{fig:Saturationfield@t=1.15s}b-c is that they poorly represent the BaseCase (Fig.~\ref{fig:Saturationfield@t=1.15s}a) at the top left hand-side corner of block $K2$.
+Figure~\ref{fig:Saturationfield@t=1.15s} compares phase 1 saturation distribution for all the 2-D cases at $t=1.15s$. Generally, saturation distribution for all the 2-D cases closely resemble each other with arithmetic and harmonic mean (Figs.~\ref{fig:Saturationfield@t=1.15s}b-c) being nearly identical. Albeit, closer inspection will reveal that there is more displacement in Fig.~\ref{fig:Saturationfield@t=1.15s}b compared to Fig.~\ref{fig:Saturationfield@t=1.15s}c. This is logical giving that the block mean values calculated for arithmetic mean is higher than that for harmonic mean. However, the important feature of Figs.~\ref{fig:Saturationfield@t=1.15s}b-c is that they poorly represent the BaseCase (Fig.~\ref{fig:Saturationfield@t=1.15s}a) at the top left hand-side corner of block $K2$.
 
 Figure~\ref{fig:Saturationfield@t=1.15s}d also shows an inconsistency with the BaseCase (Fig.~\ref{fig:Saturationfield@t=1.15s}a) where it shows phase 1 moving from block $K2$ into $K4$. This inconsistency is with respect to this realization of the PDFCase. Hence, PCA-LinReg Case in Fig.~\ref{fig:Saturationfield@t=1.15s}e gives the best representation of the BaseCase in \ie Fig.~\ref{fig:Saturationfield@t=1.15s}a.
 
-\red{HOSVD????HOSVD????HOSVD????HOSVD????HOSVD????}
+\subsection{3-D Models and Simulations}\label{subsection:results_discussion_3d}
+
+Following on from the work described for the 2-D models and simulations, Figure~\ref{fig:HiRes_LowRes_3D_Mesh}(a) and (b) presents the mesh grid for building the 3-D models. Figure~\ref{fig:HiRes_LowRes_3D_Mesh}(a), with 2109 tetrahedral elements, is the high resolution grid and is used to run the simulation for the 3-D base case. While Figure~\ref{fig:HiRes_LowRes_3D_Mesh}(b), with 303 tetrahedral elements, is the low resolution grid used to run the simulation for the 3-D PCA(using HOSVD)-LinReg case. The number of tetrahedral elements for the low grid resolution grid is approximately $7$ times less than that for the high resolution grid.
+
+Figure~\ref{fig:3D_PermFields} shows the permeability distribution for the 3-D cases. The aim here is to show that the PCA-LinReg model, previously obtained with SVD for the 2-D case is obtainable with HOSVD for a 3-D model. Therefore, we only concentrate on one upscaling case for the 3-D model, that is the PCA (using HOSVD) LinReg Model which is in Figure~\ref{fig:3D_PermFields}(b). When this model is compared to the base case, Figure~\ref{fig:3D_PermFields}(a), the same advantages of PCA-LinReg model from the 2-D case are observable. For example:
+\begin{enumerate}
+\item The model retains heterogeneity within each region
+\item A single realization will be obtained for the same upgrid resolution
+  \item The correlation to local heterogeniety in the base case is maintained
+\end{enumerate}
+
+Figure~\ref{fig:Saturationfield4_3DCases}(a)-(c) and Figure~\ref{fig:Saturationfield4_3DCases}(d)-(f) show the phase 1 saturation distribution for the base case at PCA(using HOSVD)-LinReg case for time,
+
+\begin{displaymath}
+  t = 0.18,~0.28\text{ and } 0.42 \text{ s.} 
+\end{displaymath}
+
+Figure~\ref{fig:Saturationfield4_3DCases}(a) and (d), which represent the phase 1 saturation distribution for the base case and the 3-D PCA-LinReg case respectively at time $t = 0.18$, retain the mesh grid to give a more details view of the flow pattern. Comparing, Figure~\ref{fig:Saturationfield4_3DCases}(b) and (e) as well as Figure~\ref{fig:Saturationfield4_3DCases}(c) and (f) indicates that the 3-D PCA-LinReg model gives a good representation of the flow pattern. A detailed quantitative analysis of this upscaled model will be presented in the authors' future work.
+
+\subsection{Computational Cost}\label{subsection:comp_effort}
+
+An accurate measure of the CPU cost is not available at this time, however a general note can be made regarding the savings in computational costs with respect to the upgridding resolution.
+
+The 2-D base case which had $4112$ elements was run for about $7$ hours while the upscaled 2-D case were completed under $20$ minutes. For the 3-D case, the base case which had $2109$ elements required about $6$ days to run while the upscaled 3-D case was completed in under $6$ hours.
 
 \section{Conclusion}\label{section:conclusion}
 
 Upscaling is a form of reduced order model. A method of implementing upscaling by coupling linear regression with PCA is introduced in this work. For a 2-D model, SVD is used to decompose the existing permeability field to obtain the PCA space, while HOSVD is used for 3-D models. Within, the PCA space, linear regression (or interpolation) is used to reduce data in PCA space. The reduced data in the PCS is then recombined to form a reduced data of the permeability dataset.
 
-Results show that the permeability field data reduction can be specifically defined for the PDFCase and the PCA-LinReg Case but not for the ArithMeanCase and the HarmMeanCase. This is because the latter cases will produce the same permeability dataset irrespective of the coarser resolution. The PCA-LinReg Case is the only technique that does not require a prior knowledge of blocks with similar permeability distribution before upscaling. This is a lareg advantage as it saves time during data pre-processing stages because sorting and calculations for each distinct region is avoided. 
+Results show that the permeability field data reduction can be specifically defined for the PDFCase and the PCA-LinReg Case but not for the ArithMeanCase and the HarmMeanCase. This is because the latter cases will produce the same permeability dataset irrespective of the coarser resolution. The PCA-LinReg Case is the only technique that does not require a prior knowledge of blocks with similar permeability distribution before upscaling. This is a huge advantage as it saves time during data pre-processing stages because sorting and calculations for each distinct region is avoided. 
 
 The author's future work will provide a quantitative analysis of the results obtained from the coupled PCA-Linear regression method. Additionally, future work will present other methods which follow a similar principle but also seek to optimize the quantitative results obtained.
  
