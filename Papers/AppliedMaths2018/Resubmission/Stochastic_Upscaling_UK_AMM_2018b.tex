@@ -266,7 +266,7 @@ For the PCA-Linear regression reduced order model (PCA-LinReg) of the permeabili
 
 These two steps can be readily replicated for 3-D models using HOSVD to obtain the PCA space.
 
-Finally on the PCS, it is worth noting that two methods exist for obtaining PCA space\cite{Tharwat_2016} , namely, the co-variance method and the SVD method. \citet{Tharwat_2016} goes on to describe both methods in details. In this work, the authors have opted to use the SVD method to obtain the PCA space. This is because the singular vectors which make up the PCS have a strong correlation to the coordinate axis they represent. This was exploited in making the assumption that a linear relationship exist for the data in each of the PC spaces, hence the linear regression performed to reduce the data in the PCS. 
+Finally on the PCS, it is worth noting that two methods exist for obtaining PCA space: co-variance and SVD methods (see \cite{Tharwat_2016} detailed description of both methods). In this work, the authors have opted to use the SVD method to obtain the PCA space, as singular vectors which make up the PCS have strong correlation to the coordinate axis they represent. This was exploited in making the assumption that a linear relationship exist for the data in each of the PC spaces, hence the linear regression performed to reduce the data in the PCS. 
 
 \subsection{Principal Component Analysis Versus Linear Regression}\label{subsection:pcs_vs_linreg}
 
