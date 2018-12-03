@@ -348,14 +348,14 @@ The algorithm for 3-D case is similar to that of the 2-D case described previous
 The authors found that the Tensorly library package \cite{Tensorly_2018} helpful for implementation of the HOSVD algorithm.
 
 \subsection{Simulations}\label{subsection:simulations}
-For the simulations, each of the model's domain is initially fully saturated with a fluid (Phase 2), and a wetting phase (1) fluid is driven into the domain from the left hand side at a constant mass flow rate. No-flux boundary conditions were imposed on the upper and lower borders of each domain, while mixed fluids are recovered from the right-hand face of the domain. Relative permeability, $\mathcal{K}_{r\alpha}$ (Eqn.~\ref{e:darcy_eqn}), which is often expressed as a function of local, residual and maximum phase saturations prescribed in the pore rock matrix. In the simulations conducted for this work, the modified \citet{Brooks_1964} model was used \citep{alpak_1999},
+In all performed numerical simulations, the domain is initially fully saturated with a fluid (Phase 2), and a wetting phase (1) fluid is driven into the domain from the left hand side at a constant mass flow rate. A no-flux boundary conditions were imposed on upper and lower borders of the domain, while mixed fluids left the domain from the right-hand border of the domain. Relative permeability, $\mathcal{K}_{r\alpha}$ (Eqn.~\ref{e:darcy_eqn}), which is often expressed as a function of local, residual and maximum phase saturations, is described in the pore rock matrix by the modified \citet{Brooks_1964} (see \citep{alpak_1999}),
 \begin{eqnarray}
   \mathcal{K}_{rw}\left(S_{w}\right) &=& \mathcal{K}^{\circ}_{rw}\left[\frc{S_{w}-S_{w,irr}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{w}}, \label{Eqn:CoreyBrooks1}\\
   \mathcal{K}_{rnw}\left(S_{nw}\right) &=& \mathcal{K}^{\circ}_{rnw}\left[\frc{S_{nw}-S_{nw,r}}{1-S_{w,irr}-S_{nw,r}}\right]^{n_{nw}}, \label{Eqn:CoreyBrooks2}
 \end{eqnarray}
 where subscripts $w$ and $nw$ stand for wetting and non-wetting phases, respectively. $\mathcal{K}^{\circ}_{rw}$ and $\mathcal{K}^{\circ}_{rnw}$ are end-point relative permeability to wetting and non-wetting phases, $S_{w,irr}$ and $S_{nw,r}$ are irreducible wetting and residual non-wetting phase saturations, respectively. Exponents $n_{w}$ and $n_{nw}$ are both set to 2.
 
-Figure~\ref{fig:PermFields} shows permeability mapping for all cases, while Figs.~\ref{fig:BaseCase_Saturation}-\ref{fig:SVDCase_Saturation} show phase saturation distribution during fluid injection for time,
+Figure~\ref{fig:PermFields} shows permeability mapping for all cases, whereas Figs.~\ref{fig:BaseCase_Saturation}-\ref{fig:SVDCase_Saturation} show phase saturation distribution during fluid injection for time,
 \begin{displaymath}
   t = 0.15,~0.30,~0.50,~1.15,~1.75\text{ and } 2.95 \text{ s for all cases.} 
 \end{displaymath}
