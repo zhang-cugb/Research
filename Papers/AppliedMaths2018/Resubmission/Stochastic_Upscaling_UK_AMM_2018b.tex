@@ -340,12 +340,12 @@ As previously mentioned, four upscaled techniques applied to permeability datase
 
 
 \subsubsection{3-D PCA (\ie{using HOSVD}) \& LinReg Case Pre-processing Algorithm}\label{subsubsection:hosvdcase_preprocess_algorithm}
-The algorithm for the 3-D case is similar to that of the 2-D case described above. However:
-\begin{description}
-  \item[Step 1:] In {\it Step 1} of Section~\ref{subsubsection:svdcase_preprocess_algorithm}, HOSVD method is used for factorization instead of SVD. Therefore, a $3 \times 3$ core tensor is obtained in place of the $\mathbf{\Sigma}$ term, while 3 factor matrices are obtained in place of $\mathbf{U}$ and $\mathbf{V}$;
-  \item[Step 2:] The core tensor is treated as the $\mathbf{\Sigma}$ term, while the 3 factor matrices are treated similarly to $\mathbf{U}$ and $\mathbf{V}$ as described in Section~\ref{subsubsection:svdcase_preprocess_algorithm}.
-\end{description}
-The authors found the updated Tensorly library package \cite{Tensorly_2018} helpful in implimenting and executing the algorithm for HOSVD.
+The algorithm for 3-D case is similar to that of the 2-D case described previously. However:
+\begin{enumerate}[1.]
+  \item In {\it Step 1} of Section~\ref{subsubsection:svdcase_preprocess_algorithm}, HOSVD method is used for factorization instead of SVD. Therefore, a $3 \times 3$ core tensor is obtained in place of the $\mathbf{\Sigma}$ term, while 3 factor matrices are obtained in place of $\mathbf{U}$ and $\mathbf{V}$;
+  \item The core tensor is treated as the $\mathbf{\Sigma}$ term, while the 3 factor matrices are treated similarly to $\mathbf{U}$ and $\mathbf{V}$ as described in Section~\ref{subsubsection:svdcase_preprocess_algorithm}.
+\end{enumerate}
+The authors found that the Tensorly library package \cite{Tensorly_2018} helpful for implementation of the HOSVD algorithm.
 
 \subsection{Simulations}\label{subsection:simulations}
 For the simulations, each of the model's domain is initially fully saturated with a fluid (Phase 2), and a wetting phase (1) fluid is driven into the domain from the left hand side at a constant mass flow rate. No-flux boundary conditions were imposed on the upper and lower borders of each domain, while mixed fluids are recovered from the right-hand face of the domain. Relative permeability, $\mathcal{K}_{r\alpha}$ (Eqn.~\ref{e:darcy_eqn}), which is often expressed as a function of local, residual and maximum phase saturations prescribed in the pore rock matrix. In the simulations conducted for this work, the modified \citet{Brooks_1964} model was used \citep{alpak_1999},
