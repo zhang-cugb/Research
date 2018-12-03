@@ -256,15 +256,15 @@ Essentially, the existing permeability space is transformed (with SVD and HOSVD 
 The PCS is a particularly challenging to visualize as it represents projections which are embedded in SVD/HOSVD factors of the original permeability dataset. An aid for visualizing the PCS for a 2D permeability data is to write out $\mathbf{U}$, $\mathbf{\Sigma}$ and $\mathbf{V^{\intercal}}$ matrices (or SVD factors) and consider the singular vectors (\ie columns in $\mathbf{U}$ and rows in $\mathbf{V^{\intercal}}$) as separate PCS. A similar procedure can be extended to HOSVD for 3D permeability dataset. The decomposition of a matrix into its factors using SVD \cite{Cline_2007, Tharwat_2016} or HOSVD \cite{Kolda_2009, Lathauwer_2000} is covered in details in several published materials. However, for completeness, \ref{subsection:svd_brief} and \ref{subsection:hosvd_brief} contain brief overviews of SVD and HOSVD, respectively.
 
 \subsubsection{Reduced Order Model/Principal Component Space Reduction}\label{subsubsection:pca_dimred_linreg}
-For the PCA-Linear regression (PCA-LinReg) reduced order model of the permeability field, all the work is done in the principal component spaces. This can be completed in two steps, which is exemplified for the 2D model thus:
-\begin{enumerate}
-  \item The first step is the principal component analysis (PCA) \cite{Hotelling_1933, Tharwat_2016} using the SVD method, where the singular values are examined and, based on a pre-defined criteria, $z$ singular values are selected, starting from $\sigma_{1}$ and in a decreasing order, where $z \leq r$.
+For the PCA-Linear regression reduced order model (PCA-LinReg) of the permeability data, all work is performed in PCS. This can be conducted in two steps (for 2-D models), thus:
+\begin{description}
+  \item[Step 1:] The first step is the principal component analysis (PCA) \cite{Hotelling_1933, Tharwat_2016} using the SVD method, where the singular values are examined and, based on a pre-defined criteria, $z$ singular values are selected, starting from $\sigma_{1}$ and in a decreasing order, where $z \leq r$.
 
 Note that, in the case with $z = r$, it can be assumed that step 1 has been ignored. However, when $z < r$, the first $z$ columns of $\mathbf{U}$ and the first $z$ rows of $\mathbf{V^{\intercal}}$ are extracted from $\mathbf{U}$ and $\mathbf{V^{\intercal}}$ to form new matrices $\mathbf{U_{new}}$ and $\mathbf{V^{\intercal}_{new}}$ respectively. The selected $z$ singular values also form a new diagonal matrix, $\mathbf{\Sigma_{new}}$ .
 
-\item The second step involves interpolation within each singular vector (column in $\mathbf{U}$ and row in $\mathbf{V^{\intercal}}$) to reduce the data points in each column of  $\mathbf{U}$ and in $\mathbf{V^{\intercal}}$. From this step,  $\mathbf{U_{new2}}$ and $\mathbf{V^{\intercal}_{new2}}$ are obtained. The reduced permeability field is calculated by multiplying  $\mathbf{U_{new2}}$, $\mathbf{\Sigma_{new}}$ and $\mathbf{V^{\intercal}_{new2}}$.
+\item[Step 2:] The second step involves interpolation within each singular vector (column in $\mathbf{U}$ and row in $\mathbf{V^{\intercal}}$) to reduce the data points in each column of  $\mathbf{U}$ and in $\mathbf{V^{\intercal}}$. From this step,  $\mathbf{U_{new2}}$ and $\mathbf{V^{\intercal}_{new2}}$ are obtained. The reduced permeability field is calculated by multiplying  $\mathbf{U_{new2}}$, $\mathbf{\Sigma_{new}}$ and $\mathbf{V^{\intercal}_{new2}}$.
 
-\end{enumerate}
+\end{description}
 
 It is trivial to show that these two steps can be replicated for a 3-D model using HOSVD to obtain the PCA space.\\
 
