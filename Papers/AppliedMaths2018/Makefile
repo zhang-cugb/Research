@@ -1,6 +1,14 @@
-default:	Stochastic_Upscaling_UK_AMM_2018.pdf
+default:	Stochastic_Upscaling_UK_AMM_2018.pdf\
+		Stochastic_Upscaling_UK_AMM_2018_submitted20Apr2018.pdf\
+		Stochastic_Upscaling_UK_AMM_2018b.pdf\
+		Highlights.pdf cover_letter.pdf
 
 Stochastic_Upscaling_UK_AMM_2018.pdf:	Stochastic_Upscaling_UK_AMM_2018.tex
+Stochastic_Upscaling_UK_AMM_2018b.pdf:	Stochastic_Upscaling_UK_AMM_2018b.tex
+Stochastic_Upscaling_UK_AMM_2018_submitted20Apr2018.pdf:	Stochastic_Upscaling_UK_AMM_2018_submitted20Apr2018.pdf
+Highlights.pdf:				Highlights.tex
+cover_letter.pdf:			cover_letter.tex 
+
 
 %.pdf:	%.tex
 	rm -f $*.pdf
