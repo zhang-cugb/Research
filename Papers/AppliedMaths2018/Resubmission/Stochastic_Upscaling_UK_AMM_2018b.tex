@@ -306,8 +306,6 @@ Furthermore, within each block, permeability dataset varies within a pre-defined
 
 As previously mentioned, four upscaled techniques applied to permeability dataset were obtained from the high-resolution (\ie the BaseCase) configuration. Prior to upscaling, mesh resolution of the BaseCase configuration was coarsened, Fig.~\ref{fig:HiRes_LowRes_Mesh}, in which the number of triangular elements was reduced from 4112 to 728. Arithmetic (ArithMean) and harmonic (HarmMean) averaging methods were initially applied to the BaseCase configuration. In both sets of test-cases, averages are calculated for each block using the $1600$ data points from the blocks of the BaseCase to obtain permeability values for each block in the upscaled models. This effectively homogenized the permeability dataset in each block. Permeability dataset was also upscaled using probability density function (PDFCase) and SVD (PCA-LinReg Case). Description of these models are introduced in Sections~\ref{subsubsection:pdfcase_preprocess_algorithm}-\ref{subsubsection:svdcase_preprocess_algorithm}. Different from ArithMean and HarmMeanand, PDFCase and PCA-LinReg Case are able to retain heterogeneity within each block.
 
-
-
 \subsubsection{BaseCase Pre-processing Algorithm}\label{subsubsection:basecase_preprocess_algorithm}
 \begin{description}
   \item[Step 1:] A function is used to randomly generate uniform (\ie Gaussian) dataset for each block. The range for each block is as below:
@@ -363,7 +361,7 @@ Figure~\ref{fig:PermFields} shows permeability mapping for all cases, whereas Fi
 Additionally, the number of \PN[1]{2} triangular element-pairs mesh resolution was reduced from $4112$ (BaseCase, Fig,~\ref{fig:HiRes_LowRes_Mesh}a) to $728$ (upscaled cases, Fig,~\ref{fig:HiRes_LowRes_Mesh}b), a reduction by a factor of approximately $5.6$.
 
 \section{Results and Discussion}\label{section:results_discussion}
-
+After reduction of dimensionality of the permeability dataset using the methods described in Sections~\ref{subsection:pcspaces} and \ref{subsection:model}), numerical simulations were performed with Fluidity/IC-FERST model (see Section~\ref{section:mathematical_model} and \cite{Gomes_2017, jackson_2013,salinas_2018}).
 
 Figure~\ref{fig:PermFields} compares the permeability distribution for all the models. As indicated in the figure's caption, the permeability legend in Fig.~\ref{fig:PermFields}(a) is representative for all the other figures (\ie Fig.~\ref{fig:PermFields}(b) to (f)). Additionally, Fig.~\ref{fig:PermFields}(b) to (f) show the cases without the element edges which discretize the domain.
 
