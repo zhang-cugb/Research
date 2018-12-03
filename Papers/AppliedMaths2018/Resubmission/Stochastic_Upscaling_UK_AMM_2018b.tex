@@ -309,34 +309,34 @@ As previously mentioned, four upscaled techniques applied to permeability datase
 
 
 \subsubsection{BaseCase Pre-processing Algorithm}\label{subsubsection:basecase_preprocess_algorithm}
-\begin{enumerate}[1.]
-  \item A function is used to randomly generate uniform (\ie Gaussian) dataset for each block. The range for each block is as below:
+\begin{description}
+  \item[Step 1:] A function is used to randomly generate uniform (\ie Gaussian) dataset for each block. The range for each block is as below:
   \begin{enumerate}[a)]
-    \item \textbf{K1} : $700 - 900$ mD
-    \item \textbf{K2} : $50 - 150$ mD
-    \item \textbf{K3} : $100 - 200$ mD
-    \item \textbf{K4} : $1000 - 1200$ mD
+    \item \textbf{K1} : $700 - 900$ mD;
+    \item \textbf{K2} : $50 - 150$ mD;
+    \item \textbf{K3} : $100 - 200$ mD;
+    \item \textbf{K4} : $1000 - 1200$ mD;
   \end{enumerate}                                                    
-  \item The number of data points generated for each block is $1600$ and the data values are randomly allocated within each block in a structured pattern. Albeit, the simulation mesh is unstructured.
-  \item Merge the dataset from different blocks into a single file retaining the original ``structured pattern'' (in step 1 above) for the randomly positioned dataset for each block. This file will be used by the CVFEM-based flow simulator to prescribe the permeability field for the base case.
-\end{enumerate}
+  \item[Step 2:] The number of data points generated for each block is $1600$, and data is randomly distributed within each block in a structured pattern. Albeit, the mesh is unstructured;
+  \item[Step 3:] Merge the dataset from different blocks into a single file retaining the original ``structured pattern'' ({\it Step 1}) for the randomly positioned dataset for each block. This data-structure will be used by the CVFEM-based flow simulator to prescribe the permeability dataset for the BaseCase configuration.
+\end{description}
 
 \subsubsection{PDFCase Pre-processing Algorithm}\label{subsubsection:pdfcase_preprocess_algorithm}
-\begin{enumerate}[1.]
-  \item The datasets from step one of the pre-processing algorithm for the base case (Section~\ref{subsubsection:basecase_preprocess_algorithm}) are used to calculate mean and standard deviation for each block of the permeability field.
-  \item A function which generates a Gaussian dataset using arithmetic mean and standard deviation is used to stochastically produce a quarter of the data points from the BaseCase for each of the four blocks  (\ie $400$ data points for each block).
-  \item The data values in the dataset for each block is randomly positioned within each block in a structured pattern. As in the base case, the simulation grid is unstructured.
-  \item Finally, the structured/arranged dataset from each block is combined into a single file and then used by the flow simulator, which merge the permeability mapping to the mesh with the appropriate element-pairs.
-\end{enumerate}
+\begin{description}
+  \item[Step 1:] Datasets from {\it Step 1} of Section~\ref{subsubsection:basecase_preprocess_algorithm} are used to calculate mean and standard deviation for each block of permeability data;
+  \item[Step 2:] A function which generates a Gaussian dataset using arithmetic mean and standard deviation is used to stochastically produce a quarter of the data points from the BaseCase configuration for each of the four blocks (\ie $400$ data points for each block);
+  \item[Step 3:] Data values in the dataset for each block is randomly positioned within each block in a structured pattern. Similarly to the BaseCase configuration, simulation mesh grid is also unstructured;
+  \item[Step 4:] Finally, the structured/arranged dataset from each block is combined into a single data-structure and then used by the flow simulator, which merge the permeability mapping to the mesh with the appropriate element-pairs (in simulations shown here, \PN[1]{2} and \PNDG[1]{1} element-pairs are used).
+\end{description}
 
-\subsubsection{2-D PCA (\ie{using SVD}) \& LinReg Case Pre-processing Algorithm}\label{subsubsection:svdcase_preprocess_algorithm}
-\begin{enumerate}[1.]
-  \item The permeability field obtained in step 3 of the pre-processing algorithm for the base case is factorized using SVD to obtain $\mathbf{U}, \Sigma,$ and $\mathbf{V}$.
-  \item A selected number ($z$) of singular values are retained in decreasing order of magnitude to form a new diagonal matrix, $\Sigma_{new}$. (This step is optional, it is the conventional PCA dimensionality reduction)
-  \item The first $z$ columns of $\mathbf{U}$ and $\mathbf{V}$ are selected to form new truncated matrices call $\mathbf{U_{new}}$ and $\mathbf{V_{new}}$ respectively. (This step is necessary only if the optional step in 2 above is executed)
-  \item Within each column of $\mathbf{U_{new}}$ and $\mathbf{V_{new}}$, a linear interpolation is performed to form a new column with the number of data points in each column reduced to half of the original column. These new columns are recombined to form $\mathbf{U_{new2}}$ and $\mathbf{V_{new2}}$.
-  \item The permeability field used for the SVD case is the matrix $\mathbf{A_{new2}}$, which is defined as the product of $\mathbf{U_{new2}} \mathbf{\Sigma_{new}} \mathbf{V_{new2}^{\intercal}}$. It is a permeability field with a quarter of the data values in the base case and therefore a permeability field with reduced order.  
-\end{enumerate}
+\subsubsection{2-D PCA (SVD) \& LinReg Case Pre-processing Algorithm}\label{subsubsection:svdcase_preprocess_algorithm}
+\begin{description}
+  \item[Step 1:] Permeability data obtained in {\it Step 3}  of Section~\ref{subsubsection:basecase_preprocess_algorithm} is factorized using SVD method to obtain $\mathbf{U}, \Sigma,$ and $\mathbf{V}$;
+  \item[Step 2:] A selected number ($z$) of singular values are retained in decreasing order of magnitude to form a new diagonal matrix, $\Sigma_{new}$ (this step is optional as it is the conventional PCA dimensionality reduction);
+  \item[Step 3:] First $z$ columns of $\mathbf{U}$ and $\mathbf{V}$ are selected to form new truncated matrices called $\mathbf{U_{new}}$ and $\mathbf{V_{new}}$, respectively. This step is necessary only if the optional step in 2 above is executed;
+  \item[Step 4:] Within each column of $\mathbf{U_{new}}$ and $\mathbf{V_{new}}$, a linear interpolation is performed to form a new column with the number of data points in each column reduced to half of the original column. These new columns are recombined to form $\mathbf{U_{new2}}$ and $\mathbf{V_{new2}}$;
+  \item[Step 5:] Permeability dataset used for the PCA-LinReg Case is the matrix $\mathbf{A_{new2}}$, which is defined as the product of $\mathbf{U_{new2}} \mathbf{\Sigma_{new}} \mathbf{V_{new2}^{\intercal}}$. It is a permeability dataset with a quarter of the data values of the BaseCase, \ie a permeability dataset with reduced order.  
+\end{description}
 
 
 \subsubsection{3-D PCA (\ie{using HOSVD}) \& LinReg Case Pre-processing Algorithm}\label{subsubsection:hosvdcase_preprocess_algorithm}
