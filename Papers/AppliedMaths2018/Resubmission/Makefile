@@ -1,10 +1,10 @@
-default:	Stochastic_Upscaling_UK_AMM_2018.pdf\
-		Stochastic_Upscaling_UK_AMM_2018b.pdf\
+default:	Stochastic_Upscaling_UK_AMM_2018_revised.pdf\
+                Stochastic_Upscaling_UK_AMM_2018_TrackedRevision.pdf\
 		cover_letter_for_resubmission.pdf\
 		Highlights_resubmission.pdf
 
-Stochastic_Upscaling_UK_AMM_2018.pdf:	Stochastic_Upscaling_UK_AMM_2018.tex
-Stochastic_Upscaling_UK_AMM_2018b.pdf:	Stochastic_Upscaling_UK_AMM_2018b.tex
+Stochastic_Upscaling_UK_AMM_2018_revised.pdf:	Stochastic_Upscaling_UK_AMM_2018_revised.tex
+Stochastic_Upscaling_UK_AMM_2018_TrackedRevision.pdf:	Stochastic_Upscaling_UK_AMM_2018_TrackedRevision.tex
 cover_letter_for_resubmission.pdf:	cover_letter_for_resubmission.tex
 Highlights_resubmission.pdf:		Highlights_resubmission.tex
 
