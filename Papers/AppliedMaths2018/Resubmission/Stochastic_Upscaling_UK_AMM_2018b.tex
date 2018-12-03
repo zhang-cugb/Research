@@ -363,7 +363,10 @@ Additionally, the number of \PN[1]{2} triangular element-pairs mesh resolution w
 \section{Results and Discussion}\label{section:results_discussion}
 After reduction of dimensionality of the permeability dataset using the methods described in Sections~\ref{subsection:pcspaces} and \ref{subsection:model}), numerical simulations were performed with Fluidity/IC-FERST model (see Section~\ref{section:mathematical_model} and \cite{Gomes_2017, jackson_2013,salinas_2018}).
 
-Figure~\ref{fig:PermFields} compares the permeability distribution for all the models. As indicated in the figure's caption, the permeability legend in Fig.~\ref{fig:PermFields}(a) is representative for all the other figures (\ie Fig.~\ref{fig:PermFields}(b) to (f)). Additionally, Fig.~\ref{fig:PermFields}(b) to (f) show the cases without the element edges which discretize the domain.
+Figure~\ref{fig:PermFields} show permeability distribution for cases simulated here
+
+
+compares the permeability distribution for all the models. As indicated in the figure's caption, the permeability legend in Fig.~\ref{fig:PermFields}(a) is representative for all the other figures (\ie Fig.~\ref{fig:PermFields}(b) to (f)). Additionally, Fig.~\ref{fig:PermFields}(b) to (f) show the cases without the element edges which discretize the domain.
 
 This highlights the fact that the permeability distribution of the ArithMean and HarmMean cases, Fig.~\ref{fig:PermFields}(c) and (d), are homogeneous within each block, while PDFCase and PCA-LinReg cases, Fig.~\ref{fig:PermFields}(e) and (f), are heterogeneous. Given that the BaseCase is also heterogeneous, it can be stated that the model for the PDFCase and the PCA-LinReg Case give a better representation of the BaseCase. An additional consequence of the homogeneity in the ArithMeanCase and the HarmMeanCase is that the upgrid size has no influence on the outcome of their permeability distribution. Whereas, for the PDFCase and the PCA-LinReg Case, the permeability field will change if the upgrid resolution changes.
 
