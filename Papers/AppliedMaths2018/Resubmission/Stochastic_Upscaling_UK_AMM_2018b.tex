@@ -231,7 +231,7 @@ In addition to the extended Darcy equation (Eqn.~\ref{e:darcy_eqn}), saturation 
   s_{cty,\alpha},
   \label{saturation_equation}
 \end{equation}
-are discretised in space with CV basis functions, and in time with the $\theta$-method \cite{pavlidis_2016}. In Eqn.~\ref{saturation_equation}, $\phi$ is the porosity and $s_{cty}$ is a source term.
+are discretised in space with CV basis functions, and in time with the $\theta$-method \cite{pavlidis2016}. In Eqn.~\ref{saturation_equation}, $\phi$ is the porosity and $s_{cty}$ is a source term.
 
 \medskip
 The discretised saturation and Darcy equations are solved using a multigrid-like approach as described by \citeauthor{pavlidis2016}~\cite{pavlidis2016}. The numerical formulation is fully described by \citeauthor{Gomes_2017}~\cite{Gomes_2017} (see also \cite{adam_2016, salinas2015}). These numerical methods are embedded in the next-generation flow simulator Fluidity/IC-FERST model software\footnote{\href{http://multifluids.github.io}{http://multifluids.github.io}} (a full description of the model can be found in \cite{Gomes_2017, jackson_2013}). Although, the numerical formulation used here is relatively new, it is not the focus of this work. The result and discussion section (Section \ref{section:results_discussion}) refers to \citet{dawe_2008} for validation of the numerical formulation with respect to the 2D simulation. However, more extensive validation tests can be found in the aforementioned references \cite{adam_2016, Gomes_2017,jackson_2013, pavlidis2016, salinas2015}.
