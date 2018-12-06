@@ -12,11 +12,11 @@
 %\section{Some Interesting Words}
 
 \begin{enumerate}
-  \item Implemented a reduced order model (\ie{upscale}) of a permeability field by coupling linear regression with Principal Component Analysis, PCA (where PCA is obtained with singular value decomposition, SVD, for 2D cases and Higher Order Singular Value Decomposition, HOSVD, for 3D cases)
-  \item For the 2D Case, benchmarked the coupled PCA (using SVD) and linear regression method by comparing with Arithmetric mean, Harmonic mean, and Probability Density Function (PDF) models, as well as the BaseCase (which is the fine grid model for the 2D case)
-  \item For the 3D case, benchmarked the coupled PCA (using HOSVD) and linear regression method by comparing with the BaseCase (also known as the fine grid model for the 3D case)
-  \item A high-order accurate control volume FEM multiphase flow simulator was used to perform a qualitative comparision of the simulation results from the models for both the 2D and the 3D cases
-  \item The coupled PCA and linear regression model model presented a better representation compared to the other models 
+  \item Coupled linear regression with Principal Component Analysis, PCA, using SVD to obtain a 2D reduced order model
+  \item Benchmarked the 2D PCA and linear regression method by comparing with Arithmetric mean, Harmonic mean and PDF models
+  \item Demonstrated that the PCA-Linear regression technique can be extended to 3-D models with Higher Order SVD (HOSVD)
+  \item Performed a qualitative comparision of the models and simulation results for both the 2D and the 3D cases
+  \item The coupled PCA and linear regression model model presented a better representation compared to the other models
 \end{enumerate}
 \end{document}
 
