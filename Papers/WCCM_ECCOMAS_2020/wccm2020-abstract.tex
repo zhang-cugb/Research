@@ -1,0 +1,66 @@
+\documentclass[12pts,a4paper,amsmath,amssymb,floatfix]{article}
+\usepackage[affil-it]{authblk}
+\usepackage{wrapfig}
+\usepackage{epsfig,graphicx,times,psfrag}
+\usepackage{enumerate}%,comment}%,enumitem}
+\usepackage{pdflscape}
+\usepackage{color}
+\newcommand{\red}{\textcolor{red}}
+
+\pagestyle{empty}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setlength\textwidth      {16.5cm}
+\setlength\textheight     {22.0cm}
+\setlength\oddsidemargin  {-0.3cm}
+
+\setlength\headheight{0in} 
+\setlength\topmargin{0.cm}  
+\setlength\headsep{1.cm}
+\setlength\footskip{1.cm}
+\setlength\parskip{0pt}
+
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\chead{The Fourth UK InterPore Conference, September 10-11, 2018, The University of Aberdeen, UK}
+\renewcommand{\headrulewidth}{0pt}
+
+
+\title{A Machine-Learning based formulation for Upscaling Heterogeneous Permeability Fields}
+\author{Babatunde Lashore, Jefferson Gomes}
+\affil{School of Engineering, University of Aberdeen, UK, b.lashore@abdn.ac.uk}
+\date \today
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+\begin{abstract}
+
+The porous media community has been investigating the representation of heterogeneous petro-physical properties (
+
+
+In a previous work, a technique for upscaling a permeability field using Singular Value Decomposition (SVD) was discussed \cite{Lashore_2018}. In that work, permeability was used as an example of an heterogeneous quantity (parameter), which introduced problems relating to scale and uncertainity during simulations of flow in porous media. The crux of the work, was the application of linear interpolation to singular vectors of the high resolution permeability field dataset, within the principal component space projection of the high resolution permeability field dataset. This was performed to obtain a new upscaled and upgridded permeability field representation ({\it i.e.} a Reduced Order Model, ROM) of the initial high resolution permeability field.
+
+The investigation of the previous work concluded with qualitative observations showing that the SVD upscaling technique faired better when compared to some traditional upscaling techniques (including a Stochastic PDF upscaling technique). However, a qualitative analysis of the results was not undertaken.
+
+The current work builds on the existing work by introducing a quadratic cost function as a metric for quantifying how well the upscaled model represents the initial high resolution model. Additionally, the current work makes use of neural networks \cite{Smola_2008, Russell_2009} for obtaining an hypothesis function for singular vectors, within the principal component space projection of the high resolution permeability field. The hypothesis function is then used to predict singular vectors with a reduced order instead of performing linear interpolation as in the previous work. Finally, the reduced order model obtained with the hypothesis function is optimized using the existing quadratic cost function.
+
+Results show that the neural network is able to learn the permeability field and it allows the optimization of the change in resolution ({\it i.e.} upscaling), to be performed by automation, with improved results. 
+
+
+\end{abstract} 
+
+
+\begin{thebibliography}{99}
+%
+\bibitem{Lashore_2018} B.Lashore, K. Christou, J.L.M.A Gomes (2018) $\lq$A Reduced Order Model for Permeability Fields Using Singular Value Decomposition (SVD)', {\it Submitted for acceptance for publication in a Special Issue of the Applied Mathematical Modelling Journal}.
+%
+\bibitem{Smola_2008} A. Smola, S.V.N. Vishwanathan (2008) $\lq$Introduction to Machine Learning', {\it Cambridge University Press}, ISBN 0-521-82583-0.
+%
+\bibitem{Russell_2009} S.J Russell, P. Norvig (2009) $\lq$Artificial Intelligence: A Modern Approach', {\it Prentice Hall} ISBN 0-13-604259-7.
+%
+\end{thebibliography}
+
+
+\end{document}
