@@ -21,10 +21,10 @@
 \newcommand{\st}{{\it s.t., }}
 
 
-\title{ABSTRACT TITLE}
+\title{A Machine-Learning based formulation for Upscaling Heterogeneous Permeability Fields}
 
 
-\author{Babatunde O. Lashore$^{1*}$, Timiloluwa A. Onimisi$^{2}$ and Jefferson LMA. Gomes$^{3}$}
+\author{Babatunde O. Lashore$^{1*}$, Temiloluwa A. Onimisi$^{2}$ and Jefferson LMA. Gomes$^{3}$}
 
 \address{$^{1}$ School of Engineering, University of Aberdeen, UK.,  b.lashore@abdn.ac.uk
 \and
@@ -38,15 +38,13 @@ $^{3}$ School of Engineering, University of Aberdeen, UK., jefferson.gomes@abdn.
 \begin{document}
 \thispagestyle{empty}
 
-The porous media community has been investigating the challenges of appropriately representing heterogeneous petro-physical properties (\eg permeability) for decades. The challenges considered here are two-fold and are exemplified using permeability. First, it is impossible to obtain the value of permeability at every point in a field scale geological domain. Secondly, the large scale data set involve in running the most realistic and accurate simulations are expensive in terms of computing resources and the time required to run the simulation. This challenge gave birth to upscaling, a model order reduction method.
+The porous media community has been investigating the challenges of appropriately representing heterogeneous petro-physical properties (\eg permeability) for decades. The challenges considered here are two-fold and are exemplified using permeability. First, it is impossible to obtain the value of permeability at every point in a field scale geological domain. Secondly, the large scale data set involved with running the most realistic and accurate simulations are expensive in terms of computing resources and the time required to run the simulation. These challenges gave birth to upscaling, a model order reduction method.
 
 In a previous work, a technique for upscaling a permeability field using Singular Value Decomposition (SVD) was discussed. The crux of that work, was the application of linear interpolation to singular vectors of the high resolution permeability field dataset, within the principal component space projection of the high resolution permeability field dataset. This was performed to obtain a new upscaled and upgridded permeability field representation ({\it i.e.} a Reduced Order Model, ROM) of the initial high resolution permeability field.
 
-The current work builds on the existing work by making use of neural networks \cite{Smola_2008, Russell_2009} for obtaining an hypothesis function of the singular vectors, within the principal component space projection of the high resolution permeability field. The hypothesis function is then used to predict singular vectors with a reduced order instead of performing linear interpolation as in the previous work. 
+The current work builds on the existing work by making use of machine learning \cite{Smola_2008, Russell_2009} for obtaining an hypothesis function of the singular vectors, within the principal component space projection of the high resolution permeability field. The hypothesis function is then used to predict singular vectors with a reduced order instead of performing linear interpolation as in the previous work. 
 
-The investigation of the previous work concluded with qualitative analysis while the new work presents a quantitative analysis in addition to the qualitative analysis of the results.
-
-Results show that the neural network is able to learn the permeability field. This makes it possible to  automate the process of optimizing the change of resolution ({\it i.e.} upscaling). 
+Results show that the coupled ROM and ML upscaling model is able to learn the permeability field. This makes it possible to  automate the process of optimizing the change of resolution ({\it i.e.} upscaling). 
 
 \begin{thebibliography}{99}
 \bibitem{Gomes_2017} Gomes, J. L. M. A., Pavlidis, D., Salinas, P., Xie, Z., Percival, J. R., Melnikova, Y., Pain, C. C. and Jackson, M. D. A force-balanced control volume finite element method for multi-phase porous media flow modelling.\textit{International Journal for Numerical Methods in Fluids} (2017), \textbf{83}: 531--445.
